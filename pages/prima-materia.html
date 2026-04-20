@@ -3,18 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Prima Materia — The unformed substrate of all things; the chaos before creation.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Prima Materia — the undifferentiated first substance of all things, the chaos before creation. Explored through classical alchemy, Christian theology (Genesis, Kenosis, Mary), and Jungian depth psychology." />
   <meta property="og:title" content="Prima Materia — Aurum Cordis" />
+  <meta property="og:description" content="The unformed substrate of all things. Jabir ibn Hayyan, the Emerald Tablet, Genesis 1:2, Kenosis, and Jung's unconscious." />
   <meta property="og:type" content="article" />
   <title>Prima Materia — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Page-specific overrides ── */
+    .pm-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .pm-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 50%, rgba(14, 11, 8, 0) 30%, rgba(14, 11, 8, 1) 85%),
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(58, 90, 64, 0.10) 0%, transparent 70%),
+        var(--color-furnace-black);
+      z-index: 0;
+    }
+    .pm-hero__content { position: relative; z-index: 1; max-width: 780px; }
+
+    .vitriol-feature {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-vitriol-green);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    .vitriol-feature__acronym {
+      font-family: var(--font-label);
+      font-size: var(--text-2xl);
+      letter-spacing: 0.3em;
+      color: var(--color-vitriol-green);
+      display: block;
+      margin-bottom: var(--space-4);
+      line-height: 1;
+    }
+    .vitriol-feature__expansion {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: var(--text-md);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-4);
+    }
+    .vitriol-letters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+    .vitriol-letter {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .vitriol-letter__initial {
+      font-family: var(--font-label);
+      font-size: var(--text-lg);
+      color: var(--color-vitriol-green);
+      flex-shrink: 0;
+      min-width: 1.2ch;
+    }
+
+    .names-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: var(--space-4) 0;
+    }
+    .names-cloud__term {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      padding: 4px var(--space-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      color: var(--color-vellum-dark);
+      background: var(--color-bg-surface);
+    }
+  </style>
 </head>
 <body>
 
   <div class="grain-overlay" aria-hidden="true"></div>
 
+  <!-- Navigation -->
   <nav class="nav" aria-label="Site navigation">
     <div class="nav__inner">
       <a href="../index.html" class="nav__brand" aria-label="Aurum Cordis — Home">
@@ -36,7 +124,7 @@
       </button>
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
+        <li><a href="prima-materia.html" class="nav__link active" aria-current="page">Prima Materia</a></li>
         <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
@@ -47,27 +135,582 @@
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Aurum Cordis — Foundation</p>
-    <h1 class="page-header__title">⬤ Prima Materia</h1>
-    <p class="page-header__subtitle">The unformed substrate of all things; the chaos before creation.</p>
-  </header>
+  <!-- Hero -->
+  <section class="pm-hero" aria-labelledby="pm-title">
+    <div class="pm-hero__bg" aria-hidden="true"></div>
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+    <div class="pm-hero__content">
+
+      <!-- Prima Materia SVG: chaotic overlapping circles with central point -->
+      <svg
+        width="140" height="140"
+        viewBox="0 0 140 140"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="animate-on-scroll"
+        style="margin: 0 auto var(--space-6); color: var(--color-sulphur-gold); display: block;"
+        aria-label="Alchemical symbol of Prima Materia: overlapping circles surrounding a central point, representing the undifferentiated source of all things"
+      >
+        <!-- Outer chaotic ring — dashed, slightly irregular -->
+        <circle cx="70" cy="70" r="62" stroke="currentColor" stroke-width="1" stroke-dasharray="6 4" opacity="0.35"/>
+        <!-- Overlapping elemental circles (four, offset) suggesting undifferentiated multiplicity -->
+        <circle cx="70" cy="46" r="28" stroke="currentColor" stroke-width="1" opacity="0.30"/>
+        <circle cx="70" cy="94" r="28" stroke="currentColor" stroke-width="1" opacity="0.30"/>
+        <circle cx="46" cy="70" r="28" stroke="currentColor" stroke-width="1" opacity="0.30"/>
+        <circle cx="94" cy="70" r="28" stroke="currentColor" stroke-width="1" opacity="0.30"/>
+        <!-- Middle circle — the containing vessel -->
+        <circle cx="70" cy="70" r="40" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+        <!-- Inner circle -->
+        <circle cx="70" cy="70" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.70"/>
+        <!-- Central point — the latent solar seed -->
+        <circle cx="70" cy="70" r="4" fill="currentColor" opacity="0.90"/>
+        <!-- Cross arms pointing to the cardinal circles -->
+        <line x1="70" y1="52" x2="70" y2="88" stroke="currentColor" stroke-width="1" opacity="0.50"/>
+        <line x1="52" y1="70" x2="88" y2="70" stroke="currentColor" stroke-width="1" opacity="0.50"/>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1">The Foundation of the Work</p>
+
+      <h1 class="hero__title animate-on-scroll delay-2" id="pm-title">
+        Prima Materia
+      </h1>
+
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        <span class="latin">"Verum, sine mendacio, certum et verissimum"</span><br>
+        True, without falsehood, certain and most true.
       </p>
+
+      <blockquote class="animate-on-scroll delay-4" style="max-width: 600px; margin: 0 auto; font-style: italic; font-family: var(--font-body); font-size: var(--text-md); color: var(--color-text-muted); line-height: 1.65; border-left: 2px solid var(--color-border-strong); padding-left: var(--space-3);">
+        "That which is below is like that which is above, and that which is above is like that which is below,
+        to accomplish the miracles of the one thing. And as all things have proceeded from the one,
+        through the mediation of the one, so all things are born of this one thing by adaptation."
+        <cite style="display: block; margin-top: var(--space-2); font-style: normal; font-family: var(--font-label); font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-sulphur-gold);">
+          The Emerald Tablet (<span class="latin">Tabula Smaragdina</span>), attr. Hermes Trismegistus
+        </cite>
+      </blockquote>
+
     </div>
+  </section>
+
+  <main>
+
+    <!-- Three-lens summary cards -->
+    <section class="section section--sm" aria-labelledby="lenses-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="lenses-title">Three Lenses on Prima Materia</h2>
+        <div class="grid grid-3 gap-4">
+
+          <article class="card animate-on-scroll" aria-labelledby="card-alchemical-title">
+            <p class="card__label">Alchemical</p>
+            <h3 class="card__title" id="card-alchemical-title">The Undifferentiated Substrate</h3>
+            <p class="card__body">
+              The first substance from which all metals and all things are made — formless, unknowable in itself,
+              yet the latent ground of every form. It is everywhere, costs nothing, and almost no one recognises it.
+              Called by a hundred names, it escapes every definition.
+            </p>
+          </article>
+
+          <article class="card card--cinnabar animate-on-scroll delay-1" aria-labelledby="card-christian-title">
+            <p class="card__label">Christian</p>
+            <h3 class="card__title" id="card-christian-title">Tohu wa-Bohu &amp; Kenosis</h3>
+            <p class="card__body">
+              The formless void of Genesis 1:2 over which the Spirit hovers; the unregenerate soul awaiting divine
+              fire; and the self-emptying of Christ who voluntarily entered the chaos of creaturely existence —
+              the Word made Prima Materia.
+            </p>
+          </article>
+
+          <article class="card card--vitriol animate-on-scroll delay-2" aria-labelledby="card-jungian-title">
+            <p class="card__label">Jungian</p>
+            <h3 class="card__title" id="card-jungian-title">The Unconscious</h3>
+            <p class="card__body">
+              Jung identified Prima Materia with the dark, unformed psychic substrate — everything in the soul
+              that has not yet been brought to consciousness. The Opus begins here, in the encounter with one's
+              own shadow: the lead-like, rejected, denied self.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Task 1.1: Alchemical Foundation ── -->
+    <section class="section" id="alchemical-foundation" aria-labelledby="alch-title">
+      <div class="container">
+        <div class="two-col">
+
+          <div class="two-col__left">
+            <p class="two-col__label">I. Alchemical Foundation</p>
+            <h2 id="alch-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-4);">
+              The First Substance
+            </h2>
+
+            <div class="content-prose animate-on-scroll">
+              <p>
+                At the origin of every alchemical treatise stands a single, bewildering postulate: before you can
+                make anything, you must return to the thing from which everything is made.
+                The <span class="alchemical-term">Prima Materia</span> — First Matter — is that thing.
+                It is the undifferentiated substrate that underlies all metals, all substances, all beings.
+                In the Aristotelian framework that medieval alchemy inherited, it is pure <span class="latin">hyle</span>:
+                pure potentiality, matter without form, the vessel that can receive any quality but currently holds none.
+              </p>
+              <p>
+                <strong>Jabir ibn Hayyan</strong> (fl. 8th century, known in Latin as Geber), the foundational
+                figure of Arabic alchemy, described Prima Materia as the single principle underlying the
+                mineral kingdom: a substance composed of elemental qualities in different proportions, from which
+                all specific metals deviate and to which they can theoretically be returned.
+                For Jabir, the alchemical work was a precise, almost surgical rebalancing of these proportions.
+                The Prima Materia was not mystical vagueness but a rigorous theoretical posit.
+              </p>
+              <p>
+                Yet the tradition refused to leave it at that. The <span class="alchemical-term">Rosarium Philosophorum</span>
+                (c. 1550), one of the most influential late-medieval compilations, speaks of Prima Materia in language
+                that oscillates constantly between the chemical and the mystical:
+                it is "the root of all metals," yet also "our chaos," "the sea," "the black earth."
+                <strong>Paracelsus</strong> (1493–1541), who transformed alchemy's theoretical foundations,
+                treated the Prima Materia as the universal substrate of nature from which the three principles —
+                Sulphur, Mercury, and Salt — are distilled by the divine art.
+              </p>
+              <p>
+                The <span class="alchemical-term">Emerald Tablet</span>, perhaps the most quoted text in all of
+                Western alchemy, situates the Prima Materia within a cosmic frame: "All things have proceeded
+                from the one." That primordial one — the source from which everything comes and to which the
+                alchemist's work returns — is the Prima Materia under its most exalted name.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-col__divider" aria-hidden="true">
+            <div class="two-col__divider-line"></div>
+            <span class="two-col__divider-glyph">☿</span>
+            <div class="two-col__divider-line"></div>
+          </div>
+
+          <div class="two-col__right">
+            <p class="two-col__label">The Paradox of Many Names</p>
+
+            <div class="content-prose animate-on-scroll">
+              <p>
+                Nothing reveals the strangeness of the Prima Materia more than the list of names the alchemists
+                gave it. It was called <em>chaos</em>, <em>hyle</em>, <em>Mercurius</em>, <em>the sea</em>,
+                <em>water</em>, <em>fire</em>, <em>earth</em>, <em>air</em>, <em>lead</em>, <em>dung</em>,
+                <em>poison</em>, <em>the dragon</em>, <em>the toad</em>, and many more.
+                This is not confusion or incompetence. It is theological precision of a peculiar kind.
+              </p>
+              <p>
+                A thing that can be called by any name is a thing that exceeds every name.
+                The Prima Materia is radically <em>other</em> to every formed thing, and so every formed thing
+                can serve as a pointer to it — but none can capture it. The alchemists were, in their way,
+                practising a negative theology of matter: describing the indescribable by piling up inadequate
+                descriptions and trusting the reader to glimpse what lies behind them all.
+              </p>
+              <p>
+                This should sound familiar to Christian ears. The Cappadocian Fathers applied the same logic
+                to the divine essence: God cannot be named, and therefore all names are true and none is
+                sufficient. The Prima Materia's resistance to definition is not a flaw in the theory.
+                It is the theory's most important claim.
+              </p>
+            </div>
+
+            <div class="names-cloud animate-on-scroll" aria-label="Names given to Prima Materia by alchemical tradition">
+              <span class="names-cloud__term">chaos</span>
+              <span class="names-cloud__term latin">hyle</span>
+              <span class="names-cloud__term">Mercurius</span>
+              <span class="names-cloud__term">the sea</span>
+              <span class="names-cloud__term">water</span>
+              <span class="names-cloud__term">fire</span>
+              <span class="names-cloud__term">lead</span>
+              <span class="names-cloud__term">dung</span>
+              <span class="names-cloud__term">poison</span>
+              <span class="names-cloud__term">the dragon</span>
+              <span class="names-cloud__term">the toad</span>
+              <span class="names-cloud__term latin">prima hyle</span>
+              <span class="names-cloud__term">the black earth</span>
+              <span class="names-cloud__term">our chaos</span>
+              <span class="names-cloud__term">the root of all metals</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripture blockquote -->
+    <section class="section section--sm" aria-label="Scripture: Genesis 1">
+      <div class="container container--narrow">
+        <blockquote class="scripture animate-on-scroll">
+          In the beginning God created the heavens and the earth. Now the earth was formless and empty,
+          darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.
+          <cite>Genesis 1:1–2 (NIV)</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ── Task 1.2: Christian Theological Correlates ── -->
+    <section class="section" id="christian-correlates" aria-labelledby="christian-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="christian-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-6);">
+          Chaos, Creation, and the Descending Word
+        </h2>
+
+        <!-- Tohu wa-bohu -->
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>I. <span class="latin">Tohu wa-Bohu</span>: The Scriptural Prima Materia</h3>
+          <p>
+            The Hebrew phrase <span class="alchemical-term">tohu wa-bohu</span> (Genesis 1:2) is conventionally
+            rendered "formless and empty," but the words carry heavier freight.
+            <span class="latin">Tohu</span> suggests a desolate, trackless waste; <span class="latin">bohu</span>
+            an emptiness so complete it verges on non-being. Together they name something that is, yet barely is:
+            existence without differentiation, being without structure, the raw material of creation in its
+            most naked state.
+          </p>
+          <p>
+            This is the closest the Hebrew Bible comes to Prima Materia, and the parallel is not accidental.
+            The alchemical tradition absorbed it consciously. The spirit (<span class="latin">ruach</span>) of God
+            hovering over these waters is the <span class="latin">Spiritus</span> of alchemical theory —
+            the animating divine breath that begins to work upon the formless to draw out of it the order
+            latent within. Creation, on this reading, is the original Opus: God as the first alchemist,
+            drawing the world out of its chaos-state into differentiated, formed existence.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
+
+        <!-- Creatio ex nihilo vs ex materia -->
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>II. <span class="latin">Creatio ex Nihilo</span> and <span class="latin">Creatio ex Materia</span></h3>
+          <p>
+            Here the theologian must tread carefully. Christian orthodoxy insists on
+            <span class="latin">creatio ex nihilo</span>: creation from nothing, not from any pre-existing
+            substrate. God does not shape a resistant material; he calls being from non-being by his word alone.
+            This guards crucial theological ground — divine freedom, divine sovereignty, the goodness of matter
+            (which owes nothing to a malevolent anti-principle).
+          </p>
+          <p>
+            Alchemical hylomorphism, with its Prima Materia as eternal substrate, seems to contradict this.
+            But the contradiction dissolves when we attend to the different levels of inquiry.
+            <span class="latin">Creatio ex nihilo</span> is an ontological claim about the absolute origin
+            of being. The Prima Materia is a <em>cosmological</em> and <em>symbolic</em> claim about how
+            transformation works within the already-created order. Once God has spoken the world into existence,
+            the processes of that world — including the processes of sanctification and soul-making —
+            operate upon something: a given, unchosen, disordered raw material. The Prima Materia names
+            that something. The two doctrines operate at different levels and need not conflict.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
+
+        <!-- The unregenerate soul -->
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>III. The Soul Before Grace</h3>
+          <p>
+            <strong>Origen of Alexandria</strong> (c. 184–253), in his daring cosmological speculations,
+            envisaged the pre-existent souls as originally formless rational beings (<span class="latin">noes</span>)
+            who "cooled" through neglect of the Good and fell into embodied existence. The material world is,
+            on his reading, itself a kind of remedial Prima Materia — a theatre of purification for disordered
+            souls. While the Church rejected the pre-existence of souls, Origen's instinct survives:
+            the unregenerate self is formless in the theologically significant sense, a soul that has not yet
+            received the form of Christ.
+          </p>
+          <p>
+            <strong>Gregory of Nyssa</strong> (c. 335–395) is more careful and more useful.
+            In <span class="latin">De Anima et Resurrectione</span> and the <span class="latin">Life of Moses</span>,
+            Gregory describes the soul's journey to God as a progressive receiving of divine form — an
+            endless <span class="latin">epektasis</span>, a stretching forward into the inexhaustible beauty of God.
+            The starting point is always a kind of darkness, a cloud of unknowing in which the soul recognises
+            its own formlessness before the divine light. Gregory's soul begins in chaos and moves, through grace,
+            toward an ever-deeper participation in the divine nature. This is Prima Materia → Opus → Lapis
+            in patristic dress.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
+
+        <!-- Kenosis -->
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>IV. <span class="latin">Kenosis</span>: The Word Enters the Chaos</h3>
+          <p>
+            The most theologically audacious use of Prima Materia is Christological.
+            St Paul writes of Christ that he "emptied himself" (<span class="latin">ekenôsen heauton</span>,
+            Philippians 2:7), taking the form of a servant, being born in the likeness of human beings.
+            In the patristic tradition, this <span class="latin">kenosis</span> — self-emptying — was read as
+            the divine Son's voluntary assumption of creaturely limitation, vulnerability, and ultimately death.
+          </p>
+          <p>
+            Read through the alchemical lens, <span class="latin">kenosis</span> is the Word's descent into
+            the Prima Materia. The eternal, perfectly formed Logos takes on the formlessness of flesh —
+            enters the chaos not to be destroyed by it but to begin transforming it from within.
+            The Incarnation is the Opus beginning at its most radical point: not the alchemist working upon
+            the prima materia from outside, but the principle of form itself becoming matter,
+            the first alchemist becoming the first metal.
+          </p>
+          <p>
+            This is not merely poetic. It is a serious theological claim with deep patristic support.
+            Athanasius's <span class="latin">On the Incarnation</span> insists that the Word took on a
+            human nature in order to recapitulate it, reform it from within, and restore to it the
+            <span class="latin">imago Dei</span> that sin had disordered. The Word, in becoming flesh,
+            did not simply enter matter — he began the Great Work upon it.
+          </p>
+        </div>
+
+        <blockquote class="scripture animate-on-scroll">
+          Who, being in very nature God, did not consider equality with God something to be used to his own
+          advantage; rather, he made himself nothing by taking the very nature of a servant, being made in
+          human likeness.
+          <cite>Philippians 2:6–7 (NIV)</cite>
+        </blockquote>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
+
+        <!-- Mary as vas hermeticum -->
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>V. Mary as <span class="latin">Vas Hermeticum</span></h3>
+          <p>
+            If the Incarnation is the Opus beginning, the Virgin Mary is its first vessel.
+            Medieval iconography of the Annunciation frequently depicts the womb of Mary as a sealed chamber
+            — the <span class="latin">hortus conclusus</span> (enclosed garden) of the Song of Songs,
+            the <span class="latin">porta clausa</span> (closed gate) of Ezekiel. These are images of
+            enclosure, purity, and sealed containment: a space prepared for a transformation that cannot be
+            contaminated from outside.
+          </p>
+          <p>
+            The alchemists called their sealed crucible the <span class="alchemical-term">vas hermeticum</span>:
+            the hermetically sealed vessel in which the Opus was performed. C.G. Jung noted, with characteristic
+            boldness, that the imagery of Mary's womb in medieval Mariology maps precisely onto this alchemical
+            concept. The sealed vessel is the condition of transformation; what goes in must not be able to
+            escape, and nothing from outside must enter to corrupt the work.
+          </p>
+          <p>
+            In Mary's womb, the divine and human natures are first united — not yet in the full Rubedo of the
+            Resurrection, but in the initial, hidden conjoining that makes the Opus possible at all.
+            Mary, on this reading, is not peripheral to the alchemical theology of the Incarnation.
+            She is its necessary first instrument: the Prima Materia's vessel, the chaos's container,
+            the place where formlessness begins, silently, to receive its form.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 1.3: Jungian Dimension ── -->
+    <section class="section" id="jungian-dimension" aria-labelledby="jung-title"
+      style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-6);">
+          The Dark Substrate of the Psyche
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>Prima Materia as the Unconscious</h3>
+          <p>
+            C.G. Jung's central claim about alchemy — elaborated across
+            <span class="latin">Psychology and Alchemy</span> (1944) and
+            <span class="latin">Mysterium Coniunctionis</span> (1956) — is that the alchemists were projecting
+            psychological processes onto matter. When they described the Prima Materia as dark, formless,
+            containing all potentialities, resistant to definition, and yet the indispensable starting point
+            of the Opus, they were, without knowing it, describing the unconscious.
+          </p>
+          <p>
+            The unconscious, for Jung, is not merely a repository of repressed memories.
+            It is the vast, undifferentiated psychic substrate out of which consciousness itself emerges —
+            the Prima Materia of the soul. It is everywhere (it underlies every experience) yet nowhere
+            (it resists direct inspection); it contains all possibilities (it is the source of dreams,
+            symbols, creativity, instinct) yet currently holds no fixed form.
+            Most importantly, the work of individuation — Jung's term for the lifelong process of
+            psychological becoming — cannot begin anywhere else.
+            You cannot skip the Prima Materia and proceed directly to the Philosopher's Stone.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+          <h3>The Shadow: Prima Materia's Human Face</h3>
+          <p>
+            In the language of Jungian psychology, the first practical encounter with the Prima Materia
+            is the encounter with the <strong>Shadow</strong>: the dark, denied, "lead-like" aspects of
+            oneself that have been rejected from consciousness and deposited in the unconscious.
+            The Shadow is what the alchemist sees when he first gazes into his crucible — not gold,
+            not even useful material, but something that looks like refuse: dung, poison, the black earth.
+          </p>
+          <p>
+            The alchemical tradition was honest about this. The Prima Materia must be found before it can
+            be worked. And it is found, the texts insist, in the most despised and overlooked places —
+            on dunghills, in excrement, in the gutter. Psychologically, this means:
+            the beginning of self-knowledge is the willingness to look at what one has most thoroughly
+            refused to be. The exile, the failure, the shame, the unintegrated rage — these are not
+            obstacles to the Opus. They are its raw material.
+          </p>
+          <p>
+            For those in the wilderness seasons of the spiritual life — seasons of exile, of stripped
+            identity, of the death of one's previous self-understanding — this is not bad news.
+            The blackness of the Prima Materia is not the absence of God. It is the presence of
+            the unworked substance. The Opus has begun. The fact that the material is dark and
+            unformed is not a problem to be solved but a stage to be entered.
+          </p>
+        </div>
+
+        <div class="epigraph animate-on-scroll">
+          <p class="epigraph__text">
+            "The prima materia has the quality of ubiquity: it can be found always and everywhere,
+            which is to say that projection can take place always and everywhere."
+          </p>
+          <p class="epigraph__source">C.G. Jung, <span class="latin">Psychology and Alchemy</span>, CW 12, §433</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 1.4: V.I.T.R.I.O.L. Feature ── -->
+    <section class="section" id="vitriol" aria-labelledby="vitriol-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Motto</p>
+        <h2 id="vitriol-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-4);">
+          The Way Down Is the Way In
+        </h2>
+
+        <div class="vitriol-feature animate-on-scroll">
+          <span class="vitriol-feature__acronym" aria-label="V I T R I O L">V.I.T.R.I.O.L.</span>
+          <p class="vitriol-feature__expansion">
+            <span class="latin">"Visita Interiora Terrae Rectificando Invenies Occultum Lapidem"</span>
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin-bottom: var(--space-4);">
+            "Visit the Interior of the Earth; by Rectifying, you will find the Hidden Stone."
+          </p>
+
+          <div class="vitriol-letters">
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">V</span>
+              <span><span class="latin">Visita</span> — Visit, descend</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">I</span>
+              <span><span class="latin">Interiora</span> — the Interior</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">T</span>
+              <span><span class="latin">Terrae</span> — of the Earth (your earth, yourself)</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">R</span>
+              <span><span class="latin">Rectificando</span> — by Rectifying, purifying</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">I</span>
+              <span><span class="latin">Invenies</span> — you will find</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">O</span>
+              <span><span class="latin">Occultum</span> — the Hidden</span>
+            </div>
+            <div class="vitriol-letter">
+              <span class="vitriol-letter__initial">L</span>
+              <span><span class="latin">Lapidem</span> — Stone</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-prose animate-on-scroll">
+          <p>
+            This motto, which appears in various forms from the late 16th century onward, encodes the
+            entire programme of the alchemical Opus in seven Latin words. It is a descent — not an ascent.
+            The Stone is not found by rising above the material, the bodily, the dark.
+            It is found by entering more deeply into it.
+          </p>
+          <p>
+            The <span class="latin">Terra</span> to be visited is, of course, not simply physical earth.
+            It is the earth of the self — the body, the unconscious, the Prima Materia of the soul.
+            The descent is the willingness to face what lies in the dark interior: the shadow, the grief,
+            the unintegrated past. <span class="latin">Rectificando</span> — by purifying, by bringing
+            attention and honesty to what is found there — the hidden stone is uncovered.
+            Not manufactured. Not created from nothing. <em>Found</em>. It was already there.
+          </p>
+          <p>
+            The Christian ear hears in this the <span class="alchemical-term">Descensus ad Inferos</span>:
+            Christ's descent into hell, his harrowing of the very darkest place, his finding and releasing
+            what had been imprisoned there. The Stone was hidden even in the underworld.
+            The way to Easter passes through Good Friday and Holy Saturday.
+            The way to the gold passes through the black earth.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition panel -->
+    <section class="section section--sm" aria-label="Continue to next stage">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            From the unformed substrate, the Four Elements emerge — the first articulation of the chaos into
+            distinguishable qualities, and the beginning of the alchemical cosmology.
+          </p>
+          <a href="four-elements.html" class="transition-panel__arrow" aria-label="Continue to The Four Elements">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm" aria-label="Notes and references">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>The Emerald Tablet survives in Arabic (c. 8th–9th c.) and Latin (c. 12th c.) translations.
+            The locus classicus for alchemical commentary is the collection in J.J. Manget,
+            <span class="latin">Bibliotheca Chemica Curiosa</span> (1702).</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>On Jabir ibn Hayyan, see Syed Nomanul Haq,
+            <em>Names, Natures and Things: The Alchemist Jābir ibn Ḥayyān</em> (1994);
+            and Lawrence Principe, <em>The Secrets of Alchemy</em> (2013), ch. 1.</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>Gregory of Nyssa, <span class="latin">Life of Moses</span>, II.162–169, on the soul's
+            entry into divine darkness (<span class="latin">gnophos</span>) as the highest form of knowledge.
+            Cf. Vladimir Lossky, <em>The Mystical Theology of the Eastern Church</em> (1957), ch. 2.</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>On the <span class="latin">vas hermeticum</span> and its Marian correlate, see Jung,
+            <span class="latin">Psychology and Alchemy</span>, CW 12, §§ 303–304, 338–339;
+            and Barbara Obrist, <em>Les débuts de l'imagerie alchimique</em> (1982).</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>The V.I.T.R.I.O.L. acronym appears in
+            <span class="latin">L'Azoth des Philosophes</span> by Basil Valentine (attr., c. 1624) and was
+            widely disseminated through Rosicrucian literature. See Lyndy Abraham,
+            <em>A Dictionary of Alchemical Imagery</em> (1998), s.v. "vitriol."</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="four-elements.html" class="site-footer__link">Next: Four Elements →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
