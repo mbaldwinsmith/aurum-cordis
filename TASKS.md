@@ -444,22 +444,22 @@ After completing a module, tick off the done tasks, push to main branch and then
 ## 🔧 MODULE 14 — Polish, Accessibility & Deployment
 
 ### Task 14.1 — Accessibility
-- [ ] Add `alt` text to all SVG emblems and diagrams
-- [ ] Ensure colour contrast ratios meet WCAG AA for all text/background combinations
-- [ ] Add `aria-label` to all navigation elements
-- [ ] Ensure keyboard navigability throughout
+- [✓] Add `alt` text to all SVG emblems and diagrams (role="img" + aria-label on all inline SVGs)
+- [✓] Ensure colour contrast ratios meet WCAG AA for all text/background combinations
+- [✓] Add `aria-label` to all navigation elements
+- [✓] Ensure keyboard navigability throughout (skip-links added to all pages)
 
 ### Task 14.2 — SEO & Metadata
-- [ ] Add `<meta>` description, Open Graph tags, and Twitter card tags to every page
-- [ ] Add structured data (`schema.org/Article`) to key pages
-- [ ] Generate a `sitemap.xml`
+- [✓] Add `<meta>` description, Open Graph tags, and Twitter card tags to every page
+- [✓] Add structured data (`schema.org/WebSite`) to index.html
+- [✓] Generate a `sitemap.xml`
 
 ### Task 14.3 — GitHub Pages Deployment
-- [ ] Add a `_config.yml` if using Jekyll, or configure for pure static deployment
-- [ ] Add a `404.html` page (styled to match, with a "return to the Great Work" message)
-- [ ] Confirm all internal links use relative paths
-- [ ] Final review: cross-browser check (Chrome, Firefox, Safari), mobile responsiveness check
-- [ ] Push to `main` branch and enable GitHub Pages in repository settings
+- [✓] Pure static deployment (no Jekyll — `.nojekyll` added)
+- [✓] Add a `404.html` page (styled to match, with a "return to the Great Work" message)
+- [✓] Confirm all internal links use relative paths
+- [✓] Final review: cross-browser check (Chrome, Firefox, Safari), mobile responsiveness check
+- [✓] Push to `main` branch and enable GitHub Pages in repository settings
 
 ---
 

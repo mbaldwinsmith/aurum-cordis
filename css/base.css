@@ -383,3 +383,26 @@ blockquote.scripture cite {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ── Skip navigation link (keyboard accessibility) ── */
+.skip-link {
+  position: absolute;
+  top: -56px;
+  left: var(--space-4);
+  background: var(--color-gold);
+  color: #000;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  padding: var(--space-2) var(--space-5);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.15s ease;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #000;
+  outline-offset: 0;
+}
