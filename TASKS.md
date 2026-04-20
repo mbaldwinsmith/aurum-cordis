@@ -43,43 +43,43 @@ aurum-cordis/
 ## ⚙️ MODULE 0 — Project Scaffolding & Design System
 
 ### Task 0.1 — Repository & File Structure
-- [ ] Create the full directory tree as shown above
-- [ ] Edit `README.md` with project title, description, theological premise, and attribution
+- [✓] Create the full directory tree as shown above
+- [✓] Edit `README.md` with project title, description, theological premise, and attribution
 
 ### Task 0.2 — Design System (`css/base.css`)
-- [ ] Define CSS custom properties for the full design token system:
+- [✓] Define CSS custom properties for the full design token system:
   - **Colour palette**: Deep alchemical tones — furnace black (`#0e0b08`), vellum cream (`#f0e6c8`), cinnabar red (`#8b1a1a`), vitriol green (`#3a5a40`), sulphur gold (`#c9a227`), silver (`#b8bcc2`), azure (`#1a3a5c`)
   - **Typography**: Import `IM Fell English` (Google Fonts) for headings; `Cormorant Garamond` for body text; `Cinzel` for section labels and alchemical terms
   - **Spacing scale**: 8pt base grid (8, 16, 24, 32, 48, 64, 96, 128px)
   - **Border radius, shadow, and z-index tokens**
-- [ ] Define a global `body` and `html` reset with scroll behaviour
-- [ ] Create `.container`, `.section`, `.page-header`, and `.content-prose` layout utility classes
-- [ ] Add a `.alchemical-term` inline style (small-caps, gold colour, light letter-spacing)
-- [ ] Add a `.scripture` blockquote style (left border in cinnabar, italic Cormorant, indented)
-- [ ] Add a `.latin` style for Latin phrases (italic, slightly reduced opacity)
+- [✓] Define a global `body` and `html` reset with scroll behaviour
+- [✓] Create `.container`, `.section`, `.page-header`, and `.content-prose` layout utility classes
+- [✓] Add a `.alchemical-term` inline style (small-caps, gold colour, light letter-spacing)
+- [✓] Add a `.scripture` blockquote style (left border in cinnabar, italic Cormorant, indented)
+- [✓] Add a `.latin` style for Latin phrases (italic, slightly reduced opacity)
 
 ### Task 0.3 — Animation System (`css/animations.css`)
-- [ ] Define `@keyframes` for: `fadeInUp`, `fadeInLeft`, `glowPulse`, `slowRotate`, `flicker`
-- [ ] Create utility animation classes: `.animate-on-scroll` (triggers via JS IntersectionObserver), `.glow`, `.rotate-slow`
-- [ ] Add a CSS noise/grain texture overlay class `.grain-overlay` using SVG filter
+- [✓] Define `@keyframes` for: `fadeInUp`, `fadeInLeft`, `glowPulse`, `slowRotate`, `flicker`
+- [✓] Create utility animation classes: `.animate-on-scroll` (triggers via JS IntersectionObserver), `.glow`, `.rotate-slow`
+- [✓] Add a CSS noise/grain texture overlay class `.grain-overlay` using SVG filter
 
 ### Task 0.4 — Component Library (`css/components.css`)
-- [ ] **Navigation bar**: Fixed top nav with alchemical sigil logo, site title, and page links; collapses to hamburger on mobile
-- [ ] **Hero section**: Full-viewport with title, subtitle, atmospheric background (dark vellum texture), and a large SVG alchemical emblem
-- [ ] **Content card** (`.card`): Used for principles, stages, and terms — parchment background, gold border-top, subtle drop shadow
-- [ ] **Dual-column layout** (`.two-col`): Left = theological content, Right = alchemical content, linked by a central divider glyph
-- [ ] **Pull quote / epigraph** (`.epigraph`): Centred, large Cormorant italic, faint line above and below
-- [ ] **Term glossary row** (`.glossary-item`): Alchemical symbol + Latin name + English gloss + theological correlate
-- [ ] **Stage indicator strip**: Visual progress bar across the four stages of the Opus, used on each stage page
-- [ ] **Footnote / endnote** system with superscript links and a `<footer>` reference block
-- [ ] **Image/emblem figure** (`.emblem-figure`): Centred image with caption in small Cinzel
+- [✓] **Navigation bar**: Fixed top nav with alchemical sigil logo, site title, and page links; collapses to hamburger on mobile
+- [✓] **Hero section**: Full-viewport with title, subtitle, atmospheric background (dark vellum texture), and a large SVG alchemical emblem
+- [✓] **Content card** (`.card`): Used for principles, stages, and terms — parchment background, gold border-top, subtle drop shadow
+- [✓] **Dual-column layout** (`.two-col`): Left = theological content, Right = alchemical content, linked by a central divider glyph
+- [✓] **Pull quote / epigraph** (`.epigraph`): Centred, large Cormorant italic, faint line above and below
+- [✓] **Term glossary row** (`.glossary-item`): Alchemical symbol + Latin name + English gloss + theological correlate
+- [✓] **Stage indicator strip**: Visual progress bar across the four stages of the Opus, used on each stage page
+- [✓] **Footnote / endnote** system with superscript links and a `<footer>` reference block
+- [✓] **Image/emblem figure** (`.emblem-figure`): Centred image with caption in small Cinzel
 
 ### Task 0.5 — JavaScript Core (`js/main.js`)
-- [ ] Implement IntersectionObserver for `.animate-on-scroll` elements
-- [ ] Implement smooth anchor scroll
-- [ ] Implement active nav link highlighting based on current page
-- [ ] Implement mobile hamburger menu toggle
-- [ ] Add a "scroll to top" button that appears after 400px scroll
+- [✓] Implement IntersectionObserver for `.animate-on-scroll` elements
+- [✓] Implement smooth anchor scroll
+- [✓] Implement active nav link highlighting based on current page
+- [✓] Implement mobile hamburger menu toggle
+- [✓] Add a "scroll to top" button that appears after 400px scroll
 
 ---
 
@@ -88,29 +88,29 @@ aurum-cordis/
 *The unformed substrate of all things; the chaos before creation.*
 
 ### Task 1.1 — Content: Alchemical Foundation
-- [ ] Define **Prima Materia** in classical alchemical terms: the undifferentiated first substance from which all metals and all things are made; unknowable in itself, only knowable through its manifestations
-- [ ] Describe its paradoxical character: everywhere yet nowhere, common yet priceless, formless yet the source of all form
-- [ ] Cite key alchemical sources: Jabir ibn Hayyan (Geber), the *Rosarium Philosophorum*, Paracelsus, and the *Emerald Tablet*
-- [ ] Note the range of names Prima Materia was given: chaos, hyle, Mercurius, water, fire, earth, lead, dung, poison — and explain why this multiplicity is theologically significant
+- [✓] Define **Prima Materia** in classical alchemical terms: the undifferentiated first substance from which all metals and all things are made; unknowable in itself, only knowable through its manifestations
+- [✓] Describe its paradoxical character: everywhere yet nowhere, common yet priceless, formless yet the source of all form
+- [✓] Cite key alchemical sources: Jabir ibn Hayyan (Geber), the *Rosarium Philosophorum*, Paracelsus, and the *Emerald Tablet*
+- [✓] Note the range of names Prima Materia was given: chaos, hyle, Mercurius, water, fire, earth, lead, dung, poison — and explain why this multiplicity is theologically significant
 
 ### Task 1.2 — Content: Christian Theological Correlates
-- [ ] **Tohu wa-bohu** (Genesis 1:2): the formless void and darkness over the deep as the closest scriptural analogue to Prima Materia; the Spirit (Ruach) hovering over it as the alchemical *Spiritus*
-- [ ] **Creatio ex nihilo** vs **creatio ex materia**: explore the tension between Christian orthodoxy (creation from nothing) and alchemical hylomorphism; argue they address different ontological levels
-- [ ] **The human soul before grace**: patristic use of Prima Materia as a metaphor for the unregenerate self — disordered, unformed, awaiting the divine fire (Origen, Gregory of Nyssa)
-- [ ] **Kenosis** as Prima Materia: Christ's self-emptying (Philippians 2:7) as the voluntary assumption of unformed humanity — the Word entering the chaos
-- [ ] **Mary as vessel of the Prima Materia**: her womb as the *vas hermeticum* (sealed vessel) in which the divine and human are first joined; cite the Annunciation iconographic tradition
+- [✓] **Tohu wa-bohu** (Genesis 1:2): the formless void and darkness over the deep as the closest scriptural analogue to Prima Materia; the Spirit (Ruach) hovering over it as the alchemical *Spiritus*
+- [✓] **Creatio ex nihilo** vs **creatio ex materia**: explore the tension between Christian orthodoxy (creation from nothing) and alchemical hylomorphism; argue they address different ontological levels
+- [✓] **The human soul before grace**: patristic use of Prima Materia as a metaphor for the unregenerate self — disordered, unformed, awaiting the divine fire (Origen, Gregory of Nyssa)
+- [✓] **Kenosis** as Prima Materia: Christ's self-emptying (Philippians 2:7) as the voluntary assumption of unformed humanity — the Word entering the chaos
+- [✓] **Mary as vessel of the Prima Materia**: her womb as the *vas hermeticum* (sealed vessel) in which the divine and human are first joined; cite the Annunciation iconographic tradition
 
 ### Task 1.3 — Content: Jungian Dimension
-- [ ] Jung's identification of Prima Materia with the **unconscious**: the dark, unformed psychic substrate from which individuation begins
-- [ ] The Shadow as the alchemist's first encounter with Prima Materia — what is rejected, denied, "lead-like"
-- [ ] Connect to Mark's own Jungian framing: the exile state, the unintegrated self, the beginning of the Opus in self-knowledge
+- [✓] Jung's identification of Prima Materia with the **unconscious**: the dark, unformed psychic substrate from which individuation begins
+- [✓] The Shadow as the alchemist's first encounter with Prima Materia — what is rejected, denied, "lead-like"
+- [✓] Connect to Mark's own Jungian framing: the exile state, the unintegrated self, the beginning of the Opus in self-knowledge
 
 ### Task 1.4 — UI Build
-- [ ] Hero section with title "Prima Materia" and epigraph from the *Emerald Tablet*
-- [ ] Render the alchemical symbol for Prima Materia (circle with a dot, or chaotic overlapping forms) as inline SVG
-- [ ] Three-column grid of cards: Alchemical definition | Christian correlate | Jungian dimension
-- [ ] Scripture blockquote: Genesis 1:1–2
-- [ ] Latin phrase feature: *"Visita Interiora Terrae Rectificando Invenies Occultum Lapidem"* (V.I.T.R.I.O.L.) with annotation
+- [✓] Hero section with title "Prima Materia" and epigraph from the *Emerald Tablet*
+- [✓] Render the alchemical symbol for Prima Materia (circle with a dot, or chaotic overlapping forms) as inline SVG
+- [✓] Three-column grid of cards: Alchemical definition | Christian correlate | Jungian dimension
+- [✓] Scripture blockquote: Genesis 1:1–2
+- [✓] Latin phrase feature: *"Visita Interiora Terrae Rectificando Invenies Occultum Lapidem"* (V.I.T.R.I.O.L.) with annotation
 
 ---
 
@@ -119,26 +119,26 @@ aurum-cordis/
 *Earth, Water, Air, Fire — the classical quaternary and its theological resonances.*
 
 ### Task 2.1 — Content: Alchemical Elemental Theory
-- [ ] Explain Aristotelian four-element theory as adopted by alchemists: each element defined by two of four qualities (hot, cold, wet, dry)
-- [ ] Describe the elemental wheel and the principle of transmutation through adjacent quality change
-- [ ] Introduce the **quinta essentia** (fifth element / aether) as the hidden principle that unifies the four and is the goal of distillation
+- [✓] Explain Aristotelian four-element theory as adopted by alchemists: each element defined by two of four qualities (hot, cold, wet, dry)
+- [✓] Describe the elemental wheel and the principle of transmutation through adjacent quality change
+- [✓] Introduce the **quinta essentia** (fifth element / aether) as the hidden principle that unifies the four and is the goal of distillation
 
 ### Task 2.2 — Content: Christian Theological Correlates
-- [ ] **Fire**: Pentecost (Acts 2), the burning bush (Exodus 3), the pillar of fire (Exodus 13), the seraphim (Isaiah 6); God as consuming fire (Deuteronomy 4:24, Hebrews 12:29); the Holy Spirit as divine fire
-- [ ] **Water**: Baptism and the waters of creation (Genesis 1:2); the Jordan; the living water of John 4 and John 7; the water from Christ's side (John 19:34); flood and new creation (1 Peter 3:20–21)
-- [ ] **Earth**: The Incarnation — the Word made dust (cf. Genesis 2:7, John 1:14); the Body of Christ; Eucharistic bread from the earth; burial and resurrection; the promise of a new earth (Revelation 21:1)
-- [ ] **Air**: The Breath of God (*pneuma*, *ruach*); the Spirit as wind (John 3:8); resurrection breath (John 20:22); the voice of God (1 Kings 19:12)
-- [ ] **Quinta Essentia**: Christ as the fifth element — the unifying principle who holds all creation together (Colossians 1:17); the Logos as cosmic ordering principle; Sophianic wisdom as the hidden intelligibility of creation
+- [✓] **Fire**: Pentecost (Acts 2), the burning bush (Exodus 3), the pillar of fire (Exodus 13), the seraphim (Isaiah 6); God as consuming fire (Deuteronomy 4:24, Hebrews 12:29); the Holy Spirit as divine fire
+- [✓] **Water**: Baptism and the waters of creation (Genesis 1:2); the Jordan; the living water of John 4 and John 7; the water from Christ's side (John 19:34); flood and new creation (1 Peter 3:20–21)
+- [✓] **Earth**: The Incarnation — the Word made dust (cf. Genesis 2:7, John 1:14); the Body of Christ; Eucharistic bread from the earth; burial and resurrection; the promise of a new earth (Revelation 21:1)
+- [✓] **Air**: The Breath of God (*pneuma*, *ruach*); the Spirit as wind (John 3:8); resurrection breath (John 20:22); the voice of God (1 Kings 19:12)
+- [✓] **Quinta Essentia**: Christ as the fifth element — the unifying principle who holds all creation together (Colossians 1:17); the Logos as cosmic ordering principle; Sophianic wisdom as the hidden intelligibility of creation
 
 ### Task 2.3 — Content: Jungian Dimension
-- [ ] Jung's fourfold typology (Thinking/Feeling/Sensation/Intuition) as a psychological echo of the four elements
-- [ ] The quinta essentia as the Self — the unifying centre of the psyche that transcends the four functions
+- [✓] Jung's fourfold typology (Thinking/Feeling/Sensation/Intuition) as a psychological echo of the four elements
+- [✓] The quinta essentia as the Self — the unifying centre of the psyche that transcends the four functions
 
 ### Task 2.4 — UI Build
-- [ ] Interactive SVG elemental wheel: hover over each element to reveal its qualities, symbol, theological correlate, and Jungian function
-- [ ] Four cards in a 2×2 grid, each styled with the element's associated colour
-- [ ] Central quinta essentia feature card (gold, elevated, with Christ-as-Logos text)
-- [ ] Elemental symbols rendered as SVG glyphs (🜂🜄🜁🜃)
+- [✓] Interactive SVG elemental wheel: hover over each element to reveal its qualities, symbol, theological correlate, and Jungian function
+- [✓] Four cards in a 2×2 grid, each styled with the element's associated colour
+- [✓] Central quinta essentia feature card (gold, elevated, with Christ-as-Logos text)
+- [✓] Elemental symbols rendered as SVG glyphs (🜂🜄🜁🜃)
 
 ---
 
