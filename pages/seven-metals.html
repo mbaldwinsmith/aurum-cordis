@@ -3,13 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Seven Metals — Lead to Gold: the planetary ladder of transformation.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="The Seven Metals and Planetary Rulers — Lead to Gold: the planetary ladder, macrocosm-microcosm, and Dante's Paradiso as Christian alchemical cosmology." />
   <meta property="og:title" content="The Seven Metals — Aurum Cordis" />
+  <meta property="og:description" content="Lead/Saturn to Gold/Sun: the seven metals and their planetary correspondences as a ladder of theological ascent." />
   <meta property="og:type" content="article" />
   <title>The Seven Metals — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Seven Metals colour overrides — deep space / astronomical ── */
+    :root {
+      --sev-bg:      #060810;
+      --sev-surface: #0c1018;
+      --sev-card:    #121820;
+      --sev-blue:    #3a5880;
+      --sev-blue-lt: #6080a8;
+      --sev-gold:    #c9a227;
+      --sev-gold-lt: #dbb84a;
+      --sev-silver:  #b8bfc8;
+      --sev-text:    #b8c4d0;
+      --sev-white:   #e8eef4;
+    }
+
+    body { background-color: var(--sev-bg); }
+
+    /* ── Hero ── */
+    .sev-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .sev-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(58,88,128,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 30% at 50% 42%, rgba(201,162,39,0.06) 0%, transparent 45%),
+        radial-gradient(ellipse 80% 60% at 50% 85%, rgba(6,8,16,0) 0%, var(--sev-bg) 80%),
+        var(--sev-bg);
+      z-index: 0;
+    }
+    .sev-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+    /* ── Planetary spheres SVG ── */
+    .spheres-emblem {
+      width: 180px; height: 180px;
+      margin: 0 auto var(--space-6);
+      display: block;
+    }
+
+    /* ── Section surfaces ── */
+    .section--sev {
+      background: var(--sev-surface);
+      border-top: 1px solid rgba(58,88,128,0.25);
+      border-bottom: 1px solid rgba(58,88,128,0.25);
+    }
+
+    /* ── Planetary ladder ── */
+    .planet-ladder {
+      position: relative;
+      margin: var(--space-8) 0;
+    }
+    /* Vertical spine line */
+    .planet-ladder::before {
+      content: '';
+      position: absolute;
+      left: 52px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(
+        to top,
+        rgba(100,80,20,0.50) 0%,
+        rgba(184,191,200,0.40) 30%,
+        rgba(60,112,96,0.40) 42%,
+        rgba(201,162,39,0.80) 50%,
+        rgba(139,48,32,0.45) 60%,
+        rgba(96,128,160,0.45) 72%,
+        rgba(74,74,90,0.45) 85%,
+        rgba(74,74,90,0.20) 100%
+      );
+    }
+    @media (max-width: 640px) { .planet-ladder::before { left: 36px; } }
+
+    .planet-rung {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      align-items: start;
+      position: relative;
+    }
+    @media (max-width: 640px) {
+      .planet-rung { grid-template-columns: 72px 1fr; gap: var(--space-3); }
+    }
+
+    .planet-rung__icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding-top: var(--space-3);
+    }
+    .planet-rung__symbol {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .planet-rung__glyph {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-align: center;
+      opacity: 0.65;
+    }
+
+    .planet-rung__card {
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left-width: 4px;
+      background: var(--sev-card);
+      transition: border-color 0.2s;
+    }
+    .planet-rung__card:hover { border-color-opacity: 1; }
+
+    .planet-rung__header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .planet-rung__metal {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-style: italic;
+    }
+    .planet-rung__planet {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .planet-rung__quality {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-sulphur-gold);
+      margin-bottom: var(--space-2);
+    }
+    .planet-rung__alch {
+      font-size: var(--text-sm);
+      color: var(--sev-text);
+      line-height: 1.70;
+      margin-bottom: var(--space-2);
+    }
+    .planet-rung__christian {
+      font-size: var(--text-sm);
+      font-style: italic;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      border-left: 2px solid rgba(255,255,255,0.12);
+      padding-left: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    .planet-rung__dante {
+      font-size: var(--text-xs);
+      color: var(--sev-blue-lt);
+      font-family: var(--font-label);
+      letter-spacing: 0.08em;
+    }
+
+    /* Per-planet colour accents */
+    .rung--saturn  { --rung-color: #706878; }
+    .rung--jupiter { --rung-color: #6080a8; }
+    .rung--mars    { --rung-color: #904030; }
+    .rung--sol     { --rung-color: #c9a227; }
+    .rung--venus   { --rung-color: #3a7060; }
+    .rung--mercury { --rung-color: #7098b0; }
+    .rung--luna    { --rung-color: #b0b8c4; }
+
+    .planet-rung__card { border-left-color: var(--rung-color, #444); }
+    .planet-rung__metal { color: var(--rung-color, var(--sev-white)); }
+    .planet-rung__symbol { color: var(--rung-color, var(--sev-white)); }
+
+    /* ── Macrocosm-microcosm panel ── */
+    .macro-panel {
+      background: var(--sev-card);
+      border: 1px solid rgba(201,162,39,0.22);
+      border-top: 4px solid var(--sev-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (max-width: 700px) { .macro-panel { grid-template-columns: 1fr; } }
+    .macro-panel__col-title {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sev-gold);
+      margin-bottom: var(--space-3);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid rgba(201,162,39,0.20);
+    }
+    .macro-panel__list {
+      list-style: none;
+      padding: 0; margin: 0;
+      font-size: var(--text-sm);
+      color: var(--sev-text);
+      line-height: 2.0;
+    }
+    .macro-panel__list li::before {
+      content: '·  ';
+      color: var(--sev-gold);
+      opacity: 0.55;
+    }
+
+    /* ── Seven Gifts table ── */
+    .gifts-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-6) 0;
+      font-size: var(--text-sm);
+    }
+    .gifts-table th {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sev-gold);
+      border-bottom: 2px solid rgba(201,162,39,0.25);
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+    }
+    .gifts-table td {
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--sev-text);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .gifts-table td:first-child {
+      font-style: italic;
+      color: var(--sev-white);
+      white-space: nowrap;
+    }
+    .gifts-table td:nth-child(2) {
+      color: var(--sev-gold-lt);
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Overrides ── */
+    .content-prose { color: var(--sev-text); }
+    .content-prose strong { color: var(--sev-white); }
+    .scripture { background: rgba(58,88,128,0.08); }
+    .epigraph__text { color: var(--sev-text); }
+
+    .transition-panel {
+      border-left-color: var(--sev-gold);
+      background: var(--sev-card);
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +293,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,41 +303,493 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="citrinitas.html" class="nav__link">Citrinitas</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Planetary Correspondences</p>
-    <h1 class="page-header__title">🪐 The Seven Metals</h1>
-    <p class="page-header__subtitle">Lead to Gold: the planetary ladder of transformation.</p>
-  </header>
+  <!-- Hero -->
+  <section class="sev-hero" aria-labelledby="sev-title">
+    <div class="sev-hero__bg" aria-hidden="true"></div>
+    <div class="sev-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Seven concentric planetary spheres SVG -->
+      <svg class="spheres-emblem animate-on-scroll" viewBox="0 0 180 180" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-label="Seven concentric planetary spheres — the geocentric cosmology of the medieval alchemists, from Saturn at the outermost to the Moon nearest the Earth">
+        <!-- Stars scattered in background -->
+        <g fill="white" opacity="0.35">
+          <circle cx="18"  cy="24"  r="0.8"/>
+          <circle cx="162" cy="30"  r="0.8"/>
+          <circle cx="10"  cy="90"  r="0.8"/>
+          <circle cx="170" cy="100" r="0.8"/>
+          <circle cx="30"  cy="158" r="0.8"/>
+          <circle cx="155" cy="152" r="0.8"/>
+          <circle cx="90"  cy="8"   r="0.8"/>
+          <circle cx="45"  cy="12"  r="0.6"/>
+          <circle cx="135" cy="16"  r="0.6"/>
+          <circle cx="8"   cy="140" r="0.6"/>
+          <circle cx="172" cy="60"  r="0.6"/>
+        </g>
+        <!-- Sphere 7 — Saturn (outermost) -->
+        <circle cx="90" cy="90" r="82" stroke="#706878" stroke-width="0.8" opacity="0.40" stroke-dasharray="4 3"/>
+        <!-- Sphere 6 — Jupiter -->
+        <circle cx="90" cy="90" r="70" stroke="#6080a8" stroke-width="0.8" opacity="0.40" stroke-dasharray="4 3"/>
+        <!-- Sphere 5 — Mars -->
+        <circle cx="90" cy="90" r="58" stroke="#904030" stroke-width="0.8" opacity="0.40" stroke-dasharray="4 3"/>
+        <!-- Sphere 4 — Sol (brightest) -->
+        <circle cx="90" cy="90" r="46" stroke="#c9a227" stroke-width="1.2" opacity="0.65"/>
+        <!-- Sphere 3 — Venus -->
+        <circle cx="90" cy="90" r="34" stroke="#3a7060" stroke-width="0.8" opacity="0.40" stroke-dasharray="4 3"/>
+        <!-- Sphere 2 — Mercury -->
+        <circle cx="90" cy="90" r="22" stroke="#7098b0" stroke-width="0.8" opacity="0.40" stroke-dasharray="4 3"/>
+        <!-- Sphere 1 — Luna (innermost) -->
+        <circle cx="90" cy="90" r="12" stroke="#b0b8c4" stroke-width="1" opacity="0.55"/>
+        <!-- Earth at centre -->
+        <circle cx="90" cy="90" r="5" fill="#3a5040" opacity="0.80"/>
+        <circle cx="90" cy="90" r="5" stroke="#6080a8" stroke-width="0.8" opacity="0.50"/>
+        <!-- Planet markers on their spheres (at top of each circle) -->
+        <!-- Saturn ♄ -->
+        <circle cx="90" cy="8"  r="4" fill="#706878" opacity="0.70"/>
+        <!-- Jupiter ♃ -->
+        <circle cx="90" cy="20" r="3.5" fill="#6080a8" opacity="0.70"/>
+        <!-- Mars ♂ -->
+        <circle cx="90" cy="32" r="3" fill="#904030" opacity="0.70"/>
+        <!-- Sol ☉ -->
+        <circle cx="90" cy="44" r="4.5" fill="#c9a227" opacity="0.80"/>
+        <!-- Venus ♀ -->
+        <circle cx="90" cy="56" r="3" fill="#3a7060" opacity="0.70"/>
+        <!-- Mercury ☿ -->
+        <circle cx="90" cy="68" r="2.5" fill="#7098b0" opacity="0.70"/>
+        <!-- Luna ☽ -->
+        <circle cx="90" cy="78" r="3" fill="#b0b8c4" opacity="0.70"/>
+        <!-- Upward arrow suggesting ascent -->
+        <path d="M 90 170 L 90 96" stroke="#c9a227" stroke-width="0.8" opacity="0.30" marker-end="none"/>
+        <path d="M 86 100 L 90 94 L 94 100" stroke="#c9a227" stroke-width="0.8" opacity="0.30" fill="none"/>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--sev-blue-lt);">The Planetary Ladder</p>
+      <h1 class="hero__title animate-on-scroll delay-2" id="sev-title">The Seven Metals</h1>
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        Lead to Gold: the ascent through Saturn to Sol, and the theological meaning of each step
       </p>
+
     </div>
+  </section>
+
+  <main>
+
+    <!-- ── Task 9.1: Alchemical Theory ── -->
+    <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--sev-blue-lt);">Alchemical Theory</p>
+        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          <span class="latin">As Above, So Below</span>: The Sevenfold Correspondence
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            The alchemical tradition was built on a conviction about the structure of reality:
+            that the cosmos is not merely large but deeply ordered, and that the order operating
+            at the cosmic scale (<span class="latin">macrocosm</span>) is the same order
+            operating at the human scale (<span class="latin">microcosm</span>) and at the
+            scale of matter in the laboratory. The planets did not merely hang in the sky;
+            they governed — each one ruling a metal, a day of the week, an organ of the body,
+            a quality of the soul.
+          </p>
+          <p>
+            The seven planets of ancient and medieval cosmology — Saturn, Jupiter, Mars, Sol (the Sun),
+            Venus, Mercury, and Luna (the Moon) — each had their corresponding metal.
+            This was not arbitrary poetic metaphor but a serious claim about causal structure:
+            gold in the earth grew under the influence of the sun; silver under the moon;
+            lead was the heavy, cold, melancholic metal of Saturn, the outermost and slowest planet.
+            The Emerald Tablet's great axiom — <span class="latin">quod est inferius est sicut quod est superius</span>,
+            "that which is below is as that which is above" — is the foundational principle of the
+            entire system.
+          </p>
+          <p>
+            The alchemical significance of the seven correspondences is their directional logic:
+            they form a <strong>ladder of ascent</strong> from Lead (Saturn, the lowest, heaviest,
+            most earthbound) to Gold (Sol, the highest, most luminous, most celestial metal).
+            The Opus Magnum is, in one of its dimensions, the ascent of the soul through all seven
+            levels — from the Saturnine heaviness of the prima materia through successive refinements
+            to the solar perfection of the Stone. Each rung of the ladder is not merely passed through
+            but transformed: the alchemist carries something of every metal in the achieved gold.
+          </p>
+        </div>
+
+        <!-- Macrocosm-Microcosm panel -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-top:var(--space-8); margin-bottom:var(--space-4); color:var(--sev-white);">
+          The Threefold Correspondence
+        </h3>
+        <div class="macro-panel animate-on-scroll" role="img" aria-label="The macrocosm-microcosm correspondence: each planet governs a metal, a day, and a quality of the soul">
+          <div>
+            <p class="macro-panel__col-title">Cosmos — Macrocosm</p>
+            <ul class="macro-panel__list">
+              <li>Saturn — outermost sphere</li>
+              <li>Jupiter — second sphere</li>
+              <li>Mars — third sphere</li>
+              <li>Sol — fourth sphere</li>
+              <li>Venus — fifth sphere</li>
+              <li>Mercury — sixth sphere</li>
+              <li>Luna — innermost sphere</li>
+            </ul>
+          </div>
+          <div>
+            <p class="macro-panel__col-title">Metal — Microcosm of Matter</p>
+            <ul class="macro-panel__list">
+              <li>Lead — heavy, cold, dark</li>
+              <li>Tin — expansive, temperate</li>
+              <li>Iron — hard, martial, red</li>
+              <li>Gold — perfect, solar, incorrupt</li>
+              <li>Copper — soft, beautiful, verdant</li>
+              <li>Quicksilver — volatile, fluid</li>
+              <li>Silver — reflective, lunar, pure</li>
+            </ul>
+          </div>
+          <div>
+            <p class="macro-panel__col-title">Soul — Microcosm of the Person</p>
+            <ul class="macro-panel__list">
+              <li>Melancholy — time, limitation</li>
+              <li>Justice — magnanimity, order</li>
+              <li>Courage — will, fortitude</li>
+              <li>Reason — illumination, wisdom</li>
+              <li>Love — beauty, desire, beauty</li>
+              <li>Intellect — mediation, speech</li>
+              <li>Memory — imagination, reception</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── The Ladder ── -->
+    <section class="section section--sev" id="planetary-ladder" aria-labelledby="ladder-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--sev-blue-lt);">The Seven Rungs</p>
+        <h2 id="ladder-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-2);">
+          The Planetary Ladder of Ascent
+        </h2>
+        <p class="animate-on-scroll" style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-8);">
+          Ascending from Lead at the base to Gold at the centre, then Silver at the summit —
+          each metal carrying its theological and psychological meaning.
+        </p>
+
+        <div class="planet-ladder" role="list" aria-label="Seven metals and their planetary, theological, and Dantean correspondences">
+
+          <!-- Saturn / Lead -->
+          <div class="planet-rung rung--saturn animate-on-scroll" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">♄</span>
+              <span class="planet-rung__glyph">Saturn<br/>Lead</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Lead</span>
+                <span class="planet-rung__planet">Saturn · I</span>
+              </div>
+              <p class="planet-rung__quality">Cold · Dry · Heavy · Melancholic</p>
+              <p class="planet-rung__alch">The base and starting point. Lead is the most earthbound of metals — dense, slow, poisonous in excess, yet not without its own dignity. Its coldness and heaviness correspond to Saturn's quality as the planet of time, limitation, and old age. The alchemist who begins with lead begins with the world as it is: fallen, heavy, in need of transformation.</p>
+              <p class="planet-rung__christian"><strong>The Incarnation as Kenosis:</strong> The divine Word taking on the weight of mortality, time, and suffering — "emptied himself, taking the form of a servant" (Philippians 2:7). The Incarnation is the supreme Saturnine act: the eternal entering the temporal, the infinite becoming finite, gold voluntarily becoming lead for our sake.</p>
+              <p class="planet-rung__dante">Dante's <span class="latin">Paradiso</span>: Saturn is the seventh heaven, sphere of the contemplatives — paradoxically, the highest visible sphere is the sphere of those who have passed through the Saturnine darkness to achieve the stillness of vision.</p>
+            </div>
+          </div>
+
+          <!-- Jupiter / Tin -->
+          <div class="planet-rung rung--jupiter animate-on-scroll delay-1" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">♃</span>
+              <span class="planet-rung__glyph">Jupiter<br/>Tin</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Tin</span>
+                <span class="planet-rung__planet">Jupiter · II</span>
+              </div>
+              <p class="planet-rung__quality">Warm · Moist · Expansive · Just</p>
+              <p class="planet-rung__alch">Tin is the metal of expansion, of temperate warmth, of the benevolent principle in the cosmos. Jupiter is the planet of justice, magnanimity, and orderly governance — the "good king" principle. Tin does not have lead's density or gold's perfection, but it is workable, generous in its properties, and associated with the ordering of the social and moral world.</p>
+              <p class="planet-rung__christian"><strong>Justice and Righteousness:</strong> The Jupiterian quality in Christian theology is the divine order that undergirds creation — the <span class="latin">ordo</span> of Aquinas, the providential governance of history. The just ruler who images divine justice; the theological virtue of justice as the soul rightly ordered toward God and neighbour.</p>
+              <p class="planet-rung__dante">In Dante's sixth heaven, the souls of just rulers form the letters of <em>Diligite iustitiam qui iudicatis terram</em> — "Love justice, you who judge the earth" — before transforming into the Imperial Eagle, emblem of divine justice.</p>
+            </div>
+          </div>
+
+          <!-- Mars / Iron -->
+          <div class="planet-rung rung--mars animate-on-scroll delay-2" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">♂</span>
+              <span class="planet-rung__glyph">Mars<br/>Iron</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Iron</span>
+                <span class="planet-rung__planet">Mars · III</span>
+              </div>
+              <p class="planet-rung__quality">Hot · Dry · Hard · Martial</p>
+              <p class="planet-rung__alch">Iron is the metal of will, courage, and conflict. Hard, unyielding, capable of both sword and ploughshare, iron embodies the Martian principle: the energy that can destroy or build depending on whether it is ordered or disordered. The alchemists saw iron as the principle requiring the most rigorous transmutation — its hardness is both its virtue and its danger.</p>
+              <p class="planet-rung__christian"><strong>The Virtue of Fortitude:</strong> The Martian quality, ordered by grace, becomes Christian courage — the strength to hold the truth under pressure, to endure suffering rather than deny faith. "Be strong and courageous" (Joshua 1:9). The martyrs are the supreme expression of iron transmuted: hardness become constancy, aggression become willing sacrifice.</p>
+              <p class="planet-rung__dante">Mars in <span class="latin">Paradiso</span> V is the heaven of the warrior-saints and martyrs — Cacciaguida, Dante's crusader ancestor, speaks here. The red planet holds those whose blood was poured out in God's service.</p>
+            </div>
+          </div>
+
+          <!-- Sol / Gold — highlighted as the centre -->
+          <div class="planet-rung rung--sol animate-on-scroll" role="listitem" style="margin-bottom:var(--space-6);">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">☉</span>
+              <span class="planet-rung__glyph">Sol<br/>Gold</span>
+            </div>
+            <div class="planet-rung__card" style="border-width:1px 1px 1px 4px; border-color:rgba(201,162,39,0.35) rgba(201,162,39,0.35) rgba(201,162,39,0.35) var(--rub-gold, #c9a227); box-shadow:0 0 24px rgba(201,162,39,0.08);">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Gold</span>
+                <span class="planet-rung__planet">Sol · IV — The Centre</span>
+              </div>
+              <p class="planet-rung__quality">Hot · Dry · Perfect · Incorruptible · The Goal</p>
+              <p class="planet-rung__alch">Gold is the perfected metal, the goal of the entire Opus. It does not tarnish, does not corrode, does not decay — it is the only metal that fully resists time. Placed at the fourth sphere (the exact middle of the seven), the Sun is the cosmic pivot: the planets below (Moon, Mercury, Venus) are between earth and sun; those above (Mars, Jupiter, Saturn) are beyond it. Gold is not the end of the hierarchy but its centre — the axis around which all else revolves.</p>
+              <p class="planet-rung__christian"><strong>Christ as the Solar Principle:</strong> "The Sun of Righteousness shall rise with healing in its wings" (Malachi 4:2). The Transfiguration reveals the solar nature always present in the incarnate Christ; the Resurrection confirms it. As the sun is the pivot of the cosmos, Christ is the pivot of history — the Alpha and Omega from whom all things hang (Colossians 1:17).</p>
+              <p class="planet-rung__dante">Dante's fourth heaven, the Sun, holds the great theologians and doctors of the Church — Thomas Aquinas, Bonaventure, Albertus Magnus — arranged in two luminous circles, the intellectual light of the solar principle perfected in contemplation.</p>
+            </div>
+          </div>
+
+          <!-- Venus / Copper -->
+          <div class="planet-rung rung--venus animate-on-scroll delay-1" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">♀</span>
+              <span class="planet-rung__glyph">Venus<br/>Copper</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Copper</span>
+                <span class="planet-rung__planet">Venus · V</span>
+              </div>
+              <p class="planet-rung__quality">Warm · Moist · Beautiful · Generative</p>
+              <p class="planet-rung__alch">Copper has the warmth and malleability of Venus — it is the metal most associated with the arts, with beauty, with the creative and generative principle. Its verdant patina was seen by alchemists as a sign of vitality: unlike iron's rust (decay), copper's green is the green of life and growth. Venus is Aphrodite, Eros, the attractive power that draws creation toward beauty.</p>
+              <p class="planet-rung__christian"><strong>Charity — the Love That Draws All Things:</strong> The Venusian principle, ordered by grace, becomes <span class="latin">caritas</span> — the love poured into the heart by the Holy Spirit (Romans 5:5), the greatest of the theological virtues (1 Corinthians 13:13). "God is love" (1 John 4:8). The whole of creation moves toward its Creator by an inherent desire that is the image of divine love in matter.</p>
+              <p class="planet-rung__dante">Venus in <span class="latin">Paradiso</span> VIII holds souls whose love was ardent and who now love with the full purified fire of divine charity — including Charles Martel, who speaks of how divine love distributes varied gifts through the diversity of human souls.</p>
+            </div>
+          </div>
+
+          <!-- Mercury / Quicksilver -->
+          <div class="planet-rung rung--mercury animate-on-scroll delay-2" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">☿</span>
+              <span class="planet-rung__glyph">Mercury<br/>Quicksilver</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Quicksilver</span>
+                <span class="planet-rung__planet">Mercury · VI</span>
+              </div>
+              <p class="planet-rung__quality">Volatile · Fluid · Mediating · Hermetic</p>
+              <p class="planet-rung__alch">Quicksilver is the strangest and most paradoxical of the seven metals — the only one liquid at room temperature, refusing all fixed form, capable of dissolving gold and then releasing it unchanged. It is the principle of mediation and transformation: the messenger between worlds. The Tria Prima placed Mercury at the centre of its system precisely because of this mediating role.</p>
+              <p class="planet-rung__christian"><strong>The Holy Spirit as Divine Mercury:</strong> The Spirit descends and ascends, links heaven and earth, is the agent of all transformation — present at creation hovering over the waters, descending at baptism, breathing on the disciples (John 20:22), descending as fire at Pentecost. Hermes/Mercury was read by Christian allegorists (Lactantius, Augustine) as a <span class="latin">figura Spiritus</span> — the divine messenger who mediates between the divine and human worlds.</p>
+              <p class="planet-rung__dante">Mercury in <span class="latin">Paradiso</span> V holds souls who acted well but from mixed motives — the active life that serves both God and earthly ambition. The Emperor Justinian speaks here of the providential arc of Roman history as an instrument of divine purpose.</p>
+            </div>
+          </div>
+
+          <!-- Luna / Silver -->
+          <div class="planet-rung rung--luna animate-on-scroll" role="listitem">
+            <div class="planet-rung__icon">
+              <span class="planet-rung__symbol" aria-hidden="true">☽</span>
+              <span class="planet-rung__glyph">Luna<br/>Silver</span>
+            </div>
+            <div class="planet-rung__card">
+              <div class="planet-rung__header">
+                <span class="planet-rung__metal">Silver</span>
+                <span class="planet-rung__planet">Luna · VII</span>
+              </div>
+              <p class="planet-rung__quality">Cold · Moist · Receptive · Reflective</p>
+              <p class="planet-rung__alch">Silver is the metal of the moon: reflective, pure, and incorruptible in its own way, yet not the goal of the Opus — silver is the achievement of Albedo, the lesser work. The moon receives the sun's light and reflects it; silver receives and holds the quality of purity without generating it. Highest of the seven in one ordering (closest to earth), the moon is also the most immediately accessible image of achieved purity.</p>
+              <p class="planet-rung__christian"><strong>Mary and the Church as Luna:</strong> The long theological tradition of associating Mary with the moon reflects this precise logic: she receives and reflects the divine light without generating it of herself, mediating it to the world. The Church, too, is Luna to Christ's Sol — not the source of grace but its reflector and distributor. "A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet" (Revelation 12:1).</p>
+              <p class="planet-rung__dante">The Moon, first of Dante's heavens in <span class="latin">Paradiso</span> II, holds souls who kept their vows imperfectly — not condemned, but not yet at the full solar noon of contemplation. Dante's first question in Paradise concerns the spots on the moon: Beatrice's answer is a lesson in how divine light differentiates itself through the varying capacities of creatures.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Task 9.2: Seven Gifts ── -->
+    <section class="section" id="seven-gifts" aria-labelledby="gifts-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--sev-blue-lt);">Medieval Correspondence</p>
+        <h2 id="gifts-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          The Seven Metals and the Seven Gifts of the Holy Spirit
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            Isaiah 11:2–3 lists seven gifts of the Holy Spirit that will rest on the messianic king:
+            wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord.
+            Medieval theologians, working within the correspondential worldview of Christian alchemy,
+            mapped these gifts onto the seven metals and their planetary rulers, reading the ascent
+            from lead to gold as the soul's progressive reception of the Spirit's gifts.
+            The following table represents one version of this correspondential tradition:
+          </p>
+        </div>
+
+        <div class="animate-on-scroll" style="overflow-x:auto;">
+          <table class="gifts-table" aria-label="Seven metals, planets, and gifts of the Holy Spirit">
+            <thead>
+              <tr>
+                <th>Metal</th>
+                <th>Planet</th>
+                <th>Gift of the Spirit (Isaiah 11:2–3)</th>
+                <th>Theological Quality</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lead</td>
+                <td>Saturn</td>
+                <td>Fear of the Lord</td>
+                <td>The beginning of wisdom; the sober recognition of one's creatureliness and God's majesty. The Saturnine gift is the one most associated with Nigredo: the stripping of self-sufficiency.</td>
+              </tr>
+              <tr>
+                <td>Tin</td>
+                <td>Jupiter</td>
+                <td>Piety (<span class="latin">Pietas</span>)</td>
+                <td>The right ordering of love toward God and neighbour; the expansive, generous quality of Jupiter ordered toward worship and service.</td>
+              </tr>
+              <tr>
+                <td>Iron</td>
+                <td>Mars</td>
+                <td>Fortitude</td>
+                <td>The courage to endure persecution, temptation, and suffering for the truth; the martial energy converted from aggression to constancy.</td>
+              </tr>
+              <tr>
+                <td>Gold</td>
+                <td>Sol</td>
+                <td>Knowledge (<span class="latin">Scientia</span>)</td>
+                <td>The right knowledge of created things in their relation to God; the solar clarity that sees things as they truly are in the light of divine truth.</td>
+              </tr>
+              <tr>
+                <td>Copper</td>
+                <td>Venus</td>
+                <td>Counsel</td>
+                <td>The wisdom of right action in particular situations; the loving discernment that knows which way love moves in this moment, with this person, in these circumstances.</td>
+              </tr>
+              <tr>
+                <td>Quicksilver</td>
+                <td>Mercury</td>
+                <td>Understanding (<span class="latin">Intellectus</span>)</td>
+                <td>The penetrating intelligence that grasps the inner meaning of divine revelation; the mediating function that moves between the letter and the spirit, the surface and the depth.</td>
+              </tr>
+              <tr>
+                <td>Silver</td>
+                <td>Luna</td>
+                <td>Wisdom (<span class="latin">Sapientia</span>)</td>
+                <td>The highest gift: the contemplative knowledge that tastes and savours divine things, perceiving God not merely by argument but by the resonance of love. The culmination is Sapientia — and silver, the lunar metal, holds it: receptive, reflective, the soul that has become the mirror in which divine wisdom sees itself.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="epigraph animate-on-scroll" style="margin-top:var(--space-8);">
+          <p class="epigraph__text" style="color:var(--sev-text);">
+            "There shall come forth a shoot from the stump of Jesse,
+            and a branch from his roots shall bear fruit.
+            And the Spirit of the Lord shall rest upon him,
+            the Spirit of wisdom and understanding,
+            the Spirit of counsel and might,
+            the Spirit of knowledge and the fear of the Lord."
+          </p>
+          <p class="epigraph__source">Isaiah 11:1–2</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            The seven rungs have been climbed. Now the full process — all four stages, all seven
+            metals, the whole arc from Prima Materia to Philosopher's Stone — is mapped in the
+            Opus Magnum overview.
+          </p>
+          <a href="opus-magnum.html" class="transition-panel__arrow" aria-label="Continue to the Opus Magnum overview">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>On the seven metals and planetary correspondences, see Stanton Linden,
+            <em>Darke Hierogliphicks: Alchemy in English Literature from Chaucer to the Restoration</em>
+            (1996), ch. 2; and Lyndy Abraham, <em>A Dictionary of Alchemical Imagery</em> (1998),
+            s.v. "seven metals," "Saturn," "Sol." The classical source is Ptolemy,
+            <span class="latin">Tetrabiblos</span> I.4.</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>On the macrocosm-microcosm principle in medieval thought, see
+            Brian Vickers (ed.), <em>Occult and Scientific Mentalities in the Renaissance</em> (1984);
+            and Ernst Cassirer, <em>The Individual and the Cosmos in Renaissance Philosophy</em> (1927).
+            The Emerald Tablet's formula is discussed in Principe,
+            <em>The Secrets of Alchemy</em> (2013), ch. 2.</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>John Climacus, <span class="latin">The Ladder of Divine Ascent</span> (7th c.),
+            trans. Colm Luibheid (1982). Bonaventure, <span class="latin">Itinerarium Mentis in Deum</span>
+            (1259), trans. Cousins (1978). For Dante's planetary heavens as spiritual cosmology,
+            see Charles Williams, <em>The Figure of Beatrice</em> (1943); and
+            Robin Kirkpatrick, <em>Dante: The Divine Comedy</em> (2004).</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>On the seven gifts of the Holy Spirit and their medieval theological development,
+            see Aquinas, <span class="latin">Summa Theologiae</span> I-II, qq. 68–70; and
+            Yves Congar OP, <em>I Believe in the Holy Spirit</em>, vol. 2 (1983), ch. 7.
+            The mapping of gifts onto planetary metals is discussed in
+            Barbara Obrist, <em>Les débuts de l'imagerie alchimique</em> (1982).</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>On Mary as <span class="latin">Luna</span> and the Church as moon reflecting Christ,
+            see Hans Urs von Balthasar, <em>Mary for Today</em> (1988);
+            and Lumen Gentium §§58–65 (Second Vatican Council, 1964).
+            The Revelation 12 "woman clothed with the sun" is discussed in
+            Scott Hahn, <em>Hail, Holy Queen</em> (2001), ch. 3.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="background:var(--sev-surface); border-top-color:rgba(58,88,128,0.22);">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="philosophers-stone.html" class="site-footer__link">← Philosopher's Stone</a></li>
+      <li><a href="opus-magnum.html" class="site-footer__link">Next: Opus Magnum →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

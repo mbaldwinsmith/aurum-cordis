@@ -346,24 +346,24 @@ After completing a module, tick off the done tasks, push to main branch and then
 *Lead to Gold: the planetary ladder of transformation.*
 
 ### Task 9.1 — Content: Alchemical Theory
-- [ ] Introduce the seven metals and their planetary correspondences: Lead/Saturn, Tin/Jupiter, Iron/Mars, Gold/Sun, Copper/Venus, Mercury/Mercury, Silver/Moon
-- [ ] Explain the macrocosm-microcosm principle (*As above, so below*): the seven planets govern both the cosmos and the metals and the human body/soul
-- [ ] The ascent from Lead (Saturn, base, mortality, time) to Gold (Sun, perfection, eternity) as the alchemical ladder
+- [✓] Introduce the seven metals and their planetary correspondences: Lead/Saturn, Tin/Jupiter, Iron/Mars, Gold/Sun, Copper/Venus, Mercury/Mercury, Silver/Moon
+- [✓] Explain the macrocosm-microcosm principle (*As above, so below*): the seven planets govern both the cosmos and the metals and the human body/soul
+- [✓] The ascent from Lead (Saturn, base, mortality, time) to Gold (Sun, perfection, eternity) as the alchemical ladder
 
 ### Task 9.2 — Content: Christian Theological Correlates
-- [ ] **The seven-rung ladder of ascent**: connect to patristic and medieval ladder mysticism (John Climacus, *The Ladder of Divine Ascent*; Bonaventure, *Itinerarium Mentis in Deum*; Dante's *Paradiso*)
-- [ ] **Saturn/Lead → Christ's descent**: the heavy, limiting, mortal principle; the Incarnation as the divine taking on lead/Saturn (time, suffering, death); *kenosis*
-- [ ] **Sun/Gold → Christ's glory**: the gold of divinity; the Transfiguration; the risen and ascended Christ as the solar principle
-- [ ] **Moon/Silver → Mary and the Church**: receptive, reflective, lunar — the Marian theological resonance; the Church as the moon reflecting the Sun of Christ
-- [ ] **Mercury → The Holy Spirit as mediator**: volatile, descending, ascending, linking heaven and earth; Hermes/Mercury as *figura Christi* and *figura Spiritus*
-- [ ] The seven metals as the seven gifts of the Holy Spirit (Isaiah 11:2–3): a medieval interpretive tradition worth exploring
-- [ ] Dante's seven planetary heavens in *Paradiso* as a Christian alchemical cosmology
+- [✓] **The seven-rung ladder of ascent**: connect to patristic and medieval ladder mysticism (John Climacus, *The Ladder of Divine Ascent*; Bonaventure, *Itinerarium Mentis in Deum*; Dante's *Paradiso*)
+- [✓] **Saturn/Lead → Christ's descent**: the heavy, limiting, mortal principle; the Incarnation as the divine taking on lead/Saturn (time, suffering, death); *kenosis*
+- [✓] **Sun/Gold → Christ's glory**: the gold of divinity; the Transfiguration; the risen and ascended Christ as the solar principle
+- [✓] **Moon/Silver → Mary and the Church**: receptive, reflective, lunar — the Marian theological resonance; the Church as the moon reflecting the Sun of Christ
+- [✓] **Mercury → The Holy Spirit as mediator**: volatile, descending, ascending, linking heaven and earth; Hermes/Mercury as *figura Christi* and *figura Spiritus*
+- [✓] The seven metals as the seven gifts of the Holy Spirit (Isaiah 11:2–3): a medieval interpretive tradition worth exploring
+- [✓] Dante's seven planetary heavens in *Paradiso* as a Christian alchemical cosmology
 
 ### Task 9.3 — UI Build
-- [ ] Vertical ladder/ascent diagram: seven rungs, each with metal symbol, planet symbol, theological correlate
-- [ ] Planet SVG icons with hover details
-- [ ] Feature panel on the macrocosm-microcosm principle
-- [ ] Dante's planetary heaven references for each
+- [✓] Vertical ladder/ascent diagram: seven rungs, each with metal symbol, planet symbol, theological correlate
+- [✓] Planet SVG icons with hover details
+- [✓] Feature panel on the macrocosm-microcosm principle
+- [✓] Dante's planetary heaven references for each
 
 ---
 
