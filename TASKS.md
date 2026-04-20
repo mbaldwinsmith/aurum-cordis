@@ -40,7 +40,7 @@ aurum-cordis/
 
 ---
 
-After completing a module, push to main branch and then post a link to the page on the localhost.
+After completing a module, tick off the done tasks, push to main branch and then post a link to the page on the localhost.
 
 ---
 
