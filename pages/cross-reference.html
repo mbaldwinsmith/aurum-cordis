@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Theological Cross-Reference Index — search alchemical terms by theological correlate, scripture reference, or Jungian concept across the full Aurum Cordis corpus." />
+  <meta property="og:title" content="Cross-Reference Index — Aurum Cordis" />
+  <meta property="og:description" content="A searchable index of alchemical terms mapped to theological correlates, scripture, and Jungian depth psychology." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <title>Cross-Reference Index — Aurum Cordis</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Cross-Reference — deep indigo palette ── */
+    :root {
+      --xref-bg:      #080810;
+      --xref-surface: #0e0e1a;
+      --xref-card:    #131322;
+      --xref-border:  rgba(130, 110, 200, 0.18);
+      --xref-accent:  #7a6abf;
+      --xref-gold:    var(--color-gold);
+    }
+
+    body { background: var(--xref-bg); }
+
+    /* ── Hero ── */
+    .xref-hero {
+      min-height: 44vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-16) var(--space-6) var(--space-10);
+      position: relative;
+    }
+    .xref-hero__emblem {
+      width: 80px; height: 80px;
+      margin-bottom: var(--space-7);
+      opacity: 0.7;
+    }
+    .xref-hero__eyebrow {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--xref-accent);
+      margin-bottom: var(--space-4);
+    }
+    .xref-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--color-text-light);
+      line-height: 1.15;
+      margin-bottom: var(--space-5);
+    }
+    .xref-hero__desc {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      line-height: 1.75;
+    }
+
+    /* ── Filter Bar ── */
+    .filter-bar {
+      background: var(--xref-surface);
+      border-top: 1px solid var(--xref-border);
+      border-bottom: 1px solid var(--xref-border);
+      padding: var(--space-6) 0;
+      position: sticky;
+      top: 56px;
+      z-index: 80;
+    }
+    .filter-bar__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      flex: 1;
+      min-width: 180px;
+    }
+    .filter-label {
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--xref-accent);
+    }
+    .filter-input,
+    .filter-select {
+      background: var(--xref-card);
+      border: 1px solid var(--xref-border);
+      border-radius: var(--radius-sm);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-4);
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .filter-input:focus,
+    .filter-select:focus { border-color: var(--xref-accent); }
+    .filter-input::placeholder { color: var(--color-text-muted); opacity: 0.6; }
+    .filter-reset {
+      background: transparent;
+      border: 1px solid var(--xref-border);
+      border-radius: var(--radius-sm);
+      color: var(--color-text-muted);
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      cursor: pointer;
+      white-space: nowrap;
+      align-self: flex-end;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .filter-reset:hover { border-color: var(--xref-accent); color: var(--color-text); }
+
+    /* ── Results Meta ── */
+    .results-meta {
+      max-width: 1100px;
+      margin: var(--space-6) auto var(--space-2);
+      padding: 0 var(--space-6);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .results-count {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .results-count strong { color: var(--xref-gold); }
+    .category-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+    }
+    .legend-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-label);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .legend-dot::before {
+      content: '';
+      display: block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--dot-color, var(--color-gold));
+      flex-shrink: 0;
+    }
+
+    /* ── Entry Grid ── */
+    .xref-grid {
+      max-width: 1100px;
+      margin: 0 auto var(--space-16);
+      padding: var(--space-4) var(--space-6) 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    /* ── Entry Card ── */
+    .xref-entry {
+      background: var(--xref-card);
+      border: 1px solid var(--xref-border);
+      border-left: 3px solid var(--entry-accent, var(--xref-accent));
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-5) var(--space-6);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: var(--space-4) var(--space-6);
+      align-items: start;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .xref-entry:hover {
+      background: rgba(130, 110, 200, 0.07);
+      border-left-color: var(--xref-gold);
+    }
+    .xref-entry[hidden] { display: none; }
+
+    .entry-term { grid-column: 1 / -1; }
+    @media (min-width: 768px) {
+      .xref-grid { grid-template-columns: 1fr; }
+      .entry-term { grid-column: auto; }
+      .xref-entry { grid-template-columns: 1.2fr 1.4fr 1fr auto; }
+    }
+
+    .entry-term__name {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-1);
+    }
+    .entry-term__latin {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .entry-term__category {
+      display: inline-block;
+      margin-top: var(--space-2);
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--entry-accent, var(--xref-accent));
+      border: 1px solid var(--entry-accent, var(--xref-accent));
+      border-radius: var(--radius-sm);
+      padding: 2px var(--space-2);
+      opacity: 0.85;
+    }
+
+    .entry-col__label {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+      opacity: 0.7;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tag-list li {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+    .tag-list li::before {
+      content: '·';
+      margin-right: var(--space-2);
+      color: var(--entry-accent, var(--xref-accent));
+    }
+
+    .scripture-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .scripture-ref {
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--xref-gold);
+      opacity: 0.85;
+    }
+
+    .entry-link-col {
+      display: flex;
+      align-items: flex-start;
+      padding-top: var(--space-1);
+    }
+    .entry-link-btn {
+      font-family: var(--font-label);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      border: 1px solid var(--xref-border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-3);
+      white-space: nowrap;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+    }
+    .xref-entry:hover .entry-link-btn {
+      border-color: var(--xref-gold);
+      color: var(--xref-gold);
+    }
+
+    /* Category accent colours */
+    .cat-foundational { --entry-accent: #c9a227; }
+    .cat-elements     { --entry-accent: #4a9870; }
+    .cat-tria         { --entry-accent: #8b5c20; }
+    .cat-stages       { --entry-accent: #7a6abf; }
+    .cat-operations   { --entry-accent: #4a6880; }
+    .cat-metals       { --entry-accent: #9a7840; }
+
+    /* Empty state */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+      color: var(--color-text-muted);
+    }
+    .empty-state.is-visible { display: block; }
+    .empty-state__text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: var(--space-3);
+    }
+
+    /* Highlight matched text */
+    mark {
+      background: rgba(201, 162, 39, 0.2);
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    @media (max-width: 767px) {
+      .xref-entry {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      .filter-bar__inner { flex-direction: column; }
+      .filter-group { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__brand" aria-label="Aurum Cordis — Home">
+        <svg class="nav__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+          <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+          <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.7"/>
+        </svg>
+        <span class="nav__title">Aurum Cordis</span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
+        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
+        <li><a href="albedo.html" class="nav__link">Albedo</a></li>
+        <li><a href="citrinitas.html" class="nav__link">Citrinitas</a></li>
+        <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
+        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
+        <li><a href="cross-reference.html" class="nav__link nav__link--active">Index</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="xref-hero">
+    <svg class="xref-hero__emblem" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Cross-reference index emblem: concentric circles with a grid">
+      <circle cx="40" cy="40" r="36" stroke="var(--xref-accent)" stroke-width="1" fill="none"/>
+      <circle cx="40" cy="40" r="24" stroke="var(--xref-gold)" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
+      <circle cx="40" cy="40" r="12" stroke="var(--xref-accent)" stroke-width="1" fill="none"/>
+      <line x1="40" y1="4" x2="40" y2="76" stroke="var(--xref-gold)" stroke-width="0.75" opacity="0.5"/>
+      <line x1="4" y1="40" x2="76" y2="40" stroke="var(--xref-gold)" stroke-width="0.75" opacity="0.5"/>
+      <circle cx="40" cy="40" r="3" fill="var(--xref-gold)"/>
+    </svg>
+    <p class="xref-hero__eyebrow">Appendix B</p>
+    <h1 class="xref-hero__title">Theological Cross-Reference Index</h1>
+    <p class="xref-hero__desc">
+      Search and filter the full corpus by alchemical term, scripture reference, or Jungian concept.
+      Each entry links to its full treatment in the relevant module.
+    </p>
+  </header>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar" role="search" aria-label="Filter cross-reference entries">
+    <div class="filter-bar__inner">
+      <div class="filter-group">
+        <label class="filter-label" for="search-input">Search</label>
+        <input
+          class="filter-input"
+          id="search-input"
+          type="search"
+          placeholder="Term, concept, or correlate…"
+          autocomplete="off"
+          aria-label="Search all fields"
+        />
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="category-filter">Category</label>
+        <select class="filter-select" id="category-filter" aria-label="Filter by category">
+          <option value="">All categories</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="scripture-filter">Scripture book</label>
+        <select class="filter-select" id="scripture-filter" aria-label="Filter by scripture book">
+          <option value="">All books</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="jungian-filter">Jungian concept</label>
+        <select class="filter-select" id="jungian-filter" aria-label="Filter by Jungian concept">
+          <option value="">All concepts</option>
+        </select>
+      </div>
+      <button class="filter-reset" id="filter-reset" type="button" aria-label="Reset all filters">
+        Reset
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="results-meta">
+      <p class="results-count" id="results-count" aria-live="polite">
+        Showing <strong id="count-num">0</strong> entries
+      </p>
+      <ul class="category-legend" aria-label="Category colour key" role="list">
+        <li class="legend-dot" style="--dot-color:#c9a227">Foundational Principles</li>
+        <li class="legend-dot" style="--dot-color:#4a9870">Four Elements</li>
+        <li class="legend-dot" style="--dot-color:#8b5c20">Tria Prima</li>
+        <li class="legend-dot" style="--dot-color:#7a6abf">Stages of the Opus</li>
+        <li class="legend-dot" style="--dot-color:#4a6880">Alchemical Operations</li>
+        <li class="legend-dot" style="--dot-color:#9a7840">Seven Metals</li>
+      </ul>
+    </div>
+
+    <div class="xref-grid" id="xref-grid" aria-label="Cross-reference entries">
+      <!-- Populated by JS -->
+    </div>
+    <p class="empty-state" id="empty-state">
+      <span class="empty-state__text">No entries found.</span>
+      <span>Try broadening your search — the Stone is hidden everywhere.</span>
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
+      <ul class="site-footer__links" role="list">
+        <li><a href="../index.html" class="site-footer__link">Home</a></li>
+        <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
+        <li><a href="cross-reference.html" class="site-footer__link">Index</a></li>
+        <li><a href="https://github.com/mbaldwinsmith/aurum-cordis" class="site-footer__link" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <p class="site-footer__copy">&copy; 2026 M. Baldwin-Smith. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    /* ── Category → CSS class mapping ── */
+    const CAT_CLASS = {
+      'Foundational Principles': 'cat-foundational',
+      'Four Elements':           'cat-elements',
+      'Tria Prima':              'cat-tria',
+      'Stages of the Opus':      'cat-stages',
+      'Alchemical Operations':   'cat-operations',
+      'Seven Metals':            'cat-metals'
+    };
+
+    /* ── Extract scripture book name ── */
+    function bookName(ref) {
+      const m = ref.match(/^([1-3]?\s*[A-Za-z]+)/);
+      return m ? m[0].trim() : ref;
+    }
+
+    /* ── Escape for regex ── */
+    function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    /* ── Highlight text matching query ── */
+    function highlight(text, query) {
+      if (!query) return text;
+      return text.replace(new RegExp(`(${esc(query)})`, 'gi'), '<mark>$1</mark>');
+    }
+
+    let allEntries = [];
+
+    function buildCard(e, query) {
+      const catClass = CAT_CLASS[e.category] || '';
+      const hName = highlight(e.alchemical_term, query);
+      const hLatin = highlight(e.latin, query);
+      const hCategory = highlight(e.category, query);
+      const theoryCells = e.theological_correlates.map(
+        t => `<li>${highlight(t, query)}</li>`
+      ).join('');
+      const scriptureCells = e.scripture.map(
+        s => `<li class="scripture-ref">${highlight(s, query)}</li>`
+      ).join('');
+      const jungianCells = e.jungian.map(
+        j => `<li>${highlight(j, query)}</li>`
+      ).join('');
+      const pageBase = e.page;
+
+      return `
+        <article class="xref-entry ${catClass}" data-id="${e.id}">
+          <div class="entry-term">
+            <div class="entry-term__name">${hName}</div>
+            <div class="entry-term__latin">${hLatin}</div>
+            <span class="entry-term__category">${hCategory}</span>
+          </div>
+          <div>
+            <p class="entry-col__label">Theological Correlates</p>
+            <ul class="tag-list">${theoryCells}</ul>
+          </div>
+          <div>
+            <p class="entry-col__label">Scripture</p>
+            <ul class="scripture-list">${scriptureCells}</ul>
+          </div>
+          <div>
+            <p class="entry-col__label">Jungian</p>
+            <ul class="tag-list">${jungianCells}</ul>
+          </div>
+          <div class="entry-link-col">
+            <a href="${pageBase}" class="entry-link-btn" aria-label="Read full entry on ${e.alchemical_term}">
+              Read →
+            </a>
+          </div>
+        </article>`;
+    }
+
+    function populateFilters(entries) {
+      const categories = [...new Set(entries.map(e => e.category))].sort();
+      const books = [...new Set(
+        entries.flatMap(e => e.scripture.map(bookName))
+      )].sort();
+      const jungianTerms = [...new Set(entries.flatMap(e => e.jungian))].sort();
+
+      const catSel = document.getElementById('category-filter');
+      categories.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c; opt.textContent = c;
+        catSel.appendChild(opt);
+      });
+
+      const scripSel = document.getElementById('scripture-filter');
+      books.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b; opt.textContent = b;
+        scripSel.appendChild(opt);
+      });
+
+      const jungSel = document.getElementById('jungian-filter');
+      jungianTerms.forEach(j => {
+        const opt = document.createElement('option');
+        opt.value = j; opt.textContent = j;
+        jungSel.appendChild(opt);
+      });
+    }
+
+    function applyFilters() {
+      const query    = document.getElementById('search-input').value.trim().toLowerCase();
+      const category = document.getElementById('category-filter').value;
+      const book     = document.getElementById('scripture-filter').value;
+      const jungian  = document.getElementById('jungian-filter').value;
+
+      const grid  = document.getElementById('xref-grid');
+      const empty = document.getElementById('empty-state');
+      let count = 0;
+
+      grid.innerHTML = '';
+
+      const filtered = allEntries.filter(e => {
+        if (category && e.category !== category) return false;
+        if (book && !e.scripture.some(s => bookName(s) === book)) return false;
+        if (jungian && !e.jungian.some(j => j === jungian)) return false;
+        if (query) {
+          const blob = [
+            e.alchemical_term, e.latin, e.category,
+            ...e.theological_correlates,
+            ...e.scripture,
+            ...e.jungian
+          ].join(' ').toLowerCase();
+          if (!blob.includes(query)) return false;
+        }
+        return true;
+      });
+
+      filtered.forEach(e => {
+        grid.insertAdjacentHTML('beforeend', buildCard(e, query));
+        count++;
+      });
+
+      document.getElementById('count-num').textContent = count;
+      empty.classList.toggle('is-visible', count === 0);
+    }
+
+    function init(data) {
+      allEntries = data.entries;
+      populateFilters(allEntries);
+
+      document.getElementById('search-input').addEventListener('input', applyFilters);
+      document.getElementById('category-filter').addEventListener('change', applyFilters);
+      document.getElementById('scripture-filter').addEventListener('change', applyFilters);
+      document.getElementById('jungian-filter').addEventListener('change', applyFilters);
+      document.getElementById('filter-reset').addEventListener('click', () => {
+        document.getElementById('search-input').value = '';
+        document.getElementById('category-filter').value = '';
+        document.getElementById('scripture-filter').value = '';
+        document.getElementById('jungian-filter').value = '';
+        applyFilters();
+      });
+
+      applyFilters();
+    }
+
+    fetch('../data/cross-reference.json')
+      .then(r => r.json())
+      .then(init)
+      .catch(err => {
+        document.getElementById('empty-state').classList.add('is-visible');
+        document.getElementById('empty-state').innerHTML =
+          '<span class="empty-state__text">Could not load index data.</span>';
+        console.error('Cross-reference load error:', err);
+      });
+  })();
+  </script>
+</body>
+</html>

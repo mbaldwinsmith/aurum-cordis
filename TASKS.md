@@ -507,8 +507,8 @@ To be built as a `data/cross-reference.json` and rendered as a searchable table 
 }
 ```
 
-- [ ] Build `data/cross-reference.json` with all major alchemical terms
-- [ ] Build a `pages/index.html` cross-reference page with filterable table (filter by alchemical term, scripture book, Jungian concept)
+- [✓] Build `data/cross-reference.json` with all major alchemical terms (28 entries across 6 categories)
+- [✓] Build `pages/cross-reference.html` cross-reference page with filterable table (filter by category, scripture book, Jungian concept, and full-text search)
 
 ---
 

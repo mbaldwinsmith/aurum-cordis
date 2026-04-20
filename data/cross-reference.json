@@ -1,0 +1,294 @@
+{
+  "entries": [
+    {
+      "id": "prima-materia",
+      "alchemical_term": "Prima Materia",
+      "latin": "Prima Materia",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Tohu wa-bohu (Gen 1:2)", "Kenosis", "Mary as Vas Hermeticum", "Unregenerate soul awaiting grace"],
+      "scripture": ["Genesis 1:2", "Philippians 2:7"],
+      "jungian": ["Shadow", "Unconscious substrate", "Beginning of individuation"],
+      "page": "prima-materia.html"
+    },
+    {
+      "id": "fire",
+      "alchemical_term": "Fire (Element)",
+      "latin": "Ignis",
+      "category": "Four Elements",
+      "theological_correlates": ["Holy Spirit at Pentecost", "Burning Bush", "Pillar of Fire", "God as consuming fire", "Seraphim"],
+      "scripture": ["Acts 2:3", "Exodus 3:2", "Exodus 13:21", "Isaiah 6:2", "Deuteronomy 4:24", "Hebrews 12:29"],
+      "jungian": ["Intuition function", "Creative fire"],
+      "page": "four-elements.html"
+    },
+    {
+      "id": "water",
+      "alchemical_term": "Water (Element)",
+      "latin": "Aqua",
+      "category": "Four Elements",
+      "theological_correlates": ["Baptism", "Living Water", "Waters of Creation", "Blood and Water from the Cross"],
+      "scripture": ["Genesis 1:2", "John 4:14", "John 7:37–38", "John 19:34", "1 Peter 3:20–21"],
+      "jungian": ["Feeling function", "Depths of unconscious"],
+      "page": "four-elements.html"
+    },
+    {
+      "id": "earth",
+      "alchemical_term": "Earth (Element)",
+      "latin": "Terra",
+      "category": "Four Elements",
+      "theological_correlates": ["Incarnation — Word made dust", "Eucharistic bread", "Burial and Resurrection", "New Earth"],
+      "scripture": ["Genesis 2:7", "John 1:14", "Revelation 21:1"],
+      "jungian": ["Sensation function", "Body and material reality"],
+      "page": "four-elements.html"
+    },
+    {
+      "id": "air",
+      "alchemical_term": "Air (Element)",
+      "latin": "Aer",
+      "category": "Four Elements",
+      "theological_correlates": ["Breath of God (Ruach/Pneuma)", "Spirit as wind", "Resurrection breath", "Still small voice"],
+      "scripture": ["John 3:8", "John 20:22", "1 Kings 19:12"],
+      "jungian": ["Thinking function", "Logos principle"],
+      "page": "four-elements.html"
+    },
+    {
+      "id": "quinta-essentia",
+      "alchemical_term": "Quinta Essentia",
+      "latin": "Quinta Essentia",
+      "category": "Four Elements",
+      "theological_correlates": ["Christ as cosmic unifier (Col 1:17)", "Logos as ordering principle", "Sophianic wisdom"],
+      "scripture": ["Colossians 1:17", "John 1:1–3", "Wisdom 7:24–25"],
+      "jungian": ["The Self", "Transcendent Function", "Centre of the psyche"],
+      "page": "four-elements.html"
+    },
+    {
+      "id": "sulphur",
+      "alchemical_term": "Sulphur (Tria Prima)",
+      "latin": "Sulphur",
+      "category": "Tria Prima",
+      "theological_correlates": ["Imago Dei in the soul", "Augustinian restlessness", "Passional will toward God"],
+      "scripture": ["Augustine, Confessions I.1"],
+      "jungian": ["Libido", "Instinctual drive", "Vital fire"],
+      "page": "sulphur-mercury-salt.html"
+    },
+    {
+      "id": "mercury-tria",
+      "alchemical_term": "Mercury (Tria Prima)",
+      "latin": "Mercurius",
+      "category": "Tria Prima",
+      "theological_correlates": ["Holy Spirit as divine mediator", "Hermes as figura Christi", "Spirit descending and ascending"],
+      "scripture": ["John 3:8", "Acts 1:8"],
+      "jungian": ["Trickster archetype", "Unconscious as mediating force", "Psychopomp"],
+      "page": "sulphur-mercury-salt.html"
+    },
+    {
+      "id": "salt",
+      "alchemical_term": "Salt (Tria Prima)",
+      "latin": "Sal",
+      "category": "Tria Prima",
+      "theological_correlates": ["Salt of the Earth", "Eucharistic body", "Baptismal salt rite", "Covenant salt"],
+      "scripture": ["Matthew 5:13", "Leviticus 2:13", "Mark 9:49"],
+      "jungian": ["Sapientia — bitter wisdom through suffering", "Crystallised experience"],
+      "page": "sulphur-mercury-salt.html"
+    },
+    {
+      "id": "nigredo",
+      "alchemical_term": "Nigredo",
+      "latin": "Nigredo",
+      "category": "Stages of the Opus",
+      "theological_correlates": ["Passion and Death of Christ", "Dark Night of the Soul (John of the Cross)", "Baptismal death", "Descent into Hades", "Ash Wednesday"],
+      "scripture": ["Matthew 27:45–46", "Romans 6:3–4", "Psalm 22:1", "Luke 23:44–45"],
+      "jungian": ["Shadow confrontation", "Persona breakdown", "Depression as transformation", "Trickster eruption"],
+      "page": "nigredo.html"
+    },
+    {
+      "id": "calcinatio",
+      "alchemical_term": "Calcinatio",
+      "latin": "Calcinatio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Ash Wednesday — imposition of ashes", "Penitential ascesis", "Purification by fire"],
+      "scripture": ["1 Corinthians 3:13–15", "Isaiah 1:25"],
+      "jungian": ["Burning away of ego defences", "Mortification of the persona"],
+      "page": "nigredo.html"
+    },
+    {
+      "id": "putrefactio",
+      "alchemical_term": "Putrefactio",
+      "latin": "Putrefactio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Death of the false self", "Lenten descent", "Grain of wheat dying"],
+      "scripture": ["John 12:24"],
+      "jungian": ["Decomposition of rigid complexes", "Necessary dissolution"],
+      "page": "nigredo.html"
+    },
+    {
+      "id": "solutio",
+      "alchemical_term": "Solutio",
+      "latin": "Solutio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Baptismal waters of dissolution", "Flood and new creation", "Tears of compunction"],
+      "scripture": ["Genesis 7", "1 Peter 3:20–21", "Romans 6:3–4"],
+      "jungian": ["Return to unconscious matrix", "Regression in service of the ego"],
+      "page": "nigredo.html"
+    },
+    {
+      "id": "albedo",
+      "alchemical_term": "Albedo",
+      "latin": "Albedo",
+      "category": "Stages of the Opus",
+      "theological_correlates": ["Resurrection of Christ", "Transfiguration", "Baptismal white garment", "Purgatory/Purgation", "Soul as purified Bride"],
+      "scripture": ["Matthew 17:2", "Revelation 7:14", "Song of Songs 4:7"],
+      "jungian": ["Anima/Animus in purified form", "Luna consciousness", "Soul as guide"],
+      "page": "albedo.html"
+    },
+    {
+      "id": "ablutio",
+      "alchemical_term": "Ablutio",
+      "latin": "Ablutio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Confession and Absolution", "Baptismal washing", "Ritual purification"],
+      "scripture": ["Psalm 51:7", "Titus 3:5"],
+      "jungian": ["Washing away of shadow projections", "Clarification of perception"],
+      "page": "albedo.html"
+    },
+    {
+      "id": "sublimatio",
+      "alchemical_term": "Sublimatio",
+      "latin": "Sublimatio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Ascension — the body raised and glorified", "Mystical elevation of prayer"],
+      "scripture": ["Acts 1:9", "2 Corinthians 12:2"],
+      "jungian": ["Raising instinct to spiritual aspiration", "Spiritualisation of affect"],
+      "page": "albedo.html"
+    },
+    {
+      "id": "citrinitas",
+      "alchemical_term": "Citrinitas",
+      "latin": "Citrinitas",
+      "category": "Stages of the Opus",
+      "theological_correlates": ["Ascension of Christ", "Pentecostal anticipation", "Sapientia / Sophia", "Beatific sight beginning", "Doctors of the Church"],
+      "scripture": ["Proverbs 8:22–31", "Matthew 5:8", "Wisdom 7:24–25", "Acts 1"],
+      "jungian": ["Dawning individuation", "Self-orientation of the ego", "Senex yielding to puer"],
+      "page": "citrinitas.html"
+    },
+    {
+      "id": "rubedo",
+      "alchemical_term": "Rubedo",
+      "latin": "Rubedo",
+      "category": "Stages of the Opus",
+      "theological_correlates": ["Pentecost", "Blood of Christ glorified", "Wedding of the Lamb", "Theosis/Deification", "Phoenix as resurrection body"],
+      "scripture": ["Acts 2:1–4", "Revelation 19:6–9", "2 Peter 1:4", "Matthew 26:28"],
+      "jungian": ["Achievement of the Self", "Coniunctio of conscious and unconscious", "Totus homo"],
+      "page": "rubedo.html"
+    },
+    {
+      "id": "coagulatio",
+      "alchemical_term": "Coagulatio",
+      "latin": "Coagulatio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Incarnation — volatile Word made flesh", "Resurrection body — glorified and fixed"],
+      "scripture": ["John 1:14", "1 Corinthians 15:42–44"],
+      "jungian": ["Grounding of insight in lived reality", "Fixation of transformation"],
+      "page": "rubedo.html"
+    },
+    {
+      "id": "projectio",
+      "alchemical_term": "Projectio",
+      "latin": "Projectio",
+      "category": "Alchemical Operations",
+      "theological_correlates": ["Eucharist as projectio of grace", "Loaves multiplied", "Presence transforming communicant"],
+      "scripture": ["John 6:1–13", "Matthew 26:26–28"],
+      "jungian": ["Individuated person as agent of transformation", "Transmutation through presence"],
+      "page": "rubedo.html"
+    },
+    {
+      "id": "coniunctio",
+      "alchemical_term": "Coniunctio Oppositorum",
+      "latin": "Coniunctio Oppositorum",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Wedding of the Lamb", "Incarnation — divine and human united", "Spousal mysticism (Bernard, John of the Cross)"],
+      "scripture": ["Revelation 19:6–9", "Ephesians 5:31–32", "Song of Songs 2:16"],
+      "jungian": ["Union of conscious/unconscious", "Masculine/Feminine integration", "Mysterium Coniunctionis"],
+      "page": "rubedo.html"
+    },
+    {
+      "id": "lapis",
+      "alchemical_term": "Philosopher's Stone (Lapis)",
+      "latin": "Lapis Philosophorum",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Cornerstone the builders rejected", "Christ as Lapis (Zosimos, Aurora Consurgens)", "Eucharist as projectio of Lapis", "Grace as universal tincture", "Hidden treasure / Pearl of great price"],
+      "scripture": ["Psalm 118:22", "Matthew 21:42", "1 Peter 2:4–7", "Matthew 13:44–46", "Matthew 13:33"],
+      "jungian": ["Self archetype", "Centre and totality of the psyche", "Present from beginning, recognised at end"],
+      "page": "philosophers-stone.html"
+    },
+    {
+      "id": "seven-metals",
+      "alchemical_term": "Seven Metals / Planetary Ladder",
+      "latin": "Septem Metalla",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Ladder of Divine Ascent (John Climacus)", "Dante's Paradiso planetary heavens", "Seven gifts of the Holy Spirit"],
+      "scripture": ["Isaiah 11:2–3", "Revelation 4:5"],
+      "jungian": ["Psychic hierarchy", "Levels of consciousness", "Ascent toward Self"],
+      "page": "seven-metals.html"
+    },
+    {
+      "id": "lead-saturn",
+      "alchemical_term": "Lead / Saturn",
+      "latin": "Plumbum / Saturnus",
+      "category": "Seven Metals",
+      "theological_correlates": ["Kenosis — divine taking on mortality and time", "Incarnation as descent", "Suffering servant"],
+      "scripture": ["Philippians 2:7", "Isaiah 53:3"],
+      "jungian": ["Saturnine depression", "Heavy unconscious inertia", "Starting condition of the Opus"],
+      "page": "seven-metals.html"
+    },
+    {
+      "id": "gold-sun",
+      "alchemical_term": "Gold / Sun",
+      "latin": "Aurum / Sol",
+      "category": "Seven Metals",
+      "theological_correlates": ["Christ's divine glory", "Transfiguration", "Theosis — participation in divine nature"],
+      "scripture": ["Matthew 17:2", "2 Peter 1:4", "Revelation 1:16"],
+      "jungian": ["Solar consciousness", "The Self at centre", "Goal of individuation"],
+      "page": "seven-metals.html"
+    },
+    {
+      "id": "silver-moon",
+      "alchemical_term": "Silver / Moon",
+      "latin": "Argentum / Luna",
+      "category": "Seven Metals",
+      "theological_correlates": ["Mary — receptive and reflective", "The Church as moon reflecting Christ the Sun", "Albedo completion"],
+      "scripture": ["Revelation 12:1"],
+      "jungian": ["Anima", "Reflective lunar consciousness", "Feminine soul-principle"],
+      "page": "seven-metals.html"
+    },
+    {
+      "id": "opus-magnum",
+      "alchemical_term": "Opus Magnum",
+      "latin": "Opus Magnum",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Salvation history: Creation to Eschaton", "The Christian life as transformative journey", "Liturgical year as repeated Opus"],
+      "scripture": ["Philippians 1:6", "Romans 8:28–30"],
+      "jungian": ["Full individuation process", "Lifelong psychic transformation"],
+      "page": "opus-magnum.html"
+    },
+    {
+      "id": "soror-mystica",
+      "alchemical_term": "Soror Mystica",
+      "latin": "Soror Mystica",
+      "category": "Foundational Principles",
+      "theological_correlates": ["The Church as Bride of Christ", "Mary as contemplative companion", "Feminine wisdom in the Opus"],
+      "scripture": ["Revelation 19:7", "Song of Songs 1:5", "Ephesians 5:25–27"],
+      "jungian": ["Anima as guide", "Sophia figure", "Soul companion in individuation"],
+      "page": "opus-magnum.html"
+    },
+    {
+      "id": "circulatio",
+      "alchemical_term": "Circulatio",
+      "latin": "Circulatio",
+      "category": "Foundational Principles",
+      "theological_correlates": ["Paschal mystery as annually renewed cycle", "Liturgical year — Advent to Pentecost", "Spiral rather than linear sanctification"],
+      "scripture": ["Ecclesiastes 1:9", "Romans 8:22–23"],
+      "jungian": ["Spiral individuation — returning to earlier material at greater depth", "Recursive transformation"],
+      "page": "opus-magnum.html"
+    }
+  ]
+}
