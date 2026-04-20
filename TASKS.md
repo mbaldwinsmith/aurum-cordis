@@ -486,6 +486,9 @@ All symbols to be created as clean SVG files in `assets/icons/`:
 | 🝡 | Ouroboros (custom SVG) | — |
 | ✠ | Alchemical cross | U+2720 |
 
+- [✓] Create all 16 SVG alchemical symbol files in `assets/icons/`
+- [✓] Build `pages/symbol-gallery.html` gallery showcase page with size toggle and usage notes
+
 ---
 
 ## 📐 Appendix B — Theological Cross-Reference Index

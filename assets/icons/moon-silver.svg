@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Crescent ☽: two arcs sharing tips at (36,10) and (36,54),
+       both sweeping counterclockwise (to the left), outer arc wider -->
+  <path d="M 36 10 A 22 22 0 0 0 36 54"/>
+  <path d="M 36 10 A 12 22 0 0 0 36 54"/>
+</svg>

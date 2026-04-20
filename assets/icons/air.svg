@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Upward triangle with horizontal bar at mid-height -->
+  <polygon points="32,6 6,57 58,57"/>
+  <!-- Bar: where triangle sides cross y=31.5 -->
+  <line x1="19" y1="31" x2="45" y2="31"/>
+</svg>
