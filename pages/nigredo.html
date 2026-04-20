@@ -3,13 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nigredo — The Black Phase: putrefaction, death, dissolution, and the dark night of the soul.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Nigredo — the Black Phase: putrefaction, death, dissolution, and the dark night of the soul. Good Friday, John of the Cross, and Jung's Shadow." />
   <meta property="og:title" content="Nigredo — Aurum Cordis" />
+  <meta property="og:description" content="The first stage of the Opus Magnum: the blackening, the dark night, the necessary death before transformation." />
   <meta property="og:type" content="article" />
   <title>Nigredo — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Nigredo colour overrides ── */
+    :root {
+      --nigredo-bg:     #080606;
+      --nigredo-surface:#100c0a;
+      --nigredo-card:   #160e0c;
+      --nigredo-red:    #7a1515;
+      --nigredo-red-lt: #a02020;
+      --nigredo-ash:    #3a3028;
+      --nigredo-text:   #c8b89a;
+    }
+
+    body { background-color: var(--nigredo-bg); }
+
+    /* ── Hero ── */
+    .ng-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .ng-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(122,21,21,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 80%, rgba(8,6,6,0) 0%, var(--nigredo-bg) 80%),
+        var(--nigredo-bg);
+      z-index: 0;
+    }
+    .ng-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+    /* ── Sol Niger SVG styling ── */
+    .sol-niger {
+      width: 160px; height: 160px;
+      margin: 0 auto var(--space-6);
+      display: block;
+      color: var(--color-vellum-dark);
+    }
+
+    /* ── Stage indicator — Nigredo variant ── */
+    .stage-indicator__stage.active {
+      background: rgba(122,21,21,0.20);
+    }
+    .stage-indicator__stage.active .stage-indicator__name {
+      color: var(--nigredo-red-lt);
+    }
+
+    /* ── Section backgrounds ── */
+    .section--nigredo {
+      background: var(--nigredo-surface);
+      border-top: 1px solid rgba(122,21,21,0.25);
+      border-bottom: 1px solid rgba(122,21,21,0.25);
+    }
+
+    /* ── Process cards (2×2) ── */
+    .process-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 640px) { .process-cards { grid-template-columns: 1fr; } }
+
+    .process-card {
+      background: var(--nigredo-card);
+      border: 1px solid rgba(122,21,21,0.30);
+      border-left: 4px solid var(--nigredo-red);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .process-card__latin {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: var(--text-lg);
+      color: var(--nigredo-red-lt);
+      margin-bottom: 4px;
+    }
+    .process-card__english {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .process-card__alch {
+      font-size: var(--text-sm);
+      color: var(--nigredo-text);
+      line-height: 1.75;
+      margin-bottom: var(--space-3);
+    }
+    .process-card__section-label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-sulphur-gold);
+      margin-bottom: 4px;
+    }
+    .process-card__christian {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── Dark-Night pull quote ── */
+    .dark-night-quote {
+      background: var(--nigredo-card);
+      border: 1px solid rgba(122,21,21,0.30);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+      margin: var(--space-8) auto;
+      max-width: 720px;
+      position: relative;
+    }
+    .dark-night-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-4);
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: var(--nigredo-red);
+      opacity: 0.35;
+      line-height: 1;
+    }
+    .dark-night-quote__text {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: var(--text-lg);
+      color: var(--nigredo-text);
+      line-height: 1.65;
+      margin-bottom: var(--space-4);
+    }
+    .dark-night-quote__source {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nigredo-red-lt);
+      opacity: 0.85;
+    }
+
+    /* ── Overrides for dark bg ── */
+    .content-prose { color: var(--nigredo-text); }
+    .content-prose strong { color: var(--color-vellum-cream); }
+    .scripture { background: rgba(122,21,21,0.08); }
+    .epigraph__text { color: var(--nigredo-text); }
+    .two-col__label { color: var(--nigredo-red-lt); border-color: rgba(122,21,21,0.30); }
+
+    .transition-panel {
+      border-left-color: var(--nigredo-red-lt);
+      background: var(--nigredo-card);
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +187,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,41 +197,514 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
-        <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
+        <li><a href="nigredo.html" class="nav__link active" aria-current="page">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
         <li><a href="jung.html" class="nav__link">Jung</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Stage I of the Opus Magnum</p>
-    <h1 class="page-header__title">⬛ Nigredo</h1>
-    <p class="page-header__subtitle">The Black Phase: putrefaction, death, dissolution, and the dark night of the soul.</p>
-  </header>
+  <!-- Hero -->
+  <section class="ng-hero" aria-labelledby="ng-title">
+    <div class="ng-hero__bg" aria-hidden="true"></div>
+    <div class="ng-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Sol Niger SVG: black sun with dark corona rays -->
+      <svg class="sol-niger animate-on-scroll" viewBox="0 0 160 160" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-label="Sol Niger — the Black Sun: alchemical symbol of Nigredo, the darkened solar disc surrounded by corona rays">
+        <!-- Outer corona rays (long) -->
+        <g stroke="currentColor" stroke-width="1.2" opacity="0.45">
+          <line x1="80" y1="6"   x2="80" y2="22"/>
+          <line x1="80" y1="138" x2="80" y2="154"/>
+          <line x1="6"  y1="80"  x2="22" y2="80"/>
+          <line x1="138" y1="80" x2="154" y2="80"/>
+          <line x1="25"  y1="25"  x2="36"  y2="36"/>
+          <line x1="124" y1="124" x2="135" y2="135"/>
+          <line x1="135" y1="25"  x2="124" y2="36"/>
+          <line x1="36"  y1="124" x2="25"  y2="135"/>
+        </g>
+        <!-- Outer corona rays (short, between) -->
+        <g stroke="currentColor" stroke-width="1" opacity="0.25">
+          <line x1="80"  y1="10"  x2="80"  y2="18"/>
+          <line x1="30"  y1="14"  x2="34"  y2="21"/>
+          <line x1="130" y1="14"  x2="126" y2="21"/>
+          <line x1="14"  y1="30"  x2="21"  y2="34"/>
+          <line x1="146" y1="30"  x2="139" y2="34"/>
+          <line x1="10"  y1="80"  x2="18"  y2="80"/>
+          <line x1="150" y1="80"  x2="142" y2="80"/>
+          <line x1="14"  y1="130" x2="21"  y2="126"/>
+          <line x1="146" y1="130" x2="139" y2="126"/>
+          <line x1="30"  y1="146" x2="34"  y2="139"/>
+          <line x1="130" y1="146" x2="126" y2="139"/>
+          <line x1="80"  y1="150" x2="80"  y2="142"/>
+        </g>
+        <!-- Outer ring — faint -->
+        <circle cx="80" cy="80" r="64" stroke="currentColor" stroke-width="0.8" opacity="0.20"/>
+        <!-- Middle ring -->
+        <circle cx="80" cy="80" r="48" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+        <!-- Solar disc — black -->
+        <circle cx="80" cy="80" r="34" fill="#0a0806" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+        <!-- Dark centre dot -->
+        <circle cx="80" cy="80" r="6" fill="currentColor" opacity="0.5"/>
+        <!-- Cross within disc (subdued) -->
+        <line x1="80" y1="52" x2="80" y2="108" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+        <line x1="52" y1="80" x2="108" y2="80" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--nigredo-red-lt);">Stage I of the Opus Magnum</p>
+      <h1 class="hero__title animate-on-scroll delay-2" id="ng-title">Nigredo</h1>
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        The Black Phase: putrefaction, death, dissolution
       </p>
+
+      <!-- Stage indicator -->
+      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+        <div class="stage-indicator__stage active" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
+          <span class="stage-indicator__name">Nigredo</span>
+        </div>
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬜</span>
+          <span class="stage-indicator__name">Albedo</span>
+        </div>
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🌅</span>
+          <span class="stage-indicator__name">Citrinitas</span>
+        </div>
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🔴</span>
+          <span class="stage-indicator__name">Rubedo</span>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <main>
+
+    <!-- ── Task 4.1: Alchemical Theory ── -->
+    <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--nigredo-red-lt);">Alchemical Theory</p>
+        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          The Necessary Blackening
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            Every serious alchemist knew that the Opus Magnum began in darkness. Before the silver of
+            Albedo, before the gold of Rubedo, before the crowning achievement of the Philosopher's Stone,
+            the matter must first be destroyed. This is <span class="alchemical-term">Nigredo</span>:
+            the blackening, the first and most feared stage of the Great Work.
+          </p>
+          <p>
+            The alchemical texts describe Nigredo in imagery of death, decomposition, and despair.
+            The matter in the crucible rots, burns to ash, dissolves, and dies. What appeared to be
+            stable and formed falls apart. What seemed solid putrefies. The <span class="latin">caput mortuum</span>
+            — the dead head — was the alchemical name for the black residue left after calcination:
+            a skull-like mass, apparently worthless, the remnant of failure. And yet the tradition
+            insisted, unanimously, that this death was not the end. It was the beginning.
+          </p>
+          <p>
+            <em>"Putrefaction is the beginning of all generation"</em> — this axiom, repeated across
+            centuries of alchemical writing, encodes the paradox at Nigredo's heart.
+            Nothing can be refined without first being destroyed. Nothing new can emerge
+            from matter that has not first been reduced to its most fundamental, undifferentiated state.
+            The blackening is not a mistake to be corrected. It is the work.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+          <h3>The Raven and the Black Sun</h3>
+          <p>
+            The iconography of Nigredo is precise and powerful. The most common emblem is the
+            <strong>raven</strong> (<span class="latin">corvus</span>) — the black bird that appears
+            perched on the blackened matter, sometimes shown devouring or being devoured by it.
+            In the emblem books of the <span class="alchemical-term">Rosarium Philosophorum</span>
+            (c. 1550), the raven marks the moment of death: the old king lies prostrate, the bird of
+            darkness lands, and the work enters its most dangerous passage.
+          </p>
+          <p>
+            More theologically charged is the <strong><span class="latin">Sol Niger</span></strong>:
+            the Black Sun. Here the very source of light and life — the solar principle, the emblem of
+            gold and of the divine — is shown as dark, eclipsed, swallowed by its own shadow.
+            This is not the sun setting. This is the sun <em>dying</em>.
+            The <span class="latin">Sol Niger</span> communicates that in Nigredo, even the divine
+            principle within the matter has been subsumed into darkness — not lost, but hidden,
+            buried, waiting for the resurrection that only total death can make possible.
+          </p>
+        </div>
+
+        <!-- Process cards -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-top:var(--space-8); margin-bottom:var(--space-4); color:var(--color-vellum-cream);">
+          The Four Operations of Nigredo
+        </h3>
+        <div class="process-cards">
+
+          <article class="process-card animate-on-scroll" aria-labelledby="calcinatio-title">
+            <p class="process-card__latin" id="calcinatio-title">Calcinatio</p>
+            <p class="process-card__english">The Burning to Ash</p>
+            <p class="process-card__alch">The matter is subjected to intense heat until it is reduced to a dry, powdery ash — the <span class="latin">caput mortuum</span>. All volatile and combustible substance is driven off; only the most fixed and inert mineral residue remains. What was living and complex becomes utterly simple.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">Ash Wednesday: "Remember that you are dust, and to dust you shall return." The imposition of ashes is the Church's annual act of liturgical calcination — a voluntary reduction of the self to its most elemental truth, stripped of pretension, face to face with mortality.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-1" aria-labelledby="putrefactio-title">
+            <p class="process-card__latin" id="putrefactio-title">Putrefactio</p>
+            <p class="process-card__english">The Rotting</p>
+            <p class="process-card__alch">The matter decomposes. What was integrated falls apart; what was ordered becomes disordered; what was living dies. This is not decay as failure but decay as a necessary stage in transformation — the seed must rot in the ground before the shoot can emerge.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">"Unless a grain of wheat falls into the earth and dies, it remains alone; but if it dies, it bears much fruit" (John 12:24). The Lenten season is an extended <span class="latin">putrefactio</span> — a willingness to let the old structures of the self decompose, trusting that something living is fermenting beneath.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-2" aria-labelledby="solutio-title">
+            <p class="process-card__latin" id="solutio-title">Solutio</p>
+            <p class="process-card__english">The Dissolution</p>
+            <p class="process-card__alch">The matter is dissolved in acid or water — its fixed form is broken down into a liquid, undifferentiated state. What seemed permanent is shown to be contingent. The apparent solidity of the old self is revealed as a structure that can be unmade.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">Baptism as <span class="latin">solutio</span>: "We were therefore buried with him through baptism into death" (Romans 6:4). The baptismal font is simultaneously grave and womb — the old self dissolved in water so that the new creation can emerge. The flood that destroys is also the flood that cleanses.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-3" aria-labelledby="mortificatio-title">
+            <p class="process-card__latin" id="mortificatio-title">Mortificatio</p>
+            <p class="process-card__english">The Death of the Old Form</p>
+            <p class="process-card__alch">The final and most complete operation of Nigredo: the utter death of the matter's previous identity. Not merely weakened or damaged, but dead. The alchemical tradition is unsparing here — Mortificatio must be complete, or the work cannot proceed. Half-deaths produce nothing.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">The cry of dereliction: "My God, my God, why have you forsaken me?" (Matthew 27:46 / Psalm 22:1). The abandonment of the cross is total <span class="latin">mortificatio</span> — not the appearance of death but death itself, God-forsakenness entered all the way to its floor. Only from here can resurrection be real.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Task 4.2: Christian Theological Correlates ── -->
+    <section class="section section--nigredo" id="christian-correlates" aria-labelledby="christian-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--nigredo-red-lt);">Christian Theological Correlates</p>
+        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          Good Friday, the Dark Night, and the Harrowing
+        </h2>
+
+        <!-- Passion -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>I. The Passion: The <span class="latin">Sol Niger</span> of Salvation History</h3>
+          <p>
+            The crucifixion of Christ is, on any serious theological reading, the most concentrated
+            darkness in human history. "From the sixth hour until the ninth hour darkness came over
+            all the land" (Matthew 27:45; Luke 23:44–45) — the literal, reported darkening of the sun
+            at the moment of Jesus's death is the cosmic <span class="latin">Sol Niger</span>.
+            The source of all light is extinguished. The sun refuses to witness what is happening.
+          </p>
+          <p>
+            The cry from the cross — <em>"Eloi, Eloi, lama sabachthani?"</em> (Matthew 27:46),
+            the opening words of Psalm 22 — is the voice of Nigredo at its most absolute:
+            the experience of divine abandonment, of God-forsakenness, of the disappearance of every
+            consolation, every confirmation, every sense of divine presence. The one who is himself
+            the <span class="latin">Sol</span> — the Sun of Righteousness, the light of the world —
+            cries out from the darkness. The Sun has gone black.
+          </p>
+          <p>
+            For the Christian alchemist, this is not merely analogy. The Passion is the
+            <em>archetype</em> of Nigredo — the pattern that every subsequent night of the soul
+            participates in, the primal event that gives all darkness its hidden shape.
+            When the soul is in its Nigredo, it is not merely like Christ on the cross.
+            In some real sense, through baptismal incorporation, it <em>is</em> there.
+          </p>
+        </div>
+
+        <blockquote class="scripture animate-on-scroll">
+          From noon until three in the afternoon darkness came over all the land.
+          About three in the afternoon Jesus cried out in a loud voice,
+          <em>"Eli, Eli, lema sabachthani?"</em> (which means "My God, my God, why have you forsaken me?")
+          <cite>Matthew 27:45–46</cite>
+        </blockquote>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+
+        <!-- Dark Night -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>II. The Dark Night of the Soul</h3>
+          <p>
+            <strong>John of the Cross</strong> (1542–1591), the Spanish Carmelite mystic and theologian,
+            gave the Church's most precise and courageous analysis of spiritual Nigredo in his poem and
+            commentary <span class="latin">La Noche Oscura del Alma</span> — <em>The Dark Night of the Soul</em>.
+            John describes a two-fold process of purgation: the night of the senses, in which God withdraws
+            the felt consolations of prayer and devotion; and the night of the spirit, in which even the
+            soul's most refined spiritual faculties are stripped bare and left in darkness.
+          </p>
+          <p>
+            What makes John's analysis so alchemically precise is his insistence that the Dark Night
+            is not a sign of God's absence but of his most intimate and purifying presence.
+            The darkness is caused not by God being far away but by his light being so intensely close
+            that the unpurified soul cannot perceive it as light — it experiences it as darkness,
+            as the burning away of everything that is not God. The Nigredo is the divine fire at work.
+          </p>
+          <p>
+            John also insists on the necessity of passivity in the Dark Night. The soul must not
+            try to illuminate its own darkness by artificial means — by forcing consolations, by fleeing
+            into activity, by seeking spiritual experiences to replace those that have been taken away.
+            The <span class="latin">mortificatio</span> must be endured. This is not passive resignation
+            but the deepest form of active trust: the willingness to remain in the crucible.
+          </p>
+        </div>
+
+        <!-- Dark Night pull quote -->
+        <div class="dark-night-quote animate-on-scroll">
+          <p class="dark-night-quote__text">
+            "In order to arrive at having pleasure in everything,<br>
+            desire to have pleasure in nothing.<br>
+            In order to arrive at possessing everything,<br>
+            desire to possess nothing.<br>
+            In order to arrive at being everything,<br>
+            desire to be nothing."
+          </p>
+          <p class="dark-night-quote__source">
+            John of the Cross, <span class="latin">Ascent of Mount Carmel</span>, I.13
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+
+        <!-- Baptismal death -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>III. Baptismal Death and the Font as Crucible</h3>
+          <p>
+            Paul's theology of baptism in Romans 6 is alchemical Nigredo in its most liturgically
+            concentrated form: "We were therefore buried with him through baptism into death in order
+            that, just as Christ was raised from the dead through the glory of the Father,
+            we too may live a new life" (Romans 6:4).
+          </p>
+          <p>
+            The baptismal font is not merely a place of washing. It is a crucible. The candidate goes
+            down into it as into a grave; what emerges is not the same person who went in.
+            The early Church gave visible expression to this in the shape of the baptismal pools,
+            often cruciform or coffin-shaped — the architecture encoding the theology.
+            The font is, simultaneously, grave and womb: the place where the old self is interred
+            and the new creation is born. This double nature is Nigredo's essence:
+            death and the seed of life occupy the same space, the same moment.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+
+        <!-- Descensus -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>IV. The <span class="latin">Descensus ad Inferos</span>: The Supreme Nigredo</h3>
+          <p>
+            The article of the Creed that has attracted the most theological controversy and the most
+            alchemical resonance is the descent into hell: <span class="latin">descendit ad inferos</span>.
+            Between the death on the cross and the resurrection at dawn, Christ descended into the place
+            of the dead — into the darkest, most God-forsaken region of creaturely existence.
+          </p>
+          <p>
+            The patristic tradition of the <em>Harrowing of Hell</em> — Christ descending into Hades
+            to release the imprisoned dead, preaching to those who had died before the Incarnation —
+            reads this descent as an act of supreme <span class="latin">mortificatio</span> that is
+            simultaneously an act of supreme liberation. The Lord of Life enters the kingdom of death
+            not to be defeated by it but to transform it from within. He goes all the way down —
+            further than any human Nigredo, further than any dark night — and finds that even there,
+            in the very centre of death and abandonment, the divine life is not absent.
+            It has preceded him.
+          </p>
+          <p>
+            This is the theological heart of the <span class="latin">Sol Niger</span>:
+            the black sun is still the sun. Even in the eclipse, the light is not extinguished —
+            it is concentrated, hidden, waiting. The <span class="latin">descensus</span> guarantees
+            that no human darkness is beyond transformation, because the one who is transformation
+            himself has been there first.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+
+        <!-- Exile motif -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>V. The Exile as Nigredo</h3>
+          <p>
+            The wilderness motif runs through Scripture as one of its great structuring images.
+            Israel in the Sinai — forty years of stripped identity, of manna in the desert,
+            of the death of an entire generation before the promised land.
+            Elijah under the broom tree, exhausted and asking to die (1 Kings 19:4).
+            The psalmist in Psalm 88, the darkest of the psalms, which ends without resolution,
+            without the customary turn to praise — darkness upon darkness, no dawn visible.
+          </p>
+          <p>
+            These are Nigredo seasons. They are not punishments — or not only punishments.
+            They are the furnace. The identity forged in comfort and security must be stripped
+            to find what lies beneath it, what is genuinely one's own rather than merely inherited
+            or performed. The exile from everything familiar — from home, from role, from the self
+            one thought one was — is the <span class="latin">putrefactio</span> of the false self,
+            the terrifying and necessary precondition of the new creation.
+          </p>
+          <p>
+            The exile <em>is</em> the beginning of the Opus. The person who has never been in Nigredo
+            has not yet begun the Great Work.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 4.3: Jungian Dimension ── -->
+    <section class="section" id="jungian-dimension" aria-labelledby="jung-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--nigredo-red-lt);">Jungian Dimension</p>
+        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          The Shadow, the Breakdown, and the Beginning
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Nigredo and the Shadow</h3>
+          <p>
+            For Jung, the opening of the Opus Magnum in the psyche is the confrontation with the
+            <strong>Shadow</strong> — the dark, denied, disowned aspects of the self that have been
+            consigned to the unconscious. The Shadow is everything the ego has refused to be:
+            the rage that was never allowed expression, the neediness that was armoured over,
+            the capacity for cruelty or failure or ordinariness that threatened the self-image.
+          </p>
+          <p>
+            Nigredo is what happens when this material can no longer be contained.
+            The persona — the social mask, the performed self, the carefully maintained image
+            one presents to the world and to oneself — begins to crack. What leaks through
+            is precisely what it was designed to suppress. This is not psychological failure.
+            This is psychological necessity. The persona is not the self; it is a structure
+            built to manage the self's relationship with the world. When it breaks down,
+            what has been hidden beneath it finally has room to move.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Depression, Grief, and Crisis as Nigredo</h3>
+          <p>
+            One of the most important — and most contested — aspects of Jung's alchemical psychology
+            is his reframing of depression, grief, and psychological crisis. These are not,
+            in the Jungian reading, simply pathologies to be eliminated as quickly as possible.
+            They are potential Nigredos: states in which transformation is occurring, even when —
+            especially when — it feels like pure dissolution.
+          </p>
+          <p>
+            This is not an invitation to romanticise suffering or to delay appropriate care.
+            There are depressions that are simply illness and require medical treatment.
+            Jung was not naive about this. But within the broader arc of a life, there are also
+            seasons of darkness that carry within them the seed of a new orientation —
+            a reorientation that could not have happened any other way.
+            The person who has been through Nigredo and returned knows something about themselves
+            and about reality that cannot be known from outside the furnace.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>The Trickster in the Dark</h3>
+          <p>
+            Nigredo is also the terrain of the <strong>Trickster</strong> archetype — the figure of
+            irreverent energy, transgression, and carnival inversion that appears when normal structures
+            break down. In dream work, in fantasy, in the unexpected surge of dark humour in the
+            middle of grief — these are Trickster's signatures. He is not a comfortable figure.
+            He mocks the seriousness of the persona, punctures pretension, refuses to let the
+            sufferer take themselves too solemnly even in their most solemn moments.
+          </p>
+          <p>
+            But the Trickster's mockery is not nihilistic. He mocks what needs to die so that
+            something real can emerge. The capacity for irreverence, for play, for the subversive
+            laugh in the face of the abyss — these are not signs that the Nigredo is being avoided.
+            They are signs that the unconscious is alive and working, that the new life is already
+            stirring in the darkness, that even in the blackest phase of the Opus,
+            the mercurial spirit cannot be entirely suppressed.
+          </p>
+        </div>
+
+        <div class="epigraph animate-on-scroll">
+          <p class="epigraph__text" style="color:var(--nigredo-text);">
+            "The nigredo… is the initial state of unconsciousness and darkness which every
+            individuation process begins with. It is a real state of chaos, a darkness and
+            confusion in which the ego is dissolved."
+          </p>
+          <p class="epigraph__source">C.G. Jung, <span class="latin">Psychology and Alchemy</span>, CW 12, §334</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            From death to washing — the blackened matter is ready to receive the first light.
+            The movement toward Albedo begins.
+          </p>
+          <a href="albedo.html" class="transition-panel__arrow" aria-label="Continue to Albedo">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>On the iconography of the raven and Sol Niger in the <span class="latin">Rosarium Philosophorum</span>,
+            see Barbara Obrist, <em>Les débuts de l'imagerie alchimique</em> (1982); and Lyndy Abraham,
+            <em>A Dictionary of Alchemical Imagery</em> (1998), s.v. "nigredo," "black sun," "raven."</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>John of the Cross, <span class="latin">The Dark Night of the Soul</span>, trans. E. Allison Peers
+            (1953); and <span class="latin">The Ascent of Mount Carmel</span>, II.3.
+            The definitive modern study is Iain Matthew, <em>The Impact of God</em> (1995).</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>On the theology of Holy Saturday and the <span class="latin">descensus ad inferos</span>,
+            see Hans Urs von Balthasar, <em>Mysterium Paschale</em> (1970); and Alan Lewis,
+            <em>Between Cross and Resurrection: A Theology of Holy Saturday</em> (2001).</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>Jung's analysis of Nigredo is throughout <span class="latin">Psychology and Alchemy</span>
+            (CW 12) and <span class="latin">Mysterium Coniunctionis</span> (CW 14). On the Shadow,
+            see <span class="latin">Aion</span> (CW 9ii), ch. 2. For a pastoral application, see
+            John Sanford, <em>The Kingdom Within</em> (1970).</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>On the Trickster archetype, see Jung, "On the Psychology of the Trickster Figure,"
+            CW 9i, §456–488; Paul Radin, <em>The Trickster</em> (1956, with commentary by Jung);
+            and Lewis Hyde, <em>Trickster Makes This World</em> (1998).</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="background:var(--nigredo-surface); border-top-color:rgba(122,21,21,0.25);">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="sulphur-mercury-salt.html" class="site-footer__link">← Tria Prima</a></li>
+      <li><a href="albedo.html" class="site-footer__link">Next: Albedo →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

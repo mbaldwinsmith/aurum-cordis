@@ -174,33 +174,33 @@ aurum-cordis/
 *The Black Phase: putrefaction, death, dissolution, and the dark night of the soul.*
 
 ### Task 4.1 — Content: Alchemical Theory
-- [ ] Define Nigredo as the first and most feared stage of the Opus Magnum: the blackening, the putrefaction (*putrefactio*), the calcination (*calcinatio*) of the base matter
-- [ ] Describe the processes associated with Nigredo: **Calcinatio** (burning to ash), **Putrefactio** (rotting), **Solutio** (dissolution in acid/water), **Mortificatio** (death of the old form)
-- [ ] The raven (*corvus*) and the black sun (*sol niger*) as iconographic markers of Nigredo; cite the *Rosarium Philosophorum* emblems
-- [ ] The necessity of Nigredo: nothing can be refined without first being destroyed
+- [✓] Define Nigredo as the first and most feared stage of the Opus Magnum: the blackening, the putrefaction (*putrefactio*), the calcination (*calcinatio*) of the base matter
+- [✓] Describe the processes associated with Nigredo: **Calcinatio** (burning to ash), **Putrefactio** (rotting), **Solutio** (dissolution in acid/water), **Mortificatio** (death of the old form)
+- [✓] The raven (*corvus*) and the black sun (*sol niger*) as iconographic markers of Nigredo; cite the *Rosarium Philosophorum* emblems
+- [✓] The necessity of Nigredo: nothing can be refined without first being destroyed
 
 ### Task 4.2 — Content: Christian Theological Correlates
-- [ ] **The Passion and Death of Christ**: Nigredo as the deepest image of Good Friday; the *sol niger* as the darkened sun (Luke 23:44–45); the cry of dereliction (Psalm 22 / Matthew 27:46) as the soul's encounter with divine abandonment
-- [ ] **Ash Wednesday and Lenten ascesis**: the imposition of ashes as liturgical Nigredo; penitential darkness as voluntary dissolution
-- [ ] **The Dark Night of the Soul** (John of the Cross, *Noche Oscura*): spiritual Nigredo as the stripping of consolations, the death of the false self, the purgation that precedes union
-- [ ] **Baptismal death**: Romans 6:3–4 — buried with Christ in baptism; the font as grave and womb simultaneously
-- [ ] **Descent into Hades** (*descensus ad inferos*): Christ's harrowing of hell as the supreme Nigredo — the divine entering the darkest darkness to transform it from within
-- [ ] **The exile motif**: connect to Mark's chapbook arc — the exile as Nigredo, the wilderness as furnace, the stripping of identity as putrefactio
+- [✓] **The Passion and Death of Christ**: Nigredo as the deepest image of Good Friday; the *sol niger* as the darkened sun (Luke 23:44–45); the cry of dereliction (Psalm 22 / Matthew 27:46) as the soul's encounter with divine abandonment
+- [✓] **Ash Wednesday and Lenten ascesis**: the imposition of ashes as liturgical Nigredo; penitential darkness as voluntary dissolution
+- [✓] **The Dark Night of the Soul** (John of the Cross, *Noche Oscura*): spiritual Nigredo as the stripping of consolations, the death of the false self, the purgation that precedes union
+- [✓] **Baptismal death**: Romans 6:3–4 — buried with Christ in baptism; the font as grave and womb simultaneously
+- [✓] **Descent into Hades** (*descensus ad inferos*): Christ's harrowing of hell as the supreme Nigredo — the divine entering the darkest darkness to transform it from within
+- [✓] **The exile motif**: connect to Mark's chapbook arc — the exile as Nigredo, the wilderness as furnace, the stripping of identity as putrefactio
 
 ### Task 4.3 — Content: Jungian Dimension
-- [ ] Jung's identification of Nigredo with the confrontation with the Shadow: the dark, denied, "dead" parts of the self that must be faced and integrated
-- [ ] Nigredo as the beginning of individuation: the breakdown of the *persona* (false self), the eruption of the unconscious
-- [ ] Depression, grief, and crisis as potential Nigredo — not pathology to be avoided but transformation in process
-- [ ] The Trickster/Carnival archetype that emerges in Nigredo (connect to Mark's recent dream work — the shadow figures, the irreverent energy, the suppressed capacities)
+- [✓] Jung's identification of Nigredo with the confrontation with the Shadow: the dark, denied, "dead" parts of the self that must be faced and integrated
+- [✓] Nigredo as the beginning of individuation: the breakdown of the *persona* (false self), the eruption of the unconscious
+- [✓] Depression, grief, and crisis as potential Nigredo — not pathology to be avoided but transformation in process
+- [✓] The Trickster/Carnival archetype that emerges in Nigredo (connect to Mark's recent dream work — the shadow figures, the irreverent energy, the suppressed capacities)
 
 ### Task 4.4 — UI Build
-- [ ] Dark-themed page (near-black background, dark vellum text, deep red accents)
-- [ ] Hero with *sol niger* SVG (black sun with corona rays)
-- [ ] Process cards for each Nigredo operation (Calcinatio, Putrefactio, Solutio, Mortificatio) with theological parallel
-- [ ] Stage progress indicator showing Nigredo as Stage 1 of 4
-- [ ] Scripture blockquote: Matthew 27:45–46
-- [ ] Pull quote from John of the Cross's *Dark Night of the Soul*
-- [ ] Transition panel at page bottom: "From death to washing — the movement toward Albedo →"
+- [✓] Dark-themed page (near-black background, dark vellum text, deep red accents)
+- [✓] Hero with *sol niger* SVG (black sun with corona rays)
+- [✓] Process cards for each Nigredo operation (Calcinatio, Putrefactio, Solutio, Mortificatio) with theological parallel
+- [✓] Stage progress indicator showing Nigredo as Stage 1 of 4
+- [✓] Scripture blockquote: Matthew 27:45–46
+- [✓] Pull quote from John of the Cross's *Dark Night of the Soul*
+- [✓] Transition panel at page bottom: "From death to washing — the movement toward Albedo →"
 
 ---
 
