@@ -195,6 +195,7 @@
   position: relative;
   z-index: 1;
   max-width: 800px;
+  padding-bottom: var(--space-16);
 }
 
 .hero__emblem {
