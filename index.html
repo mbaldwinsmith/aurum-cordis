@@ -11,6 +11,79 @@
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <style>
+    /* ── Home-page specific components ── */
+
+    /* Pull quote in intro */
+    .home-pull-quote {
+      border: none;
+      border-left: 3px solid var(--color-gold);
+      margin: var(--space-8) 0 0;
+      padding: var(--space-5) var(--space-6);
+      background: rgba(201,162,39,0.05);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .home-pull-quote__text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.2vw, 1.40rem);
+      color: var(--color-text-light);
+      line-height: 1.65;
+      margin-bottom: var(--space-3);
+    }
+    .home-pull-quote__source {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    /* Three Lenses section */
+    .lenses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    @media (max-width: 720px) { .lenses-grid { grid-template-columns: 1fr; } }
+
+    .lens-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--lens-color, var(--color-gold));
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+    }
+    .lens-panel__glyph {
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+    .lens-panel__kicker {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lens-color, var(--color-gold));
+      margin-bottom: var(--space-2);
+    }
+    .lens-panel__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-style: italic;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    .lens-panel__body {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.78;
+    }
+    .lens--alch { --lens-color: #c9a227; }
+    .lens--theo { --lens-color: #9ab0c0; }
+    .lens--jung { --lens-color: #4a6880; }
+  </style>
 </head>
 <body>
 
@@ -151,8 +224,70 @@
           <span class="latin">lectio</span> — a slow, charitable reading of a strange and beautiful tradition in
           the light of the faith that, this site argues, gives it its deepest meaning.
         </p>
+
+        <p>
+          The approach is neither apologetic nor reductive. Alchemy is not defended as secretly orthodox
+          from the start — many alchemists were heterodox, syncretic, and confused. Nor is it dismissed
+          as mere charlatanry — many were devoted Christian practitioners whose symbolic vision of matter
+          illuminates Scripture and the Fathers in ways that centuries of exegetical tradition have largely
+          overlooked. The method is discernment: patient, generous, and finally judged by the ancient rule —
+          <span class="latin">quidquid est verum, quidquid honestum</span> — whatever is true, whatever is
+          noble, take it in (Philippians 4:8).
+        </p>
       </div>
 
+      <blockquote class="home-pull-quote animate-on-scroll">
+        <p class="home-pull-quote__text">
+          "That which is below is like that which is above, and that which is above is like that which
+          is below — to accomplish the miracle of the one thing."
+        </p>
+        <p class="home-pull-quote__source">The Emerald Tablet · <em>Tabula Smaragdina</em> · c. 8th century</p>
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- Three Lenses section -->
+  <section class="section" aria-labelledby="lenses-title">
+    <div class="container">
+
+      <div class="divider animate-on-scroll">
+        <span class="divider__glyph">🜔</span>
+      </div>
+
+      <h2 id="lenses-title" class="text-center animate-on-scroll"
+          style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-2);">
+        Three Ways of Reading the Work
+      </h2>
+      <p class="text-center animate-on-scroll"
+         style="font-style: italic; color: var(--color-text-muted); margin-bottom: var(--space-6);">
+        The site holds three lenses in dialogue — no single one is sufficient alone
+      </p>
+
+      <div class="lenses-grid animate-on-scroll">
+
+        <div class="lens-panel lens--alch">
+          <div class="lens-panel__glyph" aria-hidden="true">⚗</div>
+          <p class="lens-panel__kicker">The First Lens</p>
+          <h3 class="lens-panel__title">The Alchemical Tradition</h3>
+          <p class="lens-panel__body">Alchemy is taken seriously on its own terms — as a genuine symbolic tradition with its own internal coherence, vocabulary, and vision of matter as spiritually significant. The primary texts are read closely: the <em>Emerald Tablet</em>, the <em>Rosarium Philosophorum</em>, Paracelsus, Zosimos. The symbols are not decoded away but inhabited.</p>
+        </div>
+
+        <div class="lens-panel lens--theo">
+          <div class="lens-panel__glyph" aria-hidden="true">✝</div>
+          <p class="lens-panel__kicker">The Second Lens</p>
+          <h3 class="lens-panel__title">Christian Theology</h3>
+          <p class="lens-panel__body">Orthodox Trinitarian Christianity provides the interpretive frame. The doctrines of <em>creatio bona</em>, Incarnation, the Paschal Mystery, and theosis illuminate what the alchemists were reaching toward. Scripture, the Fathers, and the mystics — Origen, John of the Cross, Aquinas, Bulgakov — are the theological interlocutors throughout.</p>
+        </div>
+
+        <div class="lens-panel lens--jung">
+          <div class="lens-panel__glyph" aria-hidden="true">◎</div>
+          <p class="lens-panel__kicker">The Third Lens</p>
+          <h3 class="lens-panel__title">Jungian Depth Psychology</h3>
+          <p class="lens-panel__body">Jung's recovery of alchemical symbolism as a map of the unconscious is taken seriously as a valuable pastoral instrument — while not being given the last word. Where depth psychology illuminates the inner dimensions of the Christian tradition, it is welcomed. Where it oversteps into theology, it is corrected. Victor White OP shows the way.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -285,7 +420,7 @@
     <ul class="site-footer__links" role="list">
       <li><a href="index.html" class="site-footer__link">Home</a></li>
       <li><a href="pages/bibliography.html" class="site-footer__link">Bibliography</a></li>
-      <li><a href="https://github.com" class="site-footer__link" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://github.com/mbaldwinsmith/aurum-cordis" class="site-footer__link" rel="noopener noreferrer">GitHub</a></li>
     </ul>
     <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>

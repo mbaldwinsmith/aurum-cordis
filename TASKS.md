@@ -426,18 +426,18 @@ After completing a module, tick off the done tasks, push to main branch and then
 ## 🏠 MODULE 13 — Home Page (`index.html`)
 
 ### Task 13.1 — Content
-- [ ] Site title: ***Aurum Cordis*** — "The Gold of the Heart"
-- [ ] Tagline: *"The Opus Magnum as Christian Way: Alchemy, Theology, and the Soul's Transformation"*
-- [ ] Brief introductory essay (400–600 words): the site's theological premises, its approach to alchemy as a symbolic rather than literally metallurgical tradition, its debt to Jung while not being reducible to Jungian psychology, and its commitment to orthodox Trinitarian Christianity as the interpretive frame
-- [ ] Note on method: neither apologetic nor reductive — alchemy is taken seriously on its own terms and then read through a Christian lens
-- [ ] Navigation hub with large illustrated cards linking to each module
+- [✓] Site title: ***Aurum Cordis*** — "The Gold of the Heart"
+- [✓] Tagline: *"The Opus Magnum as Christian Way: Alchemy, Theology, and the Soul's Transformation"*
+- [✓] Brief introductory essay (400–600 words): the site's theological premises, its approach to alchemy as a symbolic rather than literally metallurgical tradition, its debt to Jung while not being reducible to Jungian psychology, and its commitment to orthodox Trinitarian Christianity as the interpretive frame
+- [✓] Note on method: neither apologetic nor reductive — alchemy is taken seriously on its own terms and then read through a Christian lens
+- [✓] Navigation hub with large illustrated cards linking to each module
 
 ### Task 13.2 — UI Build
-- [ ] Full-viewport hero: dark vellum texture, large alchemical emblem (ouroboros encircling a cross), site title in IM Fell English, tagline in Cormorant
-- [ ] Animated subtitle fade-in
-- [ ] Intro essay section with pull quote
-- [ ] Module card grid (illustrated, with stage colour coding)
-- [ ] Footer with GitHub link, copyright, and a closing Latin phrase: *"Ora et Labora et Lege"*
+- [✓] Full-viewport hero: dark vellum texture, large alchemical emblem (ouroboros encircling a cross), site title in IM Fell English, tagline in Cormorant
+- [✓] Animated subtitle fade-in
+- [✓] Intro essay section with pull quote
+- [✓] Module card grid (illustrated, with stage colour coding)
+- [✓] Footer with GitHub link, copyright, and a closing Latin phrase: *"Ora et Labora et Lege"*
 
 ---
 
