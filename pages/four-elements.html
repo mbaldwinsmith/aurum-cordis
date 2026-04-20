@@ -306,7 +306,7 @@
           <!-- SVG wheel -->
           <div class="wheel-container" role="group" aria-label="Interactive elemental wheel">
             <svg class="wheel-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg"
-                 aria-label="Elemental wheel: Fire (top-right), Air (bottom-right), Water (bottom-left), Earth (top-left), Quinta Essentia (centre)">
+                 aria-label="Elemental wheel: Fire (top-left), Air (top-right), Water (bottom-right), Earth (bottom-left), Quinta Essentia (centre)">
 
               <!-- Quality labels -->
               <text x="160" y="22"  text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="11" letter-spacing="3">HOT</text>
@@ -314,36 +314,36 @@
               <text x="160" y="306" text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="11" letter-spacing="3">COLD</text>
               <text x="22"  y="165" text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="11" letter-spacing="2">DRY</text>
 
-              <!-- FIRE — top-right quadrant (Hot+Dry) -->
+              <!-- FIRE — top-left quadrant (Hot+Dry) -->
               <g class="wheel-segment" data-element="fire" role="button" tabindex="0" aria-label="Fire: Hot and Dry" aria-pressed="false">
-                <path class="wheel-segment__fill" d="M160 160 L160 45 A115 115 0 0 1 275 160 Z"
-                  fill="rgba(160,32,32,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
-                <text x="222" y="116" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜂</text>
-                <text x="222" y="135" text-anchor="middle" fill="#e8a0a0" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">FIRE</text>
-              </g>
-
-              <!-- AIR — bottom-right quadrant (Hot+Wet) -->
-              <g class="wheel-segment" data-element="air" role="button" tabindex="0" aria-label="Air: Hot and Wet" aria-pressed="false">
-                <path class="wheel-segment__fill" d="M160 160 L275 160 A115 115 0 0 1 160 275 Z"
-                  fill="rgba(138,118,32,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
-                <text x="222" y="212" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜁</text>
-                <text x="222" y="231" text-anchor="middle" fill="#d8c880" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">AIR</text>
-              </g>
-
-              <!-- WATER — bottom-left quadrant (Cold+Wet) -->
-              <g class="wheel-segment" data-element="water" role="button" tabindex="0" aria-label="Water: Cold and Wet" aria-pressed="false">
-                <path class="wheel-segment__fill" d="M160 160 L160 275 A115 115 0 0 1 45 160 Z"
-                  fill="rgba(26,74,122,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
-                <text x="98"  y="212" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜄</text>
-                <text x="98"  y="231" text-anchor="middle" fill="#80a8d8" font-family="'Cinzel',serif" font-size="9" letter-spacing="1">WATER</text>
-              </g>
-
-              <!-- EARTH — top-left quadrant (Cold+Dry) -->
-              <g class="wheel-segment" data-element="earth" role="button" tabindex="0" aria-label="Earth: Cold and Dry" aria-pressed="false">
                 <path class="wheel-segment__fill" d="M160 160 L45 160 A115 115 0 0 1 160 45 Z"
+                  fill="rgba(160,32,32,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
+                <text x="98"  y="116" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜂</text>
+                <text x="98"  y="135" text-anchor="middle" fill="#e8a0a0" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">FIRE</text>
+              </g>
+
+              <!-- AIR — top-right quadrant (Hot+Wet) -->
+              <g class="wheel-segment" data-element="air" role="button" tabindex="0" aria-label="Air: Hot and Wet" aria-pressed="false">
+                <path class="wheel-segment__fill" d="M160 160 L160 45 A115 115 0 0 1 275 160 Z"
+                  fill="rgba(138,118,32,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
+                <text x="222" y="116" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜁</text>
+                <text x="222" y="135" text-anchor="middle" fill="#d8c880" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">AIR</text>
+              </g>
+
+              <!-- WATER — bottom-right quadrant (Cold+Wet) -->
+              <g class="wheel-segment" data-element="water" role="button" tabindex="0" aria-label="Water: Cold and Wet" aria-pressed="false">
+                <path class="wheel-segment__fill" d="M160 160 L275 160 A115 115 0 0 1 160 275 Z"
+                  fill="rgba(26,74,122,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
+                <text x="222" y="212" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜄</text>
+                <text x="222" y="231" text-anchor="middle" fill="#80a8d8" font-family="'Cinzel',serif" font-size="9" letter-spacing="1">WATER</text>
+              </g>
+
+              <!-- EARTH — bottom-left quadrant (Cold+Dry) -->
+              <g class="wheel-segment" data-element="earth" role="button" tabindex="0" aria-label="Earth: Cold and Dry" aria-pressed="false">
+                <path class="wheel-segment__fill" d="M160 160 L160 275 A115 115 0 0 1 45 160 Z"
                   fill="rgba(58,90,64,0.55)" stroke="rgba(14,11,8,0.8)" stroke-width="2"/>
-                <text x="98"  y="116" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜃</text>
-                <text x="98"  y="135" text-anchor="middle" fill="#90c890" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">EARTH</text>
+                <text x="98"  y="212" text-anchor="middle" fill="#f0e6c8" font-size="22" opacity="0.9">🜃</text>
+                <text x="98"  y="231" text-anchor="middle" fill="#90c890" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">EARTH</text>
               </g>
 
               <!-- Dividing spokes -->
