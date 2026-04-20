@@ -246,30 +246,30 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The Yellow/Citrine Phase: the dawn, the solar awakening, wisdom emerging.*
 
 ### Task 6.1 — Content: Alchemical Theory
-- [ ] Note that Citrinitas (the yellowing) was recognised as a distinct stage in medieval alchemy but was later often absorbed into Rubedo by early modern alchemists (Paracelsus and after)
-- [ ] Describe it as the dawning light, the solar quality beginning to penetrate the purified matter; the transition from lunar receptivity to solar activity
-- [ ] The golden dawn, the eagle, and ripening grain as symbols
-- [ ] Its function as the threshold of wisdom: the matter "knows itself" for the first time
+- [✓] Note that Citrinitas (the yellowing) was recognised as a distinct stage in medieval alchemy but was later often absorbed into Rubedo by early modern alchemists (Paracelsus and after)
+- [✓] Describe it as the dawning light, the solar quality beginning to penetrate the purified matter; the transition from lunar receptivity to solar activity
+- [✓] The golden dawn, the eagle, and ripening grain as symbols
+- [✓] Its function as the threshold of wisdom: the matter "knows itself" for the first time
 
 ### Task 6.2 — Content: Christian Theological Correlates
-- [ ] **The Ascension of Christ** (Acts 1): if Nigredo = death, Albedo = resurrection, Citrinitas occupies the space of the 40 days and the Ascension — the glorified body still moving toward its final glorification
-- [ ] **Pentecostal anticipation**: the waiting in the Upper Room; the dawning of wisdom before the fire descends; Citrinitas as the silence before Pentecost
-- [ ] **Sapientia / Sophia**: Divine Wisdom in Proverbs 8 and Wisdom 7 — "more radiant than the sun, purer than light"; Citrinitas as the stage at which Wisdom begins to manifest; connect to Bulgakov's Sophiology
-- [ ] **The Doctors of the Church / Theological illumination**: the tradition of spiritual wisdom (*sapientia*) as distinct from mere knowledge (*scientia*) in Aquinas, Bonaventure; the dawn-light of contemplative understanding
-- [ ] **The Beatitudes**: "Blessed are the pure in heart, for they shall see God" (Matthew 5:8) — the seeing begins here, in Citrinitas, before the full solar blaze of Rubedo
+- [✓] **The Ascension of Christ** (Acts 1): if Nigredo = death, Albedo = resurrection, Citrinitas occupies the space of the 40 days and the Ascension — the glorified body still moving toward its final glorification
+- [✓] **Pentecostal anticipation**: the waiting in the Upper Room; the dawning of wisdom before the fire descends; Citrinitas as the silence before Pentecost
+- [✓] **Sapientia / Sophia**: Divine Wisdom in Proverbs 8 and Wisdom 7 — "more radiant than the sun, purer than light"; Citrinitas as the stage at which Wisdom begins to manifest; connect to Bulgakov's Sophiology
+- [✓] **The Doctors of the Church / Theological illumination**: the tradition of spiritual wisdom (*sapientia*) as distinct from mere knowledge (*scientia*) in Aquinas, Bonaventure; the dawn-light of contemplative understanding
+- [✓] **The Beatitudes**: "Blessed are the pure in heart, for they shall see God" (Matthew 5:8) — the seeing begins here, in Citrinitas, before the full solar blaze of Rubedo
 
 ### Task 6.3 — Content: Jungian Dimension
-- [ ] Jung's relative neglect of Citrinitas and what this means: the transition from Anima integration to the first emergence of the Self is often the least charted stage
-- [ ] Citrinitas as dawning **individuation**: the ego beginning to be oriented by the Self rather than by the persona or the shadow; wisdom displacing merely reactive behaviour
-- [ ] The old king beginning to dissolve into the new: the senex giving way to the puer — but not yet the full coniunctio
+- [✓] Jung's relative neglect of Citrinitas and what this means: the transition from Anima integration to the first emergence of the Self is often the least charted stage
+- [✓] Citrinitas as dawning **individuation**: the ego beginning to be oriented by the Self rather than by the persona or the shadow; wisdom displacing merely reactive behaviour
+- [✓] The old king beginning to dissolve into the new: the senex giving way to the puer — but not yet the full coniunctio
 
 ### Task 6.4 — UI Build
-- [ ] Warm golden-amber palette; dawn gradient hero
-- [ ] Stage progress indicator: Stage 3 of 4
-- [ ] Feature: "The Lost Stage" — panel explaining why Citrinitas was dropped and why its recovery matters theologically
-- [ ] Scripture: Proverbs 8:22–31 (Wisdom's speech) and Matthew 5:8
-- [ ] Pull quote from Bulgakov on Sophia
-- [ ] Transition panel: "From dawn to noon — the movement toward Rubedo →"
+- [✓] Warm golden-amber palette; dawn gradient hero
+- [✓] Stage progress indicator: Stage 3 of 4
+- [✓] Feature: "The Lost Stage" — panel explaining why Citrinitas was dropped and why its recovery matters theologically
+- [✓] Scripture: Proverbs 8:22–31 (Wisdom's speech) and Matthew 5:8
+- [✓] Pull quote from Bulgakov on Sophia
+- [✓] Transition panel: "From dawn to noon — the movement toward Rubedo →"
 
 ---
 
