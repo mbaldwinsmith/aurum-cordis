@@ -405,75 +405,53 @@
            role="img"
            aria-label="The Opus Magnum wheel: four clickable stage segments — Nigredo, Albedo, Citrinitas, Rubedo — surrounding the Philosopher's Stone at the centre">
 
-        <defs>
-          <marker id="wheel-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-            <path d="M 0 0.5 L 6 3.5 L 0 6.5 Z" fill="rgba(201,162,39,0.55)"/>
-          </marker>
-        </defs>
+        <!-- Clean outer boundary ring -->
+        <circle cx="200" cy="200" r="175" stroke="rgba(201,162,39,0.22)" stroke-width="1" fill="none"/>
 
-        <!-- Outer decorative rings -->
-        <circle cx="200" cy="200" r="190" stroke="rgba(201,162,39,0.06)" stroke-width="1" fill="none"/>
-        <circle cx="200" cy="200" r="180" stroke="rgba(201,162,39,0.10)" stroke-width="0.8" fill="none"/>
-
-        <!-- Outer ring tick marks at 0°/90°/180°/270° -->
-        <line x1="200" y1="20"  x2="200" y2="10"  stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
-        <line x1="380" y1="200" x2="390" y2="200" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
-        <line x1="200" y1="380" x2="200" y2="390" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
-        <line x1="20"  y1="200" x2="10"  y2="200" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
-
-        <!-- Stage I — Nigredo (top-right quadrant, 0° → 90°) -->
-        <!-- Outer start: (200,25), end: (375,200). Inner end: (258,200), start: (200,142) -->
+        <!-- Stage I — Nigredo (top-right, 0°→90°) -->
         <a href="nigredo.html" class="wheel-link" aria-label="Nigredo — the Black Phase. Click to explore.">
           <path class="wheel-segment wheel-segment--nigredo"
-                d="M 200 25 A 175 175 0 0 1 375 200 L 258 200 A 58 58 0 0 0 200 142 Z"/>
+                d="M 200 25 A 175 175 0 0 1 375 200 L 252 200 A 52 52 0 0 0 200 148 Z"/>
           <text x="302" y="104" class="wheel-label" text-anchor="middle">NIGREDO</text>
           <text x="302" y="120" class="wheel-sublabel" text-anchor="middle">Blackening · I</text>
         </a>
 
-        <!-- Stage II — Albedo (bottom-right quadrant, 90° → 180°) -->
-        <!-- Outer start: (375,200), end: (200,375). Inner end: (200,258), start: (258,200) -->
+        <!-- Stage II — Albedo (bottom-right, 90°→180°) -->
         <a href="albedo.html" class="wheel-link" aria-label="Albedo — the White Phase. Click to explore.">
           <path class="wheel-segment wheel-segment--albedo"
-                d="M 375 200 A 175 175 0 0 1 200 375 L 200 258 A 58 58 0 0 0 258 200 Z"/>
+                d="M 375 200 A 175 175 0 0 1 200 375 L 200 252 A 52 52 0 0 0 252 200 Z"/>
           <text x="302" y="296" class="wheel-label" text-anchor="middle">ALBEDO</text>
           <text x="302" y="312" class="wheel-sublabel" text-anchor="middle">Whitening · II</text>
         </a>
 
-        <!-- Stage III — Citrinitas (bottom-left quadrant, 180° → 270°) -->
-        <!-- Outer start: (200,375), end: (25,200). Inner end: (142,200), start: (200,258) -->
+        <!-- Stage III — Citrinitas (bottom-left, 180°→270°) -->
         <a href="citrinitas.html" class="wheel-link" aria-label="Citrinitas — the Golden Dawn. Click to explore.">
           <path class="wheel-segment wheel-segment--citrinitas"
-                d="M 200 375 A 175 175 0 0 1 25 200 L 142 200 A 58 58 0 0 0 200 258 Z"/>
+                d="M 200 375 A 175 175 0 0 1 25 200 L 148 200 A 52 52 0 0 0 200 252 Z"/>
           <text x="98" y="296" class="wheel-label" text-anchor="middle">CITRINITAS</text>
           <text x="98" y="312" class="wheel-sublabel" text-anchor="middle">Dawning · III</text>
         </a>
 
-        <!-- Stage IV — Rubedo (top-left quadrant, 270° → 360°) -->
-        <!-- Outer start: (25,200), end: (200,25). Inner end: (200,142), start: (142,200) -->
+        <!-- Stage IV — Rubedo (top-left, 270°→360°) -->
         <a href="rubedo.html" class="wheel-link" aria-label="Rubedo — the Red Phase. Click to explore.">
           <path class="wheel-segment wheel-segment--rubedo"
-                d="M 25 200 A 175 175 0 0 1 200 25 L 200 142 A 58 58 0 0 0 142 200 Z"/>
+                d="M 25 200 A 175 175 0 0 1 200 25 L 200 148 A 52 52 0 0 0 148 200 Z"/>
           <text x="98" y="104" class="wheel-label" text-anchor="middle">RUBEDO</text>
           <text x="98" y="120" class="wheel-sublabel" text-anchor="middle">Reddening · IV</text>
         </a>
 
-        <!-- Dividing spokes (inner to outer) -->
-        <line x1="200" y1="25"  x2="200" y2="142" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
-        <line x1="375" y1="200" x2="258" y2="200" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
-        <line x1="200" y1="375" x2="200" y2="258" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
-        <line x1="25"  y1="200" x2="142" y2="200" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
-
-        <!-- Clockwise motion indicator arc -->
-        <path d="M 196 25 A 173 173 0 0 1 373 196"
-              stroke="rgba(201,162,39,0.28)" stroke-width="1.2" fill="none"
-              marker-end="url(#wheel-arrow)"/>
+        <!-- Dividing spokes — run from inner circle edge to outer circle edge -->
+        <line x1="200" y1="25"  x2="200" y2="148" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
+        <line x1="375" y1="200" x2="252" y2="200" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
+        <line x1="200" y1="375" x2="200" y2="252" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
+        <line x1="25"  y1="200" x2="148" y2="200" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
 
         <!-- Central circle — Philosopher's Stone -->
         <a href="philosophers-stone.html" class="wheel-link" aria-label="The Philosopher's Stone — click to explore">
           <circle cx="200" cy="200" r="52" class="wheel-center"/>
-          <!-- Crosshair on centre -->
-          <line x1="170" y1="200" x2="230" y2="200" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
-          <line x1="200" y1="170" x2="200" y2="230" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
+          <!-- Crosshair aligned to spoke endpoints -->
+          <line x1="148" y1="200" x2="252" y2="200" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
+          <line x1="200" y1="148" x2="200" y2="252" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
           <text x="200" y="196" class="wheel-center-label" text-anchor="middle">LAPIS</text>
           <text x="200" y="213" class="wheel-center-sublabel" text-anchor="middle">Philosophorum</text>
         </a>
