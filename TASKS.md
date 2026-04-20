@@ -213,31 +213,31 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The White Phase: purification, washing, the dawn of new light.*
 
 ### Task 5.1 — Content: Alchemical Theory
-- [ ] Define Albedo as the second stage: the whitening (*dealbatio*), achieved through repeated **Ablutio** (washing), **Sublimatio** (sublimation), and **Distillatio** (distillation)
-- [ ] The white swan, the white rose, and the moon as symbols of Albedo; the *albedo* as the purified soul-substance
-- [ ] The *Luna* (Moon) as the presiding symbol: reflective, receptive, purified but not yet fully illuminated
-- [ ] Some traditions held Albedo as the penultimate goal (the white stone, the lesser work); others as an intermediate stage
+- [✓] Define Albedo as the second stage: the whitening (*dealbatio*), achieved through repeated **Ablutio** (washing), **Sublimatio** (sublimation), and **Distillatio** (distillation)
+- [✓] The white swan, the white rose, and the moon as symbols of Albedo; the *albedo* as the purified soul-substance
+- [✓] The *Luna* (Moon) as the presiding symbol: reflective, receptive, purified but not yet fully illuminated
+- [✓] Some traditions held Albedo as the penultimate goal (the white stone, the lesser work); others as an intermediate stage
 
 ### Task 5.2 — Content: Christian Theological Correlates
-- [ ] **The Resurrection of Christ**: Albedo as Easter — the body glorified, radiant, but not yet ascended; the Transfiguration (Matthew 17:2, "his face shone like the sun, his clothes became white as light") as Albedo in Christ's earthly life
-- [ ] **Baptismal white**: the white garment (*chrysom*) given at baptism; the robing in white as the sign of purification; Revelation 7:14 (robes washed white in the blood of the Lamb)
-- [ ] **Purgatory / Purgation**: in Catholic and Anglo-Catholic theology, Albedo as the process of post-mortem or present-life purification; C.S. Lewis's *The Great Divorce* as an imaginative Albedo narrative
-- [ ] **The Anima/Soul purified**: the soul's receptive, feminine capacity restored — Marian overtones; the purified soul as Bride of the Song of Songs (*nigra sum sed formosa* → *tota pulchra es*)
-- [ ] **Ablutio and Confession/Absolution**: the sacramental washing corresponding to the alchemical washing operations
+- [✓] **The Resurrection of Christ**: Albedo as Easter — the body glorified, radiant, but not yet ascended; the Transfiguration (Matthew 17:2, "his face shone like the sun, his clothes became white as light") as Albedo in Christ's earthly life
+- [✓] **Baptismal white**: the white garment (*chrysom*) given at baptism; the robing in white as the sign of purification; Revelation 7:14 (robes washed white in the blood of the Lamb)
+- [✓] **Purgatory / Purgation**: in Catholic and Anglo-Catholic theology, Albedo as the process of post-mortem or present-life purification; C.S. Lewis's *The Great Divorce* as an imaginative Albedo narrative
+- [✓] **The Anima/Soul purified**: the soul's receptive, feminine capacity restored — Marian overtones; the purified soul as Bride of the Song of Songs (*nigra sum sed formosa* → *tota pulchra es*)
+- [✓] **Ablutio and Confession/Absolution**: the sacramental washing corresponding to the alchemical washing operations
 
 ### Task 5.3 — Content: Jungian Dimension
-- [ ] Albedo as the emergence of the **Anima/Animus** in purified form — no longer the devouring or entrapping figure but the guide and soul-companion
-- [ ] The integration of the unconscious feminine (in men) as the whitening of the psyche; the moon as the reflective consciousness of the deep self
-- [ ] Connect to Mark's Anima dreams: the red-haired figure in forest glades and living water — a handmaid of Sophia, an Albedo figure
+- [✓] Albedo as the emergence of the **Anima/Animus** in purified form — no longer the devouring or entrapping figure but the guide and soul-companion
+- [✓] The integration of the unconscious feminine (in men) as the whitening of the psyche; the moon as the reflective consciousness of the deep self
+- [✓] Connect to Mark's Anima dreams: the red-haired figure in forest glades and living water — a handmaid of Sophia, an Albedo figure
 
 ### Task 5.4 — UI Build
-- [ ] Silver-and-white colour palette with moon motifs
-- [ ] Stage progress indicator: Stage 2 of 4 highlighted
-- [ ] Moon phase SVG diagram showing the reflective quality of Albedo
-- [ ] Process cards: Ablutio, Sublimatio, Distillatio with theological parallels
-- [ ] Scripture: Matthew 17:1–2 (Transfiguration)
-- [ ] Dual-column panel: "Song of Songs" left / "Alchemical White Rose" right
-- [ ] Transition panel: "From washing to dawning — the movement toward Citrinitas →"
+- [✓] Silver-and-white colour palette with moon motifs
+- [✓] Stage progress indicator: Stage 2 of 4 highlighted
+- [✓] Moon phase SVG diagram showing the reflective quality of Albedo
+- [✓] Process cards: Ablutio, Sublimatio, Distillatio with theological parallels
+- [✓] Scripture: Matthew 17:1–2 (Transfiguration)
+- [✓] Dual-column panel: "Song of Songs" left / "Alchemical White Rose" right
+- [✓] Transition panel: "From washing to dawning — the movement toward Citrinitas →"
 
 ---
 

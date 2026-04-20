@@ -3,13 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Albedo — The White Phase: purification, washing, the dawn of new light.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Albedo — the White Phase: purification, washing, and the dawn of new light. The Transfiguration, baptismal white, and Jung's Anima." />
   <meta property="og:title" content="Albedo — Aurum Cordis" />
+  <meta property="og:description" content="The second stage of the Opus Magnum: the whitening, the purified soul, the moon's reflective light." />
   <meta property="og:type" content="article" />
   <title>Albedo — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Albedo colour overrides — moonlit silver ── */
+    :root {
+      --albedo-bg:        #0a0d14;
+      --albedo-surface:   #10141c;
+      --albedo-card:      #161b26;
+      --albedo-silver:    #b8bfc8;
+      --albedo-silver-lt: #dce0e8;
+      --albedo-moon:      #8ba0b8;
+      --albedo-text:      #c8cdd6;
+      --albedo-white:     #eef0f4;
+    }
+
+    body { background-color: var(--albedo-bg); }
+
+    /* ── Hero ── */
+    .ab-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .ab-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(139,160,184,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 80%, rgba(10,13,20,0) 0%, var(--albedo-bg) 80%),
+        var(--albedo-bg);
+      z-index: 0;
+    }
+    .ab-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+    /* ── Luna SVG ── */
+    .luna-emblem {
+      width: 160px; height: 160px;
+      margin: 0 auto var(--space-6);
+      display: block;
+      color: var(--albedo-silver);
+    }
+
+    /* ── Stage indicator — Albedo active ── */
+    .stage-indicator__stage.active {
+      background: rgba(139,160,184,0.15);
+    }
+    .stage-indicator__stage.active .stage-indicator__name {
+      color: var(--albedo-silver-lt);
+    }
+
+    /* ── Section surfaces ── */
+    .section--albedo {
+      background: var(--albedo-surface);
+      border-top: 1px solid rgba(139,160,184,0.18);
+      border-bottom: 1px solid rgba(139,160,184,0.18);
+    }
+
+    /* ── Process cards (3-col) ── */
+    .process-cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 800px) { .process-cards-3 { grid-template-columns: 1fr; } }
+
+    .process-card {
+      background: var(--albedo-card);
+      border: 1px solid rgba(139,160,184,0.22);
+      border-left: 4px solid var(--albedo-moon);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .process-card__latin {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: var(--text-lg);
+      color: var(--albedo-silver-lt);
+      margin-bottom: 4px;
+    }
+    .process-card__english {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .process-card__alch {
+      font-size: var(--text-sm);
+      color: var(--albedo-text);
+      line-height: 1.75;
+      margin-bottom: var(--space-3);
+    }
+    .process-card__section-label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-sulphur-gold);
+      margin-bottom: 4px;
+    }
+    .process-card__christian {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── Moon phase diagram ── */
+    .moon-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin: var(--space-6) 0;
+    }
+    .moon-phase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .moon-phase__label {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+    .moon-phase--current .moon-phase__label {
+      color: var(--albedo-silver-lt);
+    }
+
+    /* ── Song of Songs / White Rose two-col ── */
+    .songs-panel {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+      background: var(--albedo-card);
+      border: 1px solid rgba(139,160,184,0.18);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+    @media (max-width: 700px) {
+      .songs-panel { grid-template-columns: 1fr; }
+      .songs-panel__divider { display: none; }
+    }
+    .songs-panel__divider {
+      background: rgba(139,160,184,0.20);
+      width: 1px;
+    }
+    .songs-panel__label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--albedo-moon);
+      margin-bottom: var(--space-3);
+    }
+    .songs-panel__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      color: var(--albedo-white);
+      margin-bottom: var(--space-3);
+    }
+    .songs-panel__body {
+      font-size: var(--text-sm);
+      color: var(--albedo-text);
+      line-height: 1.8;
+    }
+    .songs-panel__verse {
+      font-style: italic;
+      font-size: var(--text-base);
+      color: var(--albedo-silver-lt);
+      line-height: 1.9;
+      border-left: 3px solid rgba(139,160,184,0.35);
+      padding-left: var(--space-3);
+      margin: var(--space-3) 0;
+    }
+
+    /* ── Overrides for dark bg ── */
+    .content-prose { color: var(--albedo-text); }
+    .content-prose strong { color: var(--albedo-white); }
+    .scripture { background: rgba(139,160,184,0.06); }
+    .epigraph__text { color: var(--albedo-text); }
+    .two-col__label { color: var(--albedo-silver-lt); border-color: rgba(139,160,184,0.25); }
+
+    .transition-panel {
+      border-left-color: var(--albedo-moon);
+      background: var(--albedo-card);
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +224,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,41 +234,622 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
-        <li><a href="albedo.html" class="nav__link">Albedo</a></li>
+        <li><a href="albedo.html" class="nav__link active" aria-current="page">Albedo</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
         <li><a href="jung.html" class="nav__link">Jung</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Stage II of the Opus Magnum</p>
-    <h1 class="page-header__title">⬜ Albedo</h1>
-    <p class="page-header__subtitle">The White Phase: purification, washing, the dawn of new light.</p>
-  </header>
+  <!-- Hero -->
+  <section class="ab-hero" aria-labelledby="ab-title">
+    <div class="ab-hero__bg" aria-hidden="true"></div>
+    <div class="ab-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Luna SVG: full moon with silver rings and soft glow -->
+      <svg class="luna-emblem animate-on-scroll" viewBox="0 0 160 160" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-label="Luna — the Moon: alchemical symbol of Albedo, the purified and reflective silver disc">
+        <!-- Outer glow ring -->
+        <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="0.6" opacity="0.12"/>
+        <!-- Second ring -->
+        <circle cx="80" cy="80" r="60" stroke="currentColor" stroke-width="0.8" opacity="0.20"/>
+        <!-- Lunar halo -->
+        <circle cx="80" cy="80" r="48" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+        <!-- The moon disc -->
+        <circle cx="80" cy="80" r="34" fill="#1c2230" stroke="currentColor" stroke-width="1.5" opacity="0.95"/>
+        <!-- Crescent shadow suggesting reflective nature -->
+        <path d="M 80 46 A 34 34 0 0 0 80 114 A 22 34 0 0 1 80 46 Z"
+              fill="currentColor" opacity="0.18"/>
+        <!-- Subtle mare markings -->
+        <circle cx="72" cy="72" r="6" fill="currentColor" opacity="0.07"/>
+        <circle cx="90" cy="86" r="4" fill="currentColor" opacity="0.06"/>
+        <circle cx="76" cy="92" r="3" fill="currentColor" opacity="0.05"/>
+        <!-- Cross axes -->
+        <line x1="46" y1="80" x2="114" y2="80" stroke="currentColor" stroke-width="0.6" opacity="0.22"/>
+        <line x1="80" y1="46" x2="80"  y2="114" stroke="currentColor" stroke-width="0.6" opacity="0.22"/>
+        <!-- Centre of reflected light -->
+        <circle cx="80" cy="80" r="4" fill="currentColor" opacity="0.55"/>
+        <!-- Distant star-points -->
+        <g fill="currentColor" opacity="0.40">
+          <circle cx="80"  cy="8"   r="1.5"/>
+          <circle cx="80"  cy="152" r="1.5"/>
+          <circle cx="8"   cy="80"  r="1.5"/>
+          <circle cx="152" cy="80"  r="1.5"/>
+          <circle cx="28"  cy="28"  r="1"/>
+          <circle cx="132" cy="132" r="1"/>
+          <circle cx="132" cy="28"  r="1"/>
+          <circle cx="28"  cy="132" r="1"/>
+        </g>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--albedo-silver);">Stage II of the Opus Magnum</p>
+      <h1 class="hero__title animate-on-scroll delay-2" id="ab-title">Albedo</h1>
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        The White Phase: purification, washing, the dawn of new light
       </p>
+
+      <!-- Stage indicator -->
+      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
+          <span class="stage-indicator__name">Nigredo</span>
+        </div>
+        <div class="stage-indicator__stage active" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬜</span>
+          <span class="stage-indicator__name">Albedo</span>
+        </div>
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🌅</span>
+          <span class="stage-indicator__name">Citrinitas</span>
+        </div>
+        <div class="stage-indicator__stage" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🔴</span>
+          <span class="stage-indicator__name">Rubedo</span>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <main>
+
+    <!-- ── Task 5.1: Alchemical Theory ── -->
+    <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--albedo-silver);">Alchemical Theory</p>
+        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          The Whitening: After Darkness, Light
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            If Nigredo is the death, Albedo is the first light after it. The alchemists called it
+            <span class="alchemical-term">Dealbatio</span> — the whitening — and described it as the
+            most beautiful moment in the Opus: the blackened, dead matter begins to show the first
+            signs of silver light, like frost on dark earth, like the first hour before dawn.
+            After the furnace of dissolution, something has been purified. The dross has been burned away.
+            What remains is purer, lighter, more essential — and it gleams.
+          </p>
+          <p>
+            Albedo is reached through three principal operations, each a form of purification:
+            <strong>Ablutio</strong> (the washing, the repeated cleansing of the matter),
+            <strong>Sublimatio</strong> (the sublimation, the volatile spirit ascending while the
+            impure element falls away), and <strong>Distillatio</strong> (the distillation,
+            the separation of the pure from the impure through the cycle of evaporation and condensation).
+            These are not separate procedures but aspects of one process — the progressive refinement
+            of the matter into its essential, purified form.
+          </p>
+          <p>
+            Some alchemists held that Albedo was the <em>penultimate</em> goal — the achievement of
+            the <span class="latin">lapis albus</span>, the white stone, the lesser work.
+            For these writers, the white stone had its own dignity and power: it was silver
+            rather than gold, but it was genuine, it was accomplished, it is complete in itself.
+            Other traditions insisted that Albedo was only the second of four stages, and that the
+            work was not done until the gold of Rubedo was achieved. Both views agree on one thing:
+            Albedo is a genuine transformation. The matter that passes through it is not the same
+            matter that entered the Nigredo. Something has died, and something genuinely new has appeared.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+          <h3>The Swan, the Rose, and the Moon</h3>
+          <p>
+            The iconography of Albedo is cool, luminous, and reflective. Three images recur in
+            the emblem tradition. The <strong>white swan</strong> — appearing after the black raven
+            of Nigredo — embodies purity, grace, and the recovered beauty of the purified matter.
+            In the alchemical emblems, the swan often floats on still water, an image of serenity
+            achieved through transformation, not despite it.
+          </p>
+          <p>
+            The <strong>white rose</strong> (<span class="latin">rosa alba</span>) carries the
+            full symbolic weight of purified love — the thorns of Nigredo have yielded a bloom
+            of astonishing delicacy. In the Christian tradition, the white rose is associated with
+            the Blessed Virgin, with mystical union, with the celestial realm.
+            The alchemists drew on this resonance deliberately.
+          </p>
+          <p>
+            But the presiding symbol of Albedo is the <strong>Moon</strong> (<span class="latin">Luna</span>):
+            silver, receptive, reflective. The moon does not generate its own light; it receives
+            the light of the sun and reflects it. This is the essential gesture of Albedo —
+            the purified soul becomes capable of receiving and reflecting the divine light,
+            even though it does not yet generate it from within. Luna is not Sol. Albedo is not yet
+            Rubedo. But the light is real, and it is genuinely present. The moon is not darkness.
+            It is darkness transformed.
+          </p>
+        </div>
+
+        <!-- Moon phase diagram -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-top:var(--space-8); margin-bottom:var(--space-2); color:var(--albedo-white);">
+          Luna and the Phases of Albedo
+        </h3>
+        <p class="animate-on-scroll" style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-4);">
+          The alchemists mapped the Albedo process onto the moon's phases — from post-Nigredo darkness to full reflective light.
+        </p>
+        <div class="moon-diagram animate-on-scroll" role="img" aria-label="Moon phase diagram showing progression from new moon through the Albedo operations to full moon and on toward dawn">
+
+          <!-- New moon (post-Nigredo darkness) -->
+          <div class="moon-phase">
+            <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="22" fill="#1a1e28" stroke="#4a5060" stroke-width="1"/>
+            </svg>
+            <span class="moon-phase__label">New Moon<br/>Post-Nigredo</span>
+          </div>
+
+          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+
+          <!-- Waxing crescent (Ablutio begins) -->
+          <div class="moon-phase">
+            <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="22" fill="#1a1e28" stroke="#8ba0b8" stroke-width="1"/>
+              <path d="M 30 8 A 22 22 0 0 1 30 52 A 12 22 0 0 0 30 8 Z" fill="#8ba0b8" opacity="0.6"/>
+            </svg>
+            <span class="moon-phase__label">Waxing Crescent<br/>Ablutio</span>
+          </div>
+
+          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+
+          <!-- Half moon (Sublimatio) -->
+          <div class="moon-phase">
+            <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="22" fill="#1a1e28" stroke="#b8bfc8" stroke-width="1"/>
+              <path d="M 30 8 A 22 22 0 0 1 30 52 Z" fill="#b8bfc8" opacity="0.65"/>
+            </svg>
+            <span class="moon-phase__label">Half Moon<br/>Sublimatio</span>
+          </div>
+
+          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+
+          <!-- Full moon (Albedo complete) — highlighted -->
+          <div class="moon-phase moon-phase--current">
+            <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="26" fill="none" stroke="#dce0e8" stroke-width="0.8" opacity="0.30"/>
+              <circle cx="30" cy="30" r="22" fill="#c8cdd6" stroke="#dce0e8" stroke-width="1.2"/>
+              <circle cx="26" cy="25" r="4" fill="#b0b7c0" opacity="0.35"/>
+              <circle cx="35" cy="34" r="3" fill="#a8b0b8" opacity="0.30"/>
+            </svg>
+            <span class="moon-phase__label">Full Moon<br/>Albedo Complete</span>
+          </div>
+
+          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+
+          <!-- Dawn (movement toward Citrinitas) -->
+          <div class="moon-phase">
+            <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="30" r="22" fill="#1a1e28" stroke="#c9a227" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="30" cy="30" r="14" fill="none" stroke="#c9a227" stroke-width="0.8" opacity="0.50"/>
+              <circle cx="30" cy="30" r="6" fill="#c9a227" opacity="0.40"/>
+            </svg>
+            <span class="moon-phase__label">Dawn<br/>Toward Citrinitas</span>
+          </div>
+
+        </div>
+
+        <!-- Process cards (3) -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-top:var(--space-8); margin-bottom:var(--space-4); color:var(--albedo-white);">
+          The Three Operations of Albedo
+        </h3>
+        <div class="process-cards-3">
+
+          <article class="process-card animate-on-scroll" aria-labelledby="ablutio-title">
+            <p class="process-card__latin" id="ablutio-title">Ablutio</p>
+            <p class="process-card__english">The Washing</p>
+            <p class="process-card__alch">The blackened matter is washed repeatedly — water passed over it again and again until the impurities are carried away. What the fire consumed but could not remove, the water now cleanses. Ablutio is patient and repeated: it is not a single washing but a discipline of return, each cycle revealing a little more of the purified substance beneath.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">Confession and absolution as repeated Ablutio — the sacramental washing that is returned to not because it is ineffective but because purification is a process, not an event. "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness" (1 John 1:9).</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-1" aria-labelledby="sublimatio-title">
+            <p class="process-card__latin" id="sublimatio-title">Sublimatio</p>
+            <p class="process-card__english">The Sublimation</p>
+            <p class="process-card__alch">The volatile spirit within the matter rises — ascending from the base substance, leaving the impure earthy residue behind. The matter separates into above and below: the spiritual principle rises, the gross material falls. Sublimatio is the operation in which the heavenly and earthly dimensions of the substance are distinguished and the spiritual takes its proper precedence.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">The Transfiguration as Sublimatio: the divine nature of Christ, always present but hidden, rises through the veil of ordinary appearance and blazes forth. "His face shone like the sun, and his clothes became white as the light" (Matthew 17:2). The spiritual reality within the human form ascends into visibility.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-2" aria-labelledby="distillatio-title">
+            <p class="process-card__latin" id="distillatio-title">Distillatio</p>
+            <p class="process-card__english">The Distillation</p>
+            <p class="process-card__alch">The matter undergoes a cycle of evaporation and condensation — drawn up as vapour by heat, cooled and returned as purified liquid, again and again. Each cycle removes another layer of impurity. The distillate grows clearer, purer, more essential with each pass through the process. Distillatio takes time and attentiveness; it cannot be rushed.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">The slow work of contemplative prayer as Distillatio: the soul rises toward God in prayer, returns to itself in reflection, and each cycle deepens the purification. Purgative prayer in the tradition of John of the Cross and the <span class="latin">via negativa</span> — the progressive stripping away of everything that is not God.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 5.2: Christian Theological Correlates ── -->
+    <section class="section section--albedo" id="christian-correlates" aria-labelledby="christian-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--albedo-silver);">Christian Theological Correlates</p>
+        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          Transfiguration, Baptismal White, and the Purified Soul
+        </h2>
+
+        <!-- Transfiguration -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>I. The Transfiguration: Albedo in Christ's Earthly Life</h3>
+          <p>
+            The Transfiguration (Matthew 17:1–9; Mark 9:2–8; Luke 9:28–36) is the supreme Albedo moment
+            in the Gospel narrative. On a mountain — always the place of divine encounter, the vertical
+            axis where heaven meets earth — Christ's human form is transfigured: his face blazes like the
+            sun, his garments become white as light itself, and the voice of the Father speaks from the
+            cloud. Moses and Elijah appear beside him, linking the moment to the whole arc of sacred history.
+          </p>
+          <p>
+            For the Christian alchemist, the Transfiguration is not a different event from the Passion
+            but its necessary complement. Between these two poles — the darkened sun of Golgotha and the
+            blazing face of Tabor — the whole dynamic of the Christian spiritual life is set.
+            The Transfiguration reveals what the Incarnate Christ <em>always is</em>: the divine glory
+            hidden within the human form, the Luna that is secretly filled with solar light.
+            At Transfiguration, the Sublimatio is performed: the volatile spirit of divinity rises
+            through the veil of flesh and becomes visible.
+          </p>
+          <p>
+            Crucially, the Transfiguration precedes the Passion in the Gospel narrative —
+            it is not simply a reward that follows suffering but a revelation that precedes it.
+            The disciples are shown the glory so that they will know, when they witness the darkness,
+            that the light was always there. Albedo, in this sense, is already present in the Nigredo
+            — it simply awaits the right conditions to become visible.
+          </p>
+        </div>
+
+        <blockquote class="scripture animate-on-scroll">
+          After six days Jesus took with him Peter, James and John the brother of James,
+          and led them up a high mountain by themselves. There he was transfigured before them.
+          His face shone like the sun, and his clothes became white as the light.
+          <cite>Matthew 17:1–2</cite>
+        </blockquote>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+
+        <!-- Baptismal white -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>II. Baptismal White: The Robe of the New Creation</h3>
+          <p>
+            The ancient and continuing practice of robing the newly baptised in white garments —
+            the <span class="latin">chrysom</span> or white vestment — is the liturgical expression
+            of Albedo. After the descent into the waters of death (Nigredo), the candidate emerges
+            into white: purified, reborn, clothed not in their own merit but in the righteousness
+            of the one into whom they have been baptised.
+          </p>
+          <p>
+            The Book of Revelation reaches for the same image at the cosmic scale: "These are they
+            who have come out of the great tribulation; they have washed their robes and made them
+            white in the blood of the Lamb" (Revelation 7:14). The paradox is alchemically precise:
+            the whiteness comes <em>through</em> the blood, not despite it. The darkness of Nigredo
+            — the tribulation, the suffering, the dissolution — is what produces the white, not what
+            prevents it. The robe is washed in what stains ordinary cloth and comes out clean.
+          </p>
+          <p>
+            This baptismal white is also eschatological: the robes of the martyrs in Revelation,
+            the wedding garment of the parable (Matthew 22:11–12), the armies of heaven in white
+            linen (Revelation 19:14) — all of these are images of the consummated Albedo,
+            the purification that is both already accomplished in baptism and not yet fully
+            manifested in the life of the believer.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+
+        <!-- Purgation / C.S. Lewis -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>III. Purgation and <em>The Great Divorce</em></h3>
+          <p>
+            In Catholic and Anglo-Catholic theology, <strong>Purgatory</strong> is the doctrine
+            that purification — Albedo — may be a process that continues beyond death, that the
+            mercy of God does not simply overlook what is unformed and impure in the soul but
+            works to complete its purification. The tradition is divided and contested, but its
+            intuition is alchemically sound: Albedo takes time, and time may be more than one
+            life can always provide.
+          </p>
+          <p>
+            C.S. Lewis, in <em>The Great Divorce</em> (1945), gave the most vivid imaginative
+            account of purgatorial Albedo in twentieth-century English. The grey town,
+            the thin ghost-people who cannot bear the solid reality of the heavenly country,
+            the gradual hardening and brightening of those who choose to accept the painful
+            gift of realness — all of this is Albedo dramatised.
+            Lewis's key insight is that purgation is not punishment but the painful process
+            of becoming real enough to bear reality: the progressive solidification and luminescence
+            of what was previously shadowy and insubstantial.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+
+        <!-- Song of Songs / White Rose -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-bottom:var(--space-4); color:var(--albedo-white);">
+          IV. Song of Songs and the Alchemical White Rose
+        </h3>
+
+        <div class="songs-panel animate-on-scroll">
+          <div>
+            <p class="songs-panel__label">Song of Songs</p>
+            <h4 class="songs-panel__title">From <em>Nigra sum</em> to <em>Tota pulchra es</em></h4>
+            <p class="songs-panel__body">
+              The Song of Songs contains within itself the movement from Nigredo to Albedo.
+              The Bride's first word is an act of confession and hope simultaneously:
+            </p>
+            <p class="songs-panel__verse">
+              "I am dark but lovely, daughters of Jerusalem,<br>
+              like the tents of Kedar,<br>
+              like the curtains of Solomon.<br>
+              Do not stare at me because I am dark,<br>
+              for the sun has gazed upon me."
+            </p>
+            <p class="songs-panel__body">
+              <span class="latin">Nigra sum sed formosa</span> — "I am black but beautiful" (Song 1:5, Vulgate).
+              The darkness is not denied but neither is it the final word. By the end of the Song,
+              the Beloved is addressed in the voice of full Albedo: <span class="latin">Tota pulchra es, amica mea</span>
+              — "You are altogether beautiful, my love; there is no flaw in you" (Song 4:7).
+              The journey of the Song is the journey of the Opus.
+            </p>
+          </div>
+
+          <div class="songs-panel__divider" aria-hidden="true"></div>
+
+          <div>
+            <p class="songs-panel__label">Alchemical Emblem</p>
+            <h4 class="songs-panel__title">The White Rose — <span class="latin">Rosa Alba</span></h4>
+
+            <!-- White Rose SVG emblem -->
+            <div style="text-align:center; margin: var(--space-3) 0;">
+              <svg viewBox="0 0 120 140" width="120" height="140" fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                   aria-label="White Rose — Rosa Alba: alchemical symbol of Albedo and purified love">
+                <!-- Stem -->
+                <line x1="60" y1="105" x2="60" y2="138" stroke="#4a6040" stroke-width="2"/>
+                <!-- Leaves -->
+                <path d="M60 120 Q45 112 42 100 Q50 108 60 120" fill="#3a5040" opacity="0.7"/>
+                <path d="M60 115 Q75 107 78 95 Q70 103 60 115" fill="#3a5040" opacity="0.7"/>
+                <!-- Outer petals -->
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(-30 60 76)"/>
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(30 60 76)"/>
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(90 60 76)"/>
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(-90 60 76)"/>
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(150 60 76)"/>
+                <ellipse cx="60" cy="76" rx="14" ry="20" fill="#c8cdd6" opacity="0.25" transform="rotate(-150 60 76)"/>
+                <!-- Inner petals -->
+                <ellipse cx="60" cy="76" rx="9" ry="14" fill="#dce0e8" opacity="0.45" transform="rotate(0 60 76)"/>
+                <ellipse cx="60" cy="76" rx="9" ry="14" fill="#dce0e8" opacity="0.45" transform="rotate(60 60 76)"/>
+                <ellipse cx="60" cy="76" rx="9" ry="14" fill="#dce0e8" opacity="0.45" transform="rotate(120 60 76)"/>
+                <!-- Centre -->
+                <circle cx="60" cy="76" r="7" fill="#eef0f4" opacity="0.80"/>
+                <circle cx="60" cy="76" r="3" fill="#c8cdd6" opacity="0.60"/>
+              </svg>
+            </div>
+
+            <p class="songs-panel__body">
+              The white rose carries the full tradition of purified love in both Christian
+              and alchemical symbolism. Associated with the Blessed Virgin, with the celestial
+              Rose of Dante's <span class="latin">Paradiso</span> (Canto XXX–XXXIII), and with
+              the soul's arrival at the state of loving receptivity — the white rose is Albedo
+              made fragrant.
+            </p>
+            <p class="songs-panel__body" style="margin-top:var(--space-2);">
+              In the emblem tradition, the alchemical white rose often appears alongside
+              the red rose (Rubedo), the two together signifying the marriage of opposites
+              that the full Opus achieves. The white rose, for now, stands alone —
+              luminous, pure, expectant.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+
+        <!-- Soul purified / Marian -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>V. The Anima Purified: Mary as <span class="latin">Luna Plena</span></h3>
+          <p>
+            The Christian theological tradition has always associated Mary with the moon —
+            not merely as poetic imagery but as a precise theological statement about receptivity,
+            reflection, and mediation. The moon does not generate light; it receives it and
+            reflects it. Mary does not generate the divine life; she receives the Word and
+            presents him to the world. She is, in this sense, the supreme embodiment of Albedo:
+            the purified soul-substance that has become a perfect mirror of the divine radiance.
+          </p>
+          <p>
+            The Immaculate Conception, interpreted not as a claim about biological process but
+            as a theological description of the soul's capacity to receive grace without
+            the resistance of a darkened will, is an Albedo statement: a human soul so purified,
+            so transparent to the divine, that the Word can find in her a fitting vessel.
+            The <span class="latin">fiat</span> — "Let it be done to me according to your word"
+            (Luke 1:38) — is the perfect act of Albedo: the receptive, reflective, entirely
+            transparent response that neither adds to nor subtracts from what God is doing,
+            but simply allows it, perfectly.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 5.3: Jungian Dimension ── -->
+    <section class="section" id="jungian-dimension" aria-labelledby="jung-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--albedo-silver);">Jungian Dimension</p>
+        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          The Anima Purified and the Moon of the Deep Self
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>The Anima in Her Albedo Form</h3>
+          <p>
+            In Jungian psychology, Albedo corresponds to a transformation in the character of
+            the <strong>Anima</strong> — the inner feminine figure in a man's psyche (or, correspondingly,
+            the Animus in a woman's). In the Nigredo, the Anima is typically encountered in her
+            negative or devouring aspects: the femme fatale, the nagging inner critic, the figure
+            that entangles, seduces, or destroys. She is the projection screen for every unexplored
+            impulse, and her power is proportional to her unconsciousness.
+          </p>
+          <p>
+            The washing operations of Albedo — the repeated Ablutio and Sublimatio — correspond to
+            a gradual purification of the Anima-relationship. As the Shadow is integrated through
+            Nigredo, the Anima begins to emerge in her positive form: not as a destructive compulsion
+            but as a guide, a soul-companion, a figure of wisdom and beauty who mediates between
+            the ego and the deeper Self. She becomes, in the Albedo phase, less like a vortex and
+            more like a moon — still mysterious, still other, but now reflective and orienting
+            rather than consuming.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Lunar Consciousness: Reflective Depth</h3>
+          <p>
+            Jung associated the moon with a particular quality of consciousness — not the bright,
+            direct, solar clarity of differentiated rational thought, but the reflective, symbolic,
+            image-laden awareness of depth psychology itself. Dream consciousness is lunar.
+            Contemplative awareness is lunar. The capacity to receive and hold images without
+            immediately analysing them, to dwell in metaphor, to be illuminated from within
+            rather than illuminating by will — these are the qualities of Albedo consciousness.
+          </p>
+          <p>
+            This does not mean Albedo consciousness is passive or weak. The moon exerts real force —
+            the tides know it. Lunar awareness, the capacity to attend to what arises from the
+            depths rather than imposing one's categories upon them, is one of the most demanding
+            and rare achievements in the psychological life. It requires the full fruits of the
+            Nigredo work: a Shadow that has been met, a persona that has been relativised,
+            an ego secure enough to wait and receive rather than always doing and asserting.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Anima as Handmaid of Sophia</h3>
+          <p>
+            Jung's later work increasingly moved from the Anima as psychological function to the
+            Anima as pointer toward something beyond psychology — toward what the Christian
+            tradition calls <strong>Sophia</strong>, the divine Wisdom. In his late writings,
+            and in the work of his interpreters (particularly Emma Jung and Marie-Louise von Franz),
+            the Albedo Anima is understood as a mediating figure: not the final destination but
+            the guide toward it.
+          </p>
+          <p>
+            She appears in forest glades and at living water. She is not threatening but not
+            entirely comprehensible either — too deep for any single category. Her relationship
+            with the soul she guides is not one of possession but of invitation: she shows a way,
+            opens a door, leads to a threshold, and then waits to see whether the one she guides
+            has courage enough to cross. This is Albedo's deepest gift: not the fullness of light
+            but the figure who can lead you, in the moonlit middle of the night, toward the dawn
+            that is coming.
+          </p>
+        </div>
+
+        <div class="epigraph animate-on-scroll">
+          <p class="epigraph__text" style="color:var(--albedo-text);">
+            "The Anima acts like a soul guide to the regions of a purer light… she is ultimately
+            connected with the figure of the Sophia, the divine wisdom who is 'more mobile than
+            any motion' and who 'reaches mightily from one end to the other.'"
+          </p>
+          <p class="epigraph__source">C.G. Jung, <span class="latin">Mysterium Coniunctionis</span>, CW 14, §226</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            From washing to dawning — the purified matter begins to catch the first gold of morning.
+            The movement toward Citrinitas begins.
+          </p>
+          <a href="citrinitas.html" class="transition-panel__arrow" aria-label="Continue to Citrinitas">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>On the iconography of Albedo — the white swan, rose, and lunar symbols — see Lyndy Abraham,
+            <em>A Dictionary of Alchemical Imagery</em> (1998), s.v. "albedo," "swan," "white rose," "Luna."
+            For the progression of alchemical stages, see Lawrence Principe, <em>The Secrets of Alchemy</em>
+            (2013), ch. 5.</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>On the Transfiguration as a theological-spiritual event, see John Anthony McGuckin,
+            <em>The Transfiguration of Christ in Scripture and Tradition</em> (1986).
+            The connection to apophatic prayer traditions is explored in
+            Andrew Louth, <em>The Origins of the Christian Mystical Tradition</em> (1981), ch. 5.</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>C.S. Lewis, <em>The Great Divorce</em> (1945). For theological analysis of Lewis's
+            purgatorial imagination, see Jerry Root and Mark Neal, <em>The Surprising Imagination of
+            C.S. Lewis</em> (2015). On purgatory in Protestant-Catholic dialogue, see
+            Jerry Walls, <em>Purgatory: The Logic of Total Transformation</em> (2012).</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>On Mary as <span class="latin">Luna</span> in theological and symbolic tradition, see
+            Marina Warner, <em>Alone of All Her Sex</em> (1976), ch. 16;
+            and Pope John Paul II, <em>Redemptoris Mater</em> (1987), §26–27 on Mary's
+            receptive <span class="latin">fiat</span>.</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>Jung on the Anima and Albedo: <em>Psychology and Alchemy</em>, CW 12, §§221–239;
+            <em>Mysterium Coniunctionis</em>, CW 14, §§226–247. On the Anima as guide toward Sophia,
+            see Emma Jung and Marie-Louise von Franz, <em>The Grail Legend</em> (1970);
+            and von Franz, <em>Alchemy: An Introduction to the Symbolism and the Psychology</em> (1980).</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="background:var(--albedo-surface); border-top-color:rgba(139,160,184,0.20);">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="nigredo.html" class="site-footer__link">← Nigredo</a></li>
+      <li><a href="citrinitas.html" class="site-footer__link">Next: Citrinitas →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
-
   <script src="../js/main.js"></script>
 </body>
 </html>
