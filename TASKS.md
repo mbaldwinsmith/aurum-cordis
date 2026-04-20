@@ -40,6 +40,10 @@ aurum-cordis/
 
 ---
 
+After completing a module, push to main branch and then post a link to the page on the localhost.
+
+---
+
 ## ⚙️ MODULE 0 — Project Scaffolding & Design System
 
 ### Task 0.1 — Repository & File Structure
