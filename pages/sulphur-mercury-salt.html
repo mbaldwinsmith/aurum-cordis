@@ -3,13 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tria Prima — Sulphur, Mercury, Salt — the alchemical trinity of body, soul, and spirit.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Tria Prima — Sulphur, Mercury, and Salt: Paracelsus's three principles of soul, spirit, and body, read through Christian theology and Jungian depth psychology." />
   <meta property="og:title" content="Tria Prima — Aurum Cordis" />
+  <meta property="og:description" content="Sulphur, Mercury, Salt — the alchemical trinity of body, soul, and spirit. Paracelsus, the Trinitarian analogy, and Jungian sapientia." />
   <meta property="og:type" content="article" />
   <title>Tria Prima — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    :root {
+      --sulphur-col:  #c07820;
+      --mercury-col:  #5888b8;
+      --salt-col:     #b8bcc2;
+    }
+
+    /* ── Hero ── */
+    .tp-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .tp-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 20% 50%, rgba(192,120,32,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 40%, rgba(88,136,184,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 50%, rgba(184,188,194,0.05) 0%, transparent 60%),
+        var(--color-furnace-black);
+      z-index: 0;
+    }
+    .tp-hero__content { position: relative; z-index: 1; max-width: 780px; }
+
+    /* ── Three principle cards ── */
+    .principle-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-8) 0;
+      align-items: stretch;
+    }
+    @media (max-width: 860px) { .principle-cards { grid-template-columns: 1fr; } }
+
+    .principle-card {
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-4);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .principle-card--sulphur {
+      background: linear-gradient(160deg, rgba(192,120,32,0.18) 0%, rgba(14,11,8,0.96) 100%);
+      border-top: 4px solid var(--sulphur-col);
+    }
+    .principle-card--mercury {
+      background: linear-gradient(160deg, rgba(88,136,184,0.18) 0%, rgba(14,11,8,0.96) 100%);
+      border-top: 4px solid var(--mercury-col);
+    }
+    .principle-card--salt {
+      background: linear-gradient(160deg, rgba(184,188,194,0.14) 0%, rgba(14,11,8,0.96) 100%);
+      border-top: 4px solid var(--salt-col);
+    }
+
+    .principle-card__symbol {
+      font-size: 3rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .principle-card__name {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      text-align: center;
+    }
+    .principle-card--sulphur .principle-card__name { color: #d4903a; }
+    .principle-card--mercury .principle-card__name { color: #7aaad0; }
+    .principle-card--salt    .principle-card__name { color: var(--salt-col); }
+
+    .principle-card__latin {
+      text-align: center;
+      font-style: italic;
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: -var(--space-2);
+    }
+
+    .principle-card__tags {
+      display: flex;
+      gap: var(--space-1);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .principle-card__tag {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-full);
+      border: 1px solid currentColor;
+      opacity: 0.80;
+    }
+    .principle-card--sulphur .principle-card__tag { color: #d4903a; border-color: rgba(192,120,32,0.5); }
+    .principle-card--mercury .principle-card__tag { color: #7aaad0; border-color: rgba(88,136,184,0.5); }
+    .principle-card--salt    .principle-card__tag { color: var(--salt-col); border-color: rgba(184,188,194,0.4); }
+
+    .principle-card__section-label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-sulphur-gold);
+      margin-bottom: 4px;
+    }
+    .principle-card__text {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+    .principle-card__divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .principle-card .scripture {
+      font-size: var(--text-xs);
+      margin-top: auto;
+    }
+
+    /* ── Trinitarian triangle SVG ── */
+    .triangle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: var(--space-8) auto;
+      max-width: 560px;
+    }
+    .triangle-svg { width: 100%; max-width: 480px; height: auto; }
+
+    /* ── Comparison table ── */
+    .tria-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+      margin: var(--space-4) 0;
+    }
+    .tria-table th {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--color-border-strong);
+      padding: var(--space-2) var(--space-3);
+      text-align: left;
+    }
+    .tria-table th:nth-child(2) { color: #d4903a; }
+    .tria-table th:nth-child(3) { color: #7aaad0; }
+    .tria-table th:nth-child(4) { color: var(--salt-col); }
+    .tria-table td {
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      vertical-align: top;
+    }
+    .tria-table tr:last-child td { border-bottom: none; }
+    .tria-table td:first-child {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-sulphur-gold);
+      white-space: nowrap;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +195,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,41 +205,535 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link active" aria-current="page">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
         <li><a href="jung.html" class="nav__link">Jung</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Aurum Cordis — Paracelsus</p>
-    <h1 class="page-header__title">🜔🜍🜹 Tria Prima</h1>
-    <p class="page-header__subtitle">Sulphur, Mercury, Salt — the alchemical trinity of body, soul, and spirit.</p>
-  </header>
+  <!-- Hero -->
+  <section class="tp-hero" aria-labelledby="tp-title">
+    <div class="tp-hero__bg" aria-hidden="true"></div>
+    <div class="tp-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <p class="hero__eyebrow animate-on-scroll">Paracelsus's Three Principles</p>
+      <h1 class="hero__title animate-on-scroll delay-1" id="tp-title">Tria Prima</h1>
+      <p class="hero__subtitle animate-on-scroll delay-2">
+        Sulphur, Mercury, Salt — the alchemical trinity of soul, spirit, and body
       </p>
+
+      <div class="flex-center gap-4 animate-on-scroll delay-3" style="font-size:var(--text-2xl); margin-bottom:var(--space-4);" aria-hidden="true">
+        <span style="color:#d4903a;" title="Sulphur">🜔</span>
+        <span style="color:var(--color-text-muted);">✦</span>
+        <span style="color:#7aaad0;" title="Mercury">🜍</span>
+        <span style="color:var(--color-text-muted);">✦</span>
+        <span style="color:var(--salt-col);" title="Salt">🜹</span>
+      </div>
+
+      <blockquote class="animate-on-scroll delay-4" style="max-width:600px; margin:var(--space-2) auto 0; font-style:italic; font-family:var(--font-body); font-size:var(--text-md); color:var(--color-text-muted); line-height:1.65; border-left:2px solid var(--color-border-strong); padding-left:var(--space-3);">
+        "All things originate from three substances, for they are born from the three substances of
+        Sulphur, Mercury, and Salt, which are called body, spirit, and soul."
+        <cite style="display:block; margin-top:var(--space-2); font-style:normal; font-family:var(--font-label); font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase; color:var(--color-sulphur-gold);">
+          Paracelsus, <span class="latin">Opus Paramirum</span>
+        </cite>
+      </blockquote>
     </div>
+  </section>
+
+  <main>
+
+    <!-- ── Task 3.1: Alchemical Theory ── -->
+    <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          The Revolution of Paracelsus
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            In the early sixteenth century, the Swiss-German physician and natural philosopher
+            <strong>Paracelsus</strong> (Theophrastus Bombastus von Hohenheim, 1493–1541) mounted one
+            of the most audacious theoretical interventions in the history of Western thought.
+            He declared the ancient Aristotelian four-element system — Earth, Water, Air, Fire —
+            insufficient to explain the behaviour of substances, and proposed in its place three principles
+            he called the <span class="alchemical-term">Tria Prima</span>: the Three Primes.
+          </p>
+          <p>
+            The three principles are <span class="alchemical-term">Sulphur</span>,
+            <span class="alchemical-term">Mercury</span>, and <span class="alchemical-term">Salt</span>.
+            These are not the ordinary substances of those names but the <em>principles</em> those substances
+            most clearly embody. Every compound thing — every metal, plant, mineral, and human being —
+            is composed of all three in different proportions:
+          </p>
+          <ul>
+            <li><strong>Sulphur</strong> is the combustible principle — what burns, what gives a substance
+            its capacity for transformation, its warmth, its characteristic smell when incinerated.
+            In the human person, Sulphur is the <span class="latin">anima</span>: the soul,
+            the seat of passion, will, and individuality.</li>
+
+            <li><strong>Mercury</strong> is the volatile principle — what rises as vapour, what mediates
+            between the fixed and the mobile, what carries qualities from one state to another.
+            In the human person, Mercury is the <span class="latin">spiritus</span>: the spirit,
+            the intermediary between soul and body, the invisible quickening life.</li>
+
+            <li><strong>Salt</strong> is the fixed principle — what remains after burning, the incombustible
+            ash, the stable mineral residue. Salt preserves, crystallises, and gives substance its body.
+            In the human person, Salt is the <span class="latin">corpus</span>: the body,
+            the physical frame, matter's most stable self-expression.</li>
+          </ul>
+          <p>
+            Paracelsus was not simply replacing three ancient elements with three new ones.
+            He was insisting that every substance has a <em>tripartite</em> nature — that the same
+            three-fold structure that constitutes the human person (soul, spirit, body) also constitutes
+            every stone, metal, and plant. The Tria Prima is a universal grammar of being.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+          <h3>Tria Prima and the Four Elements: Synthesis, Not Replacement</h3>
+          <p>
+            Paracelsus's revolution was contested and never total. Later alchemists — including many
+            working in the Paracelsian tradition — found ways to synthesise the two systems rather
+            than choose between them. The four elements described the <em>material</em> constitution
+            of things; the Tria Prima described their <em>functional</em> or <em>dynamic</em> constitution.
+            A substance's elemental profile told you what it was made of; its tria prima profile told you
+            how it behaved — how it burned, how it mediated, how it held its form.
+          </p>
+          <p>
+            For our purposes, the synthesis is more interesting than the debate.
+            The four elements map to the Jungian functions; the Tria Prima maps to the Jungian
+            soul-spirit-body triad and, as we shall see, to the Trinitarian structure of Christian theology.
+            Both systems were reaching for the same underlying architecture of created reality.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Three principle cards ── -->
+    <section class="section section--sm" aria-labelledby="cards-title"
+      style="background:var(--color-bg-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+      <div class="container">
+        <h2 class="visually-hidden" id="cards-title">The Three Principles</h2>
+        <div class="principle-cards">
+
+          <!-- Sulphur -->
+          <article class="principle-card principle-card--sulphur animate-on-scroll" aria-labelledby="sulphur-title">
+            <div class="principle-card__symbol" aria-hidden="true">🜔</div>
+            <h3 class="principle-card__name" id="sulphur-title">Sulphur</h3>
+            <p class="principle-card__latin"><span class="latin">Sulfur — Anima</span></p>
+            <div class="principle-card__tags">
+              <span class="principle-card__tag">Combustible</span>
+              <span class="principle-card__tag">Soul</span>
+              <span class="principle-card__tag">Hot + Dry</span>
+              <span class="principle-card__tag">Fire-like</span>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Alchemical Role</p>
+              <p class="principle-card__text">The combustible principle — what burns and transforms. Sulphur gives a substance its characteristic nature, its smell, its capacity for change. In the human person it is the animating soul: the seat of passion, desire, and will. It is the hot, restless, individualising principle.</p>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Christian Correlate</p>
+              <p class="principle-card__text">The <span class="latin">anima</span> as <span class="latin">imago Dei</span>: the soul in its God-ward orientation, its capacity for love, its restless desire for the infinite. Augustine's confession rings with sulphurous urgency: <em>"our heart is restless until it rests in Thee."</em> The soul's very combustibility — its inability to be satisfied with anything finite — is the mark of the divine image within it. Sulphur's fire is the fire of <span class="latin">eros</span> directed toward God.</p>
+            </div>
+            <blockquote class="scripture">
+              "You have made us for yourself, O Lord, and our heart is restless until it rests in you."
+              <cite>Augustine, <span class="latin">Confessions</span> I.1</cite>
+            </blockquote>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Jungian Dimension</p>
+              <p class="principle-card__text">Jung maps Sulphur to the <strong>libido</strong> — not in the narrow Freudian sense but as the general psychic energy, the drive and desire that animates all psychic activity. In its raw, unrefined state it is compulsive, volatile, and potentially destructive. The alchemical work with Sulphur is the work of redirecting and refining this energy — not suppressing it but transforming it from blind combustion into luminous warmth.</p>
+            </div>
+          </article>
+
+          <!-- Mercury -->
+          <article class="principle-card principle-card--mercury animate-on-scroll delay-1" aria-labelledby="mercury-title">
+            <div class="principle-card__symbol" aria-hidden="true">🜍</div>
+            <h3 class="principle-card__name" id="mercury-title">Mercury</h3>
+            <p class="principle-card__latin"><span class="latin">Mercurius — Spiritus</span></p>
+            <div class="principle-card__tags">
+              <span class="principle-card__tag">Volatile</span>
+              <span class="principle-card__tag">Spirit</span>
+              <span class="principle-card__tag">Mediating</span>
+              <span class="principle-card__tag">Quicksilver</span>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Alchemical Role</p>
+              <p class="principle-card__text">The volatile mediating principle — what rises as vapour, descends as dew, and carries qualities between states. Mercury is the messenger between the fixed and the free, the translator between body and soul. Quicksilver — liquid, mobile, elusive — is its mineral embodiment. It resists being pinned down, which is precisely its value: it can enter any compound and transform it.</p>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Christian Correlate</p>
+              <p class="principle-card__text">Mercury maps in multiple directions at once, and this multiplicity is itself theologically suggestive. As the mediating, descending-and-ascending principle, Mercury is the most natural image for the Holy Spirit: the divine messenger who moves between heaven and earth, who carries the divine life into the human and raises the human toward the divine. The Spirit descends at baptism and at Pentecost; the Spirit intercedes with "groans too deep for words" (Romans 8:26).</p>
+              <p class="principle-card__text" style="margin-top:var(--space-2);">But <strong>Lactantius</strong> and <strong>Augustine</strong> also read the figure of Hermes-Mercury as a <span class="latin">figura Christi</span> — a pagan anticipation of the Logos who is the ultimate mediator between God and humanity (1 Timothy 2:5). The <span class="latin">spiritus</span> of Christ descended into Hades (1 Peter 3:19) and rose — the supreme alchemical volatilisation: the fixed and mortal raised into the free and incorruptible.</p>
+            </div>
+            <blockquote class="scripture">
+              "For there is one God and one mediator between God and mankind, the man Christ Jesus."
+              <cite>1 Timothy 2:5</cite>
+            </blockquote>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Jungian Dimension</p>
+              <p class="principle-card__text">Jung devoted some of his most sustained attention to <strong>Mercurius</strong>, whom he treated as the central figure of the alchemical imagination. Mercury is the unconscious in its mediating, shape-shifting, trickster form — neither good nor evil, but ambivalent, liminal, impossible to grasp. As trickster, Mercury disrupts the ego's fixed categories and lets new life through. As psychopomp, he guides the soul through the underworld of the unconscious. The analyst's task, for Jung, was mercurial: to move between conscious and unconscious without becoming either.</p>
+            </div>
+          </article>
+
+          <!-- Salt -->
+          <article class="principle-card principle-card--salt animate-on-scroll delay-2" aria-labelledby="salt-title">
+            <div class="principle-card__symbol" aria-hidden="true">🜹</div>
+            <h3 class="principle-card__name" id="salt-title">Salt</h3>
+            <p class="principle-card__latin"><span class="latin">Sal — Corpus</span></p>
+            <div class="principle-card__tags">
+              <span class="principle-card__tag">Fixed</span>
+              <span class="principle-card__tag">Body</span>
+              <span class="principle-card__tag">Preserving</span>
+              <span class="principle-card__tag">Incorruptible</span>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Alchemical Role</p>
+              <p class="principle-card__text">The fixed principle — what remains after burning. Salt is the stable mineral residue, the crystalline structure that holds form, the preserving agent that resists decay. In the human person, Salt is the body: the physical frame, the vessel, matter in its most organised and enduring state. Salt does not ascend or transform easily — it holds its shape, which is both its limitation and its dignity.</p>
+            </div>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Christian Correlate</p>
+              <p class="principle-card__text">Salt carries extraordinary scriptural weight. "You are the salt of the earth" (Matthew 5:13) — the disciples as the preserving, purifying, flavouring principle in a world tending toward corruption. The covenant of salt (Leviticus 2:13; Numbers 18:19) sealed divine promises with the incorruptible mineral: salt does not rot, does not lie. Every grain offering was to be salted; every covenant confirmed with it.</p>
+              <p class="principle-card__text" style="margin-top:var(--space-2);">In baptismal rites of both Eastern and Western traditions, a grain of salt was placed on the catechumen's tongue — the <span class="latin">sal sapientiae</span>, the salt of wisdom, signifying preservation from corruption and entry into the covenant. The resurrection of the body — the Christian doctrine that material, bodily existence is not discarded but transformed — is the ultimate theological affirmation of Salt's dignity.</p>
+            </div>
+            <blockquote class="scripture">
+              "You are the salt of the earth. But if the salt loses its saltiness, how can it be made salty again?"
+              <cite>Matthew 5:13</cite>
+            </blockquote>
+            <hr class="principle-card__divider"/>
+            <div>
+              <p class="principle-card__section-label">Jungian Dimension</p>
+              <p class="principle-card__text">Jung's Salt is perhaps his most poignant mapping. He associates Salt with <span class="latin"><strong>sapientia</strong></span> — the bitter wisdom that comes only through suffering. Salt stings wounds; it preserves through pain; it is the taste of tears. The crystallisation of Salt in the psyche is what happens when suffering is not fled but endured and integrated: it deposits a hard-won knowledge, a capacity for discernment, a maturity that cannot be acquired any other way. Salt is what you are left with after the burning away of illusion.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Task 3.2: Trinitarian Analogy ── -->
+    <section class="section" id="trinitarian-analogy" aria-labelledby="trinity-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="trinity-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          The Tria Prima as Trinitarian Analogy
+        </h2>
+
+        <!-- Trinitarian triangle SVG -->
+        <div class="triangle-wrapper animate-on-scroll" aria-label="Trinitarian triangle diagram linking Sulphur, Mercury, and Salt to the three Persons of the Trinity">
+          <svg class="triangle-svg" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+               aria-label="Triangle with Father/Sulphur at top-left, Son/Mercury at top-right, Spirit/Salt at bottom-centre; Tria Prima at centre">
+
+            <!-- Triangle edges -->
+            <line x1="120" y1="60" x2="360" y2="60"  stroke="rgba(201,162,39,0.35)" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="120" y1="60" x2="240" y2="330" stroke="rgba(201,162,39,0.35)" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="360" y1="60" x2="240" y2="330" stroke="rgba(201,162,39,0.35)" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+            <!-- Inner triangle (Tria Prima) -->
+            <line x1="155" y1="165" x2="325" y2="165" stroke="rgba(201,162,39,0.20)" stroke-width="1"/>
+            <line x1="155" y1="165" x2="240" y2="255" stroke="rgba(201,162,39,0.20)" stroke-width="1"/>
+            <line x1="325" y1="165" x2="240" y2="255" stroke="rgba(201,162,39,0.20)" stroke-width="1"/>
+
+            <!-- Father / Sulphur — top left -->
+            <circle cx="120" cy="60" r="48" fill="rgba(192,120,32,0.12)" stroke="rgba(192,120,32,0.55)" stroke-width="1.5"/>
+            <text x="120" y="46" text-anchor="middle" fill="#d4903a" font-family="'Cinzel',serif" font-size="10" letter-spacing="2">FATHER</text>
+            <text x="120" y="63" text-anchor="middle" fill="#f0e6c8" font-family="'IM Fell English',serif" font-size="17">🜔</text>
+            <text x="120" y="80" text-anchor="middle" fill="#d4903a" font-family="'IM Fell English',serif" font-size="12" font-style="italic">Sulphur</text>
+
+            <!-- Son / Mercury — top right -->
+            <circle cx="360" cy="60" r="48" fill="rgba(88,136,184,0.12)" stroke="rgba(88,136,184,0.55)" stroke-width="1.5"/>
+            <text x="360" y="46" text-anchor="middle" fill="#7aaad0" font-family="'Cinzel',serif" font-size="10" letter-spacing="2">SON</text>
+            <text x="360" y="63" text-anchor="middle" fill="#f0e6c8" font-family="'IM Fell English',serif" font-size="17">🜍</text>
+            <text x="360" y="80" text-anchor="middle" fill="#7aaad0" font-family="'IM Fell English',serif" font-size="12" font-style="italic">Mercury</text>
+
+            <!-- Spirit / Salt — bottom centre -->
+            <circle cx="240" cy="330" r="48" fill="rgba(184,188,194,0.10)" stroke="rgba(184,188,194,0.45)" stroke-width="1.5"/>
+            <text x="240" y="316" text-anchor="middle" fill="#b8bcc2" font-family="'Cinzel',serif" font-size="10" letter-spacing="2">SPIRIT</text>
+            <text x="240" y="333" text-anchor="middle" fill="#f0e6c8" font-family="'IM Fell English',serif" font-size="17">🜹</text>
+            <text x="240" y="350" text-anchor="middle" fill="#b8bcc2" font-family="'IM Fell English',serif" font-size="12" font-style="italic">Salt</text>
+
+            <!-- Centre label -->
+            <circle cx="240" cy="200" r="38" fill="rgba(14,11,8,0.9)" stroke="rgba(201,162,39,0.40)" stroke-width="1"/>
+            <text x="240" y="194" text-anchor="middle" fill="#c9a227" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">TRIA</text>
+            <text x="240" y="208" text-anchor="middle" fill="#c9a227" font-family="'Cinzel',serif" font-size="9" letter-spacing="2">PRIMA</text>
+
+            <!-- Edge labels -->
+            <text x="240" y="52" text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="9" letter-spacing="1">PROCESSION</text>
+            <text x="162" y="215" text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="9" letter-spacing="1" transform="rotate(-58 162 215)">INCARNATION</text>
+            <text x="322" y="215" text-anchor="middle" fill="rgba(201,162,39,0.5)" font-family="'Cinzel',serif" font-size="9" letter-spacing="1" transform="rotate(58 322 215)">SPIRATION</text>
+          </svg>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            The mapping of the Tria Prima onto the three Persons of the Trinity was not merely a clever
+            analogy imported from outside Christian thought. It was developed explicitly and with theological
+            seriousness by <strong>Jacob Boehme</strong> (1575–1624), the German Lutheran mystic and
+            theosopher, who represents perhaps the most sustained attempt to think Paracelsian alchemy and
+            Christian Trinitarian theology together.
+          </p>
+          <p>
+            In Boehme's system, Sulphur corresponds to the <strong>Father</strong>: the fiery, self-generating
+            source, the burning will at the origin of all things, the <span class="latin">Urgrund</span>
+            (primal ground) of being. Mercury corresponds to the <strong>Son</strong>: the mediating,
+            incarnating principle — the Logos who descends from the Father into matter and ascends
+            again in resurrection, precisely the pattern of the volatile that descends as dew and rises
+            as vapour. Salt corresponds to the <strong>Holy Spirit</strong>: the preserving, sanctifying,
+            crystallising principle — the Spirit who fixes the fruits of the Son's work into the souls
+            of believers, who holds the covenant fast.
+          </p>
+          <p>
+            This analogy is striking and illuminating but requires theological qualification.
+            Christian orthodoxy does not map the divine Persons onto a material typology in any
+            straightforward way: the Spirit is not "lower" or "more fixed" than the Father and Son
+            simply because Salt is the fixed principle. What the Boehme reading gives us is not a
+            dogmatic formula but a contemplative icon — a way of seeing the Trinitarian relationships
+            (generation, procession, mission) through the lens of the three dynamic principles that
+            structure created reality. Used as icon rather than equation, it is rich and generative.
+          </p>
+        </div>
+
+        <!-- Comparison table -->
+        <table class="tria-table animate-on-scroll" aria-label="Correspondence table for Sulphur, Mercury, and Salt across alchemy, theology, and psychology">
+          <thead>
+            <tr>
+              <th scope="col">Dimension</th>
+              <th scope="col">🜔 Sulphur</th>
+              <th scope="col">🜍 Mercury</th>
+              <th scope="col">🜹 Salt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alchemical quality</td>
+              <td>Combustible, hot, dry</td>
+              <td>Volatile, mediating</td>
+              <td>Fixed, stable, preserving</td>
+            </tr>
+            <tr>
+              <td>Human dimension</td>
+              <td><span class="latin">Anima</span> — soul</td>
+              <td><span class="latin">Spiritus</span> — spirit</td>
+              <td><span class="latin">Corpus</span> — body</td>
+            </tr>
+            <tr>
+              <td>Trinitarian</td>
+              <td>Father (source, fire)</td>
+              <td>Son / Logos (mediator)</td>
+              <td>Holy Spirit (preserver)</td>
+            </tr>
+            <tr>
+              <td>Scripture</td>
+              <td>Augustine's restless heart; <span class="latin">imago Dei</span></td>
+              <td>1 Timothy 2:5; 1 Peter 3:19</td>
+              <td>Matthew 5:13; Leviticus 2:13</td>
+            </tr>
+            <tr>
+              <td>Jungian mapping</td>
+              <td>Libido / psychic drive</td>
+              <td>Unconscious as trickster-mediator</td>
+              <td><span class="latin">Sapientia</span> — bitter wisdom through suffering</td>
+            </tr>
+            <tr>
+              <td>Operation in Opus</td>
+              <td>Calcination (the burning)</td>
+              <td>Sublimation (the rising)</td>
+              <td>Coagulation (the fixing)</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ── Task 3.3: Jungian Dimension ── -->
+    <section class="section" id="jungian-dimension" aria-labelledby="jung-title"
+      style="background:var(--color-bg-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          Towards the <span class="latin">Coniunctio</span>
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            Jung's most extended meditation on the Tria Prima appears in
+            <span class="latin">Mysterium Coniunctionis</span> (1956), where he treats the three principles
+            as fundamental psychic realities whose integration is a prerequisite for the
+            <span class="latin">coniunctio</span> — the union of opposites that is the goal of individuation.
+            The great work of psychological becoming cannot skip any of the three.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Sulphur: The Fire That Must Be Tended</h3>
+          <p>
+            In Jung's reading, <strong>Sulphur</strong> represents the libido — the undifferentiated
+            psychic drive — in its most dangerous form when raw and unrefined, but in its most creative
+            form when transmuted. The alchemical work with Sulphur is not extinguishing the fire but
+            learning to tend it. The instinctual life, the desires, the passionate energies of the soul
+            are not obstacles to wholeness but its fuel. The person who has killed their Sulphur in the
+            name of virtue is not holy — they are merely cold.
+          </p>
+          <p>
+            This maps onto the Christian tradition of <span class="latin">eros</span> theology far more
+            naturally than the tradition's own nervousness about desire sometimes allows.
+            Augustine's restless heart is Sulphur in its most spiritualised form — not eliminated desire
+            but redirected desire, <span class="latin">amor</span> aimed at the one love that will not
+            disappoint.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Mercury: The Trickster Who Opens Doors</h3>
+          <p>
+            <strong>Mercurius</strong> was, for Jung, the most fascinating and difficult of the three.
+            The unconscious in its mediating form is not a placid reservoir of hidden content.
+            It is shape-shifting, paradoxical, capable of appearing as both the highest wisdom and the
+            lowest folly. The Trickster archetype — encountered in folklore, dreams, and psychotic breaks —
+            is Mercury wearing his mask.
+          </p>
+          <p>
+            But the Trickster is not simply chaotic. Mercury's disruptions open doors. When the ordered
+            world of the ego is broken open by the unexpected, the impossible, the humiliating, the absurd —
+            something new can enter. The medieval fool who speaks the truth the courtiers dare not voice;
+            the dream image that shatters a comfortable self-understanding; the moment of breakdown that
+            becomes, in retrospect, a breakthrough: these are Mercurius at work.
+          </p>
+          <p>
+            For the Christian, this is not foreign territory. The Holy Spirit blows where it wills
+            (John 3:8) — not according to our schedule, not in the forms we request, not through the
+            channels we have authorised. Divine grace is, in one register, perfectly mercurial.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>Salt: What Suffering Deposits</h3>
+          <p>
+            Jung's <strong>Salt</strong> is the most unexpectedly tender of his alchemical mappings.
+            He associates it with <span class="latin">sapientia</span> — wisdom — and with the
+            specific form of wisdom that comes only through suffering endured and integrated.
+            Salt stings. It preserves through pain. It is the taste of tears.
+          </p>
+          <p>
+            When a person has been broken, has lost what they relied upon, has gone through something
+            they could not prevent and cannot undo — and has not fled the experience but stayed with it,
+            let it work, allowed it to deposit its residue — what remains is Salt.
+            It looks like nothing. It is a dry, bitter, crystalline remainder.
+            But it does not rot. It preserves. It seasons. And in the right measure,
+            it is the thing that makes everything else edible.
+          </p>
+          <p>
+            The Salt of the psyche is what the Christian tradition calls <span class="latin">sapientia</span>
+            as distinct from <span class="latin">scientia</span>: not the knowledge that comes from study
+            but the wisdom that comes from lived fidelity to reality through loss.
+            It is what the Desert Fathers meant by <span class="latin">penthos</span> — compunctive grief —
+            and what John of the Cross meant by the dark night's aftermath: a soul stripped of consolations,
+            purified to its mineral essence, incorruptible precisely because there is nothing left to corrupt.
+          </p>
+        </div>
+
+        <div class="epigraph animate-on-scroll">
+          <p class="epigraph__text">
+            "The Sulphur, Mercury, and Salt of the alchemists are… psychic quantities,
+            that is, the 'soul,' the 'spirit,' and the 'body' of man, which are at the same time
+            the three ultimate substances of which the whole world is composed."
+          </p>
+          <p class="epigraph__source">C.G. Jung, <span class="latin">Mysterium Coniunctionis</span>, CW 14, §1</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            With the three principles established, the Opus itself begins. The first stage is the
+            most feared: Nigredo — the blackening, the death, the dark night of the soul.
+          </p>
+          <a href="nigredo.html" class="transition-panel__arrow" aria-label="Continue to Nigredo">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>On Paracelsus and the Tria Prima, see Walter Pagel,
+            <em>Paracelsus: An Introduction to Philosophical Medicine in the Era of the Renaissance</em>
+            (2nd ed., 1982); and Lawrence Principe, <em>The Secrets of Alchemy</em> (2013), ch. 4.</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>On Hermes-Mercury as <span class="latin">figura Christi</span>, see Lactantius,
+            <span class="latin">Divinae Institutiones</span> I.6, IV.6–7; and Augustine,
+            <span class="latin">De Civitate Dei</span> VIII.26. For the broader tradition,
+            see D.P. Walker, <em>The Ancient Theology</em> (1972).</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>On Jacob Boehme's Paracelsian Trinitarianism, see Andrew Weeks,
+            <em>Boehme: An Intellectual Biography of the Seventeenth-Century Philosopher and Mystic</em>
+            (1991); and Cyril O'Regan, <em>Gnostic Apocalypse: Jacob Boehme's Haunted Narrative</em> (2002).</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>On baptismal salt, see the <span class="latin">Ordo Initiationis Christianae Adultorum</span>
+            (RCIA) and the older <span class="latin">Rituale Romanum</span>; cf. Ambrose of Milan,
+            <span class="latin">De Mysteriis</span> III.11.</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>Jung's analysis of Salt is in <span class="latin">Mysterium Coniunctionis</span>,
+            CW 14, §§ 234–340. For <span class="latin">sapientia</span> in the Christian mystical
+            tradition, see Thomas Aquinas, <span class="latin">Summa Theologiae</span> IIa-IIae, q. 45;
+            and John of the Cross, <span class="latin">The Dark Night of the Soul</span>, II.9.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="four-elements.html" class="site-footer__link">← Four Elements</a></li>
+      <li><a href="nigredo.html" class="site-footer__link">Next: Nigredo →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

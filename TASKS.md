@@ -147,25 +147,25 @@ aurum-cordis/
 *Paracelsus's three principles: the alchemical trinity of body, soul, and spirit.*
 
 ### Task 3.1 — Content: Alchemical Theory
-- [ ] Introduce Paracelsus's revolutionary replacement of the four elements with the **Tria Prima**: Sulphur (combustibility/soul), Mercury (volatility/spirit), Salt (solidity/body)
-- [ ] Explain each principle's role in the composition of metals and the human being
-- [ ] Note the internal tensions and debates within alchemy about Tria Prima vs. four elements (they were often synthesised)
+- [✓] Introduce Paracelsus's revolutionary replacement of the four elements with the **Tria Prima**: Sulphur (combustibility/soul), Mercury (volatility/spirit), Salt (solidity/body)
+- [✓] Explain each principle's role in the composition of metals and the human being
+- [✓] Note the internal tensions and debates within alchemy about Tria Prima vs. four elements (they were often synthesised)
 
 ### Task 3.2 — Content: Christian Theological Correlates
-- [ ] **Sulphur → Soul (*anima*)**: The animating principle, passion, and will; connected to the image of God (*imago Dei*) in the soul; Augustinian restlessness (*our heart is restless until it rests in Thee*)
-- [ ] **Mercury → Spirit (*spiritus*)**: The volatile mediating principle; the Holy Spirit as divine Mercury, descending and ascending; the *spiritus* of Christ that descended into Hades and rose; Hermes/Mercury as a *figura Christi* in Christian allegorical reading (Lactantius, Augustine)
-- [ ] **Salt → Body (*corpus*)**: Incorruptibility and preservation; "Ye are the salt of the earth" (Matthew 5:13); the eucharistic body; resurrection of the body; the salt of baptismal rites; covenant salt (Leviticus 2:13)
-- [ ] **Tria Prima as Trinitarian analogy**: Sulphur = Father (source, fire), Mercury = Son (mediator, Logos), Salt = Spirit (preserving, sanctifying) — note this is analogical and not strictly orthodox, but explore its theological utility and limits
-- [ ] Cite Boehme and the later Christian theosophists who developed this Trinitarian reading explicitly
+- [✓] **Sulphur → Soul (*anima*)**: The animating principle, passion, and will; connected to the image of God (*imago Dei*) in the soul; Augustinian restlessness (*our heart is restless until it rests in Thee*)
+- [✓] **Mercury → Spirit (*spiritus*)**: The volatile mediating principle; the Holy Spirit as divine Mercury, descending and ascending; the *spiritus* of Christ that descended into Hades and rose; Hermes/Mercury as a *figura Christi* in Christian allegorical reading (Lactantius, Augustine)
+- [✓] **Salt → Body (*corpus*)**: Incorruptibility and preservation; "Ye are the salt of the earth" (Matthew 5:13); the eucharistic body; resurrection of the body; the salt of baptismal rites; covenant salt (Leviticus 2:13)
+- [✓] **Tria Prima as Trinitarian analogy**: Sulphur = Father (source, fire), Mercury = Son (mediator, Logos), Salt = Spirit (preserving, sanctifying) — note this is analogical and not strictly orthodox, but explore its theological utility and limits
+- [✓] Cite Boehme and the later Christian theosophists who developed this Trinitarian reading explicitly
 
 ### Task 3.3 — Content: Jungian Dimension
-- [ ] Jung's mapping: Mercury = the unconscious in its mediating, trickster form; Sulphur = the libido/instinctual drive; Salt = the crystallised, bitter wisdom that comes through suffering (*sapientia*)
-- [ ] The integration of all three as a prerequisite for the coniunctio
+- [✓] Jung's mapping: Mercury = the unconscious in its mediating, trickster form; Sulphur = the libido/instinctual drive; Salt = the crystallised, bitter wisdom that comes through suffering (*sapientia*)
+- [✓] The integration of all three as a prerequisite for the coniunctio
 
 ### Task 3.4 — UI Build
-- [ ] Three tall cards in a row: Sulphur (amber/orange), Mercury (silver/blue), Salt (white/cream), each with symbol, alchemical definition, theological correlate, Jungian dimension
-- [ ] A Trinitarian triangle diagram linking the three with the Divine Names at each vertex
-- [ ] Scripture features for each (Matthew 5:13 for Salt, etc.)
+- [✓] Three tall cards in a row: Sulphur (amber/orange), Mercury (silver/blue), Salt (white/cream), each with symbol, alchemical definition, theological correlate, Jungian dimension
+- [✓] A Trinitarian triangle diagram linking the three with the Divine Names at each vertex
+- [✓] Scripture features for each (Matthew 5:13 for Salt, etc.)
 
 ---
 
