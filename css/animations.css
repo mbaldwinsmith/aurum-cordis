@@ -1,0 +1,236 @@
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.20),
+                0 0 20px rgba(201, 162, 39, 0.10);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(201, 162, 39, 0.50),
+                0 0 48px rgba(201, 162, 39, 0.25);
+  }
+}
+
+@keyframes glowPulseText {
+  0%, 100% { text-shadow: 0 0 8px rgba(201, 162, 39, 0.30); }
+  50%       { text-shadow: 0 0 20px rgba(201, 162, 39, 0.70); }
+}
+
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slowRotateCCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes flicker {
+  0%,  19%,  21%,  23%,  25%,  54%,  56%, 100% { opacity: 1; }
+  20%, 22%,  24%,  55% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(201, 162, 39, 0.25); }
+  50%       { border-color: rgba(201, 162, 39, 0.65); }
+}
+
+@keyframes riseAndFade {
+  0%   { opacity: 0; transform: translateY(8px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  80%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ============================================================
+   SCROLL-TRIGGERED ANIMATION BASE
+   Elements start invisible; JS adds .is-visible to trigger
+   ============================================================ */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.animate-on-scroll.from-left {
+  transform: translateX(-24px);
+}
+
+.animate-on-scroll.from-right {
+  transform: translateX(24px);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Staggered children */
+.animate-on-scroll.delay-1 { transition-delay: 100ms; }
+.animate-on-scroll.delay-2 { transition-delay: 200ms; }
+.animate-on-scroll.delay-3 { transition-delay: 300ms; }
+.animate-on-scroll.delay-4 { transition-delay: 400ms; }
+.animate-on-scroll.delay-5 { transition-delay: 500ms; }
+.animate-on-scroll.delay-6 { transition-delay: 600ms; }
+
+/* ============================================================
+   UTILITY ANIMATION CLASSES
+   ============================================================ */
+
+.glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.glow-text {
+  animation: glowPulseText 3s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: slowRotate 40s linear infinite;
+}
+
+.rotate-slow-ccw {
+  animation: slowRotateCCW 40s linear infinite;
+}
+
+.flicker {
+  animation: flicker 4s linear infinite;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease both;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease both;
+}
+
+/* ============================================================
+   GRAIN / NOISE TEXTURE OVERLAY
+   Apply to a pseudo-element or a dedicated <div class="grain-overlay">
+   ============================================================ */
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-overlay);
+  opacity: 0.035;
+  filter: url(#grain);
+}
+
+/* The SVG filter for grain is injected by JS into a hidden <svg> in the DOM.
+   Fallback: CSS-only noise via repeating-conic-gradient approximation. */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ============================================================
+   PAGE TRANSITION
+   ============================================================ */
+
+.page-transition-out {
+  animation: fadeIn 0.3s ease reverse both;
+}
+
+.page-transition-in {
+  animation: fadeIn 0.3s ease both;
+}
+
+/* ============================================================
+   SHIMMER / GOLD SHEEN (for headings and special elements)
+   ============================================================ */
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--color-sulphur-gold) 0%,
+    var(--color-sulphur-light) 40%,
+    var(--color-vellum-cream) 50%,
+    var(--color-sulphur-light) 60%,
+    var(--color-sulphur-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .grain-overlay {
+    display: none;
+  }
+}

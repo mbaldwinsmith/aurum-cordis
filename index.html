@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aurum Cordis — The Opus Magnum as Christian Way: Alchemy, Theology, and the Soul's Transformation. A scholarly exploration of medieval alchemical theory, Christian theology, and Jungian depth psychology." />
+  <meta property="og:title" content="Aurum Cordis — The Gold of the Heart" />
+  <meta property="og:description" content="The Opus Magnum as Christian Way: Alchemy, Theology, and the Soul's Transformation." />
+  <meta property="og:type" content="website" />
+  <title>Aurum Cordis — The Gold of the Heart</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- Grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Aurum Cordis — Home">
+        <svg class="nav__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="4" fill="currentColor"/>
+          <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+          <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+        </svg>
+        <div class="nav__title">
+          Aurum Cordis
+          <span>Christian Alchemy</span>
+        </div>
+      </a>
+
+      <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+      </button>
+
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="pages/prima-materia.html" class="nav__link">Prima Materia</a></li>
+        <li><a href="pages/opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="pages/nigredo.html" class="nav__link">Nigredo</a></li>
+        <li><a href="pages/albedo.html" class="nav__link">Albedo</a></li>
+        <li><a href="pages/rubedo.html" class="nav__link">Rubedo</a></li>
+        <li><a href="pages/jung.html" class="nav__link">Jung</a></li>
+        <li><a href="pages/bibliography.html" class="nav__link">Bibliography</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <!-- Ouroboros / alchemical emblem SVG -->
+      <svg class="hero__emblem animate-on-scroll" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ouroboros encircling a cross — alchemical emblem">
+        <!-- Outer circle (ouroboros body) -->
+        <circle cx="60" cy="60" r="52" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" opacity="0.6"/>
+        <!-- Inner circle -->
+        <circle cx="60" cy="60" r="38" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <!-- Cross -->
+        <line x1="60" y1="22" x2="60" y2="98" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="22" y1="60" x2="98" y2="60" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Cross bar on vertical arm (alchemical cross) -->
+        <line x1="48" y1="48" x2="72" y2="48" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Serpent head (ouroboros tail-biting) -->
+        <circle cx="60" cy="8" r="3" fill="currentColor" opacity="0.8"/>
+        <!-- Cardinal points -->
+        <circle cx="60" cy="22" r="2" fill="currentColor"/>
+        <circle cx="60" cy="98" r="2" fill="currentColor"/>
+        <circle cx="22" cy="60" r="2" fill="currentColor"/>
+        <circle cx="98" cy="60" r="2" fill="currentColor"/>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1">Ora et Labora et Lege</p>
+
+      <h1 class="hero__title animate-on-scroll delay-2" id="hero-title">
+        <em>Aurum Cordis</em>
+      </h1>
+
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        The Opus Magnum as Christian Way:<br>
+        Alchemy, Theology, and the Soul's Transformation
+      </p>
+
+      <a href="#introduction" class="btn btn--outline animate-on-scroll delay-4">
+        Enter the Work
+      </a>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>Descend</span>
+      <span class="hero__scroll-arrow"></span>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section" id="introduction" aria-labelledby="intro-title">
+    <div class="container container--narrow">
+
+      <div class="epigraph animate-on-scroll">
+        <p class="epigraph__text">
+          "The stone that is not a stone, cheap yet priceless, known to all yet found by few —
+          this is the beginning and the end of the work."
+        </p>
+        <p class="epigraph__source">Rosarium Philosophorum</p>
+      </div>
+
+      <h2 id="intro-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-4);">
+        What Is This Site?
+      </h2>
+
+      <div class="content-prose animate-on-scroll">
+        <p>
+          <span class="alchemical-term">Aurum Cordis</span> — "The Gold of the Heart" — is a scholarly exploration
+          of medieval alchemical thought read through the lens of orthodox Trinitarian Christianity and Jungian depth
+          psychology. It asks a deceptively simple question: what do the alchemists actually mean?
+        </p>
+
+        <p>
+          Medieval and Renaissance alchemy was never simply about turning lead into gold. Its practitioners knew this.
+          Their cryptic language — Prima Materia, Nigredo, the Philosopher's Stone — described processes in matter
+          that they believed mirrored processes in the soul. The laboratory was a theatre of spiritual transformation.
+          The <span class="latin">Opus Magnum</span> (the Great Work) was simultaneously metallurgical, psychological,
+          and theological.
+        </p>
+
+        <p>
+          This site approaches that tradition with two guiding convictions. First, that Christian theology — especially
+          its doctrines of creation, Incarnation, and sanctification — provides the most illuminating interpretive key
+          for what the alchemists were reaching toward. Second, that C.G. Jung's recovery of alchemical symbolism as
+          a map of the unconscious, while not the last word, is a genuinely valuable instrument of pastoral and
+          spiritual understanding.
+        </p>
+
+        <p>
+          Neither conviction cancels the other. Jung's depth psychology is taken seriously on its own terms and then
+          situated within a larger Christian account of the soul, grace, and the economy of salvation. Alchemy is
+          treated neither apologetically (as if it were secretly orthodox all along) nor reductively (as if it were
+          merely projection). It is taken seriously as a symbolic tradition with its own internal coherence — and then
+          read, stage by stage, alongside Scripture, the Fathers, and the mystics.
+        </p>
+
+        <p>
+          The result is neither a defence of occultism nor a dismissal of it, but a patient act of
+          <span class="latin">lectio</span> — a slow, charitable reading of a strange and beautiful tradition in
+          the light of the faith that, this site argues, gives it its deepest meaning.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Module Navigation Grid -->
+  <section class="section" aria-labelledby="modules-title">
+    <div class="container">
+
+      <div class="divider animate-on-scroll">
+        <span class="divider__glyph">☿</span>
+      </div>
+
+      <h2 id="modules-title" class="text-center animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-2);">
+        The Stages of the Work
+      </h2>
+      <p class="text-center animate-on-scroll" style="font-style: italic; color: var(--color-text-muted); margin-bottom: var(--space-8);">
+        Select any stage to begin
+      </p>
+
+      <div class="grid grid-3 gap-4">
+
+        <a href="pages/prima-materia.html" class="module-card animate-on-scroll">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">⬤</span>
+          <h3 class="module-card__title">Prima Materia</h3>
+          <p class="module-card__sub">The Unformed Substrate</p>
+          <p class="module-card__desc">The undifferentiated first substance — chaos before creation, shadow before light, the soul before grace.</p>
+        </a>
+
+        <a href="pages/four-elements.html" class="module-card animate-on-scroll delay-1">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🜂🜄🜁🜃</span>
+          <h3 class="module-card__title">The Four Elements</h3>
+          <p class="module-card__sub">The Classical Quaternary</p>
+          <p class="module-card__desc">Earth, Water, Air, Fire — and the hidden Quinta Essentia that unifies them: Christ as cosmic ordering principle.</p>
+        </a>
+
+        <a href="pages/sulphur-mercury-salt.html" class="module-card animate-on-scroll delay-2">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🜔🜍🜹</span>
+          <h3 class="module-card__title">Tria Prima</h3>
+          <p class="module-card__sub">Sulphur, Mercury, Salt</p>
+          <p class="module-card__desc">Paracelsus's three principles — soul, spirit, body — read as a Trinitarian analogy.</p>
+        </a>
+
+        <a href="pages/nigredo.html" class="module-card module-card--nigredo animate-on-scroll delay-3">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">⬛</span>
+          <h3 class="module-card__title">Nigredo</h3>
+          <p class="module-card__sub">Stage I — The Black Phase</p>
+          <p class="module-card__desc">Putrefaction, death, the dark night of the soul. Good Friday. The Shadow confronted.</p>
+        </a>
+
+        <a href="pages/albedo.html" class="module-card module-card--albedo animate-on-scroll delay-4">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">⬜</span>
+          <h3 class="module-card__title">Albedo</h3>
+          <p class="module-card__sub">Stage II — The White Phase</p>
+          <p class="module-card__desc">Washing, purification, the dawn of new light. Easter morning. The Anima restored.</p>
+        </a>
+
+        <a href="pages/citrinitas.html" class="module-card module-card--citrinitas animate-on-scroll delay-5">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🌅</span>
+          <h3 class="module-card__title">Citrinitas</h3>
+          <p class="module-card__sub">Stage III — The Yellow Phase</p>
+          <p class="module-card__desc">The lost stage. Solar wisdom dawning. Sophia. The threshold before fullness.</p>
+        </a>
+
+        <a href="pages/rubedo.html" class="module-card module-card--rubedo animate-on-scroll">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🔴</span>
+          <h3 class="module-card__title">Rubedo</h3>
+          <p class="module-card__sub">Stage IV — The Red Phase</p>
+          <p class="module-card__desc">Solar perfection, the <span class="latin">coniunctio</span>. Pentecost. Theosis. The Wedding of the Lamb.</p>
+        </a>
+
+        <a href="pages/philosophers-stone.html" class="module-card animate-on-scroll delay-1">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">💎</span>
+          <h3 class="module-card__title">The Philosopher's Stone</h3>
+          <p class="module-card__sub">Lapis Philosophorum</p>
+          <p class="module-card__desc">The Stone that is not a stone. Christ as Lapis. Grace as universal tincture.</p>
+        </a>
+
+        <a href="pages/seven-metals.html" class="module-card animate-on-scroll delay-2">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🪐</span>
+          <h3 class="module-card__title">The Seven Metals</h3>
+          <p class="module-card__sub">Planetary Rulers</p>
+          <p class="module-card__desc">Lead to Gold: the planetary ladder of transformation and Dante's <span class="latin">Paradiso</span>.</p>
+        </a>
+
+        <a href="pages/opus-magnum.html" class="module-card animate-on-scroll delay-3">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🌀</span>
+          <h3 class="module-card__title">The Opus Magnum</h3>
+          <p class="module-card__sub">The Great Work — Full Map</p>
+          <p class="module-card__desc">Unified overview: alchemy, salvation history, and Jungian individuation in parallel.</p>
+        </a>
+
+        <a href="pages/jung.html" class="module-card animate-on-scroll delay-4">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">🧠</span>
+          <h3 class="module-card__title">Jung &amp; Christian Alchemy</h3>
+          <p class="module-card__sub">Depth Psychology &amp; Faith</p>
+          <p class="module-card__desc">Where Jung converges with Christian theology — and where they part ways. Victor White OP.</p>
+        </a>
+
+        <a href="pages/bibliography.html" class="module-card animate-on-scroll delay-5">
+          <div class="module-card__phase"></div>
+          <span class="module-card__glyph" aria-hidden="true">📚</span>
+          <h3 class="module-card__title">Bibliography</h3>
+          <p class="module-card__sub">Sources &amp; Further Reading</p>
+          <p class="module-card__desc">Primary alchemical sources, Christian theology, Jung, and integrative scholarship.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
+    <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
+    <ul class="site-footer__links" role="list">
+      <li><a href="index.html" class="site-footer__link">Home</a></li>
+      <li><a href="pages/bibliography.html" class="site-footer__link">Bibliography</a></li>
+      <li><a href="https://github.com" class="site-footer__link" rel="noopener noreferrer">GitHub</a></li>
+    </ul>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-to-top" aria-label="Scroll to top of page" title="Scroll to top">
+    &#8593;
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
