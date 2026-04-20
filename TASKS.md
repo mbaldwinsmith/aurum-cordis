@@ -314,30 +314,30 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The end and the beginning; the tincture that transmutes all it touches.*
 
 ### Task 8.1 — Content: Alchemical Theory
-- [ ] Describe the Stone (*lapis philosophorum*): not a physical stone but a perfected substance, a principle of transmutation; its paradoxes (it is found everywhere, costs nothing, yet almost no one finds it)
-- [ ] Its three grades: the white stone (Albedo completion), the red stone (Rubedo completion), and the universal medicine
-- [ ] The *Lapis* as both the end product and, paradoxically, also the Prima Materia — the beginning is the end (*ouroboros*)
-- [ ] The Elixir of Life, the Universal Solvent (*Alkahest*), and the Panacea as related concepts
+- [✓] Describe the Stone (*lapis philosophorum*): not a physical stone but a perfected substance, a principle of transmutation; its paradoxes (it is found everywhere, costs nothing, yet almost no one finds it)
+- [✓] Its three grades: the white stone (Albedo completion), the red stone (Rubedo completion), and the universal medicine
+- [✓] The *Lapis* as both the end product and, paradoxically, also the Prima Materia — the beginning is the end (*ouroboros*)
+- [✓] The Elixir of Life, the Universal Solvent (*Alkahest*), and the Panacea as related concepts
 
 ### Task 8.2 — Content: Christian Theological Correlates
-- [ ] **The Stone the builders rejected** (Psalm 118:22, Matthew 21:42, 1 Peter 2:7): the most explicit biblical parallel — Christ as the rejected stone that becomes the cornerstone; the Stone that is everywhere yet unrecognised
-- [ ] **Christ as Lapis**: the patristic and medieval tradition of identifying the Philosopher's Stone with Christ explicitly — Zosimos of Panopolis (3rd c.), the *Aurora Consurgens* (attr. Aquinas), John of Rupescissa; cite and discuss
-- [ ] **The Eucharist as Lapis in action**: the *projectio* of Christ's presence into bread and wine, transforming them and then transforming the communicant; the limitless multiplication of the Loaves (John 6) as *multiplicatio*
-- [ ] **The Kingdom of Heaven as leaven** (Matthew 13:33): the Stone's *fermentatio* quality — a small thing hidden in the mass that transforms the whole
-- [ ] **The hidden treasure and the pearl** (Matthew 13:44–46): the Stone that is found, lost, found again at great cost
-- [ ] **Grace as universal tincture**: theological grace as the alchemical tincture — it does not destroy the nature it enters but elevates and perfects it (*gratia perficit naturam*, Aquinas)
+- [✓] **The Stone the builders rejected** (Psalm 118:22, Matthew 21:42, 1 Peter 2:7): the most explicit biblical parallel — Christ as the rejected stone that becomes the cornerstone; the Stone that is everywhere yet unrecognised
+- [✓] **Christ as Lapis**: the patristic and medieval tradition of identifying the Philosopher's Stone with Christ explicitly — Zosimos of Panopolis (3rd c.), the *Aurora Consurgens* (attr. Aquinas), John of Rupescissa; cite and discuss
+- [✓] **The Eucharist as Lapis in action**: the *projectio* of Christ's presence into bread and wine, transforming them and then transforming the communicant; the limitless multiplication of the Loaves (John 6) as *multiplicatio*
+- [✓] **The Kingdom of Heaven as leaven** (Matthew 13:33): the Stone's *fermentatio* quality — a small thing hidden in the mass that transforms the whole
+- [✓] **The hidden treasure and the pearl** (Matthew 13:44–46): the Stone that is found, lost, found again at great cost
+- [✓] **Grace as universal tincture**: theological grace as the alchemical tincture — it does not destroy the nature it enters but elevates and perfects it (*gratia perficit naturam*, Aquinas)
 
 ### Task 8.3 — Content: Jungian Dimension
-- [ ] The Lapis as Jung's **Self archetype**: the transcendent centre and totality of the psyche, both the goal of individuation and its ever-present ground
-- [ ] The paradox that the Self was present from the beginning (like the Stone in Prima Materia) but is only recognised at the end
-- [ ] Jung's late autobiographical remarks (*Memories, Dreams, Reflections*) on the Lapis as the living symbol of wholeness
+- [✓] The Lapis as Jung's **Self archetype**: the transcendent centre and totality of the psyche, both the goal of individuation and its ever-present ground
+- [✓] The paradox that the Self was present from the beginning (like the Stone in Prima Materia) but is only recognised at the end
+- [✓] Jung's late autobiographical remarks (*Memories, Dreams, Reflections*) on the Lapis as the living symbol of wholeness
 
 ### Task 8.4 — UI Build
-- [ ] Golden-white radiant design; ouroboros SVG
-- [ ] Feature: Comparative table — "The Stone in Christian Sources" (Psalm 118 | Zosimos | *Aurora Consurgens* | Aquinas | modern)
-- [ ] Scripture: 1 Peter 2:4–7 and Matthew 13:44–46
-- [ ] Pull quote: *"Lapis noster non est lapis"* ("Our stone is not a stone") with commentary
-- [ ] Closing reflection panel on grace as tincture
+- [✓] Golden-white radiant design; ouroboros SVG
+- [✓] Feature: Comparative table — "The Stone in Christian Sources" (Psalm 118 | Zosimos | *Aurora Consurgens* | Aquinas | modern)
+- [✓] Scripture: 1 Peter 2:4–7 and Matthew 13:44–46
+- [✓] Pull quote: *"Lapis noster non est lapis"* ("Our stone is not a stone") with commentary
+- [✓] Closing reflection panel on grace as tincture
 
 ---
 
