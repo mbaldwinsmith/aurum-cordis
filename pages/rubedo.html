@@ -3,13 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rubedo — The Red Phase: solar perfection, the coniunctio, the completion of the Opus.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Rubedo — the Red Phase: the coniunctio, Pentecost, the Wedding of the Lamb, and the completion of the Opus Magnum." />
   <meta property="og:title" content="Rubedo — Aurum Cordis" />
+  <meta property="og:description" content="The fourth and culminating stage: the reddening, the union of opposites, the fire of Pentecost, and the theosis of the soul." />
   <meta property="og:type" content="article" />
   <title>Rubedo — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Rubedo colour overrides — crimson and gold ── */
+    :root {
+      --rub-bg:      #0e0608;
+      --rub-surface: #160a0c;
+      --rub-card:    #1e0e10;
+      --rub-red:     #8b1a1a;
+      --rub-red-lt:  #c42828;
+      --rub-crimson: #a01818;
+      --rub-gold:    #c9a227;
+      --rub-gold-lt: #dbb84a;
+      --rub-text:    #d4b0a8;
+      --rub-white:   #f0e0d8;
+    }
+
+    body { background-color: var(--rub-bg); }
+
+    /* ── Hero ── */
+    .rub-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .rub-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 45%, rgba(139,26,26,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 35% at 50% 45%, rgba(201,162,39,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 50% 85%, rgba(14,6,8,0) 0%, var(--rub-bg) 80%),
+        var(--rub-bg);
+      z-index: 0;
+    }
+    .rub-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+    /* ── Phoenix SVG colour ── */
+    .phoenix-emblem {
+      width: 180px; height: 180px;
+      margin: 0 auto var(--space-6);
+      display: block;
+      color: var(--rub-red-lt);
+    }
+
+    /* ── Stage indicator — Rubedo active ── */
+    .stage-indicator__stage.active {
+      background: rgba(139,26,26,0.20);
+    }
+    .stage-indicator__stage.active .stage-indicator__name {
+      color: var(--rub-gold-lt);
+    }
+    .stage-indicator__stage.completed .stage-indicator__glyph {
+      opacity: 0.60;
+    }
+
+    /* ── Section surfaces ── */
+    .section--rub {
+      background: var(--rub-surface);
+      border-top: 1px solid rgba(139,26,26,0.28);
+      border-bottom: 1px solid rgba(139,26,26,0.28);
+    }
+
+    /* ── Process cards (2×2) ── */
+    .process-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 640px) { .process-cards { grid-template-columns: 1fr; } }
+
+    .process-card {
+      background: var(--rub-card);
+      border: 1px solid rgba(139,26,26,0.32);
+      border-left: 4px solid var(--rub-red-lt);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .process-card__latin {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: var(--text-lg);
+      color: var(--rub-gold-lt);
+      margin-bottom: 4px;
+    }
+    .process-card__english {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .process-card__alch {
+      font-size: var(--text-sm);
+      color: var(--rub-text);
+      line-height: 1.75;
+      margin-bottom: var(--space-3);
+    }
+    .process-card__section-label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--rub-gold);
+      margin-bottom: 4px;
+    }
+    .process-card__christian {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── Coniunctio diagram ── */
+    .coniunctio-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      margin: var(--space-8) 0;
+    }
+    .coniunctio-diagram__arrow {
+      font-size: 1.5rem;
+      color: var(--rub-gold);
+      opacity: 0.65;
+      flex-shrink: 0;
+    }
+    .coniunctio-diagram__label {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-align: center;
+      margin-top: var(--space-2);
+    }
+    .coniunctio-diagram__col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Pelican feature ── */
+    .pelican-panel {
+      background: var(--rub-card);
+      border: 1px solid rgba(201,162,39,0.22);
+      border-top: 4px solid var(--rub-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    @media (max-width: 640px) { .pelican-panel { grid-template-columns: 1fr; } }
+    .pelican-panel__verse {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: var(--text-base);
+      color: var(--rub-text);
+      line-height: 1.85;
+      border-left: 3px solid rgba(201,162,39,0.35);
+      padding-left: var(--space-3);
+      margin: var(--space-3) 0;
+    }
+    .pelican-panel__source {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rub-gold);
+      margin-top: var(--space-3);
+    }
+
+    /* ── Overrides ── */
+    .content-prose { color: var(--rub-text); }
+    .content-prose strong { color: var(--rub-white); }
+    .scripture { background: rgba(139,26,26,0.07); }
+    .epigraph__text { color: var(--rub-text); }
+    .two-col__label { color: var(--rub-gold-lt); border-color: rgba(139,26,26,0.30); }
+
+    .transition-panel {
+      border-left-color: var(--rub-gold);
+      background: var(--rub-card);
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +218,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,41 +228,704 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="citrinitas.html" class="nav__link">Citrinitas</a></li>
-        <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
+        <li><a href="rubedo.html" class="nav__link active" aria-current="page">Rubedo</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Stage IV of the Opus Magnum</p>
-    <h1 class="page-header__title">🔴 Rubedo</h1>
-    <p class="page-header__subtitle">The Red Phase: solar perfection, the coniunctio, the completion of the Opus.</p>
-  </header>
+  <!-- Hero -->
+  <section class="rub-hero" aria-labelledby="rub-title">
+    <div class="rub-hero__bg" aria-hidden="true"></div>
+    <div class="rub-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Phoenix SVG: rising bird of fire -->
+      <svg class="phoenix-emblem animate-on-scroll" viewBox="0 0 180 180" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-label="Phoenix rising from fire: alchemical symbol of Rubedo, resurrection, and the completion of the Great Work">
+        <!-- Flame base -->
+        <g opacity="0.30" fill="currentColor">
+          <path d="M90 168 Q70 155 65 140 Q75 148 80 138 Q72 125 78 112 Q85 125 85 135 Q88 122 92 115 Q95 128 93 138 Q98 128 105 125 Q103 140 95 148 Q100 155 90 168Z"/>
+        </g>
+        <!-- Tail feathers flowing down -->
+        <g stroke="currentColor" stroke-width="1.2" opacity="0.45" fill="none">
+          <path d="M76 130 Q60 138 48 155"/>
+          <path d="M82 133 Q72 145 65 162"/>
+          <path d="M98 130 Q114 138 126 155"/>
+          <path d="M92 133 Q102 145 109 162"/>
+        </g>
+        <!-- Wing left -->
+        <path d="M90 80 Q62 65 38 72 Q50 60 38 46 Q56 54 62 48 Q52 36 58 28 Q68 40 68 54 Q80 42 78 30 Q86 44 82 58 Q94 46 95 34 Q98 50 90 62 Q100 52 104 42 Q104 58 96 68 Z"
+              fill="currentColor" opacity="0.55"/>
+        <!-- Wing right -->
+        <path d="M90 80 Q118 65 142 72 Q130 60 142 46 Q124 54 118 48 Q128 36 122 28 Q112 40 112 54 Q100 42 102 30 Q94 44 98 58 Q86 46 85 34 Q82 50 90 62 Q80 52 76 42 Q76 58 84 68 Z"
+              fill="currentColor" opacity="0.55"/>
+        <!-- Body -->
+        <ellipse cx="90" cy="90" rx="16" ry="22" fill="currentColor" opacity="0.70"/>
+        <!-- Neck -->
+        <ellipse cx="90" cy="66" rx="9" ry="14" fill="currentColor" opacity="0.70"/>
+        <!-- Head -->
+        <circle cx="90" cy="52" r="10" fill="currentColor" opacity="0.75"/>
+        <!-- Crown/crest -->
+        <g stroke="currentColor" stroke-width="1.5" opacity="0.80">
+          <line x1="90" y1="42" x2="90" y2="30"/>
+          <line x1="90" y1="42" x2="82" y2="33"/>
+          <line x1="90" y1="42" x2="98" y2="33"/>
+          <line x1="90" y1="42" x2="84" y2="28"/>
+          <line x1="90" y1="42" x2="96" y2="28"/>
+        </g>
+        <!-- Crown star-tips -->
+        <g fill="currentColor" opacity="0.90">
+          <circle cx="90" cy="29" r="2"/>
+          <circle cx="82" cy="32" r="1.5"/>
+          <circle cx="98" cy="32" r="1.5"/>
+          <circle cx="84" cy="27" r="1.5"/>
+          <circle cx="96" cy="27" r="1.5"/>
+        </g>
+        <!-- Eye -->
+        <circle cx="87" cy="50" r="2" fill="#c9a227" opacity="0.90"/>
+        <!-- Solar disc behind phoenix (glory) -->
+        <circle cx="90" cy="80" r="52" stroke="currentColor" stroke-width="0.6" opacity="0.08"/>
+        <circle cx="90" cy="80" r="40" stroke="currentColor" stroke-width="0.8" opacity="0.14"/>
+      </svg>
+
+      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--rub-gold);">Stage IV of the Opus Magnum</p>
+      <h1 class="hero__title animate-on-scroll delay-2" id="rub-title">Rubedo</h1>
+      <p class="hero__subtitle animate-on-scroll delay-3">
+        The Red Phase: the coniunctio, solar perfection, the completion of the Great Work
       </p>
+
+      <!-- Stage indicator — all four completed -->
+      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+        <div class="stage-indicator__stage completed" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
+          <span class="stage-indicator__name">Nigredo</span>
+        </div>
+        <div class="stage-indicator__stage completed" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">⬜</span>
+          <span class="stage-indicator__name">Albedo</span>
+        </div>
+        <div class="stage-indicator__stage completed" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🌅</span>
+          <span class="stage-indicator__name">Citrinitas</span>
+        </div>
+        <div class="stage-indicator__stage active" role="listitem">
+          <span class="stage-indicator__glyph" aria-hidden="true">🔴</span>
+          <span class="stage-indicator__name">Rubedo</span>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <main>
+
+    <!-- ── Task 7.1: Alchemical Theory ── -->
+    <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--rub-gold);">Alchemical Theory</p>
+        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          The Reddening: Solar Perfection and the Sacred Marriage
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            The fourth stage is the one all the others existed to make possible.
+            <span class="alchemical-term">Rubedo</span> — the reddening, the <span class="latin">iosis</span> —
+            is the full solar perfection of the matter, the completion of the
+            <span class="alchemical-term">Opus Magnum</span>. After the blackening, the whitening,
+            and the yellowing, the matter at last achieves the colour of blood and of dawn:
+            the red of life fully lived, fully given, fully consummated.
+          </p>
+          <p>
+            Where Nigredo was the colour of death and Albedo the colour of purified receptivity,
+            Rubedo is the colour of action: not the uncontrolled fire of the prima materia,
+            but fire that has been through the furnace and come out on the other side —
+            fire that is now stable, integrated, purposeful. The alchemists spoke of the matter
+            as having become a <em>tincture</em>: a concentrated power of transformation that
+            does not change when it contacts base metal, but changes the base metal by its presence.
+            This is perfection not as withdrawal from the world but as engagement with it —
+            the stone that transmutes everything it touches.
+          </p>
+          <p>
+            The central event of Rubedo is the <strong><span class="latin">Coniunctio Oppositorum</span></strong>
+            — the union of opposites. After the long work of separation, purification, and preparation,
+            the opposed principles at last come together: sun and moon, king and queen, fixed and volatile,
+            masculine and feminine, conscious and unconscious. This is the <span class="latin">hieros gamos</span>
+            — the sacred marriage — depicted in the emblem tradition as a crowned king and queen
+            in wedding union, their individual colours merged into the red of royal blood.
+            The Philosopher's Stone is the child of this marriage.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+          <h3>The Red King, the Phoenix, and the Pelican</h3>
+          <p>
+            Three great images govern the iconography of Rubedo. The <strong>red king</strong>
+            — restored, crowned, transfigured, holding his orb and sceptre — embodies the
+            completed Opus: the base matter of Nigredo has become royalty. He is paired with
+            the queen in the wedding emblems, the <span class="latin">hieros gamos</span>
+            rendered in visual form.
+          </p>
+          <p>
+            The <strong>phoenix</strong> (<span class="latin">phoenix</span>) — the bird that
+            burns, dies in its own fire, and rises again — was one of the oldest and most
+            resonant symbols available to the alchemists. The phoenix concentrates in one image
+            the whole logic of the Opus: Nigredo (the burning), Albedo (the ash, the egg),
+            Rubedo (the rising). Early Christian writers, including Clement of Rome in
+            <span class="latin">1 Clement</span> 25, had already identified the phoenix
+            as a figure of the Resurrection, making the alchemical appropriation natural.
+          </p>
+          <p>
+            But no Rubedo image is more theologically charged than the <strong>pelican</strong>:
+            the bird of medieval legend that, when food was scarce, pierced its own breast
+            with its beak and fed its young on its own blood. The pelican was the preeminent
+            <span class="latin">figura Christi</span> in the bestiary tradition — the self-giving
+            parent whose blood is the life of its children. The alchemists took up the image
+            with full awareness of its eucharistic weight.
+          </p>
+        </div>
+
+        <!-- Process cards -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-top:var(--space-8); margin-bottom:var(--space-4); color:var(--rub-white);">
+          The Four Operations of Rubedo
+        </h3>
+        <div class="process-cards">
+
+          <article class="process-card animate-on-scroll" aria-labelledby="coagulatio-title">
+            <p class="process-card__latin" id="coagulatio-title">Coagulatio</p>
+            <p class="process-card__english">Fixation — the Volatile Made Stable</p>
+            <p class="process-card__alch">The volatile spirit, which through Albedo and Citrinitas has been ascending and ascending, is at last fixed — made permanent, stable, no longer in flux. The stone is no longer becoming; it is. This is the first and most essential operation of Rubedo: the achievement of a permanent state that will not revert. What was transformation-in-process becomes transformation-complete.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">The Resurrection body as cosmic Coagulatio: "It is sown a natural body; it is raised a spiritual body" (1 Corinthians 15:44). The resurrection is not the return of the old form but its fixation in a new and permanent mode — the volatile mortal life made permanently incorruptible, the transient made eternal.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-1" aria-labelledby="fermentatio-title">
+            <p class="process-card__latin" id="fermentatio-title">Fermentatio</p>
+            <p class="process-card__english">The New Quality Spreads</p>
+            <p class="process-card__alch">Once the stone is fixed, its new quality begins to spread through the surrounding matter — not by force but by contact, by the natural communication of a higher quality to what surrounds it. As leaven works through dough, as salt seasons a whole meal, so the fermented stone transforms what it touches. The new life cannot be contained; it propagates.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">"The kingdom of heaven is like leaven that a woman took and hid in three measures of flour, till it was all leavened" (Matthew 13:33). The Church as the ferment in the world — not the whole world yet, but the leaven that is already at work in it; the grace that is spreading through history toward its consummation.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-2" aria-labelledby="multiplicatio-title">
+            <p class="process-card__latin" id="multiplicatio-title">Multiplicatio</p>
+            <p class="process-card__english">The Stone's Power Multiplies</p>
+            <p class="process-card__alch">The stone, once achieved, does not diminish in potency by being used. It multiplies: a grain of the stone, added to a thousand times its weight in base metal, transforms the whole, and the stone itself is not lessened. This is the most paradoxical and wonderful property of the completed Opus — the perfected thing communicates its perfection without exhausting it.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">The feeding of the five thousand (John 6) and the Eucharist: Christ's self-giving is not diminished by being given to millions across centuries. The loaves multiply; the Eucharistic presence is not divided but multiplied in every celebration. The grace of God is not a finite resource that diminishes with distribution.</p>
+          </article>
+
+          <article class="process-card animate-on-scroll delay-3" aria-labelledby="projectio-title">
+            <p class="process-card__latin" id="projectio-title">Projectio</p>
+            <p class="process-card__english">The Stone Transmutes on Contact</p>
+            <p class="process-card__alch">The final and most spectacular operation: the stone, cast (projected) onto base metal, transmutes it into gold on contact. This is the vindication and the purpose of the entire Opus — not that the alchemist themselves should be perfected in isolation, but that through them, through the stone they have achieved, the world around them should be transformed. The individual Opus issues in a social and cosmic transformation.</p>
+            <p class="process-card__section-label">Christian Parallel</p>
+            <p class="process-card__christian">Theosis as Projectio: the deified soul "transmutes" those around it simply by its presence — this is the tradition of the saint as transforming presence, the elder whose nearness changes the atmosphere of a room. "By beholding the glory of the Lord, [we] are being transformed into the same image" (2 Corinthians 3:18).</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Coniunctio Feature ── -->
+    <section class="section section--rub" id="coniunctio" aria-labelledby="coniunctio-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--rub-gold);">The Central Mystery</p>
+        <h2 id="coniunctio-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+          <span class="latin">Coniunctio Oppositorum</span>: The Union of Opposites
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <p>
+            At the heart of Rubedo is an event that the alchemists depicted in their most elaborate
+            and symbolic emblems and that resists reduction to any single framework.
+            The <span class="latin">Coniunctio Oppositorum</span> — the conjunction of opposites —
+            is the union of every pair of principles that the long work of the Opus has separated,
+            clarified, and prepared: Sol and Luna, king and queen, fixed and volatile, sulphur and mercury,
+            red and white, masculine and feminine, above and below. In the sacred marriage of these
+            opposites, the Philosopher's Stone is born.
+          </p>
+          <p>
+            The tradition is insistent that this is not the elimination of one opposite by the other
+            but a genuine <em>conjunction</em> — both remain, both are preserved, but they are now
+            in a new relationship that transcends their previous opposition. The gold is not the sun
+            without the moon; it is the sun that has fully received the moon. The unified circle
+            is both gold and silver, both red and white, held in a synthesis that neither colour
+            alone could achieve.
+          </p>
+        </div>
+
+        <!-- Coniunctio diagram: Sol + Luna → unified -->
+        <div class="coniunctio-diagram animate-on-scroll" role="img" aria-label="Coniunctio diagram: Sol the golden sun and Luna the silver moon united into one crowned circle — the Philosopher's Stone">
+
+          <div class="coniunctio-diagram__col">
+            <svg viewBox="0 0 100 100" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Sol — golden sun -->
+              <g stroke="#c9a227" stroke-width="1.2">
+                <line x1="50" y1="10" x2="50" y2="22"/>
+                <line x1="50" y1="78" x2="50" y2="90"/>
+                <line x1="10" y1="50" x2="22" y2="50"/>
+                <line x1="78" y1="50" x2="90" y2="50"/>
+                <line x1="22" y1="22" x2="30" y2="30"/>
+                <line x1="70" y1="70" x2="78" y2="78"/>
+                <line x1="78" y1="22" x2="70" y2="30"/>
+                <line x1="30" y1="70" x2="22" y2="78"/>
+              </g>
+              <circle cx="50" cy="50" r="22" fill="#1c1810" stroke="#c9a227" stroke-width="1.5"/>
+              <circle cx="50" cy="50" r="8" fill="#c9a227" opacity="0.70"/>
+            </svg>
+            <span class="coniunctio-diagram__label">Sol<br/>The Sun / King</span>
+          </div>
+
+          <span class="coniunctio-diagram__arrow" aria-hidden="true">+</span>
+
+          <div class="coniunctio-diagram__col">
+            <svg viewBox="0 0 100 100" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Luna — silver moon -->
+              <circle cx="50" cy="50" r="24" fill="#12141e" stroke="#b8bfc8" stroke-width="1.5"/>
+              <path d="M 50 26 A 24 24 0 0 0 50 74 A 14 24 0 0 1 50 26 Z" fill="#b8bfc8" opacity="0.35"/>
+              <circle cx="50" cy="50" r="6" fill="#b8bfc8" opacity="0.50"/>
+              <circle cx="44" cy="43" r="4" fill="#b8bfc8" opacity="0.12"/>
+            </svg>
+            <span class="coniunctio-diagram__label">Luna<br/>The Moon / Queen</span>
+          </div>
+
+          <span class="coniunctio-diagram__arrow" aria-hidden="true">→</span>
+
+          <div class="coniunctio-diagram__col">
+            <svg viewBox="0 0 100 100" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Unified — crimson and gold -->
+              <circle cx="50" cy="50" r="32" fill="none" stroke="#c9a227" stroke-width="0.6" opacity="0.30"/>
+              <circle cx="50" cy="50" r="24" fill="#1e0e10" stroke="#c42828" stroke-width="1.5"/>
+              <!-- Combined inner — half gold, half silver -->
+              <path d="M 50 26 A 24 24 0 0 1 50 74 Z" fill="#c9a227" opacity="0.20"/>
+              <path d="M 50 26 A 24 24 0 0 0 50 74 Z" fill="#b8bfc8" opacity="0.15"/>
+              <!-- Crown above -->
+              <g stroke="#c9a227" stroke-width="1.2" fill="none">
+                <path d="M 36 24 L 40 14 L 50 20 L 60 14 L 64 24"/>
+                <line x1="36" y1="24" x2="64" y2="24"/>
+              </g>
+              <g fill="#c9a227" opacity="0.90">
+                <circle cx="40" cy="13" r="2"/>
+                <circle cx="60" cy="13" r="2"/>
+                <circle cx="50" cy="19" r="2"/>
+              </g>
+              <!-- Centre cross -->
+              <line x1="50" y1="36" x2="50" y2="64" stroke="#c9a227" stroke-width="0.8" opacity="0.40"/>
+              <line x1="36" y1="50" x2="64" y2="50" stroke="#c9a227" stroke-width="0.8" opacity="0.40"/>
+              <circle cx="50" cy="50" r="5" fill="#c9a227" opacity="0.55"/>
+            </svg>
+            <span class="coniunctio-diagram__label">The Stone<br/>Coniunctio Complete</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 7.2: Christian Theological Correlates ── -->
+    <section class="section" id="christian-correlates" aria-labelledby="christian-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--rub-gold);">Christian Theological Correlates</p>
+        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          Pentecost, the Blood of Christ, and the Wedding of the Lamb
+        </h2>
+
+        <!-- Pentecost -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>I. Pentecost: The Fire Descends</h3>
+          <p>
+            If Nigredo is Good Friday, Albedo is Easter, and Citrinitas is the ascended and ascending
+            Christ in the forty days — then Pentecost is Rubedo. The descent of the Holy Spirit as
+            tongues of fire (Acts 2:1–4) is the supreme Rubedo event in salvation history: the
+            matter of the Church, purified through the years of discipleship, washed in the waters
+            of baptism, oriented in the ascended Christ's golden presence, at last receives the fire
+            that completes its transformation. The disciples leave the Upper Room speaking every language.
+            The stone begins its <span class="latin">projectio</span>.
+          </p>
+          <p>
+            The red of Pentecost is the same red as Rubedo: the red of blood, of fire, of wine,
+            of love consummated. It is not the red of violence but the red of gift — the passionate,
+            irreversible giving of the divine life into creaturely form. The Spirit poured out
+            at Pentecost is not a consolation prize for the departed Christ; it is the very
+            life of Christ communicated without remainder to his Body. The Rubedo of the
+            Church is the Spirit-indwelt community that can now transmute the world.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--rub-red-lt);">✠</span></div>
+
+        <!-- Eucharist / Blood -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>II. The Blood of Christ and the Eucharist as Repeated Rubedo</h3>
+          <p>
+            The red of Rubedo is, above all, the colour of blood: and the blood of Christ is
+            the central alchemical reality of the Christian faith. "This is my blood of the covenant,
+            which is poured out for many for the forgiveness of sins" (Matthew 26:28).
+            The Passion, in Nigredo, was the darkening — the divine light extinguished.
+            But the blood poured out at Golgotha is not merely the evidence of death;
+            in Christian theology, it is the instrument of life, the tincture that transforms
+            everything it touches.
+          </p>
+          <p>
+            The <strong>Eucharist</strong> is Rubedo enacted repeatedly, ritually, at every altar:
+            the <span class="latin">projectio</span> of the stone's transforming power into bread
+            and wine, and through bread and wine into the communicant. The host does not cease
+            to be the stone by being consumed; it communicates its own nature to the one who
+            receives it. This is the <span class="latin">multiplicatio</span> and
+            <span class="latin">projectio</span> made sacrament: the mystery that the limitless
+            self-giving of Christ does not diminish Christ but multiplies his presence across
+            every celebration in every century.
+          </p>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--rub-red-lt);">✠</span></div>
+
+        <!-- Pelican panel -->
+        <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-bottom:var(--space-4); color:var(--rub-white);">
+          III. <span class="latin">Pie Pelicane</span>: The Pelican as <span class="latin">Figura Christi</span>
+        </h3>
+
+        <div class="pelican-panel animate-on-scroll">
+          <!-- Pelican SVG -->
+          <div style="flex-shrink:0;">
+            <svg viewBox="0 0 100 120" width="90" height="108" fill="none"
+                 xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Pelican in its piety — feeding young from its own blood, the medieval figura Christi">
+              <!-- Nest / base -->
+              <path d="M20 110 Q50 100 80 110" stroke="#8b1a1a" stroke-width="1.5" fill="none" opacity="0.50"/>
+              <path d="M25 112 Q50 105 75 112" stroke="#8b1a1a" stroke-width="1" fill="none" opacity="0.35"/>
+              <!-- Young birds (3) -->
+              <g fill="none" stroke="#c9a227" stroke-width="1" opacity="0.60">
+                <ellipse cx="30" cy="105" rx="8" ry="5"/>
+                <ellipse cx="50" cy="103" rx="8" ry="5"/>
+                <ellipse cx="70" cy="105" rx="8" ry="5"/>
+                <!-- Young heads/beaks -->
+                <line x1="30" y1="100" x2="30" y2="95"/>
+                <line x1="50" y1="98"  x2="50" y2="93"/>
+                <line x1="70" y1="100" x2="70" y2="95"/>
+              </g>
+              <!-- Body of parent pelican -->
+              <ellipse cx="50" cy="70" rx="20" ry="25" fill="#1e0e10" stroke="#c42828" stroke-width="1.2"/>
+              <!-- Wing suggestion -->
+              <path d="M30 65 Q20 55 22 42 Q32 52 38 58" fill="#1e0e10" stroke="#8b1a1a" stroke-width="1"/>
+              <path d="M70 65 Q80 55 78 42 Q68 52 62 58" fill="#1e0e10" stroke="#8b1a1a" stroke-width="1"/>
+              <!-- Neck -->
+              <ellipse cx="50" cy="46" rx="10" ry="14" fill="#1e0e10" stroke="#c42828" stroke-width="1"/>
+              <!-- Head -->
+              <circle cx="50" cy="33" r="11" fill="#1e0e10" stroke="#c42828" stroke-width="1.2"/>
+              <!-- Beak (long, curved down — in act of piercing) -->
+              <path d="M50 38 Q46 52 36 68" stroke="#c9a227" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <!-- Blood drops from breast -->
+              <g fill="#c42828" opacity="0.80">
+                <circle cx="40" cy="72" r="2.5"/>
+                <circle cx="43" cy="80" r="2"/>
+                <circle cx="38" cy="85" r="1.5"/>
+              </g>
+              <!-- Eye -->
+              <circle cx="47" cy="31" r="2" fill="#c9a227" opacity="0.85"/>
+            </svg>
+          </div>
+
+          <div>
+            <p style="font-size:var(--text-sm); color:var(--rub-text); line-height:1.8; margin-bottom:var(--space-3);">
+              The medieval pelican — the bird that feeds its young from its own pierced breast —
+              was the most beloved <span class="latin">figura Christi</span> in the natural world.
+              Drawn from the ancient <span class="latin">Physiologus</span> and standard in the
+              bestiary tradition, the "pelican in its piety" became a fixture of church heraldry,
+              altar art, and eucharistic theology. Its appearance on the alchemical Rubedo emblem
+              is not incidental; it is the emblem's theological heart.
+            </p>
+            <p class="pelican-panel__verse">
+              "O loving Pelican! O Jesus, Lord!<br>
+              Unclean I am, but cleanse me in Thy blood;<br>
+              Of which a single drop, for sinners spilled,<br>
+              Is ransom for a world from guilt and woe."
+            </p>
+            <p class="pelican-panel__source">
+              Thomas Aquinas, <span class="latin">Adoro Te Devote</span> (c. 1264), stanza 6
+            </p>
+            <p style="font-size:var(--text-sm); color:var(--rub-text); line-height:1.8; margin-top:var(--space-3);">
+              Aquinas's eucharistic hymn — one of the greatest in the tradition — makes explicit what
+              the pelican image implies: "a single drop" possesses the quality of Rubedo's
+              <span class="latin">multiplicatio</span> and <span class="latin">projectio</span>.
+              The smallest quantity of the divine tincture suffices for the transformation of the world.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--rub-red-lt);">✠</span></div>
+
+        <!-- Wedding of the Lamb -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>IV. The Wedding of the Lamb: Eschatological <span class="latin">Coniunctio</span></h3>
+          <p>
+            The alchemical <span class="latin">hieros gamos</span> — the sacred marriage of king and queen,
+            Sol and Luna — finds its supreme theological expression in the vision of Revelation 19:
+            the Wedding of the Lamb. "Blessed are those who are invited to the wedding supper of the Lamb"
+            (Revelation 19:9). The Bride — the Church, purified humanity, the soul that has passed through
+            the whole Opus — is at last united with the Bridegroom who is Christ.
+          </p>
+          <p>
+            This is the <span class="latin">coniunctio</span> at the scale of salvation history:
+            not two individuals joined but two natures, two principles, two histories —
+            divine and human, eternal and temporal, Creator and creation — brought into a
+            union that does not abolish their difference but transcends it.
+            The Bride is still human; the Lamb is still divine. But they are one in
+            a marriage that is, as Paul says of earthly marriage, a "profound mystery"
+            whose ultimate referent is "Christ and the Church" (Ephesians 5:32).
+          </p>
+        </div>
+
+        <blockquote class="scripture animate-on-scroll">
+          Then I heard what sounded like a great multitude, like the roar of rushing waters
+          and like loud peals of thunder, shouting:<br>
+          <em>"Hallelujah! For our Lord God Almighty reigns.<br>
+          Let us rejoice and be glad and give him glory!<br>
+          For the wedding of the Lamb has come,<br>
+          and his bride has made herself ready."</em>
+          <cite>Revelation 19:6–7</cite>
+        </blockquote>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--rub-red-lt);">✠</span></div>
+
+        <!-- Theosis -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>V. <span class="latin">Theosis</span>: Partakers of the Divine Nature</h3>
+          <p>
+            The Eastern Christian doctrine of <strong>theosis</strong> — deification, the participation
+            of the human person in the divine nature — is the most precise theological articulation of
+            what alchemical Rubedo points toward. "Through these he has given us his very great and
+            precious promises, so that through them you may participate in the divine nature"
+            (2 Peter 1:4). Not merely that human beings are forgiven (Albedo), not merely that they
+            are illuminated (Citrinitas), but that they become, by grace, participants in the very
+            life of God.
+          </p>
+          <p>
+            The tradition is careful here: theosis is the <em>communicated</em> divine life,
+            not the <em>essential</em> divine being. The base metal does not become the sun;
+            it becomes gold. The human person does not become God; they become, by participation
+            and adoption, truly and permanently godlike. Athanasius's formulation — "God became man
+            so that man might become God" — is the archetype of which alchemical transmutation
+            is the symbol. The Philosopher's Stone is grace in action: a power that elevates
+            and perfects without destroying the nature it enters (<span class="latin">gratia perficit naturam</span>,
+            as Aquinas says). The gold is still gold; it is simply gold.
+          </p>
+        </div>
+
+        <blockquote class="scripture animate-on-scroll">
+          Through these he has given us his very great and precious promises,
+          so that through them you may participate in the divine nature
+          and escape the corruption in the world caused by evil desires.
+          <cite>2 Peter 1:4</cite>
+        </blockquote>
+
+        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--rub-red-lt);">✠</span></div>
+
+        <!-- New Creation -->
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>VI. The New Creation: The Rubedo Landscape</h3>
+          <p>
+            The final vision of Revelation — the new Jerusalem descending from heaven,
+            the river of the water of life, the tree of life whose leaves are for the
+            healing of the nations (Revelation 21–22) — is the Rubedo of cosmic history.
+            The city is pure gold, like clear glass (Revelation 21:18). The garden-city
+            is simultaneously the original garden of Eden, recovered and perfected, and
+            something entirely new: a city, a civilisation, a community of persons
+            who have become gold not by losing their humanity but by having it
+            fully realised in the divine life.
+          </p>
+          <p>
+            The alchemist's dream — base matter transmuted into gold — finds its final
+            expression not in a private achievement but in a cosmic consummation:
+            the whole of creation, purified, restored, and perfected; the whole history
+            of the Opus, from Prima Materia to Lapis, playing out not only in the
+            individual soul but in the body of history itself. The exile returns to a garden;
+            the garden becomes a city; the city shines with a light that needs no sun
+            because the Lamb is its lamp.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Task 7.3: Jungian Dimension ── -->
+    <section class="section section--rub" id="jungian-dimension" aria-labelledby="jung-title">
+      <div class="container container--narrow">
+
+        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--rub-gold);">Jungian Dimension</p>
+        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+          The Achievement of the Self and the Social Dimension of Individuation
+        </h2>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>The Self, Not the Inflated Ego</h3>
+          <p>
+            The Jungian Rubedo must be carefully distinguished from what it is not.
+            The achievement of the <strong>Self</strong> — Jung's term for the transcendent centre
+            and totality of the psyche, the goal of individuation — is not the triumph of the ego.
+            It is not the ego becoming omnipotent or certain or free from limitation.
+            It is, rather, the ego's achievement of a stable and humble orientation around
+            a centre that is larger than itself, a centre that the ego did not create
+            and cannot control but can, at last, serve.
+          </p>
+          <p>
+            The alchemical image is precise: the king is crowned, but he serves the gold — he does
+            not make himself the gold. The individuated person is not above the human condition
+            but more fully within it, more genuinely themselves, more able to respond to others
+            from a place of genuine stability rather than anxious self-protection.
+            The Rubedo ego is not the inflated ego of narcissism — it is the ego that has been
+            through Nigredo's humiliation, Albedo's purification, and Citrinitas's dawning wisdom,
+            and has come out the other side as a genuine servant of the Self.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3>The <span class="latin">Coniunctio</span> as Psychological Union</h3>
+          <p>
+            For Jung, the psychological <span class="latin">Coniunctio</span> is the union of
+            conscious and unconscious — the full integration of what has previously been split:
+            Shadow and persona, Anima and rational function, masculine and feminine, individual
+            and collective. This is not a merger in which all distinctions collapse; it is a
+            <em>marriage</em> in which opposites that have been genuinely distinguished are
+            genuinely united. The totus homo — the whole person — is not a homogenised mass
+            but a complex unity, rich with the tensions it has integrated rather than suppressed.
+          </p>
+          <p>
+            Jung devoted his most ambitious work — <span class="latin">Mysterium Coniunctionis</span>
+            (1956), his last major book — to the elaboration of this mystery through the imagery
+            of alchemical marriage. Written in his eighties, it is the summation of a lifetime's
+            engagement with alchemy, depth psychology, and the question of what it means to be
+            a whole human being. He saw the alchemical <span class="latin">Coniunctio</span>
+            not as a metaphor for psychological union but as the most adequate symbol available
+            for a reality that exceeded any merely conceptual description.
+          </p>
+        </div>
+
+        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+          <h3><span class="latin">Multiplicatio</span> and <span class="latin">Projectio</span>: Individuation's Social Dimension</h3>
+          <p>
+            One of the most important and least-discussed aspects of Jung's individuation theory
+            is its social dimension. Individuation is not the withdrawal from community into
+            private psychological work; it is the precondition for genuine community.
+            The individuated person — the person who has done the Rubedo work —
+            transmutes others simply by their presence.
+          </p>
+          <p>
+            This is the psychological <span class="latin">projectio</span>: the saint, the elder,
+            the wise companion whose presence changes the atmosphere of a room, whose steadiness
+            steadies others, whose capacity for real encounter liberates those around them into
+            more of their own reality. They do not try to transmute; they simply are what they are,
+            and the alchemical quality communicates itself. The individuated person does not perform
+            wholeness — they embody it, and in embodying it, they make it more available to everyone
+            in their orbit. This is the stone at work in the world.
+          </p>
+        </div>
+
+        <div class="epigraph animate-on-scroll">
+          <p class="epigraph__text" style="color:var(--rub-text);">
+            "The self, like the unconscious, is an a priori existent out of which the ego evolves.
+            It is, so to speak, an unconscious prefiguration of the ego. It is not I who create myself,
+            rather I happen to myself."
+          </p>
+          <p class="epigraph__source">C.G. Jung, <span class="latin">Mysterium Coniunctionis</span>, CW 14, §129</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transition to Philosopher's Stone -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="transition-panel animate-on-scroll">
+          <p class="transition-panel__text">
+            The Opus is complete — and yet the stone that was the goal of the work
+            was present from the very beginning. The end is the beginning:
+            the movement toward the Philosopher's Stone.
+          </p>
+          <a href="philosophers-stone.html" class="transition-panel__arrow" aria-label="Continue to the Philosopher's Stone">→</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footnotes -->
+    <section class="section section--sm">
+      <div class="container container--narrow">
+        <div class="footnotes">
+          <p class="footnotes__title">Notes</p>
+          <div class="footnote" id="fn-1">
+            <span class="footnote__number">1</span>
+            <span>On the iconography of Rubedo — the red king, phoenix, pelican, and red rose —
+            see Lyndy Abraham, <em>A Dictionary of Alchemical Imagery</em> (1998), s.v. "rubedo,"
+            "red king," "phoenix," "pelican." On the pelican as <span class="latin">figura Christi</span>
+            in the bestiary and patristic tradition, see Florence McCulloch,
+            <em>Mediaeval Latin and French Bestiaries</em> (1960), ch. 5.</span>
+          </div>
+          <div class="footnote" id="fn-2">
+            <span class="footnote__number">2</span>
+            <span>Thomas Aquinas, <span class="latin">Adoro Te Devote</span> (c. 1264).
+            The standard critical edition is in <em>Opera Omnia</em> (Leonine, vol. 29, 2000).
+            For commentary, see Aidan Nichols OP, <em>Discovering Aquinas</em> (2002), ch. 9.
+            The pelican stanza is stanza 6 of the original seven-stanza hymn.</span>
+          </div>
+          <div class="footnote" id="fn-3">
+            <span class="footnote__number">3</span>
+            <span>On theosis in Eastern Christian theology, see Vladimir Lossky,
+            <em>The Mystical Theology of the Eastern Church</em> (1957), ch. 9; and
+            Norman Russell, <em>The Doctrine of Deification in the Greek Patristic Tradition</em> (2004).
+            For the Thomistic reading of <span class="latin">gratia perficit naturam</span>
+            in relation to theosis, see Matthew Levering,
+            <em>Scripture and Metaphysics: Aquinas and the Renewal of Trinitarian Theology</em> (2004).</span>
+          </div>
+          <div class="footnote" id="fn-4">
+            <span class="footnote__number">4</span>
+            <span>Clement of Rome on the phoenix as a figure of resurrection:
+            <span class="latin">1 Clement</span> 25–26 (c. AD 96), in <em>The Apostolic Fathers</em>,
+            trans. Lightfoot and Harmer (1891). For the phoenix in Christian iconography more broadly,
+            see Frederick van der Meer, <em>Early Christian Art</em> (1967), ch. 7.</span>
+          </div>
+          <div class="footnote" id="fn-5">
+            <span class="footnote__number">5</span>
+            <span>Jung, <em>Mysterium Coniunctionis</em> (CW 14, 1956): the culmination of his
+            alchemical studies, written 1941–54 and published in his eightieth year.
+            For a guide to the work, see Edward Edinger,
+            <em>The Mysterium Lectures: A Journey through Jung's Mysterium Coniunctionis</em> (1995).
+            On the social dimension of individuation, see Marie-Louise von Franz,
+            <em>Individuation in Fairy Tales</em> (1977).</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="background:var(--rub-surface); border-top-color:rgba(139,26,26,0.25);">
+    <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="4" fill="currentColor"/>
+      <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
+      <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
+    </svg>
     <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
     <ul class="site-footer__links" role="list">
       <li><a href="../index.html" class="site-footer__link">Home</a></li>
+      <li><a href="citrinitas.html" class="site-footer__link">← Citrinitas</a></li>
+      <li><a href="philosophers-stone.html" class="site-footer__link">Next: The Stone →</a></li>
       <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
     </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.</p>
   </footer>
 
   <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
-
   <script src="../js/main.js"></script>
 </body>
 </html>

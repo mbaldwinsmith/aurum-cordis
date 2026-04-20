@@ -278,34 +278,34 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The Red Phase: the solar perfection, the coniunctio, the completion of the Opus.*
 
 ### Task 7.1 — Content: Alchemical Theory
-- [ ] Define Rubedo as the culminating fourth stage: the reddening, the full solar perfection, the completion of the *Opus Magnum*
-- [ ] Operations associated: **Coagulatio** (fixation, the volatile becomes fixed), **Fermentatio** (the new quality spreads through the whole matter), **Multiplicatio** (the stone's power multiplies), **Projectio** (the stone transmutes base metal on contact)
-- [ ] The red king, the phoenix, the red rose, and the pelican (feeding young from its own blood) as iconographic symbols
-- [ ] The **Coniunctio Oppositorum** (union of opposites) as the central event of Rubedo: king and queen, sun and moon, fixed and volatile, masculine and feminine — united in the sacred marriage (*hieros gamos*)
+- [✓] Define Rubedo as the culminating fourth stage: the reddening, the full solar perfection, the completion of the *Opus Magnum*
+- [✓] Operations associated: **Coagulatio** (fixation, the volatile becomes fixed), **Fermentatio** (the new quality spreads through the whole matter), **Multiplicatio** (the stone's power multiplies), **Projectio** (the stone transmutes base metal on contact)
+- [✓] The red king, the phoenix, the red rose, and the pelican (feeding young from its own blood) as iconographic symbols
+- [✓] The **Coniunctio Oppositorum** (union of opposites) as the central event of Rubedo: king and queen, sun and moon, fixed and volatile, masculine and feminine — united in the sacred marriage (*hieros gamos*)
 
 ### Task 7.2 — Content: Christian Theological Correlates
-- [ ] **Pentecost**: the descent of fire (Acts 2) as the supreme Rubedo event in salvation history; the reddening of the Church by the Spirit
-- [ ] **The Blood of Christ**: Rubedo's red as the blood of the Passion now glorified; the Eucharist as repeated Rubedo — *projectio* of the stone's power into the communicant; "This is my blood" (Matthew 26:28)
-- [ ] **The Pelican as *figura Christi***: a major medieval Christian symbol — Christ feeding the Church from his own wound-side; the Eucharist and the pelican together as Rubedo sacrament; cite Aquinas, *Adoro Te Devote* ("Pie Pelicane, Jesu Domine")
-- [ ] **The Wedding of the Lamb** (Revelation 19:6–9): the *coniunctio* as eschatological event — the Bride (Church/purified humanity) and the Bridegroom (Christ) united at the consummation of history
-- [ ] **Deification (*theosis*)**: the Eastern Christian doctrine of human participation in the divine nature (2 Peter 1:4); Rubedo as the alchemical image of theosis — the base metal become gold, the mortal become participant in the divine life
-- [ ] **The New Creation** (Revelation 21–22): the river of life, the tree of life, the city of gold — the Rubedo landscape as the garden-city of the Eschaton; connect to Mark's chapbook arc (exile → garden)
-- [ ] **The Phoenix**: the resurrection body; Christ as the phoenix in early Christian patristic writing (Clement of Rome, *1 Clement* 25)
+- [✓] **Pentecost**: the descent of fire (Acts 2) as the supreme Rubedo event in salvation history; the reddening of the Church by the Spirit
+- [✓] **The Blood of Christ**: Rubedo's red as the blood of the Passion now glorified; the Eucharist as repeated Rubedo — *projectio* of the stone's power into the communicant; "This is my blood" (Matthew 26:28)
+- [✓] **The Pelican as *figura Christi***: a major medieval Christian symbol — Christ feeding the Church from his own wound-side; the Eucharist and the pelican together as Rubedo sacrament; cite Aquinas, *Adoro Te Devote* ("Pie Pelicane, Jesu Domine")
+- [✓] **The Wedding of the Lamb** (Revelation 19:6–9): the *coniunctio* as eschatological event — the Bride (Church/purified humanity) and the Bridegroom (Christ) united at the consummation of history
+- [✓] **Deification (*theosis*)**: the Eastern Christian doctrine of human participation in the divine nature (2 Peter 1:4); Rubedo as the alchemical image of theosis — the base metal become gold, the mortal become participant in the divine life
+- [✓] **The New Creation** (Revelation 21–22): the river of life, the tree of life, the city of gold — the Rubedo landscape as the garden-city of the Eschaton; connect to Mark's chapbook arc (exile → garden)
+- [✓] **The Phoenix**: the resurrection body; Christ as the phoenix in early Christian patristic writing (Clement of Rome, *1 Clement* 25)
 
 ### Task 7.3 — Content: Jungian Dimension
-- [ ] Rubedo as the achievement of the **Self** — not the inflation of the ego into omnipotence, but the ego's humble, stable orientation around the transcendent centre
-- [ ] The **Coniunctio** as the union of conscious and unconscious, masculine and feminine, persona and shadow — the *totus homo* (whole person)
-- [ ] The *multiplicatio* and *projectio* as the individuation's social dimension: the individuated person "transmutes" others simply by their presence — the saint, the elder, the wise companion
-- [ ] Jung's own late writings (*Mysterium Coniunctionis*) as the culmination of his alchemical studies — cite and summarise key themes
+- [✓] Rubedo as the achievement of the **Self** — not the inflation of the ego into omnipotence, but the ego's humble, stable orientation around the transcendent centre
+- [✓] The **Coniunctio** as the union of conscious and unconscious, masculine and feminine, persona and shadow — the *totus homo* (whole person)
+- [✓] The *multiplicatio* and *projectio* as the individuation's social dimension: the individuated person "transmutes" others simply by their presence — the saint, the elder, the wise companion
+- [✓] Jung's own late writings (*Mysterium Coniunctionis*) as the culmination of his alchemical studies — cite and summarise key themes
 
 ### Task 7.4 — UI Build
-- [ ] Deep crimson and gold palette; sun imagery; phoenix SVG
-- [ ] Stage progress indicator: Stage 4 of 4 (completed)
-- [ ] Large feature section on the Coniunctio with a marriage/union diagram (Sol + Luna → unified circle)
-- [ ] Pelican symbol with *Adoro Te Devote* verse
-- [ ] Scripture: Revelation 19:6–9 and 2 Peter 1:4
-- [ ] Process cards: Coagulatio, Fermentatio, Multiplicatio, Projectio
-- [ ] Closing epigraph panel: transition to the Philosopher's Stone page
+- [✓] Deep crimson and gold palette; sun imagery; phoenix SVG
+- [✓] Stage progress indicator: Stage 4 of 4 (completed)
+- [✓] Large feature section on the Coniunctio with a marriage/union diagram (Sol + Luna → unified circle)
+- [✓] Pelican symbol with *Adoro Te Devote* verse
+- [✓] Scripture: Revelation 19:6–9 and 2 Peter 1:4
+- [✓] Process cards: Coagulatio, Fermentatio, Multiplicatio, Projectio
+- [✓] Closing epigraph panel: transition to the Philosopher's Stone page
 
 ---
 
