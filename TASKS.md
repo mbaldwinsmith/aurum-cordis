@@ -391,19 +391,19 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The depth psychologist as theologian manqué: reading Jung charitably and critically.*
 
 ### Task 11.1 — Content
-- [ ] Survey Jung's alchemical writings: *Psychology and Alchemy* (1944), *Alchemical Studies* (1967), *Mysterium Coniunctionis* (1956)
-- [ ] His central thesis: alchemy is a proto-psychology — the alchemists were projecting psychic processes onto matter
-- [ ] A Christian critical response: projection vs. participation — the alchemists were not merely projecting but also participating in a sacramental vision of matter as spiritually significant; cite the Christian theology of creation (*creatio bona*)
-- [ ] Where Jung and Christian theology converge: the necessity of shadow integration; the wholeness of the *imago Dei*; the unconscious as a genuine depth in the human person
-- [ ] Where they diverge: Jung's agnosticism about the metaphysical reality of God; his treatment of Christ as a symbol of the Self (valuable but reductive); his inadequate theology of grace
-- [ ] The **Victor White OP correspondence**: Jung's friendship with the Dominican theologian; their productive and ultimately tragic intellectual exchange; White's *God and the Unconscious* as an attempt at integration; cite and assess
-- [ ] The possibility of a baptised Jungianism: depth psychology as an instrument of pastoral theology, not a replacement for it
+- [✓] Survey Jung's alchemical writings: *Psychology and Alchemy* (1944), *Alchemical Studies* (1967), *Mysterium Coniunctionis* (1956)
+- [✓] His central thesis: alchemy is a proto-psychology — the alchemists were projecting psychic processes onto matter
+- [✓] A Christian critical response: projection vs. participation — the alchemists were not merely projecting but also participating in a sacramental vision of matter as spiritually significant; cite the Christian theology of creation (*creatio bona*)
+- [✓] Where Jung and Christian theology converge: the necessity of shadow integration; the wholeness of the *imago Dei*; the unconscious as a genuine depth in the human person
+- [✓] Where they diverge: Jung's agnosticism about the metaphysical reality of God; his treatment of Christ as a symbol of the Self (valuable but reductive); his inadequate theology of grace
+- [✓] The **Victor White OP correspondence**: Jung's friendship with the Dominican theologian; their productive and ultimately tragic intellectual exchange; White's *God and the Unconscious* as an attempt at integration; cite and assess
+- [✓] The possibility of a baptised Jungianism: depth psychology as an instrument of pastoral theology, not a replacement for it
 
 ### Task 11.2 — UI Build
-- [ ] Timeline of Jung's alchemical writings
-- [ ] Convergence/Divergence comparison table: Jung vs. Christian Theology
-- [ ] Feature box: the Victor White correspondence
-- [ ] Pull quote from *Mysterium Coniunctionis*
+- [✓] Timeline of Jung's alchemical writings
+- [✓] Convergence/Divergence comparison table: Jung vs. Christian Theology
+- [✓] Feature box: the Victor White correspondence
+- [✓] Pull quote from *Memories, Dreams, Reflections*
 
 ---
 
