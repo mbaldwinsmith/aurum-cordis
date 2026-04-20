@@ -3,19 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bibliography — Primary sources, theological texts, Jungian scholarship, and further reading.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="Bibliography and Further Reading — primary alchemical sources, Christian theology, Jungian scholarship, and creative literature for the study of Christian alchemy." />
   <meta property="og:title" content="Bibliography — Aurum Cordis" />
+  <meta property="og:description" content="A categorised, annotated bibliography for the study of Christian alchemy, depth psychology, and the Opus Magnum." />
   <meta property="og:type" content="article" />
   <title>Bibliography — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Bibliography — warm parchment-dark palette ── */
+    :root {
+      --bib-bg:      #09080c;
+      --bib-surface: #100e14;
+      --bib-card:    #161420;
+      --bib-gold:    #c9a227;
+      --bib-gold-lt: #dbb84a;
+      --bib-cream:   #d4c8a8;
+      --bib-text:    #bcb49a;
+      --bib-muted:   #7a7060;
+      --bib-white:   #e8e0cc;
+
+      /* Category accent colours */
+      --cat-alch:    #c9a227;
+      --cat-theo:    #9ab0c0;
+      --cat-jung:    #4a6880;
+      --cat-sec:     #9a7840;
+      --cat-lit:     #507860;
+    }
+
+    body { background-color: var(--bib-bg); }
+
+    /* ── Hero ── */
+    .bib-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .bib-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(201,162,39,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 90%, rgba(9,8,12,0) 0%, var(--bib-bg) 80%),
+        var(--bib-bg);
+      z-index: 0;
+    }
+    .bib-hero__content { position: relative; z-index: 1; max-width: 700px; }
+
+    /* ── Open book SVG ── */
+    .book-emblem {
+      width: 160px; height: 130px;
+      margin: 0 auto var(--space-6);
+      display: block;
+      color: var(--bib-gold);
+    }
+
+    /* ── Section surface ── */
+    .section--bib {
+      background: var(--bib-surface);
+      border-top: 1px solid rgba(201,162,39,0.12);
+      border-bottom: 1px solid rgba(201,162,39,0.12);
+    }
+
+    /* ── Start Here panel ── */
+    .start-here {
+      background: var(--bib-card);
+      border: 1px solid rgba(201,162,39,0.28);
+      border-top: 4px solid var(--bib-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin: var(--space-6) 0;
+    }
+    .start-here__heading {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bib-gold);
+      margin-bottom: var(--space-2);
+    }
+    .start-here__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-style: italic;
+      color: var(--bib-white);
+      margin-bottom: var(--space-2);
+    }
+    .start-here__intro {
+      font-size: var(--text-sm);
+      color: var(--bib-text);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
+      max-width: 680px;
+    }
+    .start-here__list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .start-here__item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: var(--space-3);
+      align-items: baseline;
+    }
+    .start-here__num {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      color: var(--bib-gold);
+      text-align: right;
+    }
+    .start-here__item-text {
+      font-size: var(--text-sm);
+      color: var(--bib-text);
+      line-height: 1.65;
+    }
+    .start-here__item-text em { color: var(--bib-white); }
+    .start-here__item-text strong {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-weight: normal;
+      color: var(--bib-cream);
+    }
+
+    /* ── Bibliography category ── */
+    .bib-category {
+      margin-bottom: var(--space-10);
+    }
+    .bib-category:last-child { margin-bottom: 0; }
+
+    .bib-category__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 2px solid var(--cat-color, rgba(201,162,39,0.30));
+    }
+    .bib-category__glyph {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .bib-category__title {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cat-color, var(--bib-gold));
+    }
+
+    .cat--alch { --cat-color: var(--cat-alch); }
+    .cat--theo { --cat-color: var(--cat-theo); }
+    .cat--jung { --cat-color: var(--cat-jung); }
+    .cat--sec  { --cat-color: var(--cat-sec); }
+    .cat--lit  { --cat-color: var(--cat-lit); }
+
+    /* ── Bibliography entry ── */
+    .bib-list {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .bib-entry {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .bib-entry:last-child { border-bottom: none; }
+
+    .bib-entry--key {
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4) var(--space-4);
+      border-bottom: none;
+      border-left: 3px solid var(--cat-color, var(--bib-gold));
+      margin-bottom: var(--space-2);
+    }
+
+    .bib-entry__author {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--bib-muted);
+      margin-bottom: 4px;
+    }
+    .bib-entry__meta {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2);
+    }
+    .bib-entry__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-style: italic;
+      color: var(--bib-white);
+    }
+    .bib-entry__date {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      color: var(--bib-muted);
+    }
+    .bib-entry__annotation {
+      font-size: var(--text-sm);
+      color: var(--bib-text);
+      line-height: 1.75;
+      margin-top: var(--space-2);
+    }
+    .bib-entry__key-label {
+      font-family: var(--font-label);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cat-color, var(--bib-gold));
+      display: inline-block;
+      border: 1px solid var(--cat-color, var(--bib-gold));
+      padding: 1px 6px;
+      border-radius: 2px;
+      margin-bottom: var(--space-2);
+      opacity: 0.80;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="grain-overlay" aria-hidden="true"></div>
-
-  <nav class="nav" aria-label="Site navigation">
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="../index.html" class="nav__brand" aria-label="Aurum Cordis — Home">
         <svg class="nav__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -24,10 +247,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,40 +257,502 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="citrinitas.html" class="nav__link">Citrinitas</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Sources & Further Reading</p>
-    <h1 class="page-header__title">📚 Bibliography</h1>
-    <p class="page-header__subtitle">Primary sources, theological texts, Jungian scholarship, and further reading.</p>
-  </header>
+  <!-- Hero -->
+  <section class="bib-hero" aria-labelledby="bib-title">
+    <div class="bib-hero__bg" aria-hidden="true"></div>
+    <div class="bib-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Open book SVG -->
+      <svg class="book-emblem animate-on-scroll" viewBox="0 0 160 130" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-label="An open book, symbol of the bibliographic tradition">
+        <!-- Left page -->
+        <path d="M 80 20 C 60 18 25 22 12 28 L 12 108 C 25 102 60 98 80 100 Z"
+              fill="rgba(201,162,39,0.12)" stroke="currentColor" stroke-width="1.2" opacity="0.70"/>
+        <!-- Right page -->
+        <path d="M 80 20 C 100 18 135 22 148 28 L 148 108 C 135 102 100 98 80 100 Z"
+              fill="rgba(201,162,39,0.08)" stroke="currentColor" stroke-width="1.2" opacity="0.70"/>
+        <!-- Spine -->
+        <line x1="80" y1="20" x2="80" y2="100" stroke="currentColor" stroke-width="1.8" opacity="0.90"/>
+        <!-- Left page lines -->
+        <line x1="24" y1="48"  x2="72" y2="46"  stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <line x1="22" y1="58"  x2="70" y2="56"  stroke="currentColor" stroke-width="0.8" opacity="0.30"/>
+        <line x1="20" y1="68"  x2="68" y2="66"  stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <line x1="19" y1="78"  x2="66" y2="76"  stroke="currentColor" stroke-width="0.8" opacity="0.30"/>
+        <line x1="18" y1="88"  x2="64" y2="86"  stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+        <!-- Right page lines -->
+        <line x1="88" y1="46"  x2="136" y2="48" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <line x1="90" y1="56"  x2="138" y2="58" stroke="currentColor" stroke-width="0.8" opacity="0.30"/>
+        <line x1="92" y1="66"  x2="140" y2="68" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <line x1="94" y1="76"  x2="141" y2="78" stroke="currentColor" stroke-width="0.8" opacity="0.30"/>
+        <line x1="96" y1="86"  x2="142" y2="88" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+        <!-- Gold dot on left page (illuminated initial) -->
+        <circle cx="24" cy="36" r="4" fill="currentColor" opacity="0.65"/>
+        <!-- Shadow beneath book -->
+        <ellipse cx="80" cy="114" rx="56" ry="5" fill="rgba(0,0,0,0.30)"/>
+      </svg>
+
+      <h1 class="hero__title" id="bib-title">Bibliography</h1>
+      <p class="hero__subtitle">Primary sources, theological texts, depth psychology, and creative literature</p>
+    </div>
+  </section>
+
+  <!-- Start Here Panel -->
+  <section class="section section--bib" aria-labelledby="start-here-title">
+    <div class="container">
+      <div class="start-here animate-on-scroll">
+        <p class="start-here__heading">For the New Reader</p>
+        <h2 class="start-here__title" id="start-here-title">Where to Begin</h2>
+        <p class="start-here__intro">The literature of Christian alchemy is vast and can be disorienting. This suggested sequence moves from the accessible to the demanding — from narrative and poetry toward scholarly theology and depth psychology. Follow your curiosity; resist the urge to systematise too early.</p>
+        <ol class="start-here__list" aria-label="Recommended reading sequence">
+          <li class="start-here__item">
+            <span class="start-here__num">01</span>
+            <span class="start-here__item-text"><strong>The Emerald Tablet</strong> — Read it in five minutes. Read it again. It contains the entire programme.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">02</span>
+            <span class="start-here__item-text"><strong>C.S. Lewis, <em>Till We Have Faces</em></strong> — The Opus Magnum in narrative form: Nigredo, shadow, dark night, and the wordless resolution of Rubedo. The finest entry-point for the literary imagination.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">03</span>
+            <span class="start-here__item-text"><strong>John of the Cross, <em>The Dark Night of the Soul</em></strong> — The Christian Nigredo in its theological fullness. Short, dense, inexhaustible. Return to it at each stage of life.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">04</span>
+            <span class="start-here__item-text"><strong>C.G. Jung, <em>Memories, Dreams, Reflections</em></strong> — The most accessible entry into Jung's thought, told as autobiography. Read before the technical works.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">05</span>
+            <span class="start-here__item-text"><strong>Marie-Louise von Franz, <em>Alchemy: An Introduction</em></strong> — The clearest single-volume guide to Jungian alchemical psychology. Bridges the gap between the Jungian texts and the primary alchemical sources.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">06</span>
+            <span class="start-here__item-text"><strong>Victor White OP, <em>God and the Unconscious</em></strong> — The indispensable theological corrective: where Jung and Christianity genuinely meet, and where the line must be drawn.</span>
+          </li>
+          <li class="start-here__item">
+            <span class="start-here__num">07</span>
+            <span class="start-here__item-text"><strong>Jung, <em>Mysterium Coniunctionis</em></strong> — Save this for last. The summit of Jung's alchemical work. Dense, rewarding, and inexhaustible for the prepared reader.</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bibliography Sections -->
+  <section class="section" aria-labelledby="biblio-heading">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">Annotated Sources</p>
+        <h2 class="section__title" id="biblio-heading">The Full Bibliography</h2>
+        <p class="section__subtitle">Key texts are marked and annotated. Entries without annotation are recommended for further reading by the advanced student.</p>
+      </header>
+
+      <!-- ── I. Primary Alchemical Sources ── -->
+      <div class="bib-category cat--alch animate-on-scroll">
+        <div class="bib-category__header">
+          <span class="bib-category__glyph" aria-hidden="true">⚗</span>
+          <span class="bib-category__title">I — Primary Alchemical Sources</span>
+        </div>
+
+        <ul class="bib-list">
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Anonymous (attrib. Hermes Trismegistus)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">The Emerald Tablet</span>
+              <span class="bib-entry__date">c. 6th–8th century CE · Various translations</span>
+            </div>
+            <p class="bib-entry__annotation">The foundational text of Western alchemy: twelve or thirteen cryptic lines that encapsulate the entire programme. <em>"As above, so below"</em> — the macrocosm-microcosm principle that undergirds both the planetary cosmology and the somatic theology of transformation. Every serious engagement with alchemy must begin here. Read Newton's translation alongside Jabir's Arabic version for the full range of the tradition.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Zosimos of Panopolis</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Visions</span>
+              <span class="bib-entry__date">c. 300 CE · Trans. in Jung, Alchemical Studies, CW 13</span>
+            </div>
+            <p class="bib-entry__annotation">The earliest substantial alchemical writer whose works survive, a Graeco-Egyptian practitioner working in Upper Egypt. His visionary texts — in particular the disturbing dreams of a priest being dismembered, calcined, and reborn in a bowl of boiling water — contain the earliest explicit Nigredo imagery in the tradition and provided Jung with his richest material in <em>Alchemical Studies</em>. The Visions are simultaneously chemical notebook, gnostic theology, and proto-psychological revelation.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Anonymous</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Rosarium Philosophorum</span>
+              <span class="bib-entry__date">1550 · Facsimile: Humanities Press, 1990</span>
+            </div>
+            <p class="bib-entry__annotation">Perhaps the single most important document for the psychological reading of alchemy. Its twenty woodcut images — depicting the progressive union of King and Queen, Sol and Luna, through bathing, death, putrefaction, and resurrection — provided Jung with the visual programme for <em>Psychology of the Transference</em> (1946). The Rosarium makes explicit what most alchemical texts encode: the central event of the Work is a sacred marriage, and its stages mirror both the Paschal mystery and the arc of individuation.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Anonymous (attrib. Salomon Trismosin)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Splendor Solis</span>
+              <span class="bib-entry__date">c. 1530–1582 · British Library MS Harley 3469</span>
+            </div>
+            <p class="bib-entry__annotation">A magnificent illuminated alchemical manuscript combining Nigredo-to-Rubedo symbolism with extraordinary visual imagery. The painted series of vessels and kings within solar discs constitutes one of the most beautiful visual treatments of the Great Work. The British Library copy (1582) is digitised and freely accessible online.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Paracelsus (Theophrastus von Hohenheim, 1493–1541)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Opus Paramirum; De Natura Rerum; Astronomia Magna</span>
+              <span class="bib-entry__date">c. 1520–1540 · Selected Works trans. Jolande Jacobi, Princeton UP</span>
+            </div>
+            <p class="bib-entry__annotation">The great reformer of both medicine and alchemy, Paracelsus introduced the Tria Prima — Sulphur, Mercury, Salt — as a replacement for the classical four elements, giving the tradition a more explicitly Trinitarian symbolic structure. His alchemical theology insists that the physician must be also a theologian and that nature itself is a divine book — an anticipation of Bulgakov's sophiology and Hopkins's <em>inscape</em>. Jolande Jacobi's selected edition is the most accessible English entry-point.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Anonymous (attrib. Thomas Aquinas)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Aurora Consurgens</span>
+              <span class="bib-entry__date">c. 14th–15th century · Ed. and trans. Marie-Louise von Franz, Pantheon, 1966</span>
+            </div>
+            <p class="bib-entry__annotation">A remarkable text long attributed to Aquinas, in which alchemical and biblical imagery interpenetrate completely — the Wisdom literature of Scripture becomes the language of the chemical Work. Von Franz's edition and commentary remains the standard scholarly treatment and the finest example of the Jungian alchemical method at full stretch.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Michael Maier (1568–1622)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Atalanta Fugiens</span>
+              <span class="bib-entry__date">1617 · Facsimile and trans.: Magnum Opus Hermetic Sourceworks, 1989</span>
+            </div>
+            <p class="bib-entry__annotation">An extraordinary multimedia alchemical work combining fifty emblems, fifty epigrams, and fifty fugues for three voices — the only alchemical text designed to be simultaneously read, seen, and sung. Maier was a physician at the court of Emperor Rudolf II, and his work represents the high-water mark of the Renaissance synthesis of music, image, and alchemical philosophy.</p>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- ── II. Christian Theological Sources ── -->
+      <div class="bib-category cat--theo animate-on-scroll">
+        <div class="bib-category__header">
+          <span class="bib-category__glyph" aria-hidden="true">✝</span>
+          <span class="bib-category__title">II — Christian Theological Sources</span>
+        </div>
+
+        <ul class="bib-list">
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Gregory of Nyssa (c. 335–395)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">The Life of Moses; Commentary on the Song of Songs</span>
+              <span class="bib-entry__date">c. 390 CE · Trans. Abraham Malherbe &amp; Everett Ferguson, Paulist Press</span>
+            </div>
+            <p class="bib-entry__annotation">Gregory's <em>Life of Moses</em> is the supreme early Christian account of progressive spiritual transformation — tracing Moses's ascent from the burning bush through the cloud of Sinai to the divine darkness, a movement from light through darkness to a deeper light that mirrors the alchemical stages with uncanny precision. His concept of <em>epektasis</em> — the soul's infinite forward-stretching toward a God who is inexhaustibly beyond every attainment — anticipates the alchemical <em>circulatio</em> and the doctrine of ongoing deification.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Origen of Alexandria (c. 184–253)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">On First Principles; Homilies on the Song of Songs</span>
+              <span class="bib-entry__date">c. 220–240 CE · Trans. Rowan Greer, Paulist Press</span>
+            </div>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">John Climacus (c. 579–649)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">The Ladder of Divine Ascent</span>
+              <span class="bib-entry__date">c. 600 CE · Trans. Colm Luibheid &amp; Norman Russell, Paulist Press</span>
+            </div>
+            <p class="bib-entry__annotation">Written for the monks of Sinai, Climacus's thirty-rung ladder of virtues and vices provides the most systematic Christian account of the soul's ascent as an ordered progression through struggle and purification. The parallel with the seven-rung planetary ladder of the alchemists — Lead/Saturn at the base ascending to Gold/Sol — is direct and structural. The text remains a living influence in Orthodox contemplative communities and a touchstone of Christian ascetical theology.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Bonaventure (1221–1274)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Itinerarium Mentis in Deum (The Soul's Journey into God)</span>
+              <span class="bib-entry__date">1259 · Trans. Ewert Cousins, Paulist Press</span>
+            </div>
+            <p class="bib-entry__annotation">Written in a single night of contemplation on Mount La Verna, the site of Francis's stigmatisation, Bonaventure's <em>Itinerarium</em> traces the soul's ascent through six stages from the vestiges of God in creatures to the loving ecstasy of union. Its structure — from external creation through internal self-knowledge to transcendent union — mirrors the alchemical ascent from Prima Materia to the Lapis Philosophorum.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">John of the Cross (1542–1591)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">The Dark Night of the Soul; The Ascent of Mount Carmel</span>
+              <span class="bib-entry__date">c. 1578–1585 · Trans. Kieran Kavanaugh OCD, ICS Publications</span>
+            </div>
+            <p class="bib-entry__annotation">John of the Cross provides the most rigorous Christian theological account of the Nigredo: the systematic stripping away of consolations, images, and false attachments that precedes genuine union with God. His distinction between the active and passive purgations of sense and spirit corresponds with remarkable precision to the successive operations of the alchemical Nigredo — <em>calcinatio</em>, <em>putrefactio</em>, <em>mortificatio</em>. Kavanaugh's ICS translation is the standard English scholarly edition. Read <em>The Dark Night</em> first; the <em>Ascent</em> is its doctrinal complement.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Thomas Aquinas (1225–1274)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Adoro Te Devote; Summa Theologiae, Part III (On Christ and the Sacraments)</span>
+              <span class="bib-entry__date">c. 1264–1274 · Various translations</span>
+            </div>
+            <p class="bib-entry__annotation">Aquinas's Eucharistic hymn <em>Adoro Te Devote</em> — particularly its sixth stanza on the Pelican (<em>Pie Pelicane, Jesu Domine</em>) — is a key text for the Rubedo theology of the alchemical tradition. The image of Christ feeding the Church from his own wound-side is one of the great Christian Rubedo symbols, and Aquinas gives it its finest theological expression. The <em>Summa's</em> treatment of grace and the resurrection body repays patient alchemical reading alongside the primary sources.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Sergei Bulgakov (1871–1944)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Sophia: The Wisdom of God; The Lamb of God</span>
+              <span class="bib-entry__date">1937; 1933 · Trans. Boris Jakim, Eerdmans</span>
+            </div>
+            <p class="bib-entry__annotation">Bulgakov's sophiology — his theology of divine Wisdom as the luminous, feminine medium of God's self-communication in creation — provides one of the richest theological frameworks for the alchemical tradition's persistent feminisation of the prima materia and the stone. His vision of creation as already suffused with divine Sophia resonates with the alchemists' sense that the gold was always already present in the lead, waiting to be released rather than manufactured. <em>Sophia: The Wisdom of God</em> is the accessible entry to a demanding but rewarding body of work.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Jacob Boehme (1575–1624)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Aurora; Mysterium Magnum</span>
+              <span class="bib-entry__date">1612; 1623 · Trans. John Sparrow, various</span>
+            </div>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Anonymous (patristic)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Physiologus</span>
+              <span class="bib-entry__date">c. 2nd–4th century CE · Trans. Michael Curley, Chicago UP, 2009</span>
+            </div>
+            <p class="bib-entry__annotation">The ancient Christian bestiary that established the pelican and phoenix as <em>figurae Christi</em>. The Pelican's self-wounding to feed its young, and the Phoenix's death and resurrection from its own ashes, became the most resonant Rubedo symbols in both Christian iconography and alchemical illustration. The standard modern English translation is Michael Curley's.</p>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- ── III. Jungian Sources ── -->
+      <div class="bib-category cat--jung animate-on-scroll">
+        <div class="bib-category__header">
+          <span class="bib-category__glyph" aria-hidden="true">🧠</span>
+          <span class="bib-category__title">III — Jungian &amp; Depth Psychological Sources</span>
+        </div>
+
+        <ul class="bib-list">
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">C.G. Jung (1875–1961)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Psychology and Alchemy</span>
+              <span class="bib-entry__date">1944 · Collected Works, Vol. 12 · Trans. R.F.C. Hull, Princeton UP</span>
+            </div>
+            <p class="bib-entry__annotation">Jung's first systematic treatment of alchemical symbolism in relation to the psychology of the unconscious. Using a series of dreams from an anonymous patient, he demonstrates the structural parallels between medieval alchemical imagery and the spontaneous products of the deep unconscious. The stone, the king, the hermaphrodite, the <em>filius philosophorum</em> — all are shown to be symbols of the Self undergoing transformation. The most accessible of Jung's major alchemical works and the necessary starting point.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">C.G. Jung</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Mysterium Coniunctionis</span>
+              <span class="bib-entry__date">1956 · Collected Works, Vol. 14 · Trans. R.F.C. Hull, Princeton UP</span>
+            </div>
+            <p class="bib-entry__annotation">Jung's magnum opus on alchemy and the summit of his life's work, begun in his late seventies and completed after a serious illness. The fullest treatment of the <em>coniunctio</em> as the supreme symbol of psychological and metaphysical wholeness: the sacred marriage of Sol and Luna, Rex and Regina, conscious and unconscious. Dense and demanding, but inexhaustible for the patient reader who comes to it after the earlier works and the primary alchemical texts.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Start Here</span>
+            <p class="bib-entry__author">C.G. Jung</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Memories, Dreams, Reflections</span>
+              <span class="bib-entry__date">1962 · Ed. Aniela Jaffé · Trans. Richard &amp; Clara Winston, Pantheon</span>
+            </div>
+            <p class="bib-entry__annotation">Jung's autobiographical reflections, dictated in his final years, provide the most accessible entry-point into his thought and the most revealing account of the spiritual and psychological journeys that shaped his alchemical work. His account of his 1944 near-death experience and the visions of the coniunctio he received are among the most remarkable passages in the literature of psychological autobiography. Read this before the technical volumes.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Victor White OP (1902–1960)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">God and the Unconscious</span>
+              <span class="bib-entry__date">1952 · Harvill Press · Preface by C.G. Jung</span>
+            </div>
+            <p class="bib-entry__annotation">The most sustained and theologically rigorous attempt to show where Jungian depth psychology and Christian theology can genuinely collaborate — and where the line of incompatibility must be drawn. White's distinction between the psychological God-image and the metaphysical reality of God remains the model for any subsequent engagement. The companion volume of correspondence — <em>The Jung–White Letters</em>, ed. Lammers &amp; Cunningham (Routledge, 2007) — is essential for understanding the productive and ultimately tragic arc of their relationship.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Marie-Louise von Franz (1915–1998)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Alchemy: An Introduction to the Symbolism and the Psychology</span>
+              <span class="bib-entry__date">1980 · Inner City Books, Toronto</span>
+            </div>
+            <p class="bib-entry__annotation">Von Franz was Jung's closest collaborator and the finest exponent of his alchemical psychology. This accessible introduction — transcribed from a lecture series — remains the best single-volume companion to Jung's alchemical writings for the non-specialist reader. Her longer scholarly work, <em>Aurora Consurgens</em> (Pantheon, 1966), is essential for the advanced student and demonstrates what a fully realised Jungian-theological reading of a primary alchemical text looks like.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">C.G. Jung</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Alchemical Studies</span>
+              <span class="bib-entry__date">1967 · Collected Works, Vol. 13 · Trans. R.F.C. Hull, Princeton UP</span>
+            </div>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">C.G. Jung</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Aion: Researches into the Phenomenology of the Self</span>
+              <span class="bib-entry__date">1951 · Collected Works, Vol. 9ii · Princeton UP</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- ── IV. Secondary & Integrative ── -->
+      <div class="bib-category cat--sec animate-on-scroll">
+        <div class="bib-category__header">
+          <span class="bib-category__glyph" aria-hidden="true">📖</span>
+          <span class="bib-category__title">IV — Secondary &amp; Integrative Scholarship</span>
+        </div>
+
+        <ul class="bib-list">
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Lyndy Abraham</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">A Dictionary of Alchemical Imagery</span>
+              <span class="bib-entry__date">1998 · Cambridge University Press</span>
+            </div>
+            <p class="bib-entry__annotation">The indispensable reference work for alchemical iconography. Comprehensive, scholarly, and beautifully organised — covering the major symbols, operations, substances, and figures of the Western alchemical tradition with extensive citation of primary sources in Latin and English. Every serious student of alchemy should keep this to hand when reading the primary texts. There is no comparable work.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Lawrence Principe</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">The Secrets of Alchemy</span>
+              <span class="bib-entry__date">2013 · University of Chicago Press</span>
+            </div>
+            <p class="bib-entry__annotation">A revisionist history by a practising chemist-historian, arguing that the alchemists were more serious as experimental scientists than is often assumed, and that much of their symbolic language encodes genuine laboratory procedures. Essential for the historical-chemical context and a necessary counterweight to purely symbolic readings. Principe's scepticism about the spiritual dimension requires a balancing theological reading, but his scholarship is impeccable and his account of the tradition's development is unrivalled.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Stanton Linden</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Darke Hierogliphicks: Alchemy in English Literature from Chaucer to the Restoration</span>
+              <span class="bib-entry__date">1996 · University Press of Kentucky</span>
+            </div>
+            <p class="bib-entry__annotation">A thorough survey of alchemy's influence on English literary culture — Chaucer, Spenser, Donne, Milton, and others — making the case that alchemical imagery was part of the intellectual fabric of educated Christian culture, not a fringe curiosity. Particularly valuable for showing how alchemical metaphors penetrated devotional poetry and theological prose.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Barbara Obrist</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Les débuts de l'imagerie alchimique (XIVe–XVe siècles)</span>
+              <span class="bib-entry__date">1982 · Le Sycomore, Paris</span>
+            </div>
+            <p class="bib-entry__annotation">The leading French scholar of early medieval alchemical imagery. Obrist's meticulous analysis of manuscript traditions establishes that the Christian transformation of alchemical symbolism was not a late accretion but a constitutive feature of the tradition from its earliest European forms. In French, but indispensable for the advanced student of medieval alchemical iconography.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">Titus Burckhardt</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Alchemy: Science of the Cosmos, Science of the Soul</span>
+              <span class="bib-entry__date">1960 · Trans. William Stoddart, Stuart &amp; Watkins</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- ── V. Creative & Literary ── -->
+      <div class="bib-category cat--lit animate-on-scroll">
+        <div class="bib-category__header">
+          <span class="bib-category__glyph" aria-hidden="true">✦</span>
+          <span class="bib-category__title">V — Creative &amp; Literary</span>
+        </div>
+
+        <ul class="bib-list">
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Essential</span>
+            <p class="bib-entry__author">Dante Alighieri (1265–1321)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Paradiso</span>
+              <span class="bib-entry__date">c. 1320 · Trans. Robin Kirkpatrick, Penguin Classics</span>
+            </div>
+            <p class="bib-entry__annotation">Dante's third canticle is the supreme Christian imaginative treatment of the soul's ascent through the seven planetary spheres to the beatific vision — constituting what amounts to a Christian alchemical cosmology in verse. Each planetary heaven corresponds to a different virtue and a different quality of light. Cantos I–III (Moon/Silver, the lunar Albedo) and XXII–XXXIII (the ascent beyond the fixed stars to the Empyrean Rubedo) are especially rich for the alchemical reader. Kirkpatrick's facing-text Penguin edition is the best for the non-specialist.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Start Here</span>
+            <p class="bib-entry__author">C.S. Lewis (1898–1963)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Till We Have Faces; The Great Divorce</span>
+              <span class="bib-entry__date">1956; 1945 · HarperOne</span>
+            </div>
+            <p class="bib-entry__annotation"><em>Till We Have Faces</em> — Lewis's retelling of the Psyche myth, widely regarded as his finest work — is a sustained literary exploration of Nigredo, shadow, and the painful stripping of the false self. The novel's final turn, in which Orual's lifelong complaint collapses into wordless adoration, enacts precisely the Rubedo resolution of the Opus. <em>The Great Divorce</em> dramatises the doctrine of theosis in the tradition of MacDonald and Dante: the progressive transformation of the human creature toward divine light.</p>
+          </li>
+
+          <li class="bib-entry bib-entry--key">
+            <span class="bib-entry__key-label">Key Text</span>
+            <p class="bib-entry__author">Gerard Manley Hopkins (1844–1889)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Poems (published 1918; ed. Robert Bridges)</span>
+              <span class="bib-entry__date">Various modern editions · Oxford World's Classics recommended</span>
+            </div>
+            <p class="bib-entry__annotation">Hopkins's concept of <em>inscape</em> — the distinctive thisness of each created thing that reveals its participation in divine being — provides a poetic theology that resonates deeply with the alchemical vision of matter as spiritually significant. <em>"The world is charged with the grandeur of God"</em> (<em>God's Grandeur</em>) is the finest short statement in English of the sacramental vision that undergirds Christian alchemy. <em>The Wreck of the Deutschland</em> enacts a Nigredo-to-Rubedo movement of extraordinary intensity.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">J.R.R. Tolkien (1892–1973)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">On Fairy-Stories; Smith of Wootton Major</span>
+              <span class="bib-entry__date">1947; 1967 · HarperCollins</span>
+            </div>
+            <p class="bib-entry__annotation">Tolkien's essay on fairy-stories — and in particular his concepts of <em>eucatastrophe</em> (the sudden joyous turn at the end of the Opus) and <em>sub-creation</em> (human making as participation in divine creativity) — provides a literary-theological framework for the alchemical imagination. <em>Smith of Wootton Major</em> is the most alchemically resonant of his shorter fictions: the star-fragment on the tongue as the Lapis given unasked.</p>
+          </li>
+
+          <li class="bib-entry">
+            <p class="bib-entry__author">George MacDonald (1824–1905)</p>
+            <div class="bib-entry__meta">
+              <span class="bib-entry__title">Lilith; Phantastes</span>
+              <span class="bib-entry__date">1895; 1858 · Various editions</span>
+            </div>
+            <p class="bib-entry__annotation">MacDonald's fantasy novels — which Lewis called his "master" — are among the most sustained literary enactments of the alchemical journey in English. <em>Lilith</em> in particular traces a full Nigredo-to-Albedo arc through dream, death, and resurrection in a manner that reads as though MacDonald had absorbed the Rosarium Philosophorum through the pores.</p>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Closing note -->
+  <section class="section section--bib" aria-label="Closing note">
+    <div class="container">
+      <div class="transition-panel animate-on-scroll" style="text-align: center; max-width: 640px; margin: 0 auto;">
+        <p class="transition-panel__label">A Living List</p>
+        <p class="transition-panel__text">
+          This bibliography is a beginning, not a boundary. The tradition it describes is alive —
+          read, pray, and let the texts read you in return.
+          <em>Ora et labora.</em>
+        </p>
+        <a href="opus-magnum.html" class="transition-panel__link">← Return to the Opus Magnum</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="footer__text">
+        <em>Aurum Cordis</em> — Christian Alchemy, Depth Theology, and the Opus Magnum ·
+        <a href="../index.html" class="footer__link">Home</a>
       </p>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
-    <ul class="site-footer__links" role="list">
-      <li><a href="../index.html" class="site-footer__link">Home</a></li>
-      <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
-    </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
   </footer>
-
-  <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
 
   <script src="../js/main.js"></script>
 </body>

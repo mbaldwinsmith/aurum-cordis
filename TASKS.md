@@ -410,16 +410,16 @@ After completing a module, tick off the done tasks, push to main branch and then
 ## 📚 MODULE 12 — Bibliography & Further Reading (`pages/bibliography.html`)
 
 ### Task 12.1 — Content
-- [ ] **Primary alchemical sources**: Jabir/Geber, Zosimos of Panopolis, the *Emerald Tablet*, *Rosarium Philosophorum*, *Splendor Solis*, Paracelsus, *Aurora Consurgens*, Michael Maier (*Atalanta Fugiens*)
-- [ ] **Christian theological sources**: Origen, Gregory of Nyssa, John of the Cross, Jacob Boehme, Bulgakov, Aquinas (*Adoro Te Devote*, *Summa Theologiae*), Bonaventure, John Climacus, the patristic *Physiologus* (on the pelican and phoenix)
-- [ ] **Jungian sources**: Jung (*Psychology and Alchemy*, *Mysterium Coniunctionis*, *Memories Dreams Reflections*), Victor White, Marie-Louise von Franz (*Alchemical Active Imagination*, *Alchemy*)
-- [ ] **Secondary and integrative**: Lyndy Abraham (*A Dictionary of Alchemical Imagery*), Stanton Linden (*Darke Hierogliphicks*), Barbara Obrist, Lawrence Principe (*The Secrets of Alchemy*)
-- [ ] **Creative and literary**: Dante (*Paradiso*), Hopkins (selected poems), Tolkien (*On Fairy-Stories*), C.S. Lewis (*The Great Divorce*, *Till We Have Faces*)
+- [✓] **Primary alchemical sources**: Jabir/Geber, Zosimos of Panopolis, the *Emerald Tablet*, *Rosarium Philosophorum*, *Splendor Solis*, Paracelsus, *Aurora Consurgens*, Michael Maier (*Atalanta Fugiens*)
+- [✓] **Christian theological sources**: Origen, Gregory of Nyssa, John of the Cross, Jacob Boehme, Bulgakov, Aquinas (*Adoro Te Devote*, *Summa Theologiae*), Bonaventure, John Climacus, the patristic *Physiologus* (on the pelican and phoenix)
+- [✓] **Jungian sources**: Jung (*Psychology and Alchemy*, *Mysterium Coniunctionis*, *Memories Dreams Reflections*), Victor White, Marie-Louise von Franz (*Alchemical Active Imagination*, *Alchemy*)
+- [✓] **Secondary and integrative**: Lyndy Abraham (*A Dictionary of Alchemical Imagery*), Stanton Linden (*Darke Hierogliphicks*), Barbara Obrist, Lawrence Principe (*The Secrets of Alchemy*)
+- [✓] **Creative and literary**: Dante (*Paradiso*), Hopkins (selected poems), Tolkien (*On Fairy-Stories*), C.S. Lewis (*The Great Divorce*, *Till We Have Faces*)
 
 ### Task 12.2 — UI Build
-- [ ] Categorised bibliography with styled entries
-- [ ] Annotation for key texts (2–3 sentences each)
-- [ ] "Start here" panel: recommended reading order for newcomers
+- [✓] Categorised bibliography with styled entries
+- [✓] Annotation for key texts (2–3 sentences each)
+- [✓] "Start here" panel: recommended reading order for newcomers
 
 ---
 
