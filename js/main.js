@@ -53,7 +53,7 @@ function initSmoothScroll() {
    ============================================================ */
 
 function initActiveNav() {
-  const links = document.querySelectorAll('.nav__link');
+  const links = document.querySelectorAll('.nav__link, .nav__dropdown-link');
   const current = window.location.pathname.split('/').pop() || 'index.html';
 
   links.forEach((link) => {
@@ -63,8 +63,54 @@ function initActiveNav() {
     if (linkPage === current || (current === '' && linkPage === 'index.html')) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
+      const dropdown = link.closest('.nav__dropdown');
+      if (dropdown) {
+        const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+        if (toggle) toggle.classList.add('active');
+      }
     }
   });
+}
+
+/* ============================================================
+   DROPDOWN MENUS
+   ============================================================ */
+
+function initDropdowns() {
+  const dropdowns = document.querySelectorAll('.nav__dropdown');
+  if (!dropdowns.length) return;
+
+  const closeAll = () => {
+    dropdowns.forEach((d) => {
+      d.classList.remove('is-open');
+      const t = d.querySelector('.nav__dropdown-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  dropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('is-open');
+      closeAll();
+      if (!isOpen) {
+        dropdown.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAll();
+        toggle.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeAll);
 }
 
 /* ============================================================
@@ -82,9 +128,10 @@ function initHamburger() {
     links.classList.toggle('open', !expanded);
   });
 
-  // Close on nav link click (mobile)
+  // Close on nav link click (mobile), but not on dropdown toggles
   links.addEventListener('click', (e) => {
-    if (e.target.closest('.nav__link')) {
+    if (e.target.closest('.nav__dropdown-toggle')) return;
+    if (e.target.closest('.nav__link') || e.target.closest('.nav__dropdown-link')) {
       btn.setAttribute('aria-expanded', 'false');
       links.classList.remove('open');
     }
@@ -186,6 +233,7 @@ function init() {
   initScrollAnimations();
   initSmoothScroll();
   initActiveNav();
+  initDropdowns();
   initHamburger();
   initNavScroll();
   initScrollToTop();
