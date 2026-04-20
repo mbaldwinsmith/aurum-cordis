@@ -3,19 +3,369 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Opus Magnum — The Great Work in its entirety: a unified map of the Christian alchemical journey.. From Aurum Cordis: The Opus Magnum as Christian Way." />
+  <meta name="description" content="The Opus Magnum — the full Christian alchemical process from Prima Materia to Philosopher's Stone, mapped against salvation history and Jungian individuation." />
   <meta property="og:title" content="The Opus Magnum — Aurum Cordis" />
+  <meta property="og:description" content="The Great Work in its entirety: Nigredo, Albedo, Citrinitas, Rubedo — alchemical process, salvation history, and Jungian individuation as one unified map." />
   <meta property="og:type" content="article" />
   <title>The Opus Magnum — Aurum Cordis</title>
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
+  <style>
+    /* ── Opus Magnum colour overrides — deep cosmos / unified palette ── */
+    :root {
+      --opus-bg:         #07070e;
+      --opus-surface:    #0d0c18;
+      --opus-card:       #131220;
+      --opus-gold:       #c9a227;
+      --opus-gold-lt:    #dbb84a;
+      --opus-gold-dim:   #7a6014;
+      --opus-text:       #c0bcd0;
+      --opus-white:      #e8e4f4;
+      --opus-nigredo:    #5a5470;
+      --opus-albedo:     #7890a8;
+      --opus-citrinitas: #c9a227;
+      --opus-rubedo:     #8b2020;
+    }
+
+    body { background-color: var(--opus-bg); }
+
+    /* ── Hero ── */
+    .opus-hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+      overflow: hidden;
+    }
+    .opus-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 45%, rgba(50,40,100,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 35% at 50% 42%, rgba(201,162,39,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 50% 90%, rgba(7,7,14,0) 0%, var(--opus-bg) 80%),
+        var(--opus-bg);
+      z-index: 0;
+    }
+    .opus-hero__content { position: relative; z-index: 1; max-width: 820px; }
+    .opus-hero__lead {
+      max-width: 600px;
+      margin: var(--space-4) auto 0;
+      font-size: var(--text-sm);
+      color: var(--opus-text);
+      line-height: 1.85;
+    }
+
+    /* ── Interactive Wheel SVG ── */
+    .opus-wheel {
+      width: 300px; height: 300px;
+      margin: 0 auto var(--space-6);
+      display: block;
+      overflow: visible;
+    }
+    @media (max-width: 480px) { .opus-wheel { width: 230px; height: 230px; } }
+
+    .wheel-segment {
+      transition: opacity 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+    .wheel-segment--nigredo    { fill: rgba(90,84,112,0.50); stroke: rgba(90,84,112,0.75); stroke-width: 1; }
+    .wheel-segment--albedo     { fill: rgba(120,144,168,0.45); stroke: rgba(120,144,168,0.70); stroke-width: 1; }
+    .wheel-segment--citrinitas { fill: rgba(201,162,39,0.42); stroke: rgba(201,162,39,0.72); stroke-width: 1; }
+    .wheel-segment--rubedo     { fill: rgba(139,32,32,0.50); stroke: rgba(139,32,32,0.75); stroke-width: 1; }
+
+    .wheel-link:hover .wheel-segment,
+    .wheel-link:focus .wheel-segment  { opacity: 0.85; filter: brightness(1.40); }
+    .wheel-link:hover .wheel-center,
+    .wheel-link:focus .wheel-center   { fill: rgba(219,184,74,0.95); filter: brightness(1.25); }
+
+    .wheel-center {
+      fill: rgba(201,162,39,0.80);
+      stroke: rgba(219,184,74,0.90);
+      stroke-width: 1.5;
+      cursor: pointer;
+      transition: fill 0.25s ease, filter 0.25s ease;
+    }
+    .wheel-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      fill: white;
+      pointer-events: none;
+    }
+    .wheel-sublabel {
+      font-family: 'IM Fell English', serif;
+      font-size: 9px;
+      font-style: italic;
+      fill: rgba(255,255,255,0.62);
+      pointer-events: none;
+    }
+    .wheel-center-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.10em;
+      fill: rgba(7,7,14,0.95);
+      pointer-events: none;
+    }
+    .wheel-center-sublabel {
+      font-family: 'IM Fell English', serif;
+      font-size: 8px;
+      font-style: italic;
+      fill: rgba(7,7,14,0.72);
+      pointer-events: none;
+    }
+    .wheel-outer-ring-label {
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      letter-spacing: 0.16em;
+      fill: rgba(201,162,39,0.45);
+      pointer-events: none;
+    }
+
+    /* ── Section surface ── */
+    .section--opus {
+      background: var(--opus-surface);
+      border-top: 1px solid rgba(201,162,39,0.14);
+      border-bottom: 1px solid rgba(201,162,39,0.14);
+    }
+
+    /* ── Prose block ── */
+    .opus-prose {
+      max-width: 740px;
+      margin: 0 auto;
+      font-size: var(--text-sm);
+      color: var(--opus-text);
+      line-height: 1.85;
+    }
+    .opus-prose p { margin-bottom: var(--space-4); }
+    .opus-prose p:last-child { margin-bottom: 0; }
+
+    /* ── Comparison table ── */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-6) 0;
+      font-size: var(--text-sm);
+    }
+    .comparison-table thead th {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--opus-gold);
+      border-bottom: 2px solid rgba(201,162,39,0.30);
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .comparison-table td {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      line-height: 1.72;
+      color: var(--opus-text);
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:hover td { background: rgba(201,162,39,0.04); }
+
+    .ct-stage { color: var(--opus-white); }
+    .ct-pill {
+      display: inline-block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .ct-pill--prima      { background: #5a5870; }
+    .ct-pill--nigredo    { background: var(--opus-nigredo); }
+    .ct-pill--albedo     { background: var(--opus-albedo); }
+    .ct-pill--citrinitas { background: var(--opus-citrinitas); }
+    .ct-pill--rubedo     { background: var(--opus-rubedo); }
+    .ct-pill--lapis      { background: var(--opus-gold); }
+
+    /* ── Soror Mystica panel ── */
+    .soror-panel {
+      background: var(--opus-card);
+      border: 1px solid rgba(201,162,39,0.20);
+      border-left: 4px solid rgba(139,32,32,0.65);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin: var(--space-8) 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+    @media (max-width: 620px) { .soror-panel { grid-template-columns: 1fr; } }
+
+    .soror-panel__emblem {
+      width: 72px; height: 72px;
+      color: rgba(139,32,32,0.75);
+      flex-shrink: 0;
+    }
+    .soror-panel__kicker {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(139,32,32,0.85);
+      margin-bottom: var(--space-2);
+    }
+    .soror-panel__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-style: italic;
+      color: var(--opus-white);
+      margin-bottom: var(--space-4);
+    }
+    .soror-panel__body {
+      font-size: var(--text-sm);
+      color: var(--opus-text);
+      line-height: 1.80;
+    }
+    .soror-panel__body p { margin-bottom: var(--space-3); }
+    .soror-panel__body p:last-child { margin-bottom: 0; }
+
+    /* ── Circulatio section ── */
+    .circulatio-block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: var(--space-8);
+      align-items: center;
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 640px) { .circulatio-block { grid-template-columns: 1fr; } }
+
+    .circulatio-diagram {
+      width: 160px; height: 160px;
+      flex-shrink: 0;
+    }
+    .circulatio-text h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-style: italic;
+      color: var(--opus-white);
+      margin-bottom: var(--space-3);
+    }
+    .circulatio-text p {
+      font-size: var(--text-sm);
+      color: var(--opus-text);
+      line-height: 1.82;
+      margin-bottom: var(--space-3);
+    }
+    .circulatio-text p:last-child { margin-bottom: 0; }
+
+    /* ── Navigation hub ── */
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 700px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 440px) { .hub-grid { grid-template-columns: 1fr; } }
+
+    .hub-card {
+      display: block;
+      background: var(--opus-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 3px solid var(--hub-color, rgba(201,162,39,0.40));
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease, border-top-color 0.2s ease, transform 0.2s ease;
+    }
+    .hub-card:hover {
+      background: rgba(255,255,255,0.03);
+      transform: translateY(-2px);
+      border-top-color: var(--hub-color-lt, var(--opus-gold));
+    }
+    .hub-card--disabled {
+      opacity: 0.44;
+      pointer-events: none;
+      cursor: default;
+    }
+    .hub-card__glyph {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+    .hub-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-style: italic;
+      color: var(--opus-white);
+      margin-bottom: var(--space-1);
+    }
+    .hub-card__desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.58;
+    }
+    .hub-card__coming {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.48);
+      margin-top: var(--space-2);
+    }
+
+    /* Per-card colour tokens */
+    .hub--prima      { --hub-color: rgba(100,98,118,0.60);  --hub-color-lt: #8888a0; }
+    .hub--elements   { --hub-color: rgba(70,120,70,0.55);   --hub-color-lt: #6a9a6a; }
+    .hub--tria       { --hub-color: rgba(150,110,30,0.55);  --hub-color-lt: #b08830; }
+    .hub--nigredo    { --hub-color: rgba(90,84,112,0.70);   --hub-color-lt: var(--opus-nigredo); }
+    .hub--albedo     { --hub-color: rgba(120,144,168,0.65); --hub-color-lt: var(--opus-albedo); }
+    .hub--citrinitas { --hub-color: rgba(201,162,39,0.62);  --hub-color-lt: var(--opus-gold-lt); }
+    .hub--rubedo     { --hub-color: rgba(139,32,32,0.68);   --hub-color-lt: #c83030; }
+    .hub--lapis      { --hub-color: rgba(201,162,39,0.78);  --hub-color-lt: var(--opus-gold-lt); }
+    .hub--metals     { --hub-color: rgba(58,88,128,0.62);   --hub-color-lt: #6080a8; }
+    .hub--jung       { --hub-color: rgba(70,90,110,0.45);   --hub-color-lt: #607080; }
+    .hub--biblio     { --hub-color: rgba(100,78,52,0.45);   --hub-color-lt: #906848; }
+
+    /* ── Closing panel ── */
+    .opus-closing {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto;
+      padding: var(--space-8) 0;
+    }
+    .opus-closing__label {
+      font-family: var(--font-label);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--opus-gold);
+      margin-bottom: var(--space-4);
+    }
+    .opus-closing__quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+      font-style: italic;
+      color: var(--opus-white);
+      line-height: 1.65;
+      margin: 0 0 var(--space-4);
+      border: none;
+      padding: 0;
+    }
+    .opus-closing__note {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="grain-overlay" aria-hidden="true"></div>
-
-  <nav class="nav" aria-label="Site navigation">
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="../index.html" class="nav__brand" aria-label="Aurum Cordis — Home">
         <svg class="nav__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -24,10 +374,7 @@
           <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/>
           <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1"/>
         </svg>
-        <div class="nav__title">
-          Aurum Cordis
-          <span>Christian Alchemy</span>
-        </div>
+        <div class="nav__title">Aurum Cordis<span>Christian Alchemy</span></div>
       </a>
       <button class="nav__hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
         <span class="nav__hamburger-line"></span>
@@ -37,40 +384,448 @@
       <ul class="nav__links" id="nav-links" role="list">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="prima-materia.html" class="nav__link">Prima Materia</a></li>
-        <li><a href="opus-magnum.html" class="nav__link">Opus Magnum</a></li>
+        <li><a href="four-elements.html" class="nav__link">Four Elements</a></li>
+        <li><a href="sulphur-mercury-salt.html" class="nav__link">Tria Prima</a></li>
         <li><a href="nigredo.html" class="nav__link">Nigredo</a></li>
         <li><a href="albedo.html" class="nav__link">Albedo</a></li>
         <li><a href="citrinitas.html" class="nav__link">Citrinitas</a></li>
         <li><a href="rubedo.html" class="nav__link">Rubedo</a></li>
-        <li><a href="bibliography.html" class="nav__link">Bibliography</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <p class="page-header__eyebrow">Full Process Overview</p>
-    <h1 class="page-header__title">🌀 The Opus Magnum</h1>
-    <p class="page-header__subtitle">The Great Work in its entirety: a unified map of the Christian alchemical journey.</p>
-  </header>
+  <!-- Hero -->
+  <section class="opus-hero" aria-labelledby="opus-title">
+    <div class="opus-hero__bg" aria-hidden="true"></div>
+    <div class="opus-hero__content">
 
-  <main class="section">
-    <div class="container container--narrow">
-      <p class="content-prose text-muted" style="text-align:center; font-style:italic;">
-        Content for this page will be added in a future module.
+      <!-- Interactive four-stage wheel SVG -->
+      <svg class="opus-wheel animate-on-scroll" viewBox="0 0 400 400" fill="none"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="The Opus Magnum wheel: four clickable stage segments — Nigredo, Albedo, Citrinitas, Rubedo — surrounding the Philosopher's Stone at the centre">
+
+        <defs>
+          <marker id="wheel-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+            <path d="M 0 0.5 L 6 3.5 L 0 6.5 Z" fill="rgba(201,162,39,0.55)"/>
+          </marker>
+        </defs>
+
+        <!-- Outer decorative rings -->
+        <circle cx="200" cy="200" r="190" stroke="rgba(201,162,39,0.06)" stroke-width="1" fill="none"/>
+        <circle cx="200" cy="200" r="180" stroke="rgba(201,162,39,0.10)" stroke-width="0.8" fill="none"/>
+
+        <!-- Outer ring tick marks at 0°/90°/180°/270° -->
+        <line x1="200" y1="20"  x2="200" y2="10"  stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
+        <line x1="380" y1="200" x2="390" y2="200" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
+        <line x1="200" y1="380" x2="200" y2="390" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
+        <line x1="20"  y1="200" x2="10"  y2="200" stroke="rgba(201,162,39,0.30)" stroke-width="1.2"/>
+
+        <!-- Stage I — Nigredo (top-right quadrant, 0° → 90°) -->
+        <!-- Outer start: (200,25), end: (375,200). Inner end: (258,200), start: (200,142) -->
+        <a href="nigredo.html" class="wheel-link" aria-label="Nigredo — the Black Phase. Click to explore.">
+          <path class="wheel-segment wheel-segment--nigredo"
+                d="M 200 25 A 175 175 0 0 1 375 200 L 258 200 A 58 58 0 0 0 200 142 Z"/>
+          <text x="302" y="104" class="wheel-label" text-anchor="middle">NIGREDO</text>
+          <text x="302" y="120" class="wheel-sublabel" text-anchor="middle">Blackening · I</text>
+        </a>
+
+        <!-- Stage II — Albedo (bottom-right quadrant, 90° → 180°) -->
+        <!-- Outer start: (375,200), end: (200,375). Inner end: (200,258), start: (258,200) -->
+        <a href="albedo.html" class="wheel-link" aria-label="Albedo — the White Phase. Click to explore.">
+          <path class="wheel-segment wheel-segment--albedo"
+                d="M 375 200 A 175 175 0 0 1 200 375 L 200 258 A 58 58 0 0 0 258 200 Z"/>
+          <text x="302" y="296" class="wheel-label" text-anchor="middle">ALBEDO</text>
+          <text x="302" y="312" class="wheel-sublabel" text-anchor="middle">Whitening · II</text>
+        </a>
+
+        <!-- Stage III — Citrinitas (bottom-left quadrant, 180° → 270°) -->
+        <!-- Outer start: (200,375), end: (25,200). Inner end: (142,200), start: (200,258) -->
+        <a href="citrinitas.html" class="wheel-link" aria-label="Citrinitas — the Golden Dawn. Click to explore.">
+          <path class="wheel-segment wheel-segment--citrinitas"
+                d="M 200 375 A 175 175 0 0 1 25 200 L 142 200 A 58 58 0 0 0 200 258 Z"/>
+          <text x="98" y="296" class="wheel-label" text-anchor="middle">CITRINITAS</text>
+          <text x="98" y="312" class="wheel-sublabel" text-anchor="middle">Dawning · III</text>
+        </a>
+
+        <!-- Stage IV — Rubedo (top-left quadrant, 270° → 360°) -->
+        <!-- Outer start: (25,200), end: (200,25). Inner end: (200,142), start: (142,200) -->
+        <a href="rubedo.html" class="wheel-link" aria-label="Rubedo — the Red Phase. Click to explore.">
+          <path class="wheel-segment wheel-segment--rubedo"
+                d="M 25 200 A 175 175 0 0 1 200 25 L 200 142 A 58 58 0 0 0 142 200 Z"/>
+          <text x="98" y="104" class="wheel-label" text-anchor="middle">RUBEDO</text>
+          <text x="98" y="120" class="wheel-sublabel" text-anchor="middle">Reddening · IV</text>
+        </a>
+
+        <!-- Dividing spokes (inner to outer) -->
+        <line x1="200" y1="25"  x2="200" y2="142" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
+        <line x1="375" y1="200" x2="258" y2="200" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
+        <line x1="200" y1="375" x2="200" y2="258" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
+        <line x1="25"  y1="200" x2="142" y2="200" stroke="rgba(201,162,39,0.20)" stroke-width="1.2"/>
+
+        <!-- Clockwise motion indicator arc -->
+        <path d="M 196 25 A 173 173 0 0 1 373 196"
+              stroke="rgba(201,162,39,0.28)" stroke-width="1.2" fill="none"
+              marker-end="url(#wheel-arrow)"/>
+
+        <!-- Central circle — Philosopher's Stone -->
+        <a href="philosophers-stone.html" class="wheel-link" aria-label="The Philosopher's Stone — click to explore">
+          <circle cx="200" cy="200" r="52" class="wheel-center"/>
+          <!-- Crosshair on centre -->
+          <line x1="170" y1="200" x2="230" y2="200" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
+          <line x1="200" y1="170" x2="200" y2="230" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
+          <text x="200" y="196" class="wheel-center-label" text-anchor="middle">LAPIS</text>
+          <text x="200" y="213" class="wheel-center-sublabel" text-anchor="middle">Philosophorum</text>
+        </a>
+
+      </svg>
+
+      <h1 class="hero__title" id="opus-title">The Opus Magnum</h1>
+      <p class="hero__subtitle">The Great Work — a unified map of Christian alchemical transformation</p>
+      <p class="opus-hero__lead">
+        Prima Materia to Philosopher's Stone: three interlocking languages — alchemical process,
+        Christian salvation history, Jungian individuation — each a distinct vocabulary for one
+        mystery of transformation.
       </p>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <p class="site-footer__latin"><em>Ora et Labora et Lege</em></p>
-    <ul class="site-footer__links" role="list">
-      <li><a href="../index.html" class="site-footer__link">Home</a></li>
-      <li><a href="bibliography.html" class="site-footer__link">Bibliography</a></li>
-    </ul>
-    <p class="site-footer__copy">&copy; 2025 Mark Baldwin-Smith.</p>
+  <!-- Section: What Is the Opus Magnum? -->
+  <section class="section section--opus" aria-labelledby="intro-title">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">Introduction</p>
+        <h2 class="section__title" id="intro-title">What Is the Opus Magnum?</h2>
+        <p class="section__subtitle">The alchemists called their transformative practice the <em>Opus Magnum</em> — the Great Work. It was not a laboratory procedure for manufacturing gold but a sacred discipline of integrated transformation: matter and soul together.</p>
+      </header>
+
+      <div class="opus-prose animate-on-scroll">
+        <p>The <em>Opus Magnum</em> proceeds through four great stages, each with its own colour, symbol, set of chemical operations, and theological resonance. <em>Nigredo</em> — the blackening — is the necessary dissolution of the unpurified, the death that precedes new life. <em>Albedo</em> — the whitening — is purification and the emergence of reflective, lunar consciousness. <em>Citrinitas</em> — the dawning — marks the first light of the solar, a stage often neglected in the later tradition but vital to the full arc. <em>Rubedo</em> — the reddening — is the solar perfection: the sacred marriage of opposites, the coniunctio, the completion of the Work.</p>
+        <p>At the centre of the wheel stands the <em>Lapis Philosophorum</em> — the Philosopher's Stone. It is both the end of the Work and, paradoxically, its hidden beginning. The Stone is discovered to have been present all along as the Prima Materia, unrecognised: <em>lapis noster ex omnibus metallis est, et nusquam invenitur</em> — "our stone is made of all metals and is found nowhere." The wheel turns; the Stone endures.</p>
+        <p>The Christian reading of this process is neither fanciful nor forced. Medieval and Renaissance alchemists — many of them monks, priests, and devout laypeople — explicitly understood the Opus as a participation in the redemptive work of Christ. The blackening images the Passion and Holy Saturday. The whitening images Resurrection. The reddening images Pentecost and the glorification of the creature in God. Christ himself is the Lapis: the stone the builders rejected, the cornerstone of the New Creation (Psalm 118:22; Matthew 21:42).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Three-Column Parallel Table -->
+  <section class="section" aria-labelledby="table-title">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">The Threefold Map</p>
+        <h2 class="section__title" id="table-title">Three Languages, One Mystery</h2>
+        <p class="section__subtitle">Alchemical process, Christian salvation history, and Jungian individuation run in parallel — three distinct vocabularies that converge on a single arc of transformation.</p>
+      </header>
+
+      <div class="animate-on-scroll" style="overflow-x: auto;">
+        <table class="comparison-table"
+               aria-label="Three-column parallel: Alchemical Stage, Salvation History, Jungian Individuation">
+          <thead>
+            <tr>
+              <th scope="col">Alchemical Stage</th>
+              <th scope="col">Salvation History</th>
+              <th scope="col">Jungian Individuation</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--prima" aria-hidden="true"></span>
+                <strong class="ct-stage">Prima Materia</strong><br>
+                The raw, unworked chaos; undifferentiated potential; the first matter that secretly contains the Stone
+              </td>
+              <td>
+                <em>Creation</em> — the formless deep, the <em>tohu vabohu</em> (Genesis 1:2); the goodness of matter as yet unformed; the Spirit hovering over the waters before the first light
+              </td>
+              <td>
+                <em>Unconscious wholeness</em> — the undifferentiated psyche of earliest life; the primordial Self not yet in tension with the ego; the depths from which consciousness will slowly emerge
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--nigredo" aria-hidden="true"></span>
+                <strong class="ct-stage">Nigredo — Blackening</strong><br>
+                <em>Calcinatio</em>, <em>putrefactio</em>, <em>mortificatio</em>: dissolution, death, the dark night of the first matter; the crow's head, the black sun
+              </td>
+              <td>
+                <em>Fall, Exile, and Passion</em> — the corruption of the good; death entering creation; the long exile from Eden; Christ descending into the darkness of Golgotha and Sheol; Holy Saturday
+              </td>
+              <td>
+                <em>Shadow encounter</em> — the ego's collision with its own darkness, the repressed, the unlived life; the painful dissolution of the persona; the dark night of the soul as psychic event
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--albedo" aria-hidden="true"></span>
+                <strong class="ct-stage">Albedo — Whitening</strong><br>
+                <em>Ablutio</em>, <em>sublimatio</em>, <em>distillatio</em>: the washing, the purified silver, the luminous reflective consciousness; the white rose, the moon
+              </td>
+              <td>
+                <em>Resurrection and Baptism</em> — the white light of Easter morning; the linen cloths; baptism as the washing and reclothing of the soul; the Church's receptive, lunar character as Bride of Christ
+              </td>
+              <td>
+                <em>Anima/Animus encounter</em> — meeting the contrasexual soul-image; the night-sea journey through the deep unconscious; developing inner receptivity and the capacity for depth and symbol
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--citrinitas" aria-hidden="true"></span>
+                <strong class="ct-stage">Citrinitas — Dawning</strong><br>
+                The lost or neglected stage; the golden dawn between white and red; <em>sapientia</em> beginning to orient the soul before the full solar culmination
+              </td>
+              <td>
+                <em>Resurrection Morning</em> — the first barely-visible light of Easter; the disciples on the road to Emmaus, not yet recognising; the dawning knowledge of the Risen Christ before the full Pentecostal fire
+              </td>
+              <td>
+                <em>First emergence of the Self</em> — wisdom begins to displace ego-reactivity; the ego starts to be oriented by the deeper centre rather than by persona or shadow; still partial, still only dawn
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--rubedo" aria-hidden="true"></span>
+                <strong class="ct-stage">Rubedo — Reddening</strong><br>
+                <em>Coagulatio</em>, <em>fermentatio</em>, <em>multiplicatio</em>, <em>projectio</em>: the solar completion, the Coniunctio Oppositorum — king and queen, sun and moon, fixed and volatile united
+              </td>
+              <td>
+                <em>Pentecost and Deification</em> — fire descends; the Church is reddened by the Spirit; <em>theosis</em> (2 Peter 1:4); the Wedding of the Lamb (Revelation 19); the creature truly participating in the divine nature
+              </td>
+              <td>
+                <em>Achievement of the Self</em> — the union of conscious and unconscious, masculine and feminine, shadow and light; the <em>totus homo</em>; the individuated person whose wholeness becomes an instrument of transformation in others
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="ct-pill ct-pill--lapis" aria-hidden="true"></span>
+                <strong class="ct-stage">Lapis Philosophorum</strong><br>
+                The Stone that transmutes all it touches; the universal tincture; paradoxically both the end and the secret beginning; <em>nostra materia et finis noster</em>
+              </td>
+              <td>
+                <em>The New Creation</em> — the Eschaton; the Wedding of the Lamb; the New Jerusalem of pure gold and crystal (Revelation 21–22); the rejected stone become cornerstone; grace as universal medicine perfecting all it enters
+              </td>
+              <td>
+                <em>Individuation as ongoing gift</em> — not a state achieved once but a dynamic, deepening orientation; the individuated person who transmutes others by their very presence; the Stone's <em>multiplicatio</em> made personal
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Soror Mystica -->
+  <section class="section section--opus" aria-labelledby="soror-title">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">The Feminine Dimension of the Work</p>
+        <h2 class="section__title" id="soror-title">The Soror Mystica</h2>
+      </header>
+
+      <div class="soror-panel animate-on-scroll">
+        <!-- Rose SVG emblem -->
+        <svg class="soror-panel__emblem" viewBox="0 0 72 72" fill="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Eight outer petals -->
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.40" transform="rotate(0   36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.35" transform="rotate(45  36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.40" transform="rotate(90  36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.35" transform="rotate(135 36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.40" transform="rotate(180 36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.35" transform="rotate(225 36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.40" transform="rotate(270 36 36)"/>
+          <ellipse cx="36" cy="15" rx="7"  ry="14" fill="currentColor" opacity="0.35" transform="rotate(315 36 36)"/>
+          <!-- Inner circle -->
+          <circle cx="36" cy="36" r="10" fill="currentColor" opacity="0.80"/>
+          <circle cx="36" cy="36" r="5"  fill="rgba(7,7,14,0.55)"/>
+        </svg>
+
+        <div>
+          <p class="soror-panel__kicker">Soror Mystica — Mystical Sister</p>
+          <h3 class="soror-panel__title">The Contemplative Companion</h3>
+          <div class="soror-panel__body">
+            <p>In the alchemical tradition, the <em>Soror Mystica</em> — the mystical sister — is the indispensable feminine counterpart to the male alchemist. She is not his assistant but his complement: the receptive, contemplative, intercessory dimension without which the Work cannot be completed. In the iconography of the <em>Rosarium Philosophorum</em> and related texts, the <em>coniunctio</em> of King and Queen, Sol and Luna, is the central image of the Opus — and neither principle can achieve the Work alone.</p>
+            <p>For the Christian reader, the <em>Soror Mystica</em> resonates on several levels simultaneously. She images the <em>Ecclesia</em> — the Church as Bride of Christ, whose receptive fidelity is integral to salvation history. She images the Blessed Virgin, whose <em>fiat</em> is the hinge-point of the Incarnation: the supreme moment when divinity took on the lead of human flesh, transforming the base into the gold. She images, in Jungian terms, the <em>Anima</em> — the soul-image, the inner feminine — whose integration is necessary for the wholeness of the Opus.</p>
+            <p>The tradition of <em>Sophia</em> — divine Wisdom — runs from Proverbs 8 through the Greek Fathers, through Bulgakov's sophiology, and through the alchemists' veneration of their prima materia as feminine. She is not a goddess competing with the Trinity but a dimension of God's own self-communication: the gentle, beautiful, relational face of the Word through which the world was made and in which it is redeemed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: The Circulatio -->
+  <section class="section" aria-labelledby="circulatio-title">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">The Spiral Nature of the Work</p>
+        <h2 class="section__title" id="circulatio-title">The <em>Circulatio</em></h2>
+        <p class="section__subtitle">The Opus Magnum is not a linear once-for-all event but a recurring deepening cycle — a spiral through the same territory at ever greater depth.</p>
+      </header>
+
+      <div class="circulatio-block animate-on-scroll">
+        <!-- Circulatio SVG diagram -->
+        <svg class="circulatio-diagram" viewBox="0 0 160 160" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-label="Circular diagram showing the four stage arcs in a ring with a clockwise arrow and an inner spiral, representing the recursive deepening of the Opus Magnum">
+          <defs>
+            <marker id="circ-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+              <path d="M 0 0.5 L 6 3.5 L 0 6.5 Z" fill="rgba(201,162,39,0.70)"/>
+            </marker>
+          </defs>
+
+          <!-- Outer ring -->
+          <circle cx="80" cy="80" r="70" stroke="rgba(201,162,39,0.10)" stroke-width="1" fill="none"/>
+
+          <!-- Four coloured arcs — Nigredo, Albedo, Citrinitas, Rubedo -->
+          <path d="M 80 10 A 70 70 0 0 1 150 80" stroke="rgba(90,84,112,0.65)"   stroke-width="9" fill="none" stroke-linecap="butt"/>
+          <path d="M 150 80 A 70 70 0 0 1 80 150" stroke="rgba(120,144,168,0.60)" stroke-width="9" fill="none" stroke-linecap="butt"/>
+          <path d="M 80 150 A 70 70 0 0 1 10 80"  stroke="rgba(201,162,39,0.62)"  stroke-width="9" fill="none" stroke-linecap="butt"/>
+          <path d="M 10 80 A 70 70 0 0 1 80 10"   stroke="rgba(139,32,32,0.65)"   stroke-width="9" fill="none" stroke-linecap="butt"/>
+
+          <!-- Clockwise direction arrow -->
+          <path d="M 76 10 A 68 68 0 0 1 148 76"
+                stroke="rgba(201,162,39,0.55)" stroke-width="1.2" fill="none"
+                marker-end="url(#circ-arrow)"/>
+
+          <!-- Inner spiral rings (deepening iterations) -->
+          <circle cx="80" cy="80" r="44" stroke="rgba(201,162,39,0.20)" stroke-width="1" fill="none" stroke-dasharray="3.5 3"/>
+          <circle cx="80" cy="80" r="28" stroke="rgba(201,162,39,0.28)" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+          <circle cx="80" cy="80" r="14" stroke="rgba(201,162,39,0.40)" stroke-width="1" fill="none"/>
+
+          <!-- Centre point (the Stone) -->
+          <circle cx="80" cy="80" r="5"  fill="rgba(201,162,39,0.82)"/>
+          <circle cx="80" cy="80" r="2"  fill="rgba(7,7,14,0.70)"/>
+
+          <!-- Stage numerals in arcs -->
+          <text x="122" y="50"  font-family="'Cinzel', serif" font-size="8" fill="rgba(130,124,156,0.90)" text-anchor="middle">I</text>
+          <text x="122" y="115" font-family="'Cinzel', serif" font-size="8" fill="rgba(120,144,168,0.90)" text-anchor="middle">II</text>
+          <text x="38"  y="115" font-family="'Cinzel', serif" font-size="8" fill="rgba(201,162,39,0.90)" text-anchor="middle">III</text>
+          <text x="38"  y="50"  font-family="'Cinzel', serif" font-size="8" fill="rgba(159,52,52,0.90)"  text-anchor="middle">IV</text>
+        </svg>
+
+        <div class="circulatio-text">
+          <h3>Spiral, Not Line</h3>
+          <p>Medieval alchemists were clear: the Opus Magnum is not a one-time linear sequence but a <em>circulatio</em> — a circulation, a spiralling return. The matter is calcined, dissolved, distilled, and coagulated not once but many times, with each pass deepening and purifying what the previous cycle only began. The wheel keeps turning; the centre keeps drawing.</p>
+          <p>Spiritually, this means that the dark nights are not left behind but revisited at greater depth. The Albedo purity achieved at one stage of life will yield to a new Nigredo at the next. The Rubedo completion is always also a new beginning — the stone becoming Prima Materia once more for a higher, subtler Work. Each revolution of the wheel is not regression but ascent.</p>
+          <p>The Christian doctrines of ongoing conversion (<em>metanoia</em>), purgation, and sanctification follow the same logic. Theosis is a movement, not a destination; the saints grow from glory to glory (2 Corinthians 3:18), not from baseline to finish line. The alchemical <em>circulatio</em> images nothing less than a doctrine of grace operating through time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Navigation Hub -->
+  <section class="section section--opus" aria-labelledby="hub-title">
+    <div class="container">
+      <header class="section__header animate-on-scroll">
+        <p class="section__label">Complete Curriculum</p>
+        <h2 class="section__title" id="hub-title">Explore the Full Site</h2>
+        <p class="section__subtitle">Every module in the Aurum Cordis study — from foundational alchemical principles to the full Opus, the planetary cosmology, and the depth-psychological dimension.</p>
+      </header>
+
+      <div class="hub-grid animate-on-scroll">
+
+        <a href="prima-materia.html" class="hub-card hub--prima">
+          <div class="hub-card__glyph">⚗</div>
+          <div class="hub-card__title">Prima Materia</div>
+          <div class="hub-card__desc">The first matter: chaos, radical potential, the substance that secretly contains the Stone. The alchemists' foundational enigma.</div>
+        </a>
+
+        <a href="four-elements.html" class="hub-card hub--elements">
+          <div class="hub-card__glyph">🜁</div>
+          <div class="hub-card__title">The Four Elements</div>
+          <div class="hub-card__desc">Earth, Water, Fire, Air — the Aristotelian framework beneath the alchemical cosmos and its deep Christian resonances.</div>
+        </a>
+
+        <a href="sulphur-mercury-salt.html" class="hub-card hub--tria">
+          <div class="hub-card__glyph">☿</div>
+          <div class="hub-card__title">Tria Prima</div>
+          <div class="hub-card__desc">Sulphur, Mercury, Salt — Paracelsus's threefold constitution of matter and its shadow of Trinitarian theology.</div>
+        </a>
+
+        <a href="nigredo.html" class="hub-card hub--nigredo">
+          <div class="hub-card__glyph">☽</div>
+          <div class="hub-card__title">Nigredo</div>
+          <div class="hub-card__desc">The Black Phase: dissolution, putrefaction, the dark night. Passion, exile, shadow — the necessary and purifying beginning of the Work.</div>
+        </a>
+
+        <a href="albedo.html" class="hub-card hub--albedo">
+          <div class="hub-card__glyph">◎</div>
+          <div class="hub-card__title">Albedo</div>
+          <div class="hub-card__desc">The White Phase: purification, lunar consciousness, Resurrection morning. Washing, illumination, and the first stable renewal.</div>
+        </a>
+
+        <a href="citrinitas.html" class="hub-card hub--citrinitas">
+          <div class="hub-card__glyph">☀</div>
+          <div class="hub-card__title">Citrinitas</div>
+          <div class="hub-card__desc">The Lost Stage: the golden dawn between white and red. Wisdom's first light — neglected by the later tradition but theologically indispensable.</div>
+        </a>
+
+        <a href="rubedo.html" class="hub-card hub--rubedo">
+          <div class="hub-card__glyph">🔥</div>
+          <div class="hub-card__title">Rubedo</div>
+          <div class="hub-card__desc">The Red Phase: solar completion, the sacred Coniunctio, Pentecostal fire. Theosis, the Wedding of the Lamb, the coming New Creation.</div>
+        </a>
+
+        <a href="philosophers-stone.html" class="hub-card hub--lapis">
+          <div class="hub-card__glyph">◈</div>
+          <div class="hub-card__title">Philosopher's Stone</div>
+          <div class="hub-card__desc">The Lapis that transmutes all it touches: end and beginning, rejected cornerstone, tincture of grace perfecting all it enters.</div>
+        </a>
+
+        <a href="seven-metals.html" class="hub-card hub--metals">
+          <div class="hub-card__glyph">🪐</div>
+          <div class="hub-card__title">The Seven Metals</div>
+          <div class="hub-card__desc">Lead to Gold: planetary correspondences, the macrocosm-microcosm principle, and Dante's <em>Paradiso</em> as Christian alchemical cosmology.</div>
+        </a>
+
+        <a href="jung.html" class="hub-card hub--jung hub-card--disabled" aria-disabled="true" tabindex="-1">
+          <div class="hub-card__glyph">🧠</div>
+          <div class="hub-card__title">Jung &amp; Christian Alchemy</div>
+          <div class="hub-card__desc">Victor White OP, <em>Mysterium Coniunctionis</em>, convergence and divergence — depth psychology as a theological interlocutor.</div>
+          <div class="hub-card__coming">Coming soon</div>
+        </a>
+
+        <a href="bibliography.html" class="hub-card hub--biblio hub-card--disabled" aria-disabled="true" tabindex="-1">
+          <div class="hub-card__glyph">📚</div>
+          <div class="hub-card__title">Bibliography</div>
+          <div class="hub-card__desc">Primary alchemical sources, Christian theological texts, Jungian scholarship, and integrative secondary literature with annotations.</div>
+          <div class="hub-card__coming">Coming soon</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing reflection -->
+  <section class="section" aria-label="Closing reflection">
+    <div class="container">
+      <div class="opus-closing animate-on-scroll">
+        <p class="opus-closing__label">Ora et Labora</p>
+        <blockquote class="opus-closing__quote">
+          "We are always beginners in the spiritual life — and the Opus<br>
+          never ends; it only deepens, turn by turn."
+        </blockquote>
+        <p class="opus-closing__note">
+          From every completed cycle, the matter returns — purified, made more subtle,
+          more capable of receiving the next illumination. The <em>circulatio</em> continues.
+          <em>Ora et labora</em> — pray and work — and trust the fire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="footer__text">
+        <em>Aurum Cordis</em> — Christian Alchemy, Depth Theology, and the Opus Magnum ·
+        <a href="../index.html" class="footer__link">Home</a>
+      </p>
+    </div>
   </footer>
-
-  <button class="scroll-to-top" aria-label="Scroll to top of page">&#8593;</button>
 
   <script src="../js/main.js"></script>
 </body>

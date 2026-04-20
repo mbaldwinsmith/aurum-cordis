@@ -372,17 +372,17 @@ After completing a module, tick off the done tasks, push to main branch and then
 *The Great Work in its entirety: a unified map of the Christian alchemical journey.*
 
 ### Task 10.1 — Content: Synthesis
-- [ ] Present the Opus Magnum as a unified narrative arc: Prima Materia → Nigredo → Albedo → Citrinitas → Rubedo → Lapis
-- [ ] Draw out the Christian salvation narrative as its theological parallel: Creation → Fall/Exile → Incarnation/Passion → Resurrection → Ascension/Pentecost → Eschaton
-- [ ] Draw out the Jungian individuation parallel: Unconscious wholeness → Ego formation → Shadow confrontation → Anima integration → Self-emergence → Individuation
-- [ ] Note the recursive, spiral nature of the Opus: it is not a linear once-for-all event but a repeating deepening cycle (the alchemical *circulatio*)
-- [ ] Introduce the concept of the **Soror Mystica** (mystical sister) in alchemy — the contemplative, feminine counterpart to the alchemist — and connect to the Church, Mary, and the Anima
+- [✓] Present the Opus Magnum as a unified narrative arc: Prima Materia → Nigredo → Albedo → Citrinitas → Rubedo → Lapis
+- [✓] Draw out the Christian salvation narrative as its theological parallel: Creation → Fall/Exile → Incarnation/Passion → Resurrection → Ascension/Pentecost → Eschaton
+- [✓] Draw out the Jungian individuation parallel: Unconscious wholeness → Ego formation → Shadow confrontation → Anima integration → Self-emergence → Individuation
+- [✓] Note the recursive, spiral nature of the Opus: it is not a linear once-for-all event but a repeating deepening cycle (the alchemical *circulatio*)
+- [✓] Introduce the concept of the **Soror Mystica** (mystical sister) in alchemy — the contemplative, feminine counterpart to the alchemist — and connect to the Church, Mary, and the Anima
 
 ### Task 10.2 — UI Build
-- [ ] Full-page interactive SVG diagram: the four-stage wheel with theological and Jungian labels, clickable to navigate to each stage page
-- [ ] Three-column comparison table: Alchemical Stage | Salvation History | Jungian Individuation
-- [ ] Circular *circulatio* diagram showing the recursive nature of the work
-- [ ] Navigation hub: large card links to all stage pages
+- [✓] Full-page interactive SVG diagram: the four-stage wheel with theological and Jungian labels, clickable to navigate to each stage page
+- [✓] Three-column comparison table: Alchemical Stage | Salvation History | Jungian Individuation
+- [✓] Circular *circulatio* diagram showing the recursive nature of the work
+- [✓] Navigation hub: large card links to all stage pages
 
 ---
 
