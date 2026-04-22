@@ -44,6 +44,7 @@ body { background-color: var(--nigredo-bg); }
 /* ── Stage indicator — Nigredo variant ── */
 .stage-indicator__stage.active {
   background: rgba(122,21,21,0.20);
+  box-shadow: inset 0 0 0 2px var(--nigredo-red);
 }
 .stage-indicator__stage.active .stage-indicator__name {
   color: var(--nigredo-red-lt);
