@@ -43,6 +43,7 @@
   width: 36px; height: 36px;
   color: var(--color-sulphur-gold);
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .nav__title {
@@ -829,6 +830,7 @@ sup.footnote-ref:hover {
   margin: 0 auto var(--space-4);
   color: var(--color-sulphur-gold);
   opacity: 0.5;
+  object-fit: cover;
 }
 
 .site-footer__latin {
