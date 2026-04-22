@@ -44,7 +44,7 @@ body { background-color: var(--bib-bg); }
 
 /* ── Open book SVG ── */
 .book-emblem {
-  width: 160px; height: 130px;
+  width: 160px; height: 160px;
   margin: 0 auto var(--space-6);
   display: block;
   color: var(--bib-gold);
