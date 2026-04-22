@@ -1,0 +1,200 @@
+/* ── Citrinitas colour overrides — golden dawn ── */
+:root {
+  --cit-bg:       #0d0c06;
+  --cit-surface:  #14120a;
+  --cit-card:     #1c1a10;
+  --cit-gold:     #c9a227;
+  --cit-gold-lt:  #dbb84a;
+  --cit-amber:    #a07820;
+  --cit-dawn:     #e8c860;
+  --cit-text:     #d0c89a;
+  --cit-white:    #f0e8c8;
+}
+
+body { background-color: var(--cit-bg); }
+
+/* ── Hero ── */
+.cit-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+  overflow: hidden;
+}
+.cit-hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 45%, rgba(201,162,39,0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% 85%, rgba(13,12,6,0) 0%, var(--cit-bg) 80%),
+    var(--cit-bg);
+  z-index: 0;
+}
+.cit-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+/* ── Rising Sun SVG ── */
+.citrinitas-emblem {
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-6);
+  display: block;
+  color: var(--cit-gold);
+}
+
+/* ── Stage indicator — Citrinitas active ── */
+.stage-indicator__stage.active {
+  background: rgba(201,162,39,0.14);
+}
+.stage-indicator__stage.active .stage-indicator__name {
+  color: var(--cit-dawn);
+}
+
+/* ── Section surfaces ── */
+.section--cit {
+  background: var(--cit-surface);
+  border-top: 1px solid rgba(201,162,39,0.18);
+  border-bottom: 1px solid rgba(201,162,39,0.18);
+}
+
+/* ── Lost Stage feature panel ── */
+.lost-stage-panel {
+  background: var(--cit-card);
+  border: 1px solid rgba(201,162,39,0.28);
+  border-left: 5px solid var(--cit-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+  position: relative;
+}
+.lost-stage-panel::before {
+  content: 'THE LOST STAGE';
+  position: absolute;
+  top: calc(-1 * var(--space-3));
+  left: var(--space-4);
+  background: var(--cit-bg);
+  padding: 2px var(--space-2);
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--cit-gold);
+}
+.lost-stage-panel__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--cit-white);
+  margin-bottom: var(--space-3);
+}
+.lost-stage-panel__body {
+  font-size: var(--text-sm);
+  color: var(--cit-text);
+  line-height: 1.85;
+}
+
+/* ── Sophia pull quote ── */
+.sophia-quote {
+  background: var(--cit-card);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  margin: var(--space-8) auto;
+  max-width: 720px;
+  position: relative;
+}
+.sophia-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: var(--cit-gold);
+  opacity: 0.30;
+  line-height: 1;
+}
+.sophia-quote__text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--cit-text);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+}
+.sophia-quote__source {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cit-gold-lt);
+  opacity: 0.85;
+}
+
+/* ── Dawn gradient diagram ── */
+.dawn-diagram {
+  position: relative;
+  height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: var(--space-6) 0;
+  background: linear-gradient(
+    to right,
+    #0a0d14 0%,
+    #12110a 25%,
+    #1c1a10 40%,
+    #2a2410 55%,
+    #3a3010 65%,
+    #6a5010 78%,
+    #c9a227 90%,
+    #e8c860 100%
+  );
+}
+.dawn-diagram__label {
+  position: absolute;
+  bottom: var(--space-2);
+  font-family: var(--font-label);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240,232,200,0.70);
+}
+.dawn-diagram__label--left  { left: var(--space-3); }
+.dawn-diagram__label--mid   { left: 50%; transform: translateX(-50%); }
+.dawn-diagram__label--right { right: var(--space-3); }
+.dawn-diagram__horizon {
+  position: absolute;
+  bottom: 40px;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(201,162,39,0.30);
+}
+
+/* ── Overrides ── */
+.content-prose { color: var(--cit-text); }
+.content-prose strong { color: var(--cit-white); }
+.scripture { background: rgba(201,162,39,0.06); }
+.epigraph__text { color: var(--cit-text); }
+.two-col__label { color: var(--cit-gold-lt); border-color: rgba(201,162,39,0.25); }
+
+.transition-panel {
+  border-left-color: var(--cit-gold);
+  background: var(--cit-card);
+}
+
+/* ── Page header eyebrow colour ── */
+.page-header__eyebrow { color: var(--cit-gold); }
+.hero__eyebrow { color: var(--cit-gold); }
+.divider__glyph { color: var(--cit-gold); }
+
+/* ── Stage indicator layout ── */
+.stage-indicator {
+  max-width: 500px;
+  margin: var(--space-4) auto 0;
+}
+
+/* ── Footer theming ── */
+.site-footer {
+  background: var(--cit-surface);
+  border-top-color: rgba(201,162,39,0.20);
+}

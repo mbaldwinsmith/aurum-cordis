@@ -1,0 +1,177 @@
+/* ── Nigredo colour overrides ── */
+:root {
+  --nigredo-bg:     #080606;
+  --nigredo-surface:#100c0a;
+  --nigredo-card:   #160e0c;
+  --nigredo-red:    #7a1515;
+  --nigredo-red-lt: #a02020;
+  --nigredo-ash:    #3a3028;
+  --nigredo-text:   #c8b89a;
+}
+
+body { background-color: var(--nigredo-bg); }
+
+/* ── Hero ── */
+.ng-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+  overflow: hidden;
+}
+.ng-hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(122,21,21,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(8,6,6,0) 0%, var(--nigredo-bg) 80%),
+    var(--nigredo-bg);
+  z-index: 0;
+}
+.ng-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+/* ── Sol Niger SVG styling ── */
+.sol-niger {
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-6);
+  display: block;
+  color: var(--color-vellum-dark);
+}
+
+/* ── Stage indicator — Nigredo variant ── */
+.stage-indicator__stage.active {
+  background: rgba(122,21,21,0.20);
+}
+.stage-indicator__stage.active .stage-indicator__name {
+  color: var(--nigredo-red-lt);
+}
+
+/* ── Section backgrounds ── */
+.section--nigredo {
+  background: var(--nigredo-surface);
+  border-top: 1px solid rgba(122,21,21,0.25);
+  border-bottom: 1px solid rgba(122,21,21,0.25);
+}
+
+/* ── Process cards (2×2) ── */
+.process-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+@media (max-width: 640px) { .process-cards { grid-template-columns: 1fr; } }
+
+.process-card {
+  background: var(--nigredo-card);
+  border: 1px solid rgba(122,21,21,0.30);
+  border-left: 4px solid var(--nigredo-red);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.process-card__latin {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--nigredo-red-lt);
+  margin-bottom: 4px;
+}
+.process-card__english {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+.process-card__alch {
+  font-size: var(--text-sm);
+  color: var(--nigredo-text);
+  line-height: 1.75;
+  margin-bottom: var(--space-3);
+}
+.process-card__section-label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-sulphur-gold);
+  margin-bottom: 4px;
+}
+.process-card__christian {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Dark-Night pull quote ── */
+.dark-night-quote {
+  background: var(--nigredo-card);
+  border: 1px solid rgba(122,21,21,0.30);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  margin: var(--space-8) auto;
+  max-width: 720px;
+  position: relative;
+}
+.dark-night-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: var(--nigredo-red);
+  opacity: 0.35;
+  line-height: 1;
+}
+.dark-night-quote__text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--nigredo-text);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+}
+.dark-night-quote__source {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nigredo-red-lt);
+  opacity: 0.85;
+}
+
+/* ── Overrides for dark bg ── */
+.content-prose { color: var(--nigredo-text); }
+.content-prose strong { color: var(--color-vellum-cream); }
+.scripture { background: rgba(122,21,21,0.08); }
+.epigraph__text { color: var(--nigredo-text); }
+.two-col__label { color: var(--nigredo-red-lt); border-color: rgba(122,21,21,0.30); }
+
+.transition-panel {
+  border-left-color: var(--nigredo-red-lt);
+  background: var(--nigredo-card);
+}
+
+/* ── Page header eyebrow colour ── */
+.page-header__eyebrow { color: var(--nigredo-red-lt); }
+.hero__eyebrow { color: var(--nigredo-red-lt); }
+.divider__glyph { color: var(--nigredo-red-lt); }
+
+/* ── Stage indicator layout ── */
+.stage-indicator {
+  max-width: 500px;
+  margin: var(--space-4) auto 0;
+}
+
+/* ── Footer theming ── */
+.site-footer {
+  background: var(--nigredo-surface);
+  border-top-color: rgba(122,21,21,0.25);
+}

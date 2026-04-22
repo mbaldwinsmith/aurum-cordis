@@ -12,168 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Nigredo colour overrides ── */
-    :root {
-      --nigredo-bg:     #080606;
-      --nigredo-surface:#100c0a;
-      --nigredo-card:   #160e0c;
-      --nigredo-red:    #7a1515;
-      --nigredo-red-lt: #a02020;
-      --nigredo-ash:    #3a3028;
-      --nigredo-text:   #c8b89a;
-    }
-
-    body { background-color: var(--nigredo-bg); }
-
-    /* ── Hero ── */
-    .ng-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .ng-hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(122,21,21,0.12) 0%, transparent 65%),
-        radial-gradient(ellipse 80% 60% at 50% 80%, rgba(8,6,6,0) 0%, var(--nigredo-bg) 80%),
-        var(--nigredo-bg);
-      z-index: 0;
-    }
-    .ng-hero__content { position: relative; z-index: 1; max-width: 760px; }
-
-    /* ── Sol Niger SVG styling ── */
-    .sol-niger {
-      width: 160px; height: 160px;
-      margin: 0 auto var(--space-6);
-      display: block;
-      color: var(--color-vellum-dark);
-    }
-
-    /* ── Stage indicator — Nigredo variant ── */
-    .stage-indicator__stage.active {
-      background: rgba(122,21,21,0.20);
-    }
-    .stage-indicator__stage.active .stage-indicator__name {
-      color: var(--nigredo-red-lt);
-    }
-
-    /* ── Section backgrounds ── */
-    .section--nigredo {
-      background: var(--nigredo-surface);
-      border-top: 1px solid rgba(122,21,21,0.25);
-      border-bottom: 1px solid rgba(122,21,21,0.25);
-    }
-
-    /* ── Process cards (2×2) ── */
-    .process-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-4);
-      margin: var(--space-6) 0;
-    }
-    @media (max-width: 640px) { .process-cards { grid-template-columns: 1fr; } }
-
-    .process-card {
-      background: var(--nigredo-card);
-      border: 1px solid rgba(122,21,21,0.30);
-      border-left: 4px solid var(--nigredo-red);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-    }
-    .process-card__latin {
-      font-family: var(--font-heading);
-      font-style: italic;
-      font-size: var(--text-lg);
-      color: var(--nigredo-red-lt);
-      margin-bottom: 4px;
-    }
-    .process-card__english {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-3);
-    }
-    .process-card__alch {
-      font-size: var(--text-sm);
-      color: var(--nigredo-text);
-      line-height: 1.75;
-      margin-bottom: var(--space-3);
-    }
-    .process-card__section-label {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--color-sulphur-gold);
-      margin-bottom: 4px;
-    }
-    .process-card__christian {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    /* ── Dark-Night pull quote ── */
-    .dark-night-quote {
-      background: var(--nigredo-card);
-      border: 1px solid rgba(122,21,21,0.30);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-6);
-      text-align: center;
-      margin: var(--space-8) auto;
-      max-width: 720px;
-      position: relative;
-    }
-    .dark-night-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: var(--space-2);
-      left: var(--space-4);
-      font-family: var(--font-heading);
-      font-size: 5rem;
-      color: var(--nigredo-red);
-      opacity: 0.35;
-      line-height: 1;
-    }
-    .dark-night-quote__text {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: var(--text-lg);
-      color: var(--nigredo-text);
-      line-height: 1.65;
-      margin-bottom: var(--space-4);
-    }
-    .dark-night-quote__source {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--nigredo-red-lt);
-      opacity: 0.85;
-    }
-
-    /* ── Overrides for dark bg ── */
-    .content-prose { color: var(--nigredo-text); }
-    .content-prose strong { color: var(--color-vellum-cream); }
-    .scripture { background: rgba(122,21,21,0.08); }
-    .epigraph__text { color: var(--nigredo-text); }
-    .two-col__label { color: var(--nigredo-red-lt); border-color: rgba(122,21,21,0.30); }
-
-    .transition-panel {
-      border-left-color: var(--nigredo-red-lt);
-      background: var(--nigredo-card);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/nigredo.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -287,14 +126,14 @@
         <line x1="52" y1="80" x2="108" y2="80" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
       </svg>
 
-      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--nigredo-red-lt);">Stage I of the Opus Magnum</p>
+      <p class="hero__eyebrow animate-on-scroll delay-1">Stage I of the Opus Magnum</p>
       <h1 class="hero__title animate-on-scroll delay-2" id="ng-title">Nigredo</h1>
       <p class="hero__subtitle animate-on-scroll delay-3">
         The Black Phase: putrefaction, death, dissolution
       </p>
 
       <!-- Stage indicator -->
-      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+      <div class="stage-indicator animate-on-scroll delay-4" role="list" aria-label="Opus Magnum stages">
         <div class="stage-indicator__stage active" role="listitem">
           <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
           <span class="stage-indicator__name">Nigredo</span>
@@ -322,12 +161,12 @@
     <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--nigredo-red-lt);">Alchemical Theory</p>
-        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Necessary Blackening
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             Every serious alchemist knew that the Opus Magnum began in darkness. Before the silver of
             Albedo, before the gold of Rubedo, before the crowning achievement of the Philosopher's Stone,
@@ -351,7 +190,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+        <div class="content-prose content-prose--full animate-on-scroll" style="margin-top:var(--space-4);">
           <h3>The Raven and the Black Sun</h3>
           <p>
             The iconography of Nigredo is precise and powerful. The most common emblem is the
@@ -418,13 +257,13 @@
     <section class="section section--nigredo" id="christian-correlates" aria-labelledby="christian-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--nigredo-red-lt);">Christian Theological Correlates</p>
-        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="christian-title" class=" section-headinganimate-on-scroll">
           Good Friday, the Dark Night, and the Harrowing
         </h2>
 
         <!-- Passion -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>I. The Passion: The <span class="latin">Sol Niger</span> of Salvation History</h3>
           <p>
             The crucifixion of Christ is, on any serious theological reading, the most concentrated
@@ -457,10 +296,10 @@
           <cite>Matthew 27:45–46</cite>
         </blockquote>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Dark Night -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>II. The Dark Night of the Soul</h3>
           <p>
             <strong>John of the Cross</strong> (1542–1591), the Spanish Carmelite mystic and theologian,
@@ -501,10 +340,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Baptismal death -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>III. Baptismal Death and the Font as Crucible</h3>
           <p>
             Paul's theology of baptism in Romans 6 is alchemical Nigredo in its most liturgically
@@ -523,10 +362,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Descensus -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>IV. The <span class="latin">Descensus ad Inferos</span>: The Supreme Nigredo</h3>
           <p>
             The article of the Creed that has attracted the most theological controversy and the most
@@ -553,10 +392,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--nigredo-red-lt);">✠</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Exile motif -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>V. The Exile as Nigredo</h3>
           <p>
             The wilderness motif runs through Scripture as one of its great structuring images.
@@ -587,12 +426,12 @@
     <section class="section" id="jungian-dimension" aria-labelledby="jung-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--nigredo-red-lt);">Jungian Dimension</p>
-        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class=" section-headinganimate-on-scroll">
           The Shadow, the Breakdown, and the Beginning
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Nigredo and the Shadow</h3>
           <p>
             For Jung, the opening of the Opus Magnum in the psyche is the confrontation with the
@@ -612,7 +451,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Depression, Grief, and Crisis as Nigredo</h3>
           <p>
             One of the most important — and most contested — aspects of Jung's alchemical psychology
@@ -632,7 +471,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Trickster in the Dark</h3>
           <p>
             Nigredo is also the terrain of the <strong>Trickster</strong> archetype — the figure of
@@ -653,7 +492,7 @@
         </div>
 
         <div class="epigraph animate-on-scroll">
-          <p class="epigraph__text" style="color:var(--nigredo-text);">
+          <p class="epigraph__text">
             "The nigredo… is the initial state of unconsciousness and darkness which every
             individuation process begins with. It is a real state of chaos, a darkness and
             confusion in which the ego is dissolved."
@@ -719,7 +558,7 @@
 
   </main>
 
-  <footer class="site-footer" style="background:var(--nigredo-surface); border-top-color:rgba(122,21,21,0.25);">
+  <footer class="site-footer">
     <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="4" fill="currentColor"/>

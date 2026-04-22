@@ -1,0 +1,71 @@
+/* ── Home-page specific components ── */
+
+/* Pull quote in intro */
+.home-pull-quote {
+  border: none;
+  border-left: 3px solid var(--color-gold);
+  margin: var(--space-8) 0 0;
+  padding: var(--space-5) var(--space-6);
+  background: rgba(201,162,39,0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.home-pull-quote__text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.2vw, 1.40rem);
+  color: var(--color-text-light);
+  line-height: 1.65;
+  margin-bottom: var(--space-3);
+}
+.home-pull-quote__source {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Three Lenses section */
+.lenses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+@media (max-width: 720px) { .lenses-grid { grid-template-columns: 1fr; } }
+
+.lens-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--lens-color, var(--color-gold));
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+.lens-panel__glyph {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+.lens-panel__kicker {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lens-color, var(--color-gold));
+  margin-bottom: var(--space-2);
+}
+.lens-panel__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-3);
+}
+.lens-panel__body {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.78;
+}
+.lens--alch { --lens-color: #c9a227; }
+.lens--theo { --lens-color: #9ab0c0; }
+.lens--jung { --lens-color: #4a6880; }

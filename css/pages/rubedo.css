@@ -1,0 +1,214 @@
+/* ── Rubedo colour overrides — crimson and gold ── */
+:root {
+  --rub-bg:      #0e0608;
+  --rub-surface: #160a0c;
+  --rub-card:    #1e0e10;
+  --rub-red:     #8b1a1a;
+  --rub-red-lt:  #c42828;
+  --rub-crimson: #a01818;
+  --rub-gold:    #c9a227;
+  --rub-gold-lt: #dbb84a;
+  --rub-text:    #d4b0a8;
+  --rub-white:   #f0e0d8;
+}
+
+body { background-color: var(--rub-bg); }
+
+/* ── Hero ── */
+.rub-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+  overflow: hidden;
+}
+.rub-hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 45%, rgba(139,26,26,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 35% at 50% 45%, rgba(201,162,39,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 50% 85%, rgba(14,6,8,0) 0%, var(--rub-bg) 80%),
+    var(--rub-bg);
+  z-index: 0;
+}
+.rub-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+/* ── Phoenix SVG colour ── */
+.phoenix-emblem {
+  width: 180px; height: 180px;
+  margin: 0 auto var(--space-6);
+  display: block;
+  color: var(--rub-red-lt);
+}
+
+/* ── Stage indicator — Rubedo active ── */
+.stage-indicator__stage.active {
+  background: rgba(139,26,26,0.20);
+}
+.stage-indicator__stage.active .stage-indicator__name {
+  color: var(--rub-gold-lt);
+}
+.stage-indicator__stage.completed .stage-indicator__glyph {
+  opacity: 0.60;
+}
+
+/* ── Section surfaces ── */
+.section--rub {
+  background: var(--rub-surface);
+  border-top: 1px solid rgba(139,26,26,0.28);
+  border-bottom: 1px solid rgba(139,26,26,0.28);
+}
+
+/* ── Process cards (2×2) ── */
+.process-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+@media (max-width: 640px) { .process-cards { grid-template-columns: 1fr; } }
+
+.process-card {
+  background: var(--rub-card);
+  border: 1px solid rgba(139,26,26,0.32);
+  border-left: 4px solid var(--rub-red-lt);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.process-card__latin {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--rub-gold-lt);
+  margin-bottom: 4px;
+}
+.process-card__english {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+.process-card__alch {
+  font-size: var(--text-sm);
+  color: var(--rub-text);
+  line-height: 1.75;
+  margin-bottom: var(--space-3);
+}
+.process-card__section-label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--rub-gold);
+  margin-bottom: 4px;
+}
+.process-card__christian {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Coniunctio diagram ── */
+.coniunctio-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin: var(--space-8) 0;
+}
+.coniunctio-diagram__arrow {
+  font-size: 1.5rem;
+  color: var(--rub-gold);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+.coniunctio-diagram__label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+.coniunctio-diagram__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Pelican feature ── */
+.pelican-panel {
+  background: var(--rub-card);
+  border: 1px solid rgba(201,162,39,0.22);
+  border-top: 4px solid var(--rub-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+@media (max-width: 640px) { .pelican-panel { grid-template-columns: 1fr; } }
+.pelican-panel__verse {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--rub-text);
+  line-height: 1.85;
+  border-left: 3px solid rgba(201,162,39,0.35);
+  padding-left: var(--space-3);
+  margin: var(--space-3) 0;
+}
+.pelican-panel__source {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rub-gold);
+  margin-top: var(--space-3);
+}
+.pelican-panel__body {
+  font-size: var(--text-sm);
+  color: var(--rub-text);
+  line-height: 1.8;
+  margin-bottom: var(--space-3);
+}
+
+/* ── Overrides ── */
+.content-prose { color: var(--rub-text); }
+.content-prose strong { color: var(--rub-white); }
+.scripture { background: rgba(139,26,26,0.07); }
+.epigraph__text { color: var(--rub-text); }
+.two-col__label { color: var(--rub-gold-lt); border-color: rgba(139,26,26,0.30); }
+
+.transition-panel {
+  border-left-color: var(--rub-gold);
+  background: var(--rub-card);
+}
+
+/* ── Page header eyebrow colour ── */
+.page-header__eyebrow { color: var(--rub-gold); }
+.hero__eyebrow { color: var(--rub-gold); }
+.divider__glyph { color: var(--rub-red-lt); }
+
+/* ── Stage indicator layout ── */
+.stage-indicator {
+  max-width: 500px;
+  margin: var(--space-4) auto 0;
+}
+
+/* ── Footer theming ── */
+.site-footer {
+  background: var(--rub-surface);
+  border-top-color: rgba(139,26,26,0.25);
+}

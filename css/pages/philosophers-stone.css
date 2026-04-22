@@ -1,0 +1,190 @@
+/* ── Philosopher's Stone colour overrides — radiant gold-white ── */
+:root {
+  --lap-bg:       #080806;
+  --lap-surface:  #100e08;
+  --lap-card:     #18160c;
+  --lap-gold:     #c9a227;
+  --lap-gold-lt:  #dbb84a;
+  --lap-gold-dim: #8a6e18;
+  --lap-white:    #f0e8cc;
+  --lap-text:     #d0c490;
+  --lap-cream:    #e8dca8;
+}
+
+body { background-color: var(--lap-bg); }
+
+/* ── Hero ── */
+.lap-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+  overflow: hidden;
+}
+.lap-hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(201,162,39,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 30% at 50% 42%, rgba(219,184,74,0.08) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 60% at 50% 85%, rgba(8,8,6,0) 0%, var(--lap-bg) 80%),
+    var(--lap-bg);
+  z-index: 0;
+}
+.lap-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+/* ── Ouroboros SVG ── */
+.ouroboros-emblem {
+  width: 180px; height: 180px;
+  margin: 0 auto var(--space-6);
+  display: block;
+  color: var(--lap-gold);
+}
+
+/* ── Lapis noster pull quote ── */
+.lapis-quote {
+  background: var(--lap-card);
+  border: 1px solid rgba(201,162,39,0.30);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  margin: var(--space-8) auto;
+  max-width: 680px;
+  position: relative;
+}
+.lapis-quote__latin {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--lap-gold-lt);
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.04em;
+}
+.lapis-quote__translation {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--lap-text);
+  opacity: 0.75;
+  margin-bottom: var(--space-4);
+}
+.lapis-quote__commentary {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--lap-text);
+  line-height: 1.80;
+  border-top: 1px solid rgba(201,162,39,0.18);
+  padding-top: var(--space-4);
+  text-align: left;
+}
+.lapis-quote__source {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lap-gold-dim);
+  margin-bottom: var(--space-3);
+}
+
+/* ── Section surfaces ── */
+.section--lap {
+  background: var(--lap-surface);
+  border-top: 1px solid rgba(201,162,39,0.18);
+  border-bottom: 1px solid rgba(201,162,39,0.18);
+}
+
+/* ── Comparison table ── */
+.stone-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+  font-size: var(--text-sm);
+}
+.stone-table th {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lap-gold);
+  border-bottom: 2px solid rgba(201,162,39,0.30);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+.stone-table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid rgba(201,162,39,0.10);
+  color: var(--lap-text);
+  line-height: 1.65;
+  vertical-align: top;
+}
+.stone-table tr:hover td {
+  background: rgba(201,162,39,0.04);
+}
+.stone-table td:first-child {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--lap-gold-lt);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .stone-table, .stone-table thead, .stone-table tbody, .stone-table tr, .stone-table td, .stone-table th {
+    display: block;
+  }
+  .stone-table thead { display: none; }
+  .stone-table td { border-bottom: none; padding: var(--space-2) var(--space-3); }
+  .stone-table tr { border-bottom: 1px solid rgba(201,162,39,0.14); margin-bottom: var(--space-3); }
+}
+
+/* ── Grace as tincture closing panel ── */
+.tincture-panel {
+  background: var(--lap-card);
+  border: 1px solid rgba(201,162,39,0.22);
+  border-left: 5px solid var(--lap-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+}
+.tincture-panel__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--lap-white);
+  margin-bottom: var(--space-4);
+}
+.tincture-panel__body {
+  font-size: var(--text-sm);
+  color: var(--lap-text);
+  line-height: 1.85;
+}
+.tincture-panel__body + .tincture-panel__body {
+  margin-top: var(--space-3);
+}
+
+/* ── Overrides ── */
+.content-prose { color: var(--lap-text); }
+.content-prose strong { color: var(--lap-white); }
+.scripture { background: rgba(201,162,39,0.06); }
+.epigraph__text { color: var(--lap-text); }
+
+.transition-panel {
+  border-left-color: var(--lap-gold);
+  background: var(--lap-card);
+}
+
+/* ── Page header eyebrow colour ── */
+.page-header__eyebrow { color: var(--lap-gold); }
+.hero__eyebrow { color: var(--lap-gold); }
+.divider__glyph { color: var(--lap-gold); }
+
+/* ── Stage indicator layout ── */
+.stage-indicator {
+  max-width: 500px;
+  margin: var(--space-4) auto 0;
+}
+
+/* ── Footer theming ── */
+.site-footer {
+  background: var(--lap-surface);
+  border-top-color: rgba(201,162,39,0.18);
+}

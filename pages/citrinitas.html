@@ -12,191 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Citrinitas colour overrides — golden dawn ── */
-    :root {
-      --cit-bg:       #0d0c06;
-      --cit-surface:  #14120a;
-      --cit-card:     #1c1a10;
-      --cit-gold:     #c9a227;
-      --cit-gold-lt:  #dbb84a;
-      --cit-amber:    #a07820;
-      --cit-dawn:     #e8c860;
-      --cit-text:     #d0c89a;
-      --cit-white:    #f0e8c8;
-    }
-
-    body { background-color: var(--cit-bg); }
-
-    /* ── Hero ── */
-    .cit-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .cit-hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 55% at 50% 45%, rgba(201,162,39,0.13) 0%, transparent 65%),
-        radial-gradient(ellipse 80% 60% at 50% 85%, rgba(13,12,6,0) 0%, var(--cit-bg) 80%),
-        var(--cit-bg);
-      z-index: 0;
-    }
-    .cit-hero__content { position: relative; z-index: 1; max-width: 760px; }
-
-    /* ── Rising Sun SVG ── */
-    .citrinitas-emblem {
-      width: 160px; height: 160px;
-      margin: 0 auto var(--space-6);
-      display: block;
-      color: var(--cit-gold);
-    }
-
-    /* ── Stage indicator — Citrinitas active ── */
-    .stage-indicator__stage.active {
-      background: rgba(201,162,39,0.14);
-    }
-    .stage-indicator__stage.active .stage-indicator__name {
-      color: var(--cit-dawn);
-    }
-
-    /* ── Section surfaces ── */
-    .section--cit {
-      background: var(--cit-surface);
-      border-top: 1px solid rgba(201,162,39,0.18);
-      border-bottom: 1px solid rgba(201,162,39,0.18);
-    }
-
-    /* ── Lost Stage feature panel ── */
-    .lost-stage-panel {
-      background: var(--cit-card);
-      border: 1px solid rgba(201,162,39,0.28);
-      border-left: 5px solid var(--cit-gold);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      margin: var(--space-8) 0;
-      position: relative;
-    }
-    .lost-stage-panel::before {
-      content: 'THE LOST STAGE';
-      position: absolute;
-      top: calc(-1 * var(--space-3));
-      left: var(--space-4);
-      background: var(--cit-bg);
-      padding: 2px var(--space-2);
-      font-family: var(--font-label);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      color: var(--cit-gold);
-    }
-    .lost-stage-panel__title {
-      font-family: var(--font-heading);
-      font-size: var(--text-xl);
-      color: var(--cit-white);
-      margin-bottom: var(--space-3);
-    }
-    .lost-stage-panel__body {
-      font-size: var(--text-sm);
-      color: var(--cit-text);
-      line-height: 1.85;
-    }
-
-    /* ── Sophia pull quote ── */
-    .sophia-quote {
-      background: var(--cit-card);
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-6);
-      text-align: center;
-      margin: var(--space-8) auto;
-      max-width: 720px;
-      position: relative;
-    }
-    .sophia-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: var(--space-2);
-      left: var(--space-4);
-      font-family: var(--font-heading);
-      font-size: 5rem;
-      color: var(--cit-gold);
-      opacity: 0.30;
-      line-height: 1;
-    }
-    .sophia-quote__text {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: var(--text-lg);
-      color: var(--cit-text);
-      line-height: 1.65;
-      margin-bottom: var(--space-4);
-    }
-    .sophia-quote__source {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--cit-gold-lt);
-      opacity: 0.85;
-    }
-
-    /* ── Dawn gradient diagram ── */
-    .dawn-diagram {
-      position: relative;
-      height: 120px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      margin: var(--space-6) 0;
-      background: linear-gradient(
-        to right,
-        #0a0d14 0%,
-        #12110a 25%,
-        #1c1a10 40%,
-        #2a2410 55%,
-        #3a3010 65%,
-        #6a5010 78%,
-        #c9a227 90%,
-        #e8c860 100%
-      );
-    }
-    .dawn-diagram__label {
-      position: absolute;
-      bottom: var(--space-2);
-      font-family: var(--font-label);
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(240,232,200,0.70);
-    }
-    .dawn-diagram__label--left  { left: var(--space-3); }
-    .dawn-diagram__label--mid   { left: 50%; transform: translateX(-50%); }
-    .dawn-diagram__label--right { right: var(--space-3); }
-    .dawn-diagram__horizon {
-      position: absolute;
-      bottom: 40px;
-      left: 0; right: 0;
-      height: 1px;
-      background: rgba(201,162,39,0.30);
-    }
-
-    /* ── Overrides ── */
-    .content-prose { color: var(--cit-text); }
-    .content-prose strong { color: var(--cit-white); }
-    .scripture { background: rgba(201,162,39,0.06); }
-    .epigraph__text { color: var(--cit-text); }
-    .two-col__label { color: var(--cit-gold-lt); border-color: rgba(201,162,39,0.25); }
-
-    .transition-panel {
-      border-left-color: var(--cit-gold);
-      background: var(--cit-card);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/citrinitas.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -316,14 +132,14 @@
         <line x1="64" y1="62" x2="96" y2="62" stroke="currentColor" stroke-width="0.8" opacity="0.40"/>
       </svg>
 
-      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--cit-gold);">Stage III of the Opus Magnum</p>
+      <p class="hero__eyebrow animate-on-scroll delay-1">Stage III of the Opus Magnum</p>
       <h1 class="hero__title animate-on-scroll delay-2" id="cit-title">Citrinitas</h1>
       <p class="hero__subtitle animate-on-scroll delay-3">
         The Yellow Phase: the dawn, the solar awakening, wisdom emerging
       </p>
 
       <!-- Stage indicator -->
-      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+      <div class="stage-indicator animate-on-scroll delay-4" role="list" aria-label="Opus Magnum stages">
         <div class="stage-indicator__stage" role="listitem">
           <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
           <span class="stage-indicator__name">Nigredo</span>
@@ -351,12 +167,12 @@
     <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--cit-gold);">Alchemical Theory</p>
-        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Yellowing: Dawn Before the Solar Noon
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             After the silver quiet of Albedo, the matter enters its most transitional and elusive phase.
             <span class="alchemical-term">Citrinitas</span> — the yellowing, the <span class="latin">xanthosis</span>
@@ -428,13 +244,13 @@
     <section class="section section--cit" id="christian-correlates" aria-labelledby="christian-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--cit-gold);">Christian Theological Correlates</p>
-        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="christian-title" class=" section-headinganimate-on-scroll">
           Ascension, Sophia, and the Silence Before Pentecost
         </h2>
 
         <!-- Ascension -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>I. The Ascension: Forty Days of Citrinitas</h3>
           <p>
             If the Christian salvation narrative is mapped onto the four stages of the Opus — Nigredo
@@ -463,10 +279,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--cit-gold);">☉</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☉</span></div>
 
         <!-- Sophia / Proverbs 8 -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>II. Sapientia: Wisdom's Speech in Proverbs 8</h3>
           <p>
             Citrinitas is the stage at which <strong>Sophia</strong> — divine Wisdom — begins to make
@@ -489,7 +305,7 @@
           <cite>Proverbs 8:22–23, 27, 30–31</cite>
         </blockquote>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             This is the voice of Citrinitas: not the silence of Albedo's moonlit receptivity,
             but the first clear speech of wisdom, the voice that was "constantly at his side"
@@ -511,10 +327,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--cit-gold);">☉</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☉</span></div>
 
         <!-- Bulgakov / Sophiology -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>III. Bulgakov's Sophiology: The World as Citrinitas</h3>
           <p>
             The Russian Orthodox theologian <strong>Sergei Bulgakov</strong> (1871–1944) developed
@@ -548,10 +364,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--cit-gold);">☉</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☉</span></div>
 
         <!-- Doctors / scientia vs sapientia -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>IV. <span class="latin">Sapientia</span> vs <span class="latin">Scientia</span>: The Theologians of Dawn</h3>
           <p>
             The scholastic tradition distinguished sharply between <span class="latin">scientia</span>
@@ -576,10 +392,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--cit-gold);">☉</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☉</span></div>
 
         <!-- Beatitudes -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>V. "Blessed are the Pure in Heart": The Seeing Begins</h3>
           <p>
             The sixth Beatitude — "Blessed are the pure in heart, for they shall see God"
@@ -607,12 +423,12 @@
     <section class="section" id="jungian-dimension" aria-labelledby="jung-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--cit-gold);">Jungian Dimension</p>
-        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class=" section-headinganimate-on-scroll">
           The Dawning Self and the Threshold of Individuation
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Jung's Silence on Citrinitas — and What It Reveals</h3>
           <p>
             It is telling that Jung, whose alchemical studies were so comprehensive and detailed,
@@ -635,7 +451,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Senex and the Puer: The Old King Dissolving</h3>
           <p>
             In Jungian typology, Citrinitas is the zone of tension between the
@@ -655,7 +471,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Wisdom Displacing Reaction</h3>
           <p>
             The positive achievement of Citrinitas, in psychological terms, is the emergence of
@@ -677,7 +493,7 @@
         </div>
 
         <div class="epigraph animate-on-scroll">
-          <p class="epigraph__text" style="color:var(--cit-text);">
+          <p class="epigraph__text">
             "Wisdom is… a reflection of eternal light,
             a spotless mirror of the working of God,
             and an image of his goodness.
@@ -753,7 +569,7 @@
 
   </main>
 
-  <footer class="site-footer" style="background:var(--cit-surface); border-top-color:rgba(201,162,39,0.20);">
+  <footer class="site-footer">
     <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="4" fill="currentColor"/>
