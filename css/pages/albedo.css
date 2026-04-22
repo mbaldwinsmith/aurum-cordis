@@ -45,6 +45,7 @@ body { background-color: var(--albedo-bg); }
 /* ── Stage indicator — Albedo active ── */
 .stage-indicator__stage.active {
   background: rgba(139,160,184,0.15);
+  box-shadow: inset 0 0 0 2px var(--albedo-moon);
 }
 .stage-indicator__stage.active .stage-indicator__name {
   color: var(--albedo-silver-lt);
