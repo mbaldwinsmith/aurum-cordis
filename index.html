@@ -7,7 +7,10 @@
   <meta property="og:title" content="Aurum Cordis — The Golden Heart" />
   <meta property="og:description" content="The Opus Magnum as Christian Way: Alchemy, Theology, and the Soul's Transformation." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://mbaldwinsmith.github.io/aurum-cordis/assets/diagrams/aurum-cordis.png" />
+  <meta property="og:url" content="https://mbaldwinsmith.github.io/aurum-cordis/" />
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://mbaldwinsmith.github.io/aurum-cordis/assets/diagrams/aurum-cordis.png" />
   <title>Aurum Cordis — The Golden Heart</title>
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/animations.css" />
@@ -137,7 +140,7 @@
         <p class="epigraph__source">Rosarium Philosophorum</p>
       </div>
 
-      <h2 id="intro-title" class=" section-heading section-heading--smanimate-on-scroll">
+      <h2 id="intro-title" class="section-heading section-heading--sm animate-on-scroll">
         What Is This Site?
       </h2>
 
@@ -355,6 +358,33 @@
     </div>
   </section>
 
+  <!-- Starter Site Search -->
+  <section class="section" aria-labelledby="search-title">
+    <div class="container container--narrow">
+      <h2 id="search-title" class="section-heading section-heading--xs text-center animate-on-scroll">
+        Find a Passage
+      </h2>
+      <p class="text-center animate-on-scroll" style="font-style: italic; color: var(--color-text-muted);">
+        Search chapter titles and themes across the corpus.
+      </p>
+      <div class="home-search animate-on-scroll" data-site-search>
+        <label class="home-search__label" for="home-search-input">Search chapters</label>
+        <input
+          id="home-search-input"
+          class="home-search__input"
+          type="search"
+          placeholder="Try “Nigredo”, “Sophia”, “Pentecost”, “Prima Materia”…"
+          autocomplete="off"
+          aria-describedby="home-search-help"
+        />
+        <p id="home-search-help" class="home-search__help">
+          Press <kbd>/</kbd> to focus search from anywhere on this page.
+        </p>
+        <ul class="home-search__results" id="home-search-results" role="list" aria-live="polite"></ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer">
     <img class="site-footer__sigil" src="assets/diagrams/heart-sigil.png" width="48" height="48" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -374,5 +404,6 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
 </body>
 </html>
