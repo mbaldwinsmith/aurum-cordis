@@ -81,65 +81,7 @@
   <section id="main-content" class="opus-hero" aria-labelledby="opus-title">
     <div class="opus-hero__bg" aria-hidden="true"></div>
     <div class="opus-hero__content">
-
-      <!-- Interactive four-stage wheel SVG -->
-      <svg class="opus-wheel animate-on-scroll" viewBox="0 0 400 400" fill="none"
-           xmlns="http://www.w3.org/2000/svg"
-           role="img"
-           aria-label="The Opus Magnum wheel: four clickable stage segments — Nigredo, Albedo, Citrinitas, Rubedo — surrounding the Philosopher's Stone at the centre">
-
-        <!-- Clean outer boundary ring -->
-        <circle cx="200" cy="200" r="175" stroke="rgba(201,162,39,0.22)" stroke-width="1" fill="none"/>
-
-        <!-- Stage I — Nigredo (top-right, 0°→90°) -->
-        <a href="nigredo.html" class="wheel-link" aria-label="Nigredo — the Black Phase. Click to explore.">
-          <path class="wheel-segment wheel-segment--nigredo"
-                d="M 200 25 A 175 175 0 0 1 375 200 L 252 200 A 52 52 0 0 0 200 148 Z"/>
-          <text x="280" y="116" class="wheel-label" text-anchor="middle">NIGREDO</text>
-          <text x="280" y="134" class="wheel-sublabel" text-anchor="middle">Blackening · I</text>
-        </a>
-
-        <!-- Stage II — Albedo (bottom-right, 90°→180°) -->
-        <a href="albedo.html" class="wheel-link" aria-label="Albedo — the White Phase. Click to explore.">
-          <path class="wheel-segment wheel-segment--albedo"
-                d="M 375 200 A 175 175 0 0 1 200 375 L 200 252 A 52 52 0 0 0 252 200 Z"/>
-          <text x="280" y="278" class="wheel-label" text-anchor="middle">ALBEDO</text>
-          <text x="280" y="296" class="wheel-sublabel" text-anchor="middle">Whitening · II</text>
-        </a>
-
-        <!-- Stage III — Citrinitas (bottom-left, 180°→270°) -->
-        <a href="citrinitas.html" class="wheel-link" aria-label="Citrinitas — the Golden Dawn. Click to explore.">
-          <path class="wheel-segment wheel-segment--citrinitas"
-                d="M 200 375 A 175 175 0 0 1 25 200 L 148 200 A 52 52 0 0 0 200 252 Z"/>
-          <text x="120" y="278" class="wheel-label" text-anchor="middle">CITRINITAS</text>
-          <text x="120" y="296" class="wheel-sublabel" text-anchor="middle">Dawning · III</text>
-        </a>
-
-        <!-- Stage IV — Rubedo (top-left, 270°→360°) -->
-        <a href="rubedo.html" class="wheel-link" aria-label="Rubedo — the Red Phase. Click to explore.">
-          <path class="wheel-segment wheel-segment--rubedo"
-                d="M 25 200 A 175 175 0 0 1 200 25 L 200 148 A 52 52 0 0 0 148 200 Z"/>
-          <text x="120" y="116" class="wheel-label" text-anchor="middle">RUBEDO</text>
-          <text x="120" y="134" class="wheel-sublabel" text-anchor="middle">Reddening · IV</text>
-        </a>
-
-        <!-- Dividing spokes — run from inner circle edge to outer circle edge -->
-        <line x1="200" y1="25"  x2="200" y2="148" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
-        <line x1="375" y1="200" x2="252" y2="200" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
-        <line x1="200" y1="375" x2="200" y2="252" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
-        <line x1="25"  y1="200" x2="148" y2="200" stroke="rgba(201,162,39,0.22)" stroke-width="1.2"/>
-
-        <!-- Central circle — Philosopher's Stone -->
-        <a href="philosophers-stone.html" class="wheel-link" aria-label="The Philosopher's Stone — click to explore">
-          <circle cx="200" cy="200" r="52" class="wheel-center"/>
-          <!-- Crosshair aligned to spoke endpoints -->
-          <line x1="148" y1="200" x2="252" y2="200" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
-          <line x1="200" y1="148" x2="200" y2="252" stroke="rgba(7,7,14,0.45)" stroke-width="1"/>
-          <text x="200" y="195" class="wheel-center-label" text-anchor="middle">LAPIS</text>
-          <text x="200" y="214" class="wheel-center-sublabel" text-anchor="middle">Philosophorum</text>
-        </a>
-
-      </svg>
+      <img class="opus-wheel animate-on-scroll" src="../assets/diagrams/opus-magnum.png" alt="The Opus Magnum wheel: four stage segments — Nigredo, Albedo, Citrinitas, Rubedo — surrounding the Philosopher's Stone at the centre" />
 
       <h1 class="hero__title" id="opus-title">The Opus Magnum</h1>
       <p class="hero__subtitle">The Great Work — a unified map of Christian alchemical transformation</p>
