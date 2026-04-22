@@ -141,6 +141,15 @@
   .nav__dropdown.is-open .nav__dropdown-menu {
     display: flex;
   }
+
+  .nav__dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;
+    height: 6px;
+  }
 }
 
 @media (max-width: 900px) {
