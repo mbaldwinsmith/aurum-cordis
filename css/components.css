@@ -1028,3 +1028,44 @@ sup.footnote-ref:hover {
   line-height: 1.65;
   margin-top: auto;
 }
+
+/* ============================================================
+   LAZY IMAGE LOADING — shimmer placeholders
+   ============================================================ */
+
+/* Module cards: gold-on-dark shimmer while background image is fetching.
+   The [data-bg] attribute is set in HTML; JS applies the real background
+   once the image has loaded and adds .is-bg-loaded to stop the shimmer. */
+.module-card[data-bg]:not(.is-bg-loaded) {
+  background: linear-gradient(
+    110deg,
+    rgba(14, 11, 8, 1) 0%,
+    rgba(38, 29, 9, 1) 30%,
+    rgba(58, 44, 8, 0.95) 50%,
+    rgba(38, 29, 9, 1) 70%,
+    rgba(14, 11, 8, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* <img> elements: shimmer shows through while the image is downloading
+   (browsers render CSS background-color/background on img elements during load).
+   JS adds .img-lazy via initImageFade(), then .is-loaded on the load event. */
+img.img-lazy {
+  background: linear-gradient(
+    110deg,
+    rgba(20, 16, 10, 1) 0%,
+    rgba(42, 32, 9, 0.85) 35%,
+    rgba(60, 46, 8, 0.75) 50%,
+    rgba(42, 32, 9, 0.85) 65%,
+    rgba(20, 16, 10, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+img.img-lazy.is-loaded {
+  animation: none;
+  background: transparent;
+}
