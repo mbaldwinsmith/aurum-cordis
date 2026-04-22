@@ -12,92 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Page-specific overrides ── */
-    .pm-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .pm-hero__bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 50%, rgba(14, 11, 8, 0) 30%, rgba(14, 11, 8, 1) 85%),
-        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(58, 90, 64, 0.10) 0%, transparent 70%),
-        var(--color-furnace-black);
-      z-index: 0;
-    }
-    .pm-hero__content { position: relative; z-index: 1; max-width: 780px; }
-
-    .vitriol-feature {
-      background: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-left: 4px solid var(--color-vitriol-green);
-      border-radius: var(--radius-md);
-      padding: var(--space-6);
-      margin: var(--space-8) 0;
-    }
-    .vitriol-feature__acronym {
-      font-family: var(--font-label);
-      font-size: var(--text-2xl);
-      letter-spacing: 0.3em;
-      color: var(--color-vitriol-green);
-      display: block;
-      margin-bottom: var(--space-4);
-      line-height: 1;
-    }
-    .vitriol-feature__expansion {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: var(--text-md);
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-4);
-    }
-    .vitriol-letters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: var(--space-2);
-      margin-top: var(--space-4);
-    }
-    .vitriol-letter {
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-2);
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-    }
-    .vitriol-letter__initial {
-      font-family: var(--font-label);
-      font-size: var(--text-lg);
-      color: var(--color-vitriol-green);
-      flex-shrink: 0;
-      min-width: 1.2ch;
-    }
-
-    .names-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin: var(--space-4) 0;
-    }
-    .names-cloud__term {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.08em;
-      padding: 4px var(--space-2);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-full);
-      color: var(--color-vellum-dark);
-      background: var(--color-bg-surface);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/prima-materia.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -273,7 +188,7 @@
 
           <div class="two-col__left">
             <p class="two-col__label">I. Alchemical Foundation</p>
-            <h2 id="alch-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-4);">
+            <h2 id="alch-title" class=" section-heading section-heading--smanimate-on-scroll">
               The First Substance
             </h2>
 
@@ -383,12 +298,12 @@
       <div class="container container--narrow">
 
         <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
-        <h2 id="christian-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-6);">
+        <h2 id="christian-title" class=" section-headinganimate-on-scroll">
           Chaos, Creation, and the Descending Word
         </h2>
 
         <!-- Tohu wa-bohu -->
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>I. <span class="latin">Tohu wa-Bohu</span>: The Scriptural Prima Materia</h3>
           <p>
             The Hebrew phrase <span class="alchemical-term">tohu wa-bohu</span> (Genesis 1:2) is conventionally
@@ -411,7 +326,7 @@
         <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Creatio ex nihilo vs ex materia -->
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>II. <span class="latin">Creatio ex Nihilo</span> and <span class="latin">Creatio ex Materia</span></h3>
           <p>
             Here the theologian must tread carefully. Christian orthodoxy insists on
@@ -435,7 +350,7 @@
         <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- The unregenerate soul -->
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>III. The Soul Before Grace</h3>
           <p>
             <strong>Origen of Alexandria</strong> (c. 184–253), in his daring cosmological speculations,
@@ -461,7 +376,7 @@
         <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Kenosis -->
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>IV. <span class="latin">Kenosis</span>: The Word Enters the Chaos</h3>
           <p>
             The most theologically audacious use of Prima Materia is Christological.
@@ -497,7 +412,7 @@
         <div class="divider animate-on-scroll"><span class="divider__glyph">✠</span></div>
 
         <!-- Mary as vas hermeticum -->
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>V. Mary as <span class="latin">Vas Hermeticum</span></h3>
           <p>
             If the Incarnation is the Opus beginning, the Virgin Mary is its first vessel.
@@ -532,11 +447,11 @@
       <div class="container container--narrow">
 
         <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
-        <h2 id="jung-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-6);">
+        <h2 id="jung-title" class=" section-headinganimate-on-scroll">
           The Dark Substrate of the Psyche
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Prima Materia as the Unconscious</h3>
           <p>
             C.G. Jung's central claim about alchemy — elaborated across
@@ -558,7 +473,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width: 100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Shadow: Prima Materia's Human Face</h3>
           <p>
             In the language of Jungian psychology, the first practical encounter with the Prima Materia
@@ -600,7 +515,7 @@
       <div class="container container--narrow">
 
         <p class="page-header__eyebrow animate-on-scroll">Alchemical Motto</p>
-        <h2 id="vitriol-title" class="animate-on-scroll" style="font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-4);">
+        <h2 id="vitriol-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Way Down Is the Way In
         </h2>
 

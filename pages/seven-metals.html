@@ -12,274 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Seven Metals colour overrides — deep space / astronomical ── */
-    :root {
-      --sev-bg:      #060810;
-      --sev-surface: #0c1018;
-      --sev-card:    #121820;
-      --sev-blue:    #3a5880;
-      --sev-blue-lt: #6080a8;
-      --sev-gold:    #c9a227;
-      --sev-gold-lt: #dbb84a;
-      --sev-silver:  #b8bfc8;
-      --sev-text:    #b8c4d0;
-      --sev-white:   #e8eef4;
-    }
-
-    body { background-color: var(--sev-bg); }
-
-    /* ── Hero ── */
-    .sev-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .sev-hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(58,88,128,0.18) 0%, transparent 65%),
-        radial-gradient(ellipse 30% 30% at 50% 42%, rgba(201,162,39,0.06) 0%, transparent 45%),
-        radial-gradient(ellipse 80% 60% at 50% 85%, rgba(6,8,16,0) 0%, var(--sev-bg) 80%),
-        var(--sev-bg);
-      z-index: 0;
-    }
-    .sev-hero__content { position: relative; z-index: 1; max-width: 760px; }
-
-    /* ── Planetary spheres SVG ── */
-    .spheres-emblem {
-      width: 180px; height: 180px;
-      margin: 0 auto var(--space-6);
-      display: block;
-    }
-
-    /* ── Section surfaces ── */
-    .section--sev {
-      background: var(--sev-surface);
-      border-top: 1px solid rgba(58,88,128,0.25);
-      border-bottom: 1px solid rgba(58,88,128,0.25);
-    }
-
-    /* ── Planetary ladder ── */
-    .planet-ladder {
-      position: relative;
-      margin: var(--space-8) 0;
-    }
-    /* Vertical spine line */
-    .planet-ladder::before {
-      content: '';
-      position: absolute;
-      left: 52px;
-      top: 20px;
-      bottom: 20px;
-      width: 2px;
-      background: linear-gradient(
-        to top,
-        rgba(100,80,20,0.50) 0%,
-        rgba(184,191,200,0.40) 30%,
-        rgba(60,112,96,0.40) 42%,
-        rgba(201,162,39,0.80) 50%,
-        rgba(139,48,32,0.45) 60%,
-        rgba(96,128,160,0.45) 72%,
-        rgba(74,74,90,0.45) 85%,
-        rgba(74,74,90,0.20) 100%
-      );
-    }
-    @media (max-width: 640px) { .planet-ladder::before { left: 36px; } }
-
-    .planet-rung {
-      display: grid;
-      grid-template-columns: 104px 1fr;
-      gap: var(--space-4);
-      margin-bottom: var(--space-4);
-      align-items: start;
-      position: relative;
-    }
-    @media (max-width: 640px) {
-      .planet-rung { grid-template-columns: 72px 1fr; gap: var(--space-3); }
-    }
-
-    .planet-rung__icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding-top: var(--space-3);
-    }
-    .planet-rung__symbol {
-      font-size: 2rem;
-      line-height: 1;
-    }
-    .planet-rung__glyph {
-      font-family: var(--font-label);
-      font-size: 10px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      text-align: center;
-      opacity: 0.65;
-    }
-
-    .planet-rung__card {
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-left-width: 4px;
-      background: var(--sev-card);
-      transition: border-color 0.2s;
-    }
-    .planet-rung__card:hover { border-color-opacity: 1; }
-
-    .planet-rung__header {
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-3);
-      margin-bottom: var(--space-2);
-      flex-wrap: wrap;
-    }
-    .planet-rung__metal {
-      font-family: var(--font-heading);
-      font-size: var(--text-lg);
-      font-style: italic;
-    }
-    .planet-rung__planet {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.65;
-    }
-    .planet-rung__quality {
-      font-family: var(--font-label);
-      font-size: 10px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--color-sulphur-gold);
-      margin-bottom: var(--space-2);
-    }
-    .planet-rung__alch {
-      font-size: var(--text-sm);
-      color: var(--sev-text);
-      line-height: 1.70;
-      margin-bottom: var(--space-2);
-    }
-    .planet-rung__christian {
-      font-size: var(--text-sm);
-      font-style: italic;
-      color: var(--color-text-muted);
-      line-height: 1.65;
-      border-left: 2px solid rgba(255,255,255,0.12);
-      padding-left: var(--space-2);
-      margin-bottom: var(--space-2);
-    }
-    .planet-rung__dante {
-      font-size: var(--text-xs);
-      color: var(--sev-blue-lt);
-      font-family: var(--font-label);
-      letter-spacing: 0.08em;
-    }
-
-    /* Per-planet colour accents */
-    .rung--saturn  { --rung-color: #706878; }
-    .rung--jupiter { --rung-color: #6080a8; }
-    .rung--mars    { --rung-color: #904030; }
-    .rung--sol     { --rung-color: #c9a227; }
-    .rung--venus   { --rung-color: #3a7060; }
-    .rung--mercury { --rung-color: #7098b0; }
-    .rung--luna    { --rung-color: #b0b8c4; }
-
-    .planet-rung__card { border-left-color: var(--rung-color, #444); }
-    .planet-rung__metal { color: var(--rung-color, var(--sev-white)); }
-    .planet-rung__symbol { color: var(--rung-color, var(--sev-white)); }
-
-    /* ── Macrocosm-microcosm panel ── */
-    .macro-panel {
-      background: var(--sev-card);
-      border: 1px solid rgba(201,162,39,0.22);
-      border-top: 4px solid var(--sev-gold);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      margin: var(--space-8) 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: var(--space-4);
-    }
-    @media (max-width: 700px) { .macro-panel { grid-template-columns: 1fr; } }
-    .macro-panel__col-title {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--sev-gold);
-      margin-bottom: var(--space-3);
-      padding-bottom: var(--space-2);
-      border-bottom: 1px solid rgba(201,162,39,0.20);
-    }
-    .macro-panel__list {
-      list-style: none;
-      padding: 0; margin: 0;
-      font-size: var(--text-sm);
-      color: var(--sev-text);
-      line-height: 2.0;
-    }
-    .macro-panel__list li::before {
-      content: '·  ';
-      color: var(--sev-gold);
-      opacity: 0.55;
-    }
-
-    /* ── Seven Gifts table ── */
-    .gifts-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-6) 0;
-      font-size: var(--text-sm);
-    }
-    .gifts-table th {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sev-gold);
-      border-bottom: 2px solid rgba(201,162,39,0.25);
-      padding: var(--space-2) var(--space-3);
-      text-align: left;
-    }
-    .gifts-table td {
-      padding: var(--space-2) var(--space-3);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      color: var(--sev-text);
-      vertical-align: top;
-      line-height: 1.6;
-    }
-    .gifts-table td:first-child {
-      font-style: italic;
-      color: var(--sev-white);
-      white-space: nowrap;
-    }
-    .gifts-table td:nth-child(2) {
-      color: var(--sev-gold-lt);
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── Overrides ── */
-    .content-prose { color: var(--sev-text); }
-    .content-prose strong { color: var(--sev-white); }
-    .scripture { background: rgba(58,88,128,0.08); }
-    .epigraph__text { color: var(--sev-text); }
-
-    .transition-panel {
-      border-left-color: var(--sev-gold);
-      background: var(--sev-card);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/seven-metals.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -405,7 +138,7 @@
         <path d="M 86 100 L 90 94 L 94 100" stroke="#c9a227" stroke-width="0.8" opacity="0.30" fill="none"/>
       </svg>
 
-      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--sev-blue-lt);">The Planetary Ladder</p>
+      <p class="hero__eyebrow animate-on-scroll delay-1">The Planetary Ladder</p>
       <h1 class="hero__title animate-on-scroll delay-2" id="sev-title">The Seven Metals</h1>
       <p class="hero__subtitle animate-on-scroll delay-3">
         Lead to Gold: the ascent through Saturn to Sol, and the theological meaning of each step
@@ -420,12 +153,12 @@
     <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--sev-blue-lt);">Alchemical Theory</p>
-        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class=" section-heading section-heading--smanimate-on-scroll">
           <span class="latin">As Above, So Below</span>: The Sevenfold Correspondence
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             The alchemical tradition was built on a conviction about the structure of reality:
             that the cosmos is not merely large but deeply ordered, and that the order operating
@@ -506,8 +239,8 @@
     <section class="section section--sev" id="planetary-ladder" aria-labelledby="ladder-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--sev-blue-lt);">The Seven Rungs</p>
-        <h2 id="ladder-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-2);">
+        <p class="page-header__eyebrow animate-on-scroll">The Seven Rungs</p>
+        <h2 id="ladder-title" class=" section-heading section-heading--xsanimate-on-scroll">
           The Planetary Ladder of Ascent
         </h2>
         <p class="animate-on-scroll" style="font-size:var(--text-sm); color:var(--color-text-muted); margin-bottom:var(--space-8);">
@@ -651,12 +384,12 @@
     <section class="section" id="seven-gifts" aria-labelledby="gifts-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--sev-blue-lt);">Medieval Correspondence</p>
-        <h2 id="gifts-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Medieval Correspondence</p>
+        <h2 id="gifts-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Seven Metals and the Seven Gifts of the Holy Spirit
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             Isaiah 11:2–3 lists seven gifts of the Holy Spirit that will rest on the messianic king:
             wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord.
@@ -725,7 +458,7 @@
         </div>
 
         <div class="epigraph animate-on-scroll" style="margin-top:var(--space-8);">
-          <p class="epigraph__text" style="color:var(--sev-text);">
+          <p class="epigraph__text">
             "There shall come forth a shoot from the stump of Jesse,
             and a branch from his roots shall bear fruit.
             And the Spirit of the Lord shall rest upon him,
@@ -804,7 +537,7 @@
 
   </main>
 
-  <footer class="site-footer" style="background:var(--sev-surface); border-top-color:rgba(58,88,128,0.22);">
+  <footer class="site-footer">
     <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="4" fill="currentColor"/>

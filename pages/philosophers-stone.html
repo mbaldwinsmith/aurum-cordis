@@ -12,181 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Philosopher's Stone colour overrides — radiant gold-white ── */
-    :root {
-      --lap-bg:      #080806;
-      --lap-surface: #100e08;
-      --lap-card:    #18160c;
-      --lap-gold:    #c9a227;
-      --lap-gold-lt: #dbb84a;
-      --lap-gold-dim: #8a6e18;
-      --lap-white:   #f0e8cc;
-      --lap-text:    #d0c490;
-      --lap-cream:   #e8dca8;
-    }
-
-    body { background-color: var(--lap-bg); }
-
-    /* ── Hero ── */
-    .lap-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .lap-hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(201,162,39,0.16) 0%, transparent 60%),
-        radial-gradient(ellipse 30% 30% at 50% 42%, rgba(219,184,74,0.08) 0%, transparent 45%),
-        radial-gradient(ellipse 80% 60% at 50% 85%, rgba(8,8,6,0) 0%, var(--lap-bg) 80%),
-        var(--lap-bg);
-      z-index: 0;
-    }
-    .lap-hero__content { position: relative; z-index: 1; max-width: 760px; }
-
-    /* ── Ouroboros SVG ── */
-    .ouroboros-emblem {
-      width: 180px; height: 180px;
-      margin: 0 auto var(--space-6);
-      display: block;
-      color: var(--lap-gold);
-    }
-
-    /* ── Lapis noster pull quote ── */
-    .lapis-quote {
-      background: var(--lap-card);
-      border: 1px solid rgba(201,162,39,0.30);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-6);
-      text-align: center;
-      margin: var(--space-8) auto;
-      max-width: 680px;
-      position: relative;
-    }
-    .lapis-quote__latin {
-      font-family: var(--font-heading);
-      font-style: italic;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--lap-gold-lt);
-      margin-bottom: var(--space-3);
-      letter-spacing: 0.04em;
-    }
-    .lapis-quote__translation {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--lap-text);
-      opacity: 0.75;
-      margin-bottom: var(--space-4);
-    }
-    .lapis-quote__commentary {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--lap-text);
-      line-height: 1.80;
-      border-top: 1px solid rgba(201,162,39,0.18);
-      padding-top: var(--space-4);
-      text-align: left;
-    }
-    .lapis-quote__source {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--lap-gold-dim);
-      margin-bottom: var(--space-3);
-    }
-
-    /* ── Section surfaces ── */
-    .section--lap {
-      background: var(--lap-surface);
-      border-top: 1px solid rgba(201,162,39,0.18);
-      border-bottom: 1px solid rgba(201,162,39,0.18);
-    }
-
-    /* ── Comparison table ── */
-    .stone-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-6) 0;
-      font-size: var(--text-sm);
-    }
-    .stone-table th {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--lap-gold);
-      border-bottom: 2px solid rgba(201,162,39,0.30);
-      padding: var(--space-2) var(--space-3);
-      text-align: left;
-    }
-    .stone-table td {
-      padding: var(--space-3);
-      border-bottom: 1px solid rgba(201,162,39,0.10);
-      color: var(--lap-text);
-      line-height: 1.65;
-      vertical-align: top;
-    }
-    .stone-table tr:hover td {
-      background: rgba(201,162,39,0.04);
-    }
-    .stone-table td:first-child {
-      font-family: var(--font-heading);
-      font-style: italic;
-      color: var(--lap-gold-lt);
-      white-space: nowrap;
-    }
-    @media (max-width: 640px) {
-      .stone-table, .stone-table thead, .stone-table tbody, .stone-table tr, .stone-table td, .stone-table th {
-        display: block;
-      }
-      .stone-table thead { display: none; }
-      .stone-table td { border-bottom: none; padding: var(--space-2) var(--space-3); }
-      .stone-table tr { border-bottom: 1px solid rgba(201,162,39,0.14); margin-bottom: var(--space-3); }
-    }
-
-    /* ── Grace as tincture closing panel ── */
-    .tincture-panel {
-      background: var(--lap-card);
-      border: 1px solid rgba(201,162,39,0.22);
-      border-left: 5px solid var(--lap-gold);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      margin: var(--space-8) 0;
-    }
-    .tincture-panel__title {
-      font-family: var(--font-heading);
-      font-size: var(--text-xl);
-      color: var(--lap-white);
-      margin-bottom: var(--space-4);
-    }
-    .tincture-panel__body {
-      font-size: var(--text-sm);
-      color: var(--lap-text);
-      line-height: 1.85;
-    }
-    .tincture-panel__body + .tincture-panel__body {
-      margin-top: var(--space-3);
-    }
-
-    /* ── Overrides ── */
-    .content-prose { color: var(--lap-text); }
-    .content-prose strong { color: var(--lap-white); }
-    .scripture { background: rgba(201,162,39,0.06); }
-    .epigraph__text { color: var(--lap-text); }
-
-    .transition-panel {
-      border-left-color: var(--lap-gold);
-      background: var(--lap-card);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/philosophers-stone.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -300,7 +126,7 @@
         </g>
       </svg>
 
-      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--lap-gold);">The End and the Beginning</p>
+      <p class="hero__eyebrow animate-on-scroll delay-1">The End and the Beginning</p>
       <h1 class="hero__title animate-on-scroll delay-2" id="lap-title">The Philosopher's Stone</h1>
       <p class="hero__subtitle animate-on-scroll delay-3">
         <span class="latin">Lapis Philosophorum</span> — the tincture that perfects all it touches
@@ -315,8 +141,8 @@
     <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--lap-gold);">Alchemical Theory</p>
-        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Stone That Is Not a Stone
         </h2>
 
@@ -339,7 +165,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             The <span class="alchemical-term">Lapis Philosophorum</span> — the Philosopher's Stone —
             is the goal toward which the entire Opus Magnum has been directed, and yet it is not
@@ -359,7 +185,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+        <div class="content-prose content-prose--full animate-on-scroll" style="margin-top:var(--space-4);">
           <h3>Three Grades and the Universal Medicine</h3>
           <p>
             The alchemical tradition distinguished three grades of the Stone, corresponding to
@@ -391,8 +217,8 @@
     <section class="section section--lap" id="christian-correlates" aria-labelledby="christian-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--lap-gold);">Christian Theological Correlates</p>
-        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="christian-title" class=" section-heading section-heading--smanimate-on-scroll">
           Christ as <span class="latin">Lapis</span>: The Stone the Builders Rejected
         </h2>
 
@@ -446,10 +272,10 @@
           </table>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--lap-gold);">💎</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">💎</span></div>
 
         <!-- Rejected cornerstone -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>I. The Stone the Builders Rejected</h3>
           <p>
             The scriptural resonance between the Philosopher's Stone and Christ is at its most
@@ -481,10 +307,10 @@
           <cite>1 Peter 2:4–5</cite>
         </blockquote>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--lap-gold);">💎</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">💎</span></div>
 
         <!-- Hidden treasure & pearl -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>II. The Hidden Treasure and the Pearl of Great Price</h3>
           <p>
             Two of Jesus's parables in Matthew 13 map directly onto the alchemical quest for the Stone.
@@ -516,10 +342,10 @@
           <cite>Matthew 13:44–46</cite>
         </blockquote>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--lap-gold);">💎</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">💎</span></div>
 
         <!-- Leaven -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>III. The Kingdom as Leaven: <span class="latin">Fermentatio</span> in the World</h3>
           <p>
             "The kingdom of heaven is like leaven that a woman took and hid in three measures
@@ -546,8 +372,8 @@
     <section class="section" id="grace-tincture" aria-labelledby="grace-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--lap-gold);">Theological Synthesis</p>
-        <h2 id="grace-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Theological Synthesis</p>
+        <h2 id="grace-title" class=" section-heading section-heading--smanimate-on-scroll">
           Grace as Universal Tincture
         </h2>
 
@@ -590,12 +416,12 @@
     <section class="section section--lap" id="jungian-dimension" aria-labelledby="jung-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--lap-gold);">Jungian Dimension</p>
-        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class=" section-headinganimate-on-scroll">
           The <span class="latin">Lapis</span> as the Self: The Centre That Was Always There
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Self as the Stone</h3>
           <p>
             For Jung, the Philosopher's Stone is the most adequate symbol available for
@@ -618,7 +444,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Paradox of the Stone: Found at the End, Present from the Beginning</h3>
           <p>
             In his late autobiographical reflections — recorded in <em>Memories, Dreams, Reflections</em>
@@ -641,7 +467,7 @@
         </div>
 
         <div class="epigraph animate-on-scroll">
-          <p class="epigraph__text" style="color:var(--lap-text);">
+          <p class="epigraph__text">
             "The self is not only the centre but also the whole circumference
             which embraces both conscious and unconscious;
             it is the centre of this totality, just as the ego is the centre of the conscious mind."
@@ -714,7 +540,7 @@
 
   </main>
 
-  <footer class="site-footer" style="background:var(--lap-surface); border-top-color:rgba(201,162,39,0.20);">
+  <footer class="site-footer">
     <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="4" fill="currentColor"/>

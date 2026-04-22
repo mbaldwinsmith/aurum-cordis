@@ -12,205 +12,7 @@
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <style>
-    /* ── Albedo colour overrides — moonlit silver ── */
-    :root {
-      --albedo-bg:        #0a0d14;
-      --albedo-surface:   #10141c;
-      --albedo-card:      #161b26;
-      --albedo-silver:    #b8bfc8;
-      --albedo-silver-lt: #dce0e8;
-      --albedo-moon:      #8ba0b8;
-      --albedo-text:      #c8cdd6;
-      --albedo-white:     #eef0f4;
-    }
-
-    body { background-color: var(--albedo-bg); }
-
-    /* ── Hero ── */
-    .ab-hero {
-      position: relative;
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
-      overflow: hidden;
-    }
-    .ab-hero__bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 55% 50% at 50% 45%, rgba(139,160,184,0.10) 0%, transparent 65%),
-        radial-gradient(ellipse 80% 60% at 50% 80%, rgba(10,13,20,0) 0%, var(--albedo-bg) 80%),
-        var(--albedo-bg);
-      z-index: 0;
-    }
-    .ab-hero__content { position: relative; z-index: 1; max-width: 760px; }
-
-    /* ── Luna SVG ── */
-    .luna-emblem {
-      width: 160px; height: 160px;
-      margin: 0 auto var(--space-6);
-      display: block;
-      color: var(--albedo-silver);
-    }
-
-    /* ── Stage indicator — Albedo active ── */
-    .stage-indicator__stage.active {
-      background: rgba(139,160,184,0.15);
-    }
-    .stage-indicator__stage.active .stage-indicator__name {
-      color: var(--albedo-silver-lt);
-    }
-
-    /* ── Section surfaces ── */
-    .section--albedo {
-      background: var(--albedo-surface);
-      border-top: 1px solid rgba(139,160,184,0.18);
-      border-bottom: 1px solid rgba(139,160,184,0.18);
-    }
-
-    /* ── Process cards (3-col) ── */
-    .process-cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      margin: var(--space-6) 0;
-    }
-    @media (max-width: 800px) { .process-cards-3 { grid-template-columns: 1fr; } }
-
-    .process-card {
-      background: var(--albedo-card);
-      border: 1px solid rgba(139,160,184,0.22);
-      border-left: 4px solid var(--albedo-moon);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-    }
-    .process-card__latin {
-      font-family: var(--font-heading);
-      font-style: italic;
-      font-size: var(--text-lg);
-      color: var(--albedo-silver-lt);
-      margin-bottom: 4px;
-    }
-    .process-card__english {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-3);
-    }
-    .process-card__alch {
-      font-size: var(--text-sm);
-      color: var(--albedo-text);
-      line-height: 1.75;
-      margin-bottom: var(--space-3);
-    }
-    .process-card__section-label {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--color-sulphur-gold);
-      margin-bottom: 4px;
-    }
-    .process-card__christian {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    /* ── Moon phase diagram ── */
-    .moon-diagram {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-      margin: var(--space-6) 0;
-    }
-    .moon-phase {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-2);
-    }
-    .moon-phase__label {
-      font-family: var(--font-label);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-      text-align: center;
-    }
-    .moon-phase--current .moon-phase__label {
-      color: var(--albedo-silver-lt);
-    }
-
-    /* ── Song of Songs / White Rose two-col ── */
-    .songs-panel {
-      display: grid;
-      grid-template-columns: 1fr 1px 1fr;
-      gap: var(--space-6);
-      margin: var(--space-8) 0;
-      background: var(--albedo-card);
-      border: 1px solid rgba(139,160,184,0.18);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-    }
-    @media (max-width: 700px) {
-      .songs-panel { grid-template-columns: 1fr; }
-      .songs-panel__divider { display: none; }
-    }
-    .songs-panel__divider {
-      background: rgba(139,160,184,0.20);
-      width: 1px;
-    }
-    .songs-panel__label {
-      font-family: var(--font-label);
-      font-size: var(--text-xs);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--albedo-moon);
-      margin-bottom: var(--space-3);
-    }
-    .songs-panel__title {
-      font-family: var(--font-heading);
-      font-size: var(--text-xl);
-      color: var(--albedo-white);
-      margin-bottom: var(--space-3);
-    }
-    .songs-panel__body {
-      font-size: var(--text-sm);
-      color: var(--albedo-text);
-      line-height: 1.8;
-    }
-    .songs-panel__verse {
-      font-style: italic;
-      font-size: var(--text-base);
-      color: var(--albedo-silver-lt);
-      line-height: 1.9;
-      border-left: 3px solid rgba(139,160,184,0.35);
-      padding-left: var(--space-3);
-      margin: var(--space-3) 0;
-    }
-
-    /* ── Overrides for dark bg ── */
-    .content-prose { color: var(--albedo-text); }
-    .content-prose strong { color: var(--albedo-white); }
-    .scripture { background: rgba(139,160,184,0.06); }
-    .epigraph__text { color: var(--albedo-text); }
-    .two-col__label { color: var(--albedo-silver-lt); border-color: rgba(139,160,184,0.25); }
-
-    .transition-panel {
-      border-left-color: var(--albedo-moon);
-      background: var(--albedo-card);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/pages/albedo.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -318,14 +120,14 @@
         </g>
       </svg>
 
-      <p class="hero__eyebrow animate-on-scroll delay-1" style="color: var(--albedo-silver);">Stage II of the Opus Magnum</p>
+      <p class="hero__eyebrow animate-on-scroll delay-1">Stage II of the Opus Magnum</p>
       <h1 class="hero__title animate-on-scroll delay-2" id="ab-title">Albedo</h1>
       <p class="hero__subtitle animate-on-scroll delay-3">
         The White Phase: purification, washing, the dawn of new light
       </p>
 
       <!-- Stage indicator -->
-      <div class="stage-indicator animate-on-scroll delay-4" style="max-width:500px; margin:var(--space-4) auto 0;" role="list" aria-label="Opus Magnum stages">
+      <div class="stage-indicator animate-on-scroll delay-4" role="list" aria-label="Opus Magnum stages">
         <div class="stage-indicator__stage" role="listitem">
           <span class="stage-indicator__glyph" aria-hidden="true">⬛</span>
           <span class="stage-indicator__name">Nigredo</span>
@@ -353,12 +155,12 @@
     <section class="section" id="alchemical-theory" aria-labelledby="theory-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color: var(--albedo-silver);">Alchemical Theory</p>
-        <h2 id="theory-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-4);">
+        <p class="page-header__eyebrow animate-on-scroll">Alchemical Theory</p>
+        <h2 id="theory-title" class=" section-heading section-heading--smanimate-on-scroll">
           The Whitening: After Darkness, Light
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <p>
             If Nigredo is the death, Albedo is the first light after it. The alchemists called it
             <span class="alchemical-term">Dealbatio</span> — the whitening — and described it as the
@@ -388,7 +190,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%; margin-top:var(--space-4);">
+        <div class="content-prose content-prose--full animate-on-scroll" style="margin-top:var(--space-4);">
           <h3>The Swan, the Rose, and the Moon</h3>
           <p>
             The iconography of Albedo is cool, luminous, and reflective. Three images recur in
@@ -432,7 +234,7 @@
             <span class="moon-phase__label">New Moon<br/>Post-Nigredo</span>
           </div>
 
-          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+          <div class="moon-phase__arrow" aria-hidden="true">→</div>
 
           <!-- Waxing crescent (Ablutio begins) -->
           <div class="moon-phase">
@@ -443,7 +245,7 @@
             <span class="moon-phase__label">Waxing Crescent<br/>Ablutio</span>
           </div>
 
-          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+          <div class="moon-phase__arrow" aria-hidden="true">→</div>
 
           <!-- Half moon (Sublimatio) -->
           <div class="moon-phase">
@@ -454,7 +256,7 @@
             <span class="moon-phase__label">Half Moon<br/>Sublimatio</span>
           </div>
 
-          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+          <div class="moon-phase__arrow" aria-hidden="true">→</div>
 
           <!-- Full moon (Albedo complete) — highlighted -->
           <div class="moon-phase moon-phase--current">
@@ -467,7 +269,7 @@
             <span class="moon-phase__label">Full Moon<br/>Albedo Complete</span>
           </div>
 
-          <div style="color:var(--albedo-moon); opacity:0.5; font-size:1.2rem;" aria-hidden="true">→</div>
+          <div class="moon-phase__arrow" aria-hidden="true">→</div>
 
           <!-- Dawn (movement toward Citrinitas) -->
           <div class="moon-phase">
@@ -520,13 +322,13 @@
     <section class="section section--albedo" id="christian-correlates" aria-labelledby="christian-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--albedo-silver);">Christian Theological Correlates</p>
-        <h2 id="christian-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Christian Theological Correlates</p>
+        <h2 id="christian-title" class=" section-headinganimate-on-scroll">
           Transfiguration, Baptismal White, and the Purified Soul
         </h2>
 
         <!-- Transfiguration -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>I. The Transfiguration: Albedo in Christ's Earthly Life</h3>
           <p>
             The Transfiguration (Matthew 17:1–9; Mark 9:2–8; Luke 9:28–36) is the supreme Albedo moment
@@ -560,10 +362,10 @@
           <cite>Matthew 17:1–2</cite>
         </blockquote>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☽</span></div>
 
         <!-- Baptismal white -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>II. Baptismal White: The Robe of the New Creation</h3>
           <p>
             The ancient and continuing practice of robing the newly baptised in white garments —
@@ -589,10 +391,10 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☽</span></div>
 
         <!-- Purgation / C.S. Lewis -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>III. Purgation and <em>The Great Divorce</em></h3>
           <p>
             In Catholic and Anglo-Catholic theology, <strong>Purgatory</strong> is the doctrine
@@ -614,7 +416,7 @@
           </p>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☽</span></div>
 
         <!-- Song of Songs / White Rose -->
         <h3 class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-lg); margin-bottom:var(--space-4); color:var(--albedo-white);">
@@ -694,10 +496,10 @@
           </div>
         </div>
 
-        <div class="divider animate-on-scroll"><span class="divider__glyph" style="color:var(--albedo-silver);">☽</span></div>
+        <div class="divider animate-on-scroll"><span class="divider__glyph">☽</span></div>
 
         <!-- Soul purified / Marian -->
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>V. The Anima Purified: Mary as <span class="latin">Luna Plena</span></h3>
           <p>
             The Christian theological tradition has always associated Mary with the moon —
@@ -726,12 +528,12 @@
     <section class="section" id="jungian-dimension" aria-labelledby="jung-title">
       <div class="container container--narrow">
 
-        <p class="page-header__eyebrow animate-on-scroll" style="color:var(--albedo-silver);">Jungian Dimension</p>
-        <h2 id="jung-title" class="animate-on-scroll" style="font-family:var(--font-heading); font-size:var(--text-xl); margin-bottom:var(--space-6);">
+        <p class="page-header__eyebrow animate-on-scroll">Jungian Dimension</p>
+        <h2 id="jung-title" class=" section-headinganimate-on-scroll">
           The Anima Purified and the Moon of the Deep Self
         </h2>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>The Anima in Her Albedo Form</h3>
           <p>
             In Jungian psychology, Albedo corresponds to a transformation in the character of
@@ -752,7 +554,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Lunar Consciousness: Reflective Depth</h3>
           <p>
             Jung associated the moon with a particular quality of consciousness — not the bright,
@@ -772,7 +574,7 @@
           </p>
         </div>
 
-        <div class="content-prose animate-on-scroll" style="max-width:100%;">
+        <div class="content-prose content-prose--full animate-on-scroll">
           <h3>Anima as Handmaid of Sophia</h3>
           <p>
             Jung's later work increasingly moved from the Anima as psychological function to the
@@ -794,7 +596,7 @@
         </div>
 
         <div class="epigraph animate-on-scroll">
-          <p class="epigraph__text" style="color:var(--albedo-text);">
+          <p class="epigraph__text">
             "The Anima acts like a soul guide to the regions of a purer light… she is ultimately
             connected with the figure of the Sophia, the divine wisdom who is 'more mobile than
             any motion' and who 'reaches mightily from one end to the other.'"
@@ -864,7 +666,7 @@
 
   </main>
 
-  <footer class="site-footer" style="background:var(--albedo-surface); border-top-color:rgba(139,160,184,0.20);">
+  <footer class="site-footer">
     <svg class="site-footer__sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="4" fill="currentColor"/>

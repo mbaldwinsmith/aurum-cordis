@@ -1,0 +1,219 @@
+/* ── Albedo colour overrides — moonlit silver ── */
+:root {
+  --albedo-bg:        #0a0d14;
+  --albedo-surface:   #10141c;
+  --albedo-card:      #161b26;
+  --albedo-silver:    #b8bfc8;
+  --albedo-silver-lt: #dce0e8;
+  --albedo-moon:      #8ba0b8;
+  --albedo-text:      #c8cdd6;
+  --albedo-white:     #eef0f4;
+}
+
+body { background-color: var(--albedo-bg); }
+
+/* ── Hero ── */
+.ab-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--space-4) var(--space-8);
+  overflow: hidden;
+}
+.ab-hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 45%, rgba(139,160,184,0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(10,13,20,0) 0%, var(--albedo-bg) 80%),
+    var(--albedo-bg);
+  z-index: 0;
+}
+.ab-hero__content { position: relative; z-index: 1; max-width: 760px; }
+
+/* ── Luna SVG ── */
+.luna-emblem {
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-6);
+  display: block;
+  color: var(--albedo-silver);
+}
+
+/* ── Stage indicator — Albedo active ── */
+.stage-indicator__stage.active {
+  background: rgba(139,160,184,0.15);
+}
+.stage-indicator__stage.active .stage-indicator__name {
+  color: var(--albedo-silver-lt);
+}
+
+/* ── Section surfaces ── */
+.section--albedo {
+  background: var(--albedo-surface);
+  border-top: 1px solid rgba(139,160,184,0.18);
+  border-bottom: 1px solid rgba(139,160,184,0.18);
+}
+
+/* ── Process cards (3-col) ── */
+.process-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+@media (max-width: 800px) { .process-cards-3 { grid-template-columns: 1fr; } }
+
+.process-card {
+  background: var(--albedo-card);
+  border: 1px solid rgba(139,160,184,0.22);
+  border-left: 4px solid var(--albedo-moon);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.process-card__latin {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--albedo-silver-lt);
+  margin-bottom: 4px;
+}
+.process-card__english {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+.process-card__alch {
+  font-size: var(--text-sm);
+  color: var(--albedo-text);
+  line-height: 1.75;
+  margin-bottom: var(--space-3);
+}
+.process-card__section-label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-sulphur-gold);
+  margin-bottom: 4px;
+}
+.process-card__christian {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Moon phase diagram ── */
+.moon-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin: var(--space-6) 0;
+}
+.moon-phase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.moon-phase__label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.moon-phase--current .moon-phase__label {
+  color: var(--albedo-silver-lt);
+}
+.moon-phase__arrow {
+  color: var(--albedo-moon);
+  opacity: 0.5;
+  font-size: 1.2rem;
+}
+
+/* ── Song of Songs / White Rose two-col ── */
+.songs-panel {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+  background: var(--albedo-card);
+  border: 1px solid rgba(139,160,184,0.18);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+@media (max-width: 700px) {
+  .songs-panel { grid-template-columns: 1fr; }
+  .songs-panel__divider { display: none; }
+}
+.songs-panel__divider {
+  background: rgba(139,160,184,0.20);
+  width: 1px;
+}
+.songs-panel__label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--albedo-moon);
+  margin-bottom: var(--space-3);
+}
+.songs-panel__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--albedo-white);
+  margin-bottom: var(--space-3);
+}
+.songs-panel__body {
+  font-size: var(--text-sm);
+  color: var(--albedo-text);
+  line-height: 1.8;
+}
+.songs-panel__verse {
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--albedo-silver-lt);
+  line-height: 1.9;
+  border-left: 3px solid rgba(139,160,184,0.35);
+  padding-left: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+/* ── Overrides for dark bg ── */
+.content-prose { color: var(--albedo-text); }
+.content-prose strong { color: var(--albedo-white); }
+.scripture { background: rgba(139,160,184,0.06); }
+.epigraph__text { color: var(--albedo-text); }
+.two-col__label { color: var(--albedo-silver-lt); border-color: rgba(139,160,184,0.25); }
+
+.transition-panel {
+  border-left-color: var(--albedo-moon);
+  background: var(--albedo-card);
+}
+
+/* ── Page header eyebrow colour ── */
+.page-header__eyebrow { color: var(--albedo-silver); }
+.hero__eyebrow { color: var(--albedo-silver); }
+.divider__glyph { color: var(--albedo-silver); }
+
+/* ── Stage indicator layout ── */
+.stage-indicator {
+  max-width: 500px;
+  margin: var(--space-4) auto 0;
+}
+
+/* ── Footer theming ── */
+.site-footer {
+  background: var(--albedo-surface);
+  border-top-color: rgba(139,160,184,0.20);
+}
