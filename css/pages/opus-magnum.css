@@ -48,12 +48,10 @@ body { background-color: var(--opus-bg); }
 
 /* ── Interactive Wheel SVG ── */
 .opus-wheel {
-  width: 300px; height: 300px;
+  width: 160px; height: 160px;
   margin: 0 auto var(--space-6);
   display: block;
-  overflow: visible;
 }
-@media (max-width: 480px) { .opus-wheel { width: 230px; height: 230px; } }
 
 .wheel-segment {
   transition: opacity 0.25s ease, filter 0.25s ease;

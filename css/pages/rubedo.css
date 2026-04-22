@@ -39,7 +39,7 @@ body { background-color: var(--rub-bg); }
 
 /* ── Phoenix SVG colour ── */
 .phoenix-emblem {
-  width: 180px; height: 180px;
+  width: 160px; height: 160px;
   margin: 0 auto var(--space-6);
   display: block;
   color: var(--rub-red-lt);

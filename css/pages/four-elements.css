@@ -30,6 +30,12 @@
 }
 .fe-hero__content { position: relative; z-index: 1; max-width: 760px; }
 
+.fe-hero__emblem {
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-6);
+  display: block;
+}
+
 /* ── Wheel layout ── */
 .wheel-wrapper {
   display: grid;

@@ -28,6 +28,12 @@
 }
 .tp-hero__content { position: relative; z-index: 1; max-width: 780px; }
 
+.tp-hero__emblem {
+  width: 160px; height: 160px;
+  margin: 0 auto var(--space-6);
+  display: block;
+}
+
 /* ── Three principle cards ── */
 .principle-cards {
   display: grid;
