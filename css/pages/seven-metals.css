@@ -39,7 +39,7 @@ body { background-color: var(--sev-bg); }
 
 /* ── Planetary spheres SVG ── */
 .spheres-emblem {
-  width: 180px; height: 180px;
+  width: 160px; height: 160px;
   margin: 0 auto var(--space-6);
   display: block;
 }
