@@ -44,4 +44,4 @@ Pure HTML, CSS, and vanilla JavaScript. No build tooling. Designed for GitHub Pa
 
 *"Ora et Labora et Lege"*
 
-&copy; 2025 Mark Baldwin-Smith. Built with Claude Code.
+&copy; 2026 Mark Baldwin-Smith. Built with Claude Code.
