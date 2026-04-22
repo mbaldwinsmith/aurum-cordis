@@ -203,6 +203,63 @@ function injectGrainFilter() {
 }
 
 /* ============================================================
+   LAZY BACKGROUND IMAGES — module cards with data-bg attribute
+   Fires 200 px before the card enters view so the image is
+   already fetching by the time the card fades in.
+   ============================================================ */
+
+function initLazyBackgrounds() {
+  const cards = document.querySelectorAll('[data-bg]');
+  if (!cards.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const bgValue = el.dataset.bg;
+        observer.unobserve(el);
+
+        // Extract the image URL so we can probe when it's fully loaded
+        const urlMatch = bgValue.match(/url\(['"]?([^'")\s]+)['"]?\)/);
+        if (urlMatch) {
+          const probe = new Image();
+          probe.onload = probe.onerror = () => {
+            el.style.background = bgValue;
+            el.classList.add('is-bg-loaded');
+          };
+          probe.src = urlMatch[1];
+        } else {
+          el.style.background = bgValue;
+          el.classList.add('is-bg-loaded');
+        }
+      });
+    },
+    { rootMargin: '200px 0px' }
+  );
+
+  cards.forEach((el) => observer.observe(el));
+}
+
+/* ============================================================
+   IMG LAZY FADE — adds .img-lazy to all non-nav images so the
+   CSS shimmer shows during loading, then .is-loaded on load.
+   ============================================================ */
+
+function initImageFade() {
+  document.querySelectorAll('img:not(.nav__sigil)').forEach((img) => {
+    img.classList.add('img-lazy');
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('is-loaded');
+    } else {
+      const done = () => img.classList.add('is-loaded');
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    }
+  });
+}
+
+/* ============================================================
    FOOTNOTE BACK-LINKS
    Adds return arrows to footnote entries that link to the ref
    ============================================================ */
@@ -231,6 +288,8 @@ function initFootnotes() {
 function init() {
   injectGrainFilter();
   initScrollAnimations();
+  initLazyBackgrounds();
+  initImageFade();
   initSmoothScroll();
   initActiveNav();
   initDropdowns();
