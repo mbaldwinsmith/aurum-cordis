@@ -21,19 +21,6 @@ body { background: var(--xref-bg); }
   padding: var(--space-16) var(--space-6) var(--space-10);
   position: relative;
 }
-.xref-hero__emblem {
-  width: 80px; height: 80px;
-  margin-bottom: var(--space-7);
-  opacity: 0.7;
-}
-.xref-hero__eyebrow {
-  font-family: var(--font-label);
-  font-size: var(--text-xs);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--xref-accent);
-  margin-bottom: var(--space-4);
-}
 .xref-hero__title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -209,7 +196,7 @@ body { background: var(--xref-bg); }
   align-items: start;
   transition: background 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
-  color: inherit;
+  color: var(--color-text-light);
 }
 .xref-entry:hover {
   background: rgba(130, 110, 200, 0.07);
@@ -234,7 +221,7 @@ body { background: var(--xref-bg); }
   font-family: var(--font-body);
   font-style: italic;
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: color-mix(in srgb, var(--color-text-light) 78%, #9aa2bf 22%);
 }
 .entry-term__category {
   display: inline-block;
@@ -255,9 +242,9 @@ body { background: var(--xref-bg); }
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: color-mix(in srgb, var(--color-text-light) 82%, #a1a8c4 18%);
   margin-bottom: var(--space-2);
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .tag-list {
@@ -271,7 +258,7 @@ body { background: var(--xref-bg); }
 .tag-list li {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  color: var(--color-text);
+  color: var(--color-text-light);
   line-height: 1.4;
 }
 .tag-list li::before {
@@ -291,8 +278,8 @@ body { background: var(--xref-bg); }
   font-family: var(--font-label);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
-  color: var(--xref-gold);
-  opacity: 0.85;
+  color: color-mix(in srgb, var(--xref-gold) 88%, #fff 12%);
+  opacity: 1;
 }
 
 .entry-link-col {
@@ -305,7 +292,7 @@ body { background: var(--xref-bg); }
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: color-mix(in srgb, var(--color-text-light) 86%, #9fa8c4 14%);
   border: 1px solid var(--xref-border);
   border-radius: var(--radius-sm);
   padding: var(--space-2) var(--space-3);
