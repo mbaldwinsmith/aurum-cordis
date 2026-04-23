@@ -26,7 +26,6 @@ The result is a long-form, chaptered reading experience designed for careful stu
 ### Reference appendices
 
 - **Cross-Reference Index** (`pages/cross-reference.html`): filterable theological/Jungian/scriptural index driven by JSON data.
-- **Symbol Gallery** (`pages/symbol-gallery.html`): SVG symbol catalog with usage-friendly previews.
 
 ![Opus Magnum diagram](assets/diagrams/opus-magnum.png)
 
