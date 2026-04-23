@@ -54,26 +54,52 @@ body { background: var(--xref-bg); }
   background: var(--xref-surface);
   border-top: 1px solid var(--xref-border);
   border-bottom: 1px solid var(--xref-border);
-  padding: var(--space-6) 0;
-  position: sticky;
-  top: 56px;
-  z-index: 80;
+  padding: var(--space-4) 0;
 }
 .filter-bar__inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 var(--space-6);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  align-items: center;
+  display: grid;
+  gap: var(--space-3);
+}
+.filter-group--search {
+  grid-column: 1 / -1;
+}
+.filter-advanced {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-items: end;
+}
+.filter-more {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--xref-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: var(--space-2) var(--space-3);
+  justify-self: start;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.filter-more:hover {
+  border-color: var(--xref-accent);
+  color: var(--color-text);
+}
+.filter-bar.is-expanded .filter-more {
+  border-color: var(--xref-accent);
+  color: var(--xref-accent);
 }
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  flex: 1;
-  min-width: 180px;
+  gap: 4px;
+  min-width: 0;
 }
 .filter-label {
   font-family: var(--font-label);
@@ -112,7 +138,7 @@ body { background: var(--xref-bg); }
   padding: var(--space-2) var(--space-4);
   cursor: pointer;
   white-space: nowrap;
-  align-self: flex-end;
+  align-self: end;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .filter-reset:hover { border-color: var(--xref-accent); color: var(--color-text); }
@@ -328,8 +354,33 @@ mark {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  .filter-bar__inner { flex-direction: column; }
-  .filter-group { min-width: 100%; }
+  .filter-bar {
+    padding: var(--space-3) 0;
+  }
+  .filter-bar__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .filter-group--search {
+    grid-column: 1 / -1;
+  }
+  .filter-more {
+    display: inline-flex;
+    grid-column: 1 / -1;
+    align-items: center;
+  }
+  .filter-advanced {
+    display: none;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .filter-bar.is-expanded .filter-advanced {
+    display: grid;
+  }
+  .filter-reset {
+    width: 100%;
+  }
 }
 
 /* ── Footer theming ── */
