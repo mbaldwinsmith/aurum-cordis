@@ -69,8 +69,7 @@ aurum-cordis/
 │   ├── opus-magnum.html
 │   ├── jung.html
 │   ├── bibliography.html
-│   ├── cross-reference.html
-│   └── symbol-gallery.html
+│   └── cross-reference.html
 ├── css/
 │   ├── base.css
 │   ├── components.css
