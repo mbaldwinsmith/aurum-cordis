@@ -266,45 +266,14 @@
       </header>
 
       <div class="circulatio-block animate-on-scroll">
-        <!-- Circulatio SVG diagram -->
-        <svg class="circulatio-diagram" viewBox="0 0 160 160" fill="none"
-             xmlns="http://www.w3.org/2000/svg"
-             aria-label="Circular diagram showing the four stage arcs in a ring with a clockwise arrow and an inner spiral, representing the recursive deepening of the Opus Magnum">
-          <defs>
-            <marker id="circ-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-              <path d="M 0 0.5 L 6 3.5 L 0 6.5 Z" fill="rgba(201,162,39,0.70)"/>
-            </marker>
-          </defs>
-
-          <!-- Outer ring -->
-          <circle cx="80" cy="80" r="70" stroke="rgba(201,162,39,0.10)" stroke-width="1" fill="none"/>
-
-          <!-- Four coloured arcs — Nigredo, Albedo, Citrinitas, Rubedo -->
-          <path d="M 80 10 A 70 70 0 0 1 150 80" stroke="rgba(90,84,112,0.65)"   stroke-width="9" fill="none" stroke-linecap="butt"/>
-          <path d="M 150 80 A 70 70 0 0 1 80 150" stroke="rgba(120,144,168,0.60)" stroke-width="9" fill="none" stroke-linecap="butt"/>
-          <path d="M 80 150 A 70 70 0 0 1 10 80"  stroke="rgba(201,162,39,0.62)"  stroke-width="9" fill="none" stroke-linecap="butt"/>
-          <path d="M 10 80 A 70 70 0 0 1 80 10"   stroke="rgba(139,32,32,0.65)"   stroke-width="9" fill="none" stroke-linecap="butt"/>
-
-          <!-- Clockwise direction arrow -->
-          <path d="M 76 10 A 68 68 0 0 1 148 76"
-                stroke="rgba(201,162,39,0.55)" stroke-width="1.2" fill="none"
-                marker-end="url(#circ-arrow)"/>
-
-          <!-- Inner spiral rings (deepening iterations) -->
-          <circle cx="80" cy="80" r="44" stroke="rgba(201,162,39,0.20)" stroke-width="1" fill="none" stroke-dasharray="3.5 3"/>
-          <circle cx="80" cy="80" r="28" stroke="rgba(201,162,39,0.28)" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
-          <circle cx="80" cy="80" r="14" stroke="rgba(201,162,39,0.40)" stroke-width="1" fill="none"/>
-
-          <!-- Centre point (the Stone) -->
-          <circle cx="80" cy="80" r="5"  fill="rgba(201,162,39,0.82)"/>
-          <circle cx="80" cy="80" r="2"  fill="rgba(7,7,14,0.70)"/>
-
-          <!-- Stage numerals in arcs -->
-          <text x="122" y="50"  font-family="'Cinzel', serif" font-size="8" fill="rgba(130,124,156,0.90)" text-anchor="middle">I</text>
-          <text x="122" y="115" font-family="'Cinzel', serif" font-size="8" fill="rgba(120,144,168,0.90)" text-anchor="middle">II</text>
-          <text x="38"  y="115" font-family="'Cinzel', serif" font-size="8" fill="rgba(201,162,39,0.90)" text-anchor="middle">III</text>
-          <text x="38"  y="50"  font-family="'Cinzel', serif" font-size="8" fill="rgba(159,52,52,0.90)"  text-anchor="middle">IV</text>
-        </svg>
+        <!-- Circulatio diagram -->
+        <img
+          class="circulatio-diagram"
+          src="../assets/diagrams/circulatio.png"
+          alt="Circulatio: cyclical transformation diagram showing the recursive movement of the Opus Magnum around the central Stone"
+          loading="lazy"
+          decoding="async"
+        />
 
         <div class="circulatio-text">
           <h3>Spiral, Not Line</h3>
