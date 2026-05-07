@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="3.0"
+         xmlns="http://www.idpf.org/2007/opf"
+         unique-identifier="BookId">
+
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>Aurum Cordis &#x2014; Christ-centred Alchemy</dc:title>
+    <dc:creator opf:role="aut" opf:file-as="Oriel, Mark">Mark Oriel</dc:creator>
+    <dc:language>en-GB</dc:language>
+    <dc:identifier id="BookId">urn:uuid:167d22d8-8ae5-4983-9b5c-2ad3666a92ae</dc:identifier>
+    <dc:subject>Alchemy</dc:subject>
+    <dc:subject>Christian Mysticism</dc:subject>
+    <dc:subject>Jungian Psychology</dc:subject>
+    <dc:subject>Spiritual Transformation</dc:subject>
+    <dc:description>A Christ-centred exploration of the Opus Magnum &#x2014; the alchemical Great Work &#x2014; read simultaneously through the lenses of classical alchemy, orthodox Christian theology, and Jungian depth psychology.</dc:description>
+    <dc:publisher>Mark Oriel</dc:publisher>
+    <dc:rights>Copyright &#x00A9; 2026 Mark Oriel. All rights reserved.</dc:rights>
+    <meta name="cover" content="cover-image"/>
+    <meta property="dcterms:modified">2026-05-07T00:00:00Z</meta>
+  </metadata>
+
+  <manifest>
+    <!-- Navigation -->
+    <item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="ncx" href="toc.ncx"   media-type="application/x-dtbncx+xml"/>
+
+    <!-- Stylesheet -->
+    <item id="css-ebook" href="css/ebook.css" media-type="text/css"/>
+
+    <!-- Fonts -->
+    <item id="font-imfellenglish-regular"  href="fonts/IMFellEnglish-Regular.ttf"      media-type="application/x-font-ttf"/>
+    <item id="font-imfellenglish-italic"   href="fonts/IMFellEnglish-Italic.ttf"       media-type="application/x-font-ttf"/>
+    <item id="font-cormorant-regular"      href="fonts/CormorantGaramond-Regular.ttf"  media-type="application/x-font-ttf"/>
+    <item id="font-cormorant-italic"       href="fonts/CormorantGaramond-Italic.ttf"   media-type="application/x-font-ttf"/>
+    <item id="font-cormorant-semibold"     href="fonts/CormorantGaramond-SemiBold.ttf" media-type="application/x-font-ttf"/>
+    <item id="font-cinzel-regular"         href="fonts/Cinzel-Regular.ttf"             media-type="application/x-font-ttf"/>
+
+    <!-- Cover image -->
+    <item id="cover-image" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image"/>
+
+    <!-- Diagram images -->
+    <item id="img-albedo"               href="images/diagrams/albedo.png"               media-type="image/png"/>
+    <item id="img-aurum-cordis"         href="images/diagrams/aurum-cordis.png"         media-type="image/png"/>
+    <item id="img-bibliography"         href="images/diagrams/bibliography.png"         media-type="image/png"/>
+    <item id="img-circulatio"           href="images/diagrams/circulatio.png"           media-type="image/png"/>
+    <item id="img-citrinitas"           href="images/diagrams/citrinitas.png"           media-type="image/png"/>
+    <item id="img-four-elements"        href="images/diagrams/four-elements.png"        media-type="image/png"/>
+    <item id="img-golden-heart"         href="images/diagrams/golden-heart.png"         media-type="image/png"/>
+    <item id="img-heart-sigil"          href="images/diagrams/heart-sigil.png"          media-type="image/png"/>
+    <item id="img-jung"                 href="images/diagrams/jung.png"                 media-type="image/png"/>
+    <item id="img-moon-queen"           href="images/diagrams/moon-queen.png"           media-type="image/png"/>
+    <item id="img-nigredo"              href="images/diagrams/nigredo.png"              media-type="image/png"/>
+    <item id="img-opus-magnum"          href="images/diagrams/opus-magnum.png"          media-type="image/png"/>
+    <item id="img-philosophers-stone"   href="images/diagrams/philosophers-stone.png"   media-type="image/png"/>
+    <item id="img-prima-materia"        href="images/diagrams/prima-materia.png"        media-type="image/png"/>
+    <item id="img-rebis"                href="images/diagrams/rebis.png"                media-type="image/png"/>
+    <item id="img-rubedo-pelican"       href="images/diagrams/rubedo-pelican.png"       media-type="image/png"/>
+    <item id="img-rubedo-phoenix"       href="images/diagrams/rubedo-phoenix.png"       media-type="image/png"/>
+    <item id="img-seven-metals"         href="images/diagrams/seven-metals.png"         media-type="image/png"/>
+    <item id="img-sulphur-mercury-salt" href="images/diagrams/sulphur-mercury-salt.png" media-type="image/png"/>
+    <item id="img-sun-king"             href="images/diagrams/sun-king.png"             media-type="image/png"/>
+
+    <!-- Icon images -->
+    <item id="icon-air"              href="images/icons/air.png"              media-type="image/png"/>
+    <item id="icon-alchemical-cross" href="images/icons/alchemical-cross.png" media-type="image/png"/>
+    <item id="icon-earth"            href="images/icons/earth.png"            media-type="image/png"/>
+    <item id="icon-fire"             href="images/icons/fire.png"             media-type="image/png"/>
+    <item id="icon-jupiter-tin"      href="images/icons/jupiter-tin.png"      media-type="image/png"/>
+    <item id="icon-mars-iron"        href="images/icons/mars-iron.png"        media-type="image/png"/>
+    <item id="icon-mercury-planet"   href="images/icons/mercury-planet.png"   media-type="image/png"/>
+    <item id="icon-mercury-tria"     href="images/icons/mercury-tria.png"     media-type="image/png"/>
+    <item id="icon-moon-silver"      href="images/icons/moon-silver.png"      media-type="image/png"/>
+    <item id="icon-ouroboros"        href="images/icons/ouroboros.png"        media-type="image/png"/>
+    <item id="icon-salt"             href="images/icons/salt.png"             media-type="image/png"/>
+    <item id="icon-saturn-lead"      href="images/icons/saturn-lead.png"      media-type="image/png"/>
+    <item id="icon-sulphur"          href="images/icons/sulphur.png"          media-type="image/png"/>
+    <item id="icon-sun-gold"         href="images/icons/sun-gold.png"         media-type="image/png"/>
+    <item id="icon-venus-copper"     href="images/icons/venus-copper.png"     media-type="image/png"/>
+    <item id="icon-water"            href="images/icons/water.png"            media-type="image/png"/>
+
+    <!-- Front matter -->
+    <item id="cover"      href="xhtml/cover.xhtml"      media-type="application/xhtml+xml"/>
+    <item id="titlepage"  href="xhtml/titlepage.xhtml"  media-type="application/xhtml+xml"/>
+    <item id="copyright"  href="xhtml/copyright.xhtml"  media-type="application/xhtml+xml"/>
+    <item id="dedication" href="xhtml/dedication.xhtml" media-type="application/xhtml+xml"/>
+    <item id="preface"    href="xhtml/preface.xhtml"    media-type="application/xhtml+xml"/>
+    <item id="toc-page"   href="xhtml/toc.xhtml"        media-type="application/xhtml+xml"/>
+
+    <!-- Part I — Foundations -->
+    <item id="part-1" href="xhtml/part-1-foundations.xhtml"        media-type="application/xhtml+xml"/>
+    <item id="ch01"   href="xhtml/ch01-prima-materia.xhtml"        media-type="application/xhtml+xml"/>
+    <item id="ch02"   href="xhtml/ch02-four-elements.xhtml"        media-type="application/xhtml+xml"/>
+    <item id="ch03"   href="xhtml/ch03-sulphur-mercury-salt.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch04"   href="xhtml/ch04-seven-metals.xhtml"         media-type="application/xhtml+xml"/>
+
+    <!-- Part II — The Great Work -->
+    <item id="part-2" href="xhtml/part-2-great-work.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch05"   href="xhtml/ch05-nigredo.xhtml"      media-type="application/xhtml+xml"/>
+    <item id="ch06"   href="xhtml/ch06-albedo.xhtml"       media-type="application/xhtml+xml"/>
+    <item id="ch07"   href="xhtml/ch07-citrinitas.xhtml"   media-type="application/xhtml+xml"/>
+    <item id="ch08"   href="xhtml/ch08-rubedo.xhtml"       media-type="application/xhtml+xml"/>
+
+    <!-- Part III — Synthesis -->
+    <item id="part-3" href="xhtml/part-3-synthesis.xhtml"        media-type="application/xhtml+xml"/>
+    <item id="ch09"   href="xhtml/ch09-philosophers-stone.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch10"   href="xhtml/ch10-opus-magnum.xhtml"        media-type="application/xhtml+xml"/>
+
+    <!-- Part IV — Depth &amp; Reference -->
+    <item id="part-4" href="xhtml/part-4-reference.xhtml"    media-type="application/xhtml+xml"/>
+    <item id="ch11"   href="xhtml/ch11-jung.xhtml"            media-type="application/xhtml+xml"/>
+    <item id="ch12"   href="xhtml/ch12-cross-reference.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch13"   href="xhtml/ch13-bibliography.xhtml"    media-type="application/xhtml+xml"/>
+  </manifest>
+
+  <spine toc="ncx">
+    <itemref idref="cover"/>
+    <itemref idref="titlepage"/>
+    <itemref idref="copyright"/>
+    <itemref idref="dedication"/>
+    <itemref idref="preface"/>
+    <itemref idref="toc-page"/>
+    <itemref idref="part-1"/>
+    <itemref idref="ch01"/>
+    <itemref idref="ch02"/>
+    <itemref idref="ch03"/>
+    <itemref idref="ch04"/>
+    <itemref idref="part-2"/>
+    <itemref idref="ch05"/>
+    <itemref idref="ch06"/>
+    <itemref idref="ch07"/>
+    <itemref idref="ch08"/>
+    <itemref idref="part-3"/>
+    <itemref idref="ch09"/>
+    <itemref idref="ch10"/>
+    <itemref idref="part-4"/>
+    <itemref idref="ch11"/>
+    <itemref idref="ch12"/>
+    <itemref idref="ch13"/>
+  </spine>
+
+</package>

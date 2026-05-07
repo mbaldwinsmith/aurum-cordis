@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
+  "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+
+  <head>
+    <meta name="dtb:uid"        content="urn:uuid:167d22d8-8ae5-4983-9b5c-2ad3666a92ae"/>
+    <meta name="dtb:depth"      content="2"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber"  content="0"/>
+  </head>
+
+  <docTitle><text>Aurum Cordis &#x2014; Christ-centred Alchemy</text></docTitle>
+  <docAuthor><text>Mark Oriel</text></docAuthor>
+
+  <navMap>
+
+    <navPoint id="np-cover" playOrder="1">
+      <navLabel><text>Cover</text></navLabel>
+      <content src="xhtml/cover.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-titlepage" playOrder="2">
+      <navLabel><text>Title Page</text></navLabel>
+      <content src="xhtml/titlepage.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-copyright" playOrder="3">
+      <navLabel><text>Copyright</text></navLabel>
+      <content src="xhtml/copyright.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-dedication" playOrder="4">
+      <navLabel><text>Dedication</text></navLabel>
+      <content src="xhtml/dedication.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-preface" playOrder="5">
+      <navLabel><text>Preface</text></navLabel>
+      <content src="xhtml/preface.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-toc" playOrder="6">
+      <navLabel><text>Contents</text></navLabel>
+      <content src="xhtml/toc.xhtml"/>
+    </navPoint>
+
+    <navPoint id="np-part-1" playOrder="7">
+      <navLabel><text>Part I &#x2014; Foundations</text></navLabel>
+      <content src="xhtml/part-1-foundations.xhtml"/>
+
+      <navPoint id="np-ch01" playOrder="8">
+        <navLabel><text>Chapter 1 &#x2014; Prima Materia</text></navLabel>
+        <content src="xhtml/ch01-prima-materia.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch02" playOrder="9">
+        <navLabel><text>Chapter 2 &#x2014; The Four Elements</text></navLabel>
+        <content src="xhtml/ch02-four-elements.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch03" playOrder="10">
+        <navLabel><text>Chapter 3 &#x2014; Sulphur, Mercury &amp; Salt</text></navLabel>
+        <content src="xhtml/ch03-sulphur-mercury-salt.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch04" playOrder="11">
+        <navLabel><text>Chapter 4 &#x2014; The Seven Metals</text></navLabel>
+        <content src="xhtml/ch04-seven-metals.xhtml"/>
+      </navPoint>
+    </navPoint>
+
+    <navPoint id="np-part-2" playOrder="12">
+      <navLabel><text>Part II &#x2014; The Great Work</text></navLabel>
+      <content src="xhtml/part-2-great-work.xhtml"/>
+
+      <navPoint id="np-ch05" playOrder="13">
+        <navLabel><text>Chapter 5 &#x2014; Nigredo: The Black Phase</text></navLabel>
+        <content src="xhtml/ch05-nigredo.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch06" playOrder="14">
+        <navLabel><text>Chapter 6 &#x2014; Albedo: The White Phase</text></navLabel>
+        <content src="xhtml/ch06-albedo.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch07" playOrder="15">
+        <navLabel><text>Chapter 7 &#x2014; Citrinitas: The Yellow Phase</text></navLabel>
+        <content src="xhtml/ch07-citrinitas.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch08" playOrder="16">
+        <navLabel><text>Chapter 8 &#x2014; Rubedo: The Red Phase</text></navLabel>
+        <content src="xhtml/ch08-rubedo.xhtml"/>
+      </navPoint>
+    </navPoint>
+
+    <navPoint id="np-part-3" playOrder="17">
+      <navLabel><text>Part III &#x2014; Synthesis</text></navLabel>
+      <content src="xhtml/part-3-synthesis.xhtml"/>
+
+      <navPoint id="np-ch09" playOrder="18">
+        <navLabel><text>Chapter 9 &#x2014; The Philosopher&#x2019;s Stone</text></navLabel>
+        <content src="xhtml/ch09-philosophers-stone.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch10" playOrder="19">
+        <navLabel><text>Chapter 10 &#x2014; The Opus Magnum</text></navLabel>
+        <content src="xhtml/ch10-opus-magnum.xhtml"/>
+      </navPoint>
+    </navPoint>
+
+    <navPoint id="np-part-4" playOrder="20">
+      <navLabel><text>Part IV &#x2014; Depth &amp; Reference</text></navLabel>
+      <content src="xhtml/part-4-reference.xhtml"/>
+
+      <navPoint id="np-ch11" playOrder="21">
+        <navLabel><text>Chapter 11 &#x2014; Jung &amp; Alchemy</text></navLabel>
+        <content src="xhtml/ch11-jung.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch12" playOrder="22">
+        <navLabel><text>Chapter 12 &#x2014; Cross-Reference Index</text></navLabel>
+        <content src="xhtml/ch12-cross-reference.xhtml"/>
+      </navPoint>
+
+      <navPoint id="np-ch13" playOrder="23">
+        <navLabel><text>Chapter 13 &#x2014; Bibliography</text></navLabel>
+        <content src="xhtml/ch13-bibliography.xhtml"/>
+      </navPoint>
+    </navPoint>
+
+  </navMap>
+
+</ncx>

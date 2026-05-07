@@ -1,0 +1,524 @@
+/* ============================================================
+   AURUM CORDIS — ebook.css
+   Kindle-compatible ePub 3 stylesheet.
+   No CSS custom properties, no flexbox/grid layout, no @import.
+   Fonts embedded via @font-face from ../fonts/.
+
+   Colour palette (light / vellum theme):
+     Body bg:      #f0e6c8  (vellum cream)
+     Body text:    #1a1209  (near-black)
+     Headings:     #8b1a1a  (cinnabar red)
+     Accent/gold:  #c9a227  (sulphur gold)
+     Azure:        #1a3a5c  (part titles, links)
+     Muted text:   #5a4a30
+     Card bg:      #faf5e8
+============================================================ */
+
+/* ── @font-face ── */
+
+@font-face {
+  font-family: 'IM Fell English';
+  src: url('../fonts/IMFellEnglish-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IM Fell English';
+  src: url('../fonts/IMFellEnglish-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fonts/Cinzel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ── Reset ── */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Body ── */
+
+body {
+  font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.6;
+  margin: 5% 8%;
+  background-color: #f0e6c8;
+  color: #1a1209;
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  hyphens: auto;
+}
+
+/* ── Headings ── */
+
+h1 {
+  font-family: 'IM Fell English', 'Palatino Linotype', Georgia, serif;
+  font-size: 2em;
+  font-weight: normal;
+  color: #8b1a1a;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'IM Fell English', 'Palatino Linotype', Georgia, serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #8b1a1a;
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+  line-height: 1.25;
+}
+
+h3 {
+  font-family: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  font-size: 1.1em;
+  font-weight: normal;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 1.5em;
+  margin-bottom: 0.35em;
+}
+
+h4 {
+  font-family: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  font-size: 0.95em;
+  font-weight: normal;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+/* ── Paragraphs ── */
+
+p {
+  margin: 0 0 1em 0;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  hyphens: auto;
+}
+
+p.first-para {
+  font-size: 1.05em;
+}
+
+/* ── Drop cap ── */
+
+.drop-cap::first-letter {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 3.5em;
+  font-weight: normal;
+  color: #c9a227;
+  float: left;
+  line-height: 0.8;
+  margin: 0.05em 0.1em 0 0;
+}
+
+/* ── Blockquotes ── */
+
+blockquote.pullquote {
+  border-left: 3px solid #c9a227;
+  padding-left: 1.2em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin: 1.5em 2em;
+  font-style: italic;
+  color: #3a3020;
+}
+
+blockquote.epigraph,
+blockquote[epub|type~="epigraph"] {
+  text-align: center;
+  font-style: italic;
+  margin: 2em auto;
+  max-width: 80%;
+  border: none;
+  padding: 0;
+}
+
+blockquote.scripture {
+  border-left: 3px solid #8b1a1a;
+  padding: 0.75em 1em;
+  margin: 1.25em 0;
+  font-style: italic;
+  color: #3a3020;
+  background: transparent;
+}
+
+blockquote.scripture cite {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  color: #8b1a1a;
+}
+
+/* ── Latin terms ── */
+
+.latin {
+  font-style: italic;
+  color: #3a5a40;
+}
+
+/* ── Figures ── */
+
+figure {
+  text-align: center;
+  margin: 1.5em auto;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  max-width: 100%;
+  display: block;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-family: 'Cinzel', 'Trajan Pro', serif;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5a4a30;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+/* ── Inline icons ── */
+
+.icon-inline {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  margin: 0 0.15em;
+  display: inline;
+}
+
+/* ── Symbol rows ── */
+
+.symbol-row {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.symbol-row img {
+  width: 2em;
+  height: 2em;
+  margin: 0 0.5em;
+  vertical-align: middle;
+  display: inline;
+}
+
+/* ── Three-lens interpretation box ── */
+
+.three-lens-box {
+  border: 1px solid #c9a227;
+  padding: 1em 1.5em;
+  margin: 2em 0;
+  background: #faf5e8;
+}
+
+.three-lens-box h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c9a227;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+
+/* ── Tables ── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 1.5em 0;
+}
+
+th {
+  background-color: #2a1f0e;
+  color: #f0e6c8;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+td {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.30);
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background-color: #f5edd8;
+}
+
+/* ── Part title pages ── */
+
+.part-title-page {
+  text-align: center;
+  padding: 3em 1em;
+}
+
+.part-number {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #c9a227;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+/* ── Chapter header ── */
+
+.chapter-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.chapter-subtitle {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #5a4a30;
+}
+
+/* ── Ornamental rule ── */
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(201, 162, 39, 0.40);
+  margin: 2em 0;
+}
+
+hr.ornamental {
+  border: none;
+  text-align: center;
+  margin: 2em auto;
+}
+
+hr.ornamental::after {
+  content: '\2726 \2726 \2726';
+  color: #c9a227;
+  font-size: 0.9em;
+}
+
+/* ── Stage labels ── */
+
+.stage-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 0.2em 0.8em;
+  border: 1px solid;
+  margin-bottom: 1em;
+}
+
+.stage-label.nigredo {
+  color: #1a1209;
+  border-color: #1a1209;
+}
+
+.stage-label.albedo {
+  color: #5a6a7a;
+  border-color: #5a6a7a;
+}
+
+.stage-label.citrinitas {
+  color: #9a7a20;
+  border-color: #9a7a20;
+}
+
+.stage-label.rubedo {
+  color: #8b1a1a;
+  border-color: #8b1a1a;
+}
+
+/* ── Glossary terms ── */
+
+.glossary-term {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Scripture references ── */
+
+.scripture-ref {
+  font-size: 0.85em;
+  color: #1a3a5c;
+  font-style: italic;
+}
+
+/* ── Links ── */
+
+a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #3a1a5c;
+}
+
+/* ── Cover page ── */
+
+body[epub|type~="cover"] {
+  margin: 0;
+  padding: 0;
+}
+
+.cover-page {
+  width: 100%;
+  text-align: center;
+}
+
+.cover-page img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Title page ── */
+
+.title-page {
+  text-align: center;
+  padding: 3em 1em;
+}
+
+.title-page .emblem {
+  display: block;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto 1.5em;
+}
+
+.title-page .author {
+  font-family: 'Cinzel', serif;
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5a4a30;
+  margin-top: 1.5em;
+  display: block;
+}
+
+/* ── Copyright / front matter ── */
+
+.copyright-page p,
+.front-matter p {
+  font-size: 0.9em;
+  text-align: left;
+  margin-bottom: 0.75em;
+}
+
+/* ── Dedication / epigraph page ── */
+
+.dedication-page {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+/* ── Alchemical term small-caps style ── */
+
+.alchemical-term {
+  font-variant: small-caps;
+  color: #c9a227;
+  letter-spacing: 0.08em;
+}
+
+/* ── Footnote references ── */
+
+sup.footnote-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65em;
+  vertical-align: super;
+  color: #c9a227;
+}
+
+/* ── Lists ── */
+
+ul, ol {
+  margin: 0 0 1em 1.5em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+/* ── Strong / emphasis ── */
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ── Page break hints ── */
+
+.part-title-page,
+h1 {
+  page-break-before: always;
+}
+
+h2, h3 {
+  page-break-after: avoid;
+}
