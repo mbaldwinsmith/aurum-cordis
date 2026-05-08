@@ -64,6 +64,7 @@
     <item id="img-soror-mystica"        href="images/diagrams/soror-mystica.png"        media-type="image/png"/>
     <item id="img-sulphur-mercury-salt" href="images/diagrams/sulphur-mercury-salt.png" media-type="image/png"/>
     <item id="img-sun-king"             href="images/diagrams/sun-king.png"             media-type="image/png"/>
+    <item id="img-victor-white"         href="images/diagrams/victor-white.png"         media-type="image/png"/>
 
     <!-- Icon images -->
     <item id="icon-air"              href="images/icons/air.png"              media-type="image/png"/>
