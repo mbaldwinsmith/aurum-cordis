@@ -78,6 +78,7 @@ body { background-color: var(--albedo-bg); }
 .process-card__latin {
   font-family: var(--font-heading);
   font-style: italic;
+  font-weight: bold;
   font-size: var(--text-lg);
   color: var(--albedo-silver-lt);
   margin-bottom: 4px;

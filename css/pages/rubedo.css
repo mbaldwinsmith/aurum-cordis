@@ -81,6 +81,7 @@ body { background-color: var(--rub-bg); }
 .process-card__latin {
   font-family: var(--font-heading);
   font-style: italic;
+  font-weight: bold;
   font-size: var(--text-lg);
   color: var(--rub-gold-lt);
   margin-bottom: 4px;
