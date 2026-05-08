@@ -1,0 +1,47 @@
+KDP METADATA — Aurum Cordis
+=============================
+For use when creating the Kindle Direct Publishing listing.
+
+Title:            Aurum Cordis: The Philosopher's Stone and the Word Made Flesh
+Subtitle:         The Opus Magnum through Theology, Alchemy, and Depth Psychology
+Author:           Mark Oriel
+Language:         English
+
+Description:
+  Aurum Cordis — "The Golden Heart" — is a scholarly exploration of medieval
+  alchemical thought read through the lens of orthodox Trinitarian Christianity
+  and Jungian depth psychology. It asks a deceptively simple question: what do
+  the alchemists actually mean?
+
+  Medieval and Renaissance alchemy was never simply about turning lead into gold.
+  Its practitioners knew this. Their cryptic language — Prima Materia, Nigredo,
+  the Philosopher's Stone — described processes in matter that they believed
+  mirrored processes in the soul. The laboratory was a theatre of spiritual
+  transformation. The Opus Magnum (the Great Work) was simultaneously
+  metallurgical, psychological, and theological.
+
+  This book approaches that tradition with two guiding convictions. First, that
+  Christian theology — especially its doctrines of creation, Incarnation, and
+  sanctification — provides the most illuminating interpretive key for what the
+  alchemists were reaching toward. Second, that C. G. Jung's recovery of
+  alchemical symbolism as a map of the unconscious, while not the last word, is
+  a genuinely valuable instrument of pastoral and spiritual understanding.
+  Neither conviction cancels the other. Alchemy is treated neither apologetically
+  nor reductively, but as a symbolic tradition with its own internal coherence —
+  read, stage by stage, alongside Scripture, the Fathers, and the mystics.
+
+Keywords:         alchemy, Christian mysticism, Jungian psychology, Opus Magnum,
+                  spiritual transformation, Philosopher's Stone, prima materia,
+                  Christ, depth psychology, medieval alchemy
+
+Categories:       Religion & Spirituality > Mysticism
+                  Psychology > Jungian
+                  History > Alchemy & Hermeticism
+
+Adult content:    No
+DRM:              Enabled (recommended)
+Price:            Author to decide
+ISBN:             Not required for Kindle (KDP assigns ASIN)
+
+ePub file:        aurum-cordis.epub
+Cover image:      epub-build/OEBPS/images/cover.jpg (JPEG, 2560×3840 px, 1.7 MB)

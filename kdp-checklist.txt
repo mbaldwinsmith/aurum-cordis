@@ -1,0 +1,59 @@
+KDP SUBMISSION CHECKLIST — Aurum Cordis
+========================================
+Verified: 2026-05-08
+
+[x] aurum-cordis.epub passes epubcheck with 0 errors
+      Result: 0 fatals / 0 errors / 0 warnings / 6 infos (font-type INFO only)
+      Validated against EPUB version 3.2 rules.
+
+[x] Cover image is JPEG, correct ratio, under 5 MB
+      File:  epub-build/OEBPS/images/cover.jpg
+      Size:  1.7 MB
+      Dims:  2560 × 3840 px (2:3 ratio)
+
+[x] All PNG diagram images are present in the ePub
+      Path:  epub-build/OEBPS/images/diagrams/
+      Count: 20 files
+      Files: albedo.png, aurum-cordis.png, bibliography.png, circulatio.png,
+             citrinitas.png, four-elements.png, golden-heart.png, heart-sigil.png,
+             jung.png, moon-queen.png, nigredo.png, opus-magnum.png,
+             philosophers-stone.png, prima-materia.png, rebis.png,
+             rubedo-pelican.png, rubedo-phoenix.png, seven-metals.png,
+             sulphur-mercury-salt.png, sun-king.png
+
+[x] All icon PNGs are present in the ePub
+      Path:  epub-build/OEBPS/images/icons/
+      Count: 16 files
+      Files: air.png, alchemical-cross.png, earth.png, fire.png,
+             jupiter-tin.png, mars-iron.png, mercury-planet.png, mercury-tria.png,
+             moon-silver.png, ouroboros.png, salt.png, saturn-lead.png,
+             sulphur.png, sun-gold.png, venus-copper.png, water.png
+
+[x] TOC has correct chapter count
+      23 XHTML files: 6 front matter + 4 part title pages + 13 chapters
+      Front matter:   cover, titlepage, copyright, dedication, preface, toc
+      Part pages:     part-1-foundations, part-2-great-work,
+                      part-3-synthesis, part-4-reference
+      Chapters:       ch01–ch13
+
+[x] Author name reads "Mark Oriel" on title page and in OPF metadata
+      dc:creator in content.opf: Mark Oriel
+      titlepage.xhtml: Mark Oriel
+
+[x] Book title reads "Aurum Cordis: The Philosopher's Stone and the Word Made Flesh"
+      dc:title in content.opf confirmed.
+
+[x] Copyright year is 2026
+      dc:rights in content.opf: Copyright © 2026 Mark Oriel. All rights reserved.
+      copyright.xhtml confirmed.
+
+[x] All cross-reference JSON data is rendered in Chapter 12
+      data/cross-reference.json: 29 entries rendered as static table
+      in ch12-cross-reference.xhtml
+
+[x] Bibliography entries are all present in Chapter 13
+      ch13-bibliography.xhtml sourced from pages/bibliography.html
+
+[x] No web-only content present
+      Nav bars, JavaScript, search widgets, and scroll-to-top buttons
+      omitted from all XHTML files.
