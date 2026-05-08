@@ -57,11 +57,14 @@
     <item id="img-philosophers-stone"   href="images/diagrams/philosophers-stone.png"   media-type="image/png"/>
     <item id="img-prima-materia"        href="images/diagrams/prima-materia.png"        media-type="image/png"/>
     <item id="img-rebis"                href="images/diagrams/rebis.png"                media-type="image/png"/>
+    <item id="img-rosa-alba"            href="images/diagrams/rosa-alba.png"            media-type="image/png"/>
     <item id="img-rubedo-pelican"       href="images/diagrams/rubedo-pelican.png"       media-type="image/png"/>
     <item id="img-rubedo-phoenix"       href="images/diagrams/rubedo-phoenix.png"       media-type="image/png"/>
     <item id="img-seven-metals"         href="images/diagrams/seven-metals.png"         media-type="image/png"/>
+    <item id="img-soror-mystica"        href="images/diagrams/soror-mystica.png"        media-type="image/png"/>
     <item id="img-sulphur-mercury-salt" href="images/diagrams/sulphur-mercury-salt.png" media-type="image/png"/>
     <item id="img-sun-king"             href="images/diagrams/sun-king.png"             media-type="image/png"/>
+    <item id="img-victor-white"         href="images/diagrams/victor-white.png"         media-type="image/png"/>
 
     <!-- Icon images -->
     <item id="icon-air"              href="images/icons/air.png"              media-type="image/png"/>
