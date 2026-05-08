@@ -73,7 +73,6 @@ body {
   font-weight: normal;
   line-height: 1.6;
   margin: 5% 8%;
-  background-color: #f0e6c8;
   color: #1a1209;
   -webkit-hyphens: auto;
   -epub-hyphens: auto;
@@ -259,7 +258,7 @@ figcaption {
   border: 1px solid #c9a227;
   padding: 1em 1.5em;
   margin: 2em 0;
-  background: #faf5e8;
+  background: transparent;
 }
 
 .three-lens-box h4 {
