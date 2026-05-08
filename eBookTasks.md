@@ -1,6 +1,6 @@
 # eBook Production Tasks — Aurum Cordis
 
-**Book title:** Aurum Cordis — Christ-centred Alchemy  
+**Book title:** Aurum Cordis: The Philosopher's Stone and the Word Made Flesh  
 **Author:** Mark Oriel  
 **Format:** ePub 3 (for Amazon Kindle via KDP)  
 **Source:** The static website in this repository (`/home/user/aurum-cordis/`)
@@ -161,7 +161,7 @@ The cover image must be a JPEG, minimum 1600×2400 pixels (2:3 ratio), maximum 5
 Use `aurum-cordis.png` as the base. Composite it onto a dark background matching the site's furnace-black colour (`#0e0b08`) at 2560×3840 pixels, with the emblem centred and the title and author name as text overlays rendered below the emblem.
 
 Title text: **Aurum Cordis**  
-Subtitle text: **Christ-centred Alchemy**  
+Subtitle text: **The Philosopher's Stone and the Word Made Flesh**  
 Author text: **Mark Oriel**  
 Typeface for cover text: use a system serif or Cinzel if available; if not, use any available serif
 
@@ -172,7 +172,7 @@ magick -size 2560x3840 xc:'#0e0b08' \
   -fill '#c9a227' -font Cinzel-Regular -pointsize 120 \
   -gravity Center -annotate +0+600 'Aurum Cordis' \
   -fill '#f0e6c8' -pointsize 72 \
-  -annotate +0+750 'Christ-centred Alchemy' \
+  -annotate +0+750 "The Philosopher's Stone and the Word Made Flesh" \
   -fill '#b8bcc2' -pointsize 60 \
   -annotate +0+900 'Mark Oriel' \
   epub-build/OEBPS/images/cover.jpg
@@ -253,7 +253,7 @@ The OPF package document declares the book's metadata, manifest (every file in t
 ```xml
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
           xmlns:opf="http://www.idpf.org/2007/opf">
-  <dc:title>Aurum Cordis — Christ-centred Alchemy</dc:title>
+  <dc:title>Aurum Cordis: The Philosopher's Stone and the Word Made Flesh</dc:title>
   <dc:creator opf:role="aut" opf:file-as="Oriel, Mark">Mark Oriel</dc:creator>
   <dc:language>en-GB</dc:language>
   <dc:identifier id="BookId">urn:uuid:GENERATE-A-UUID-HERE</dc:identifier>
@@ -430,7 +430,7 @@ A minimal XHTML page containing only the cover image. Kindle uses this as the bo
 </head>
 <body epub:type="cover">
   <div class="cover-page">
-    <img src="../images/cover.jpg" alt="Aurum Cordis — Christ-centred Alchemy, by Mark Oriel"/>
+    <img src="../images/cover.jpg" alt="Aurum Cordis: The Philosopher's Stone and the Word Made Flesh, by Mark Oriel"/>
   </div>
 </body>
 </html>
@@ -442,7 +442,7 @@ A styled title page. Extract the site name and tagline from `index.html` (the `<
 
 - Top third: the `aurum-cordis.png` emblem (centred, max-width 50%)
 - Middle: Title "Aurum Cordis" in h1 (IM Fell English, cinnabar red)
-- Below title: "Christ-centred Alchemy" as a subtitle (italic, Cormorant Garamond)
+- Below title: "The Philosopher's Stone and the Word Made Flesh" as a subtitle (italic, Cormorant Garamond)
 - Below subtitle: horizontal ornamental rule
 - Bottom: "Mark Oriel" as author line (Cinzel, letter-spaced)
 
@@ -864,7 +864,7 @@ If Kindle Previewer is not available, proceed with the validated ePub and note t
 Create a file `kdp-metadata.txt` in the repo root with the following information filled in for use when creating the KDP listing:
 
 ```
-Title:            Aurum Cordis — Christ-centred Alchemy
+Title:            Aurum Cordis: The Philosopher's Stone and the Word Made Flesh
 Subtitle:         (leave blank or use: The Opus Magnum through Theology, Alchemy, and Depth Psychology)
 Author:           Mark Oriel
 Language:         English
@@ -890,7 +890,7 @@ Before submitting to KDP, confirm all of the following:
 - [ ] All 17 icon PNGs are present (check `epub-build/OEBPS/images/icons/`)
 - [ ] TOC has correct chapter count (13 chapters + 4 part pages + 6 front matter pages)
 - [ ] Author name reads "Mark Oriel" on title page and in OPF metadata
-- [ ] Book title reads "Aurum Cordis — Christ-centred Alchemy" (em dash, not hyphen)
+- [ ] Book title reads "Aurum Cordis: The Philosopher's Stone and the Word Made Flesh"
 - [ ] Copyright year is 2026
 - [ ] All cross-reference JSON data is rendered in Chapter 12
 - [ ] Bibliography entries are all present in Chapter 13
