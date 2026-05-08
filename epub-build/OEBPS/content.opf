@@ -6,7 +6,9 @@
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
             xmlns:opf="http://www.idpf.org/2007/opf">
     <dc:title>Aurum Cordis: The Philosopher&#x2019;s Stone and the Word Made Flesh</dc:title>
-    <dc:creator opf:role="aut" opf:file-as="Oriel, Mark">Mark Oriel</dc:creator>
+    <dc:creator id="creator">Mark Oriel</dc:creator>
+    <meta refines="#creator" property="role" scheme="marc:relators">aut</meta>
+    <meta refines="#creator" property="file-as">Oriel, Mark</meta>
     <dc:language>en-GB</dc:language>
     <dc:identifier id="BookId">urn:uuid:167d22d8-8ae5-4983-9b5c-2ad3666a92ae</dc:identifier>
     <dc:subject>Alchemy</dc:subject>
@@ -90,25 +92,25 @@
     <!-- Part I — Foundations -->
     <item id="part-1" href="xhtml/part-1-foundations.xhtml"        media-type="application/xhtml+xml"/>
     <item id="ch01"   href="xhtml/ch01-prima-materia.xhtml"        media-type="application/xhtml+xml"/>
-    <item id="ch02"   href="xhtml/ch02-four-elements.xhtml"        media-type="application/xhtml+xml"/>
-    <item id="ch03"   href="xhtml/ch03-sulphur-mercury-salt.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch02"   href="xhtml/ch02-four-elements.xhtml"        media-type="application/xhtml+xml" properties="svg"/>
+    <item id="ch03"   href="xhtml/ch03-sulphur-mercury-salt.xhtml" media-type="application/xhtml+xml" properties="svg"/>
     <item id="ch04"   href="xhtml/ch04-seven-metals.xhtml"         media-type="application/xhtml+xml"/>
 
     <!-- Part II — The Great Work -->
     <item id="part-2" href="xhtml/part-2-great-work.xhtml" media-type="application/xhtml+xml"/>
     <item id="ch05"   href="xhtml/ch05-nigredo.xhtml"      media-type="application/xhtml+xml"/>
-    <item id="ch06"   href="xhtml/ch06-albedo.xhtml"       media-type="application/xhtml+xml"/>
+    <item id="ch06"   href="xhtml/ch06-albedo.xhtml"       media-type="application/xhtml+xml" properties="svg"/>
     <item id="ch07"   href="xhtml/ch07-citrinitas.xhtml"   media-type="application/xhtml+xml"/>
     <item id="ch08"   href="xhtml/ch08-rubedo.xhtml"       media-type="application/xhtml+xml"/>
 
     <!-- Part III — Synthesis -->
     <item id="part-3" href="xhtml/part-3-synthesis.xhtml"        media-type="application/xhtml+xml"/>
     <item id="ch09"   href="xhtml/ch09-philosophers-stone.xhtml" media-type="application/xhtml+xml"/>
-    <item id="ch10"   href="xhtml/ch10-opus-magnum.xhtml"        media-type="application/xhtml+xml"/>
+    <item id="ch10"   href="xhtml/ch10-opus-magnum.xhtml"        media-type="application/xhtml+xml" properties="svg"/>
 
     <!-- Part IV — Depth &amp; Reference -->
     <item id="part-4" href="xhtml/part-4-reference.xhtml"    media-type="application/xhtml+xml"/>
-    <item id="ch11"   href="xhtml/ch11-jung.xhtml"            media-type="application/xhtml+xml"/>
+    <item id="ch11"   href="xhtml/ch11-jung.xhtml"            media-type="application/xhtml+xml" properties="svg"/>
     <item id="ch12"   href="xhtml/ch12-cross-reference.xhtml" media-type="application/xhtml+xml"/>
     <item id="ch13"   href="xhtml/ch13-bibliography.xhtml"    media-type="application/xhtml+xml"/>
   </manifest>

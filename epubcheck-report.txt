@@ -1,0 +1,11 @@
+Validating using EPUB version 3.2 rules.
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(21,3): Font-face reference "OEBPS/fonts/IMFellEnglish-Regular.ttf" refers to non-standard font type "application/x-font-ttf".
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(28,3): Font-face reference "OEBPS/fonts/IMFellEnglish-Italic.ttf" refers to non-standard font type "application/x-font-ttf".
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(35,3): Font-face reference "OEBPS/fonts/CormorantGaramond-Regular.ttf" refers to non-standard font type "application/x-font-ttf".
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(42,3): Font-face reference "OEBPS/fonts/CormorantGaramond-Italic.ttf" refers to non-standard font type "application/x-font-ttf".
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(49,3): Font-face reference "OEBPS/fonts/CormorantGaramond-SemiBold.ttf" refers to non-standard font type "application/x-font-ttf".
+INFO(CSS-007): aurum-cordis.epub/OEBPS/css/ebook.css(56,3): Font-face reference "OEBPS/fonts/Cinzel-Regular.ttf" refers to non-standard font type "application/x-font-ttf".
+No errors or warnings detected.
+Messages: 0 fatals / 0 errors / 0 warnings / 6 infos
+
+EPUBCheck completed
